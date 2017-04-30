@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<style>
+    #rhyme-bank{
+        border: 1px solid;
+        width: 400px;
+        height: 400px;
+        overflow: hidden;
+    }
+    #rhyme-bank h5{
+        display: inline-flex;
+        padding: 5px;
+        margin: 5px;
+        border: solid;
+
+    }
+    #user-input{
+        width: 400px;
+        height: 400px;
+    }
+    #logon{
+        border: solid;
+        margin: 5px;
+        padding: 5px;
+    }
+    #signup{
+        border: solid;
+        margin: 5px;
+        padding: 5px;
+    }
+    #newBallad{
+        border: solid;
+        margin: 5px;
+        padding: 5px;
+    }
+    #newBallad input{
+        margin: 5px;
+    }
+    #side-section{
+        border: solid;
+        margin: 5px;
+        padding: 5px;
+    }
+    #list-ballads{
+        border: solid;
+        width: 400px;
+        height: 500px;
+        margin: 5px;
+        padding: 5px;
+    }
+
+</style>
+<body>
+
+<div id="logon">
+    <h3>Logon Form</h3>
+    <form>
+        <input id="username" type="text" placeholder="username"/>
+        <br/>
+        <input id="password" type="password" placeholder="password"/>
+        <br/>
+        <button id="login">Login</button> <label>This Section Works</label>
+    </form>
+</div>
+
+<div id="signup">
+    <h3>Sign Up Form</h3>
+    <form>
+        <input id="firstName" type="text" placeholder="firstname"/>
+        <br/>
+        <input id="lastName" type="text" placeholder="lastname"/>
+        <br/>
+        <input id="email" type="text" placeholder="email"/>
+        <br/>
+        <input id="user" type="text" placeholder="username"/>
+        <br/>
+        <input id="pswd" type="password" placeholder="password"/>
+        <br/>
+
+        <button id="signup-btn">Create Account</button> <label>This Section Works</label>
+    </form>
+</div>
+
+<div id="newBallad">
+    <input id="title" type="text" placeholder="Title"/>
+    <textarea id="user-input"></textarea>
+    <br/>
+    <button id="save">Save</button><label>This Section Works</label>
+    <button id="edit">Edit</button>
+    <button id="delete">Delete</button>
+</div>
+
+<div id="side-section">
+    <h1>Word Bank:</h1>
+    <div id="rhyme-bank">
+
+    </div>
+</div>
+
+<div id="list-ballads">
+    <h5>My Ballads</h5>
+    <div id="ballads"></div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="../static/app.js" th:src="@{/app.js}"></script>
+</body>
+</html>

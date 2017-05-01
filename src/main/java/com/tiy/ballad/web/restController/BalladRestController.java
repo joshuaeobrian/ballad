@@ -23,24 +23,46 @@ public class BalladRestController {
     private UserService userService;
 
     @PostMapping("/saveNewBallad")
-    public String saveNewBallad(HttpSession session,Ballad ballad){
+    public String saveNewBallad(HttpSession session,String title,  String content){
 
-        Integer id = Integer.parseInt(session.getAttribute("userId").toString());
-        if(ballad.getUserId() == -1){
-            ballad.setUserId(id);
-//            System.out.println(ballad.getUserId());
-            balladService.saveNewBallad(ballad);
-            return "Successful";
-        }else{
-            return "Failed to Create";
-        }
+        Integer userId = Integer.parseInt(session.getAttribute("id").toString());
+        User owner = userService.findUserById(userId);
+        Ballad ballad = new Ballad(title,content, owner);
+        Integer balladId = balladService.saveNewBallad(ballad);
+        System.out.println("This is ballad ID: "+balladId);
+        session.setAttribute("balladId",balladId);
 
+
+
+      return null;
+    }
+
+    @PostMapping("/updateBallad")
+    public void updateBallad(HttpSession session, String title, String content){
+        Integer userId = Integer.parseInt(session.getAttribute("id").toString());
+        Integer balladId = Integer.parseInt(session.getAttribute("balladId").toString());
+        System.out.println("This is user ID: "+userId);
+        System.out.println("This is ballad ID: "+balladId);
+        User user = userService.findUserById(userId);
+        Ballad ballad = balladService.findBalladById(balladId);
+        ballad.setTitle(title);
+        ballad.setBallad(content);
+        balladService.updateBallad(ballad, user);
+
+
+
+    }
+
+    @PostMapping("/deleteBallad")
+    public String deleteBalladWithId(Integer balladId){
+        balladService.deleteBallad(balladId);
+        return null;
     }
 
     @PostMapping("/myBallads")
     public List<Ballad> showMyBallads(HttpSession session){
         if(!session.isNew()){
-            Integer id = Integer.parseInt(session.getAttribute("userId").toString());
+            Integer id = Integer.parseInt(session.getAttribute("id").toString());
             User user = userService.findUserById(id);
             return balladService.showMyBallads(user);
         }else{

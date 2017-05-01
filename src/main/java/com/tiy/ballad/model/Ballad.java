@@ -2,6 +2,7 @@ package com.tiy.ballad.model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Created by josh on 4/27/17.
@@ -14,11 +15,13 @@ public class Ballad {
 
     private String ballad;
 
-    private Integer userId;
+    private User owner;
 
-    private LocalDateTime creationDate;
+    private List<User> collaborators;
 
-    private LocalDateTime lastEdit;
+    private LocalDate creationDate;
+
+    private LocalDate lastEdit;
 
     private boolean favorite;
 
@@ -27,11 +30,18 @@ public class Ballad {
     public Ballad() {
     }
 
-    public Ballad(Integer id, String title, String ballad, Integer userId, LocalDateTime creationDate, LocalDateTime lastEdit, boolean favorite, boolean publicView) {
+    public Ballad(String title, String ballad, User owner) {
+        this.title = title;
+        this.ballad = ballad;
+        this.owner = owner;
+    }
+
+    public Ballad(Integer id, String title, String ballad, User owner, List<User> collaborators, LocalDate creationDate, LocalDate lastEdit, boolean favorite, boolean publicView) {
         this.id = id;
         this.title = title;
         this.ballad = ballad;
-        this.userId = userId;
+        this.owner = owner;
+        this.collaborators = collaborators;
         this.creationDate = creationDate;
         this.lastEdit = lastEdit;
         this.favorite = favorite;
@@ -62,27 +72,35 @@ public class Ballad {
         this.ballad = ballad;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
-    public LocalDateTime getCreationDate() {
+    public List<User> getCollaborators() {
+        return collaborators;
+    }
+
+    public void setCollaborators(List<User> collaborators) {
+        this.collaborators = collaborators;
+    }
+
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(LocalDateTime creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 
-    public LocalDateTime getLastEdit() {
+    public LocalDate getLastEdit() {
         return lastEdit;
     }
 
-    public void setLastEdit(LocalDateTime lastEdit) {
+    public void setLastEdit(LocalDate lastEdit) {
         this.lastEdit = lastEdit;
     }
 

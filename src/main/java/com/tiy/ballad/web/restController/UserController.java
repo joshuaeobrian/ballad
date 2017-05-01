@@ -17,20 +17,20 @@ public class UserController {
     private UserService service;
 
     @PostMapping("/userlogin")
-    public String validateUser(HttpSession session, String username, String password){
+    public boolean validateUser(HttpSession session, String username, String password){
 
         try {
             User user = service.login(username, password);
             System.out.println(user);
-            session.setAttribute("userId",user.getId());
-            System.out.println(session.getAttribute("userId"));
+            session.setAttribute("id",user.getId());
+            System.out.println(session.getAttribute("id"));
 
 
-            return "Success";
+            return true;
         }
         catch (Exception e){
             session.setAttribute("userId",0);
-            return "Failure";
+            return false;
         }
 
     }
@@ -39,8 +39,8 @@ public class UserController {
     public String saveNewUser(HttpSession session, User user){
         try {
             Integer id = service.saveNewUser(user);
-            session.setAttribute("userId",id);
-            System.out.println(session.getAttribute("userId"));
+            session.setAttribute("id",id);
+            System.out.println(session.getAttribute("id"));
             return "Success";
         }catch (Exception e){
             return "Failed";

@@ -52,10 +52,16 @@
         margin: 5px;
         padding: 5px;
     }
+    .testing{
+        top:10px;
+        width: 40%;
+        display: inline-block;
+        margin: 10px 40px;
+    }
 
 </style>
 <body>
-
+<div class="testing">
 <div id="logon">
     <h3>Logon Form</h3>
     <form>
@@ -93,7 +99,8 @@
     <button id="edit">Edit</button>
     <button id="delete">Delete</button>
 </div>
-
+</div>
+<div class="testing">
 <div id="side-section">
     <h1>Word Bank:</h1>
     <div id="rhyme-bank">
@@ -106,7 +113,7 @@
     <div id="ballads"></div>
 
 </div>
-
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="../static/app.js" th:src="@{/app.js}"></script>
 </body>

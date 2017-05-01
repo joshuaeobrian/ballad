@@ -16,11 +16,23 @@ public class BalladService {
     @Autowired
     private BalladRepository repository;
 
-    public void saveNewBallad(Ballad ballad){
-        repository.saveNewBallad(ballad);
+    public Integer saveNewBallad(Ballad ballad){
+        return repository.saveNewBallad(ballad);
     }
 
     public List<Ballad> showMyBallads(User user){
         return repository.showMyBallads(user);
+    }
+
+    public Ballad findBalladById(Integer balladId) {
+        return repository.findBalladById(balladId);
+    }
+
+    public void updateBallad(Ballad ballad,User user) {
+        repository.updateBallad(ballad,user);
+    }
+
+    public void deleteBallad(Integer balladId){
+        repository.deleteBallad(balladId);
     }
 }

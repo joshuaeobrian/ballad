@@ -29,11 +29,15 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void updateUserInfo(User user) {
-
+        template.update("UPDATE ballad_users SET first_name=?, last_name=?, email=?, username=?, password=? WHERE id=?",
+                new Object[]{user.getFirstName(),user.getLastName(),user.getEmail(), user.getUsername(),user.getPassword()});
     }
 
     @Override
-    public void deleteUser(User user) {
+    public void deleteUser(Integer userId) {
+        template.update( "UPDATE ballad_users SET active=FALSE WHERE id=?",
+                new Object[]{userId});
+
 
     }
 
@@ -53,8 +57,20 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User findUserByName(String name) {
-        return null;
+    public List<User> findUserByName(String name) {
+        return template.query("SELECT id, first_name, last_name,email, username,password,active from ballad_users" +
+                        " WHERE lower(first_name) LIKE lower(?) OR lower(last_name) LIKE lower(?) OR lower(username) LIKE lower(?)",
+                new Object[]{"%"+name+"%","%"+name+"%","%"+name+"%"},
+                (rs,i)->new User(
+                        rs.getInt("id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("email"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getBoolean("active")
+                ));
+
     }
 
     @Override
@@ -74,16 +90,16 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> listAllUsers() {
-        return null;
+        return template.query("SELECT id, first_name, last_name,email, username,password,active from ballad_users",
+                (rs,i)->new User(
+                        rs.getInt("id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("email"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getBoolean("active")
+        ));
     }
 
-    @Override
-    public void startUserSession(User user, String sessionId) {
-
-    }
-
-    @Override
-    public void updateSession(User user, String jsessionid) {
-        template.update("UPDATE user_session SET session_key=?,datetime=now() WHERE ballad_user_id=?", new Object[]{jsessionid,user.getId()});
-    }
 }

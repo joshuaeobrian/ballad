@@ -12,14 +12,28 @@ const balladBank = document.getElementById("ballads");
  * @param user
  */
 const postUser = (url,user)=>{
-    var bool = $.post(url,
+  $.post(url,
         user,
     function (data) {
-        console.log(data)
-        return true;
+        console.log(data);
+        if(url.includes("userlogin")){
+            handleUserLogin(data);
+        }
     });
-    return bool;
+
 };
+function handleUserLogin(data) {
+    if(data){
+        console.log("ok");
+        getBallads("/myBallads")
+    }else{
+        const login = document.getElementById("logon");
+        const label = document.createElement("label");
+        label.textContent = "Username or Password is incorrect.";
+        label.style.color = "red";
+        login.appendChild(label);
+    }
+}
 /**
  * Controls the posts to the webservice then
  * takes the response and write it to the dom
@@ -67,17 +81,23 @@ const getBallads = (url) =>{
         function (data) {
             console.log(data);
             // ballads = data;
+            for(let i = 0; i < data.length;i++){
+                const div = document.createElement("div");
+                div.style.border = "1px solid";
+                div.style.margin = "5px";
+                const h4 = document.createElement("h4");
+                h4.textContent = data[i]['title'];
+                div.appendChild(h4);
+                balladBank.appendChild(div);
+
+
+            }
         }
     );
 
 
 };
-function getMyBallads() {
 
-  getBallads("/myBallads");
-    // console.log();
-    // console.log(myBallads);
-}
 
 /**
  * gets a highlighted section of the text area and returns it
@@ -103,11 +123,9 @@ $(document).ready(function () {
         const user = {
             username: $("#username").val(),
             password: $("#password").val(),
-        }
-        if(postUser("/userlogin",user)){
-            console.log("ok");
-            getMyBallads();
-        }
+        };
+      postUser("/userlogin",user);
+
 
     });
     /**

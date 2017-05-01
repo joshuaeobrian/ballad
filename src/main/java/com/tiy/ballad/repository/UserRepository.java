@@ -11,12 +11,12 @@ public interface UserRepository {
 
     Integer saveNewUser(User user);
     void updateUserInfo(User user);
-    void deleteUser(User user);
+    void deleteUser(Integer userId);
     User findUserById(Integer id);
-    User findUserByName(String name);
+    List<User> findUserByName(String name);
     User getUserByLoginAndPassword(String usernameOrEmail,String password);
     List<User> listAllUsers();
-    void startUserSession(User user,String sessionId);
 
-    void updateSession(User user, String jsessionid);
+
+
 }

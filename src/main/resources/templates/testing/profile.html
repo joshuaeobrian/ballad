@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"/>
+
+</head>
+<body>
+<div th:replace="layout :: nav"></div>
+
+<div class="container">
+    <h3>My Ballads:</h3>
+    <input type="search" placeholder="Search"/>
+
+    <div class="row col s12" style="margin: 0 auto; width: 100%;">
+
+        <div class="col s6 myBallad" style=" width: 45%; margin: 5px; border: 1px solid; padding: 10px;" th:each="ballad : ${public}" th:object="${ballad}">
+            <input type="hidden" th:value="*{id}"/>
+            <label th:text="*{publicView} ? 'Public' : 'Private'" th:style="*{publicView} ? ' padding:5px;background: grey; color:white; margin-left:5px;' : ' padding:5px;background: #1D2D44; color:white; margin-left:5px;'"></label>
+            <label th:text="*{favorite} ? 'Favorite' : ''" th:style="*{favorite} ?' padding:5px;background: red; color:white; margin-left:5px;':''"></label>
+            <h5 th:text="*{title}">Title</h5>
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid architecto cumque eius exercitationem fugit harum voluptates. A accusantium alias eligendi est magni, mollitia nihil pariatur quisquam suscipit, veritatis, voluptates.</p>-->
+            <label>Date: <span th:text="*{creationDate}">4/4/2017</span></label>
+        </div>
+        <div class="col s6" style=" width: 45%; margin: 5px; border: 1px solid; padding: 10px;" th:remove="all">
+            <h3>Title</h3>
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid architecto cumque eius exercitationem fugit harum voluptates. A accusantium alias eligendi est magni, mollitia nihil pariatur quisquam suscipit, veritatis, voluptates.</p>-->
+            <label>Date: <span>4/4/2017</span></label>
+        </div>
+        <!--<h3>Private Ballads:</h3>-->
+        <!--<div class="col s6" style=" width: 45%; margin: 5px; border: 1px solid; padding: 10px;" th:each="ballad : ${private}" th:object="ballad">-->
+            <!--<input type="hidden" th:field="*{id}"/>-->
+            <!--<h3 th:text="*{title}">Title</h3>-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid architecto cumque eius exercitationem fugit harum voluptates. A accusantium alias eligendi est magni, mollitia nihil pariatur quisquam suscipit, veritatis, voluptates.</p>-->
+            <!--<label>Date: <span th:text="*{creationDate}">4/4/2017</span></label>-->
+        <!--</div>-->
+        <!--<div class="col s6" style=" width: 45%; margin: 5px; border: 1px solid; padding: 10px;" th:remove="all">-->
+
+            <!--<h3>Title</h3>-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid architecto cumque eius exercitationem fugit harum voluptates. A accusantium alias eligendi est magni, mollitia nihil pariatur quisquam suscipit, veritatis, voluptates.</p>-->
+            <!--<label>Date: <span>4/4/2017</span></label>-->
+        <!--</div>-->
+
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<script src="../../static/testingJs/profile.js" th:src="@{/testingJs/profile.js}"></script>
+</body>
+</html>

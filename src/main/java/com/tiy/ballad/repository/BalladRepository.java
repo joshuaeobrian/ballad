@@ -9,10 +9,12 @@ import java.util.List;
  * Created by josh on 4/28/17.
  */
 public interface BalladRepository {
-    void saveNewBallad(Ballad ballad);
-    void updateBallad(Ballad ballad);
-    void deleteBallad(Ballad ballad);
+    Integer saveNewBallad(Ballad ballad);
+    void updateBallad(Ballad ballad,User user);
+    void deleteBallad(Integer balladId);
     List<Ballad> showMyBallads(User user);
     List<Ballad> showPublicBallads();
     List<Ballad> showCollaborating();
+
+    Ballad findBalladById(Integer balladId);
 }

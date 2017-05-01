@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"/>
+
+</head>
+<body>
+<div th:replace="layout :: nav"></div>
+<div class="container">
+    <h3>Sign Up Form:</h3>
+    <form class="row" th:action="@{/addUser}" method="post">
+        <input type="hidden" name="id" value="0"/>
+        <div class="col s6">
+            <input type="text" name="firstName" placeholder="First Name"/>
+        </div>
+        <div class="col s6">
+            <input type="text" name="lastName" placeholder="Last Name"/>
+        </div>
+        <div class="col s6">
+            <input type="email" name="email" placeholder="Email"/>
+        </div>
+        <div class="col s12">
+            <input type="text" name="username" placeholder="Username"/>
+        </div>
+        <div class="col s12">
+            <input type="Password" name="password" placeholder="Password"/>
+        </div>
+        <!--<div class="col s6">-->
+            <!--<input type="Password" placeholder="Confirm Password"/>-->
+        <!--</div>-->
+        <input type="hidden" name="active" value="true"/>
+        <div>
+            <button class="btn col s12">Create Account</button>
+        </div>
+    </form>
+</div>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+</body>
+</html>

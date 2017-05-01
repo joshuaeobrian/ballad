@@ -9,7 +9,19 @@
     <link rel="stylesheet" href="../../static/testingCss/style.css" th:href="@{/testingCss/style.css}"/>
 </head>
 <body>
-<div th:replace="layout :: nav"></div>
+<div th:replace="layout :: nav">
+    <nav th:fragment="nav">
+        <div class="nav-wrapper">
+            <a href="home.html" th:href="@{/}" class="brand-logo">Ballad</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="ballad.html" th:href="@{/ballad}">Create Ballad</a></li>
+                <li><a href="sign_up.html" th:href="@{/signup}">Sign Up</a></li>
+                <li><a href="profile.html" th:href="@{/profile}">My Profile</a></li>
+                <li><a href="login.html" th:href="@{/login}">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
 <div class="row">
     <div class="col s6" th:object="${ballad}">
         <h5>Create New Ballad</h5>

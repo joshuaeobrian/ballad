@@ -1,120 +1,72 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-</head>
-<style>
-    #rhyme-bank{
-        border: 1px solid;
-        width: 400px;
-        height: 400px;
-        overflow: hidden;
-    }
-    #rhyme-bank h5{
-        display: inline-flex;
-        padding: 5px;
-        margin: 5px;
-        border: solid;
 
-    }
-    #user-input{
-        width: 400px;
-        height: 400px;
-    }
-    #logon{
-        border: solid;
-        margin: 5px;
-        padding: 5px;
-    }
-    #signup{
-        border: solid;
-        margin: 5px;
-        padding: 5px;
-    }
-    #newBallad{
-        border: solid;
-        margin: 5px;
-        padding: 5px;
-    }
-    #newBallad input{
-        margin: 5px;
-    }
-    #side-section{
-        border: solid;
-        margin: 5px;
-        padding: 5px;
-    }
-    #list-ballads{
-        border: solid;
-        width: 400px;
-        height: 500px;
-        margin: 5px;
-        padding: 5px;
-    }
-    .testing{
-        top:10px;
-        width: 40%;
-        display: inline-block;
-        margin: 10px 40px;
-    }
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
 
-</style>
-<body>
-<div class="testing">
-<div id="logon">
-    <h3>Logon Form</h3>
-    <form>
-        <input id="username" type="text" placeholder="username"/>
-        <br/>
-        <input id="password" type="password" placeholder="password"/>
-        <br/>
-        <button id="login">Login</button> <label>This Section Works</label>
-    </form>
-</div>
+      </div>
+      <div class="title">
+        <h1>ballad</h1>
+      </div>
 
-<div id="signup">
-    <h3>Sign Up Form</h3>
-    <form>
-        <input id="firstName" type="text" placeholder="firstname"/>
-        <br/>
-        <input id="lastName" type="text" placeholder="lastname"/>
-        <br/>
-        <input id="email" type="text" placeholder="email"/>
-        <br/>
-        <input id="user" type="text" placeholder="username"/>
-        <br/>
-        <input id="pswd" type="password" placeholder="password"/>
-        <br/>
+      <nav>
+        <ul>
+          <li id="new"><a href="#">+New ballad</a></li>
+          <li><a href="#">Login/Sign-Up</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="head">
+      <div class="head-img">
 
-        <button id="signup-btn">Create Account</button> <label>This Section Works</label>
-    </form>
-</div>
-
-<div id="newBallad">
-    <input id="title" type="text" placeholder="Title"/>
-    <textarea id="user-input"></textarea>
-    <br/>
-    <button id="save">Save</button><label>This Section Works</label>
-    <button id="edit">Edit</button>
-    <button id="delete">Delete</button>
-</div>
-</div>
-<div class="testing">
-<div id="side-section">
-    <h1>Word Bank:</h1>
-    <div id="rhyme-bank">
+      </div>
+      <h2>The Notepad for Lyricists.</h2>
+    </section>
+    <div class="bar">
 
     </div>
-</div>
+    <section class="popular">
+      <h2>Popular ballads</h2>
+      <h3>Explore popular ballads from people like you.</h3>
+      <div class="container">
+        <div class="ballad">
 
-<div id="list-ballads">
-    <h5>My Ballads</h5>
-    <div id="ballads"></div>
+        </div>
+        <div class="ballad">
 
-</div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script src="../static/app.js" th:src="@{/app.js}"></script>
-</body>
+        </div>
+        <div class="ballad">
+
+        </div>
+      </div>
+      <a href="#">See More -></a>
+    </section>
+
+    <section class="about">
+      <h2>About ballad</h2>
+      <div class="container">
+        <div class="l-text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt</p>
+        </div>
+        <div class="r-text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis</p>
+        </div>
+        <div class="l-text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt</p>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript" src="../static/vendor/react.js"></script>
+    <script type="text/javascript" src="../static/vendor/react-dom.js"></script>
+    <script type="text/javascript" src="../static/vendor/babel-browser.min.js"></script>
+    <script type="text/babel" src="../static/js/app.jsx"></script>
+  </body>
 </html>
+

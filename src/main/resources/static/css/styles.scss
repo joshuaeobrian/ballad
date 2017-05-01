@@ -6,11 +6,7 @@ body {
   padding: 0;
 }
 h1 {
-  position: relative;
-  float: left;
-  text-align: center;
-  left: 50%;
-  transform: translateX(-50%);
+
 }
 header {
   display: flex;
@@ -27,6 +23,11 @@ header {
   h1 {
     font-weight: bold;
     font-size: 3em;
+    position: relative;
+    float: left;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
   }
   nav {
     // float: right;
@@ -139,5 +140,21 @@ header {
       float: right;
       text-align: right;
     }
+  }
+}
+
+.login-container {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(0,0,0,.1);
+  text-align: center;
+  h2 {
+    margin-top: 50px;
+    font-size: 1em;
+  }
+  input {
+    width: 80%;
+    height: 30px;
+    margin: 20px 0px;
   }
 }

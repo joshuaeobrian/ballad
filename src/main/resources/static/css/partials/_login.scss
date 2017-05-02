@@ -1,3 +1,65 @@
-#login-page * {
-  
+#login-page header {
+  background: blue;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  nav ul {
+    position: relative;
+    top: 50%;
+    transform: translateY(50%);
+    margin: 0;
+
+
+    li {
+      display: inline-block;
+      list-style: none;
+      padding: 0px 20px;
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+#login-page #login-section {
+  align-items: center;
+  display: flex;
+  // height: 500px;
+  justify-content: center;
+  width: 100%;
+}
+
+#login-page form {
+  display: flex;
+  flex-direction: column;
+  // flex-wrap: wrap;
+  // height: 300px;
+  width: 90%;
+
+  h1 {
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+
+  label {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  input {
+    height: 30px;
+    margin-bottom: 45px;
+    width: 30%;
+  }
+
+  button {
+    height: 30px;
+    margin-bottom: 45px;
+    width: 15%;
+  }
 }

@@ -17,8 +17,18 @@ public class User {
 
     private boolean active;
 
+    private byte[] photo;
+
+    private String about;
 
     public User() {
+    }
+
+    public User(Integer id, String firstName, String lastName, String username) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
     }
 
     public User(Integer id, String firstName, String lastName, String email, String username, String password, boolean active) {
@@ -29,7 +39,21 @@ public class User {
         this.username = username;
         this.password = password;
         this.active = active;
+
     }
+
+    public User(Integer id, String firstName, String lastName, String email, String username, String password, boolean active, byte[] photo, String about) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.active = active;
+        this.photo = photo;
+        this.about = about;
+    }
+
 
     public Integer getId() {
         return id;
@@ -85,6 +109,22 @@ public class User {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
     }
 
     @Override

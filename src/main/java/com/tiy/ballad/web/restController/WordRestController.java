@@ -12,7 +12,7 @@ import java.io.IOException;
  * Created by josh on 4/27/17.
  */
 @RestController
-public class WordController {
+public class WordRestController {
     @Autowired
     DataMuseService service;
     @Autowired

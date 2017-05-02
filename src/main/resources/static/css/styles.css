@@ -1,75 +1,42 @@
-#home-page header {
-  height: 100px;
-  background: rgba(0, 0, 0, 0.2);
-  margin: 0; }
-  #home-page header nav ul {
-    list-style: none;
-    margin: 0; }
-    #home-page header nav ul li {
-      float: left;
-      margin-left: 40px; }
-#home-page #head {
-  height: 600px;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.1); }
-  #home-page #head h1 {
-    margin: 0; }
-#home-page #preview .pop-ballad {
-  display: inline-block;
-  width: 200px;
-  height: 300px;
-  background: rgba(0, 0, 0, 0.3); }
+/*
+Error: Invalid CSS after "...b89bdb37b419069": expected "{", was ""
+        on line 189 of css/styles.scss
 
-#popular-page header {
-  height: 100px;
-  background: rgba(0, 0, 0, 0.2);
-  margin: 0; }
-  #popular-page header nav ul {
-    list-style: none;
-    margin: 0; }
-    #popular-page header nav ul li {
-      float: left;
-      margin-left: 40px; }
-#popular-page #popular {
-  width: 100%;
-  height: auto;
-  background: rgba(0, 0, 0, 0.1); }
-  #popular-page #popular h1 {
-    margin: 0; }
-  #popular-page #popular .container {
-    width: 80%;
-    height: 600px;
-    margin: 0 auto;
-    background: rgba(0, 0, 0, 0.1); }
-    #popular-page #popular .container .pop-ballad {
-      background: rgba(0, 0, 0, 0.1);
-      display: inline-block;
-      width: 30%;
-      height: auto;
-      margin-bottom: 40px; }
+184:   }
+185: }
+186: =======
+187: >>>>>>> d530a3461d69aacf065ebdc1e88ada9ba033afd1
+188: >>>>>>> 10a4757998692160f8c62be93b89bdb37b419069
 
-#editor-page input {
-  border: none; }
-#editor-page header {
-  height: 100px;
-  background: rgba(0, 0, 0, 0.2);
-  margin: 0; }
-  #editor-page header nav ul {
-    list-style: none;
-    margin: 0; }
-    #editor-page header nav ul li {
-      display: inline-block;
-      margin-left: 40px; }
-#editor-page .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; }
-
-* {
-  font-family: helvetica; }
-
-body {
-  margin: 0;
-  padding: 0; }
-
-/*# sourceMappingURL=styles.css.map */
+Backtrace:
+css/styles.scss:189
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:1207:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:1137:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:1132:in `tok!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:665:in `block'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:658:in `ruleset'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:684:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:677:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:125:in `stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:41:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/engine.rb:406:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/engine.rb:298:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:473:in `on_file_changed'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:331:in `block in watch'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/vendor/listen/lib/listen/listener.rb:252:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/vendor/listen/lib/listen/adapter.rb:254:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.23/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...b89bdb37b419069\": expected \"{\", was \"\"\A         on line 189 of css/styles.scss\A \A 184:   }\A 185: }\A 186: =======\A 187: >>>>>>> d530a3461d69aacf065ebdc1e88ada9ba033afd1\A 188: >>>>>>> 10a4757998692160f8c62be93b89bdb37b419069"; }

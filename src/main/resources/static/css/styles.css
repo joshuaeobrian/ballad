@@ -1,3 +1,48 @@
+#login-page header {
+  background: blue;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+  #login-page header nav ul {
+    position: relative;
+    top: 50%;
+    transform: translateY(50%);
+    margin: 0; }
+    #login-page header nav ul li {
+      display: inline-block;
+      list-style: none;
+      padding: 0px 20px; }
+      #login-page header nav ul li a {
+        color: black;
+        text-decoration: none; }
+
+#login-page #login-section {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%; }
+
+#login-page form {
+  display: flex;
+  flex-direction: column;
+  width: 90%; }
+  #login-page form h1 {
+    margin-top: 45px;
+    margin-bottom: 45px; }
+  #login-page form label {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 5px; }
+  #login-page form input {
+    height: 30px;
+    margin-bottom: 45px;
+    width: 30%; }
+  #login-page form button {
+    height: 30px;
+    margin-bottom: 45px;
+    width: 15%; }
+
 #ballads-page header {
   background: blue;
   height: 200px;

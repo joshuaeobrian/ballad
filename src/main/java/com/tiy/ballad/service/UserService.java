@@ -24,4 +24,11 @@ public class UserService {
     public Integer saveNewUser(User user) {
         return repository.saveNewUser(user);
     }
+
+    public void updateUserInfo(User user){
+        repository.updateUserInfo(user);
+    }
+    public void deleteUser(Integer userId){
+        repository.deleteUser(userId);
+    }
 }

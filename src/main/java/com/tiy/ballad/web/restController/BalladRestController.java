@@ -69,4 +69,29 @@ public class BalladRestController {
             return null;
         }
     }
+
+    @GetMapping("/sortByRecent")
+    public List<Ballad> sortBalladsByRecent(){
+        return null;
+    }
+    @PostMapping("/sortByAlphabetical")
+    public List<Ballad> sortByAlphabetical(boolean isAz){
+        return null;
+    }
+
+    @GetMapping("/sortByLikes")
+    public List<Ballad> sortByLikes(){
+        return null;
+    }
+    @GetMapping("/sortByTag")
+    public List<Ballad> sortByTag(String tagName){
+        return null;
+    }
+
+    @GetMapping("/showByTag")
+    public List<Ballad> showAllWithTagName(){
+        return null;
+    }
+
+
 }

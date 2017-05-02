@@ -29,8 +29,8 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void updateUserInfo(User user) {
-        template.update("UPDATE ballad_users SET first_name=?, last_name=?, email=?, username=?, password=? WHERE id=?",
-                new Object[]{user.getFirstName(),user.getLastName(),user.getEmail(), user.getUsername(),user.getPassword()});
+        template.update("UPDATE ballad_users SET first_name=?, last_name=?, email=?, username=?, password=?, active=?, profile_image=?, about=? WHERE id=?",
+                new Object[]{user.getFirstName(),user.getLastName(),user.getEmail(), user.getUsername(),user.getPassword(), user.getPhoto(), user.getAbout()});
     }
 
     @Override

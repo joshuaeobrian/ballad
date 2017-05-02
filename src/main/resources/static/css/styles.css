@@ -78,6 +78,9 @@
 #ballads-page .public {
   background: green; }
 
+#ballads-page .liked {
+  background: red; }
+
 * {
   font-family: helvetica; }
 

@@ -181,4 +181,19 @@ public class BalladRepositoryImpl implements BalladRepository {
                         rs.getBoolean("liked")
                 ));
     }
+
+    @Override
+    public List<Ballad> sortByMostRecent() {
+        return null;
+    }
+
+    @Override
+    public List<Ballad> sortByAlphabetical(boolean isAz) {
+        return null;
+    }
+
+    @Override
+    public List<Ballad> sortByPopular() {
+        return null;
+    }
 }

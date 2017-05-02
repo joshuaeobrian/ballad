@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
  * Created by josh on 4/27/17.
  */
 @RestController
-public class UserController {
+public class UserRestController {
 
     @Autowired
     private UserService service;
@@ -45,6 +45,17 @@ public class UserController {
         }catch (Exception e){
             return "Failed";
         }
+    }
+
+    @PostMapping("/ updateUser")
+    public void updateUser(User user){
+        service.updateUserInfo(user);
+
+    }
+
+    @PostMapping("/disableAccount")
+    public void disableAccount(Integer id){
+        service.deleteUser(id);
     }
 
 }

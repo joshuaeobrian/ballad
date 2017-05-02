@@ -58,6 +58,25 @@
     padding: 5px 10px; }
   #ballads-page .ballad-card p {
     padding: 5px 10px; }
+  #ballads-page .ballad-card div {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    float: right;
+    height: 50px;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 50px; }
+    #ballads-page .ballad-card div span {
+      font-size: 0.75rem;
+      color: white; }
+
+#ballads-page .private {
+  background: blue; }
+
+#ballads-page .public {
+  background: green; }
 
 * {
   font-family: helvetica; }

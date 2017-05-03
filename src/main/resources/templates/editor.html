@@ -8,41 +8,61 @@
     <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
   <body id="editor-page">
-    <header th:replace="layout :: nav">
+    <header id="global-header" th:replace="layout :: nav">
+
+      <div class="head-container">
+        <div class="top-head">
+          <h1>ballad</h1>
+          <a href="#" id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Sign-Up</a>
+          <a href="#" id="logged">Isaiah<i class="fa fa-caret-down" aria-hidden="true"></i>
+            <ul class="dropdown">
+              <li>Logout</li>
+              <li>Profile Settings</li>
+              <li>My Ballads</li>
+            </ul>
+          </a>
+        </div>
+        <div class="bottom-head">
+          <ul>
+            <li><a href="#about" id="ab">About</a></li>
+            <li><a href="popular.html" id="br">Browse</a></li>
+            <li><a href="editor.html" id="cr">+Create</a></li>
+          </ul>
+        </div>
+      </div>
       <nav>
-        <ul>
-          <li><a href="home.html">ballad</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="popular.html">Browse</a></li>
-          <li><a href="editor.html">+Create</a></li>
-          <li><a href="login.html">Login/Sign-up</a></li>
-        </ul>
+
       </nav>
     </header>
 
     <input type="text" name="" value="title" />
-    <h2>by: Isaiah Anderson</h2>
+    <h2 th:text="${isLoggedIn} ? 'By: '+${user.firstName}+' '+${user.lastName} :  ''">by: Isaiah Anderson</h2>
     <div class="container">
       <div class="l-bar">
-        <button type="button" name="button">+Template</button>
-        <button type="button" name="button">+Chorus</button>
-        <button type="button" name="button">+Verse</button>
-        <button type="button" name="button">+Bridge</button>
-        <button type="button" name="button">+Section</button>
+        <button type="button" name="button" value="Template">+Template</button>
+        <button type="button" name="button" value="Chorus">+Chorus</button>
+        <button type="button" name="button" value="Verse">+Verse</button>
+        <button type="button" name="button" value="Bridge">+Bridge</button>
+        <button type="button" name="button" value="Section">+Section</button>
       </div>
       <div class="main-area">
-        <textarea name="name" rows="8" cols="80">Cat</textarea>
+        <textarea id="ballad-input" name="name" rows="8" cols="80">Cat</textarea>
       </div>
       <div class="rhymes">
-        <ul>
-          <li>Bat</li>
-          <li>Rat</li>
-          <li>Fat</li>
-          <li>Matt</li>
+        <ul id="rhyme-bank">
+          <li th:remove="all">Bat</li>
+          <li th:remove="all">Rat</li>
+          <li th:remove="all">Fat</li>
+          <li  th:remove="all">Matt</li>
         </ul>
       </div>
     </div>
     <button type="button" name="button">Save</button>
     <button type="button" name="button">Export</button>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/editor.js" th:src="@{/js/editor.js}"></script>
+    <script type="text/javascript" src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+    <script src="https://use.fontawesome.com/555750ba4f.js"></script>
   </body>
 </html>

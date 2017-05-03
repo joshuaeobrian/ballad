@@ -10,15 +10,30 @@
   <body id="login-page">
 
 
-    <header th:replace="layout::nav">
+    <header id="global-header" th:replace="layout :: nav">
+
+      <div class="head-container">
+        <div class="top-head">
+          <h1>ballad</h1>
+          <a href="#" id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Sign-Up</a>
+          <a href="#" id="logged">Isaiah<i class="fa fa-caret-down" aria-hidden="true"></i>
+            <ul class="dropdown">
+              <li>Logout</li>
+              <li>Profile Settings</li>
+              <li>My Ballads</li>
+            </ul>
+          </a>
+        </div>
+        <div class="bottom-head">
+          <ul>
+            <li><a href="#about" id="ab">About</a></li>
+            <li><a href="popular.html" id="br">Browse</a></li>
+            <li><a href="editor.html" id="cr">+Create</a></li>
+          </ul>
+        </div>
+      </div>
       <nav>
-        <ul>
-          <li><a href="home.html">ballad</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="popular.html">Browse</a></li>
-          <li><a href="editor.html">+Create</a></li>
-          <li><a href="login.html">Login/Sign-up</a></li>
-        </ul>
+
       </nav>
     </header>
 
@@ -51,8 +66,9 @@
       </form>
     </section>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
     <script src="../static/js/login.js" th:src="@{/js/login.js}"></script>
+    <script src="https://use.fontawesome.com/555750ba4f.js"></script>
   </body>
 </html>

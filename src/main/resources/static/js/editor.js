@@ -1,14 +1,67 @@
 /**
- * Created by josh on 5/3/17.
+ * Created by josh on 4/30/17.
  */
+console.log("hello");
+const input = document.getElementById("ballad-input");
+const rhymeBank = document.getElementById("rhyme-bank");
+const balladBank = document.getElementById("ballads");
 
+
+const postForRhymes = (word)=>{
+    let words = [];
+    $.post("/api/rhymingWord",
+        {
+            "word": word,
+        },function (data) {
+            const wordsToTrim = jQuery.parseJSON(data);
+            console.log("BREAK:");
+            console.log(wordsToTrim);
+            const bankedWords = rhymeBank.querySelectorAll("li");
+            for(let i = 0; i < bankedWords.length; i++){
+                rhymeBank.removeChild(bankedWords[i]);
+            }
+
+            for(let i = 0; i < wordsToTrim.length; i++){
+                let element = document.createElement("h5");
+                element.textContent = wordsToTrim[i]["word"];
+
+                let li = document.createElement('li');
+                li.appendChild(element);
+                rhymeBank.appendChild(li);
+
+            }
+
+            return words;
+        }
+
+    );
+};
+
+const postBallads = (url,ballad)=>{
+    $.post(url,
+        ballad,
+        function (response) {
+            console.log(response);
+        }
+    );
+};
+
+const selectedText = ()=>{
+    let txt = "";
+    const element = document.activeElement;
+    const tag = element.tagName;
+    if(tag == "TEXTAREA"){
+        txt = element.value.slice(element.selectionStart,element.selectionEnd);
+        return txt;
+    }
+};
 
 $(document).ready(function () {
     /**
      * event listener for on click launches function to
      * get a word when double clicked or highlighted
      */
-    $("#user-input").on("click", function (e) {
+    $("#ballad-input").on("click", function (e) {
         // let con = $("#user-input").prop("")
         const txt = selectedText();
         if (txt != "" && !txt.includes(" ")){
@@ -22,15 +75,15 @@ $(document).ready(function () {
      * then is runs the post function to put rhymes
      * in the dom
      */
-    $("#user-input").on('keydown', function (e) {
+    $("#ballad-input").on('keydown', function (e) {
 
         //This is controlled for when you press space
         if(e.which == 32){
-            var cursorPosition = $("#user-input").prop("selectionStart");
+            var cursorPosition = $("#ballad-input").prop("selectionStart");
             console.log(cursorPosition);
             let index = input.value.substring(0,cursorPosition).split(" ");
             let word = index[index.length-1];
-            if(word != ""){
+            if(word != ""&& !word.includes("[")){
                 console.log(word);
 
                 console.log(postForRhymes(word));
@@ -40,4 +93,60 @@ $(document).ready(function () {
 
         }
     });
+    $("button").click(function (e) {
+        let button = e.target;
+        let action = button.value;
+        if(action.includes("Note")){
+            action = "Notes";
+        }
+
+        const actions = {
+            Intro: ()=>{
+                // $("#ballad-input").append("["+action+"]\n");
+                console.log(input.value);
+                input.value = (input.value+"["+action+"]\n");
+            },
+            Verse: ()=>{
+                input.value = (input.value+"\n\n["+action+"]\n");
+                console.log(action);
+            },
+            Chorus: ()=>{
+                input.value = (input.value+"\n\n["+action+"]\n");
+                console.log(action);
+            },
+            Bridge: ()=>{
+                input.value = (input.value+"\n\n["+action+"]\n");
+                console.log(action);
+            },
+            Outro: ()=>{
+                input.value = (input.value+"\n\n["+action+"]\n");
+                console.log(action);
+            },
+            Save: ()=>{
+                const ballad = {
+                    title: $("#title").val(),
+                    content: $("#ballad-input").val(),
+                };
+                button.textContent = "Update";
+                postBallads("/saveNewBallad",ballad);
+
+            },
+            Update: ()=>{
+                const ballad = {
+                    title: $("#title").val(),
+                    content: $("#ballad-input").val(),
+                };
+                postBallads("/updateBallad",ballad);
+            },
+            Delete: ()=>{
+
+            },
+            Notes:()=>{
+                console.log(action);
+            }
+        };
+        actions[action]();
+    });
+
+
 });

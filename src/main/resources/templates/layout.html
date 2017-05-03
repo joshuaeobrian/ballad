@@ -14,6 +14,14 @@
         <div class="top-head">
             <h1><a href="home.html" th:href="@{/}">ballad</a></h1>
             <a href="login.html" th:href="@{/login}" th:text="${isLoggedIn}? 'Logout':'Login/Sign-up'">Login/Sign-up</a>
+            <a href="#" id="not-logged">Login / Sign-Up</a>
+            <a href="#" id="logged">Isaiah<i class="fa fa-caret-down" aria-hidden="true"></i>
+                <ul class="dropdown">
+                    <li>Logout</li>
+                    <li>Profile Settings</li>
+                    <li>My Ballads</li>
+                </ul>
+            </a>
         </div>
         <div class="bottom-head">
             <ul>

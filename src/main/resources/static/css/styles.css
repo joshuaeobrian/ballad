@@ -23,6 +23,21 @@
         text-decoration: none;
         letter-spacing: 1px;
         color: #00a; }
+        #home-page header .head-container .top-head a .dropdown {
+          display: none;
+          position: absolute;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          text-align: right;
+          right: 10%; }
+          #home-page header .head-container .top-head a .dropdown li {
+            width: 100%;
+            font-size: .8em;
+            line-height: 25px;
+            letter-spacing: 1px; }
+            #home-page header .head-container .top-head a .dropdown li:hover {
+              background: rgba(100, 20, 50, 0.1); }
     #home-page header .head-container .bottom-head {
       justify-content: flex-start;
       height: 20%; }

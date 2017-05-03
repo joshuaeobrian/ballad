@@ -19,9 +19,9 @@
                 <span th:text="${isLoggedIn} ? ${user.firstName}:'Login/Sign-up'">Isaiah</span>
                 <span th:style="${isLoggedIn}? '':'display:none;'"><i class="fa fa-caret-down" aria-hidden="true"></i>
                     <ul class="dropdown">
-                        <li>Logout</li>
+                        <li id="logout">Logout</li>
                         <li>Profile Settings</li>
-                        <li>My Ballads</li>
+                        <li id="my-ballads">My Ballads</li>
                     </ul>
                 </span>
             </a>

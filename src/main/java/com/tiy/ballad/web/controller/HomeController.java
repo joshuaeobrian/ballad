@@ -6,6 +6,7 @@ import com.tiy.ballad.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -25,7 +26,7 @@ public class HomeController {
         Integer userId = 0;
         boolean userLoggedIn = false;
         if(session.isNew()){
-            session.setAttribute("userId",0);
+            session.setAttribute("userId",userId);
         }else{
             userId = Integer.parseInt(session.getAttribute("userId").toString());
             if(userId !=0){
@@ -41,6 +42,11 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.setAttribute("userId",0);
+        return "redirect:/";
+    }
 
     @RequestMapping("/login")
     public String loginForm(Model model){

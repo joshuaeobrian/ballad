@@ -1,29 +1,29 @@
 @import url("https://fonts.googleapis.com/css?family=Istok+Web");
-#home-page header {
+header {
   height: 200px;
   margin: 0; }
-  #home-page header .head-container {
+  header .head-container {
     width: 80%;
     height: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center; }
-    #home-page header .head-container .top-head, #home-page header .head-container .bottom-head {
+    header .head-container .top-head, header .head-container .bottom-head {
       width: 100%;
       display: flex;
       align-items: center; }
-    #home-page header .head-container .top-head {
+    header .head-container .top-head {
       justify-content: space-between;
       height: 50%; }
-      #home-page header .head-container .top-head h1 {
+      header .head-container .top-head h1 {
         font-size: 3.5em;
         color: #00a; }
-      #home-page header .head-container .top-head a {
+      header .head-container .top-head a {
         text-decoration: none;
         letter-spacing: 1px;
         color: #2a2a2a; }
-        #home-page header .head-container .top-head a .dropdown {
+        header .head-container .top-head a .dropdown {
           display: none;
           position: absolute;
           margin: 0;
@@ -31,38 +31,39 @@
           list-style: none;
           text-align: right;
           right: 10%; }
-          #home-page header .head-container .top-head a .dropdown li {
+          header .head-container .top-head a .dropdown li {
             width: 100%;
             font-size: .8em;
             line-height: 25px;
             letter-spacing: 1px; }
-            #home-page header .head-container .top-head a .dropdown li:hover {
+            header .head-container .top-head a .dropdown li:hover {
               background: rgba(100, 20, 50, 0.1); }
-    #home-page header .head-container .bottom-head {
+    header .head-container .bottom-head {
       justify-content: flex-start;
       height: 50%; }
-      #home-page header .head-container .bottom-head ul {
+      header .head-container .bottom-head ul {
         margin: 0;
         padding: 0;
         list-style: none; }
-        #home-page header .head-container .bottom-head ul li {
+        header .head-container .bottom-head ul li {
           float: left;
           margin-right: 30px; }
-          #home-page header .head-container .bottom-head ul li a {
+          header .head-container .bottom-head ul li a {
             text-decoration: none;
             letter-spacing: 1px;
             font-size: 1.1em;
             font-weight: bold; }
-          #home-page header .head-container .bottom-head ul li #ab {
+          header .head-container .bottom-head ul li #ab {
             color: #9c0f5f; }
-          #home-page header .head-container .bottom-head ul li #br {
+          header .head-container .bottom-head ul li #br {
             color: #26547c; }
-          #home-page header .head-container .bottom-head ul li #cr {
+          header .head-container .bottom-head ul li #cr {
             background: #04a777;
             color: white;
             box-sizing: border-box;
             padding: 10px 15px;
             border-radius: 15px; }
+
 #home-page #head {
   height: 500px;
   width: 100%;
@@ -211,16 +212,6 @@
   width: 100%;
   background: white; }
 
-#popular-page header {
-  height: 100px;
-  background: rgba(0, 0, 0, 0.2);
-  margin: 0; }
-  #popular-page header nav ul {
-    list-style: none;
-    margin: 0; }
-    #popular-page header nav ul li {
-      float: left;
-      margin-left: 40px; }
 #popular-page #popular {
   width: 100%;
   height: auto;
@@ -238,25 +229,6 @@
       width: 30%;
       height: auto;
       margin-bottom: 40px; }
-
-#login-page header {
-  background: blue;
-  height: 200px;
-  margin: 0;
-  padding: 0;
-  width: 100%; }
-  #login-page header nav ul {
-    position: relative;
-    top: 50%;
-    transform: translateY(50%);
-    margin: 0; }
-    #login-page header nav ul li {
-      display: inline-block;
-      list-style: none;
-      padding: 0px 20px; }
-      #login-page header nav ul li a {
-        color: black;
-        text-decoration: none; }
 
 #login-page #login-section {
   align-items: center;
@@ -284,32 +256,16 @@
     margin-bottom: 45px;
     width: 15%; }
 
-#ballads-page header {
-  background: blue;
-  height: 200px;
-  margin: 0;
-  padding: 0;
-  width: 100%; }
-  #ballads-page header nav ul {
-    position: relative;
-    top: 50%;
-    transform: translateY(50%);
-    margin: 0; }
-    #ballads-page header nav ul li {
-      display: inline-block;
-      list-style: none;
-      padding: 0px 20px; }
-      #ballads-page header nav ul li a {
-        color: black;
-        text-decoration: none; }
-
+#ballads-page
 #ballads-page #tools-section {
   background: #f1f1f1;
   height: 150px;
   width: 100%; }
+  #ballads-page
   #ballads-page #tools-section ul {
     float: right;
     margin-right: 5%; }
+    #ballads-page
     #ballads-page #tools-section ul li {
       list-style-type: none; }
 
@@ -369,16 +325,6 @@
 
 #editor-page input {
   border: none; }
-#editor-page header {
-  height: 100px;
-  background: rgba(0, 0, 0, 0.2);
-  margin: 0; }
-  #editor-page header nav ul {
-    list-style: none;
-    margin: 0; }
-    #editor-page header nav ul li {
-      display: inline-block;
-      margin-left: 40px; }
 #editor-page .container {
   display: flex;
   flex-direction: row;

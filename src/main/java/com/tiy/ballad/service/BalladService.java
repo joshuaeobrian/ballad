@@ -35,4 +35,8 @@ public class BalladService {
     public void deleteBallad(Integer balladId){
         repository.deleteBallad(balladId);
     }
+
+    public List<Ballad> getTopThreePopular() {
+        return repository.getTopThreePopular();
+    }
 }

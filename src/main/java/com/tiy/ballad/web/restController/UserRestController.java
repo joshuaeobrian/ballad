@@ -22,8 +22,8 @@ public class UserRestController {
         try {
             User user = service.login(username, password);
             System.out.println(user);
-            session.setAttribute("id",user.getId());
-            System.out.println(session.getAttribute("id"));
+            session.setAttribute("userId",user.getId());
+            System.out.println(session.getAttribute("userId"));
 
 
             return true;
@@ -39,8 +39,8 @@ public class UserRestController {
     public String saveNewUser(HttpSession session, User user){
         try {
             Integer id = service.saveNewUser(user);
-            session.setAttribute("id",id);
-            System.out.println(session.getAttribute("id"));
+            session.setAttribute("userId",id);
+            System.out.println(session.getAttribute("userId"));
             return "Success";
         }catch (Exception e){
             return "Failed";

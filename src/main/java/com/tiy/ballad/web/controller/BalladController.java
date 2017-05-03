@@ -55,7 +55,7 @@ public class BalladController {
 
     }
 
-    @RequestMapping("/myballads")
+    @RequestMapping("/my-ballads")
     public String profile(@ModelAttribute("id") Integer id, Model model){
         User user = userService.findUserById(4);
         System.out.println(user.toString());

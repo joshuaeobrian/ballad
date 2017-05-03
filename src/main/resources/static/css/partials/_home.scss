@@ -30,6 +30,25 @@
           text-decoration: none;
           letter-spacing: 1px;
           color: #00a;
+          .dropdown {
+            display: none;
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: right;
+            right: 10%;
+            // border: 1px solid black;
+            li {
+              width: 100%;
+              font-size: .8em;
+              line-height: 25px;
+              letter-spacing: 1px;
+              &:hover {
+                background: rgba(100,20,50,.1);
+              }
+            }
+          }
         }
       }
       .bottom-head {

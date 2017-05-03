@@ -10,15 +10,20 @@
 <body>
 
 <header th:fragment="nav">
-    <nav>
-        <ul>
-            <li><a href="home.html" th:href="@{/}">ballad</a></li>
-            <li><a href="#about" >About</a></li>
-            <li><a href="popular.html" th:href="@{/popular}">Browse</a></li>
-            <li><a href="editor.html" th:href="@{/editor}">+Create</a></li>
-            <li><a href="login.html" th:href="@{/login}" th:text="${isLoggedIn}? 'Logout':'Login/Sign-up'">Login/Sign-up</a></li>
-        </ul>
-    </nav>
+    <div class="head-container">
+        <div class="top-head">
+            <h1><a href="home.html" th:href="@{/}">ballad</a></h1>
+            <a href="login.html" th:href="@{/login}" th:text="${isLoggedIn}? 'Logout':'Login/Sign-up'">Login/Sign-up</a>
+        </div>
+        <div class="bottom-head">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="popular.html" th:href="@{/popular}">Browse</a></li>
+                <li><a href="editor.html" th:href="@{/editor}">+Create</a></li>
+
+            </ul>
+        </div>
+    </div>
 </header>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->

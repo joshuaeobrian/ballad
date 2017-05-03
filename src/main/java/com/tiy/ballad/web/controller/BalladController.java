@@ -45,22 +45,11 @@ public class BalladController {
 
     }
 
-//    @RequestMapping("/signup")
-//    public String signUpForm(){
-//        return "testing/sign_up";
-//    }
-//    @PostMapping("/addUser")
-//    public String signUpUser(HttpSession session, User user){
-//        try {
-//            Integer id =  userService.saveNewUser(user);
-//            session.setAttribute("id", id);
-//            return "redirect:/profile";
-//        }catch (Exception e){
-//            return "redirect:/signup";
-//        }
-//
-//
-//    }
+    @RequestMapping("/popular")
+    public String signUpForm(){
+        return "popular";
+
+    }
 
     @RequestMapping("/myballads")
     public String profile(@ModelAttribute("id") Integer id, Model model){

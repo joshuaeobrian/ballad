@@ -10,16 +10,19 @@
   <body id="home-page">
 
     <header th:replace="layout :: nav">
-      <nav>
-        <ul>
-          <li><a href="home.html" th:href="@{/}">ballad</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="popular.html" th:href="@{/popular}">Browse</a></li>
-          <li><a href="editor.html" th:href="@{/editor}">+Create</a></li>
-          <li><a href="login.html" th:text="${isLoggedIn}? 'Logout':'Login/Sign-up'">Login/Sign-up</a></li>
-        </ul>
-      </nav>
+      <!--<nav>-->
+        <!--<ul>-->
+          <!--<li><a href="home.html" th:href="@{/}">ballad</a></li>-->
+          <!--<li><a href="#about" >About</a></li>-->
+          <!--<li><a href="popular.html" th:href="@{/popular}">Browse</a></li>-->
+          <!--<li><a href="editor.html" th:href="@{/editor}">+Create</a></li>-->
+          <!--<li><a href="login.html" th:href="@{/login}" th:text="${isLoggedIn}? 'Logout':'Login/Sign-up'">Login/Sign-up</a></li>-->
+        <!--</ul>-->
+      <!--</nav>-->
     </header>
+
+
+
 
 
     <section id="head">
@@ -30,7 +33,9 @@
 
     <section id="preview">
       <h2>Popular</h2>
+      <div class="preview-container">
       <!-- These are the divs that will hold three popular ballads. The see more link will link to the actual popular page. Only the first couple lines of the lyrics will show in these boxes-->
+
       <div class="pop-ballad" th:each="popular : ${topThree}" th:object="${popular}">
         <h1 th:text="*{title}">Humble</h1>
         <h2 th:text="*{owner.firstName}">Kendrick Lamar</h2>
@@ -61,18 +66,39 @@ Waaaaay (yeah, yeah!)</p>
         <p>Wicked or weakness?
 You gotta see this
 Waaaaay (yeah, yeah!)
-
-[Album Intro]
-Nobody pray for me
-It's been that day for me
-Waaaaay (yeah, yeah!)</p>
+        </p>
       </div>
-      <a href="popular.html">See More -></a>
+      </div>
+
+
+      <a href="popular.html" th:href="@{/popular}">See More -></a>
     </section>
 
     <section id="about">
-      <h2>about</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+      <div class="overview">
+        <div class="description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</p>
+        </div>
+        <div class="pic">
+
+        </div>
+      </div>
+
+      <div class="quote">
+        <p>Music is the greatest communication in the world. Even if people don't understand the language you're singing in they still know good music.<br/><span>--Lou Rawls</span></p>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <h1>Feature</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+        </div>
+        <div class="feature-visual">
+
+        </div>
+      </div>
     </section>
+
+    <footer></footer>
   </body>
 </html>

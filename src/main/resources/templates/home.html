@@ -15,7 +15,7 @@
       <div class="head-container">
         <div class="top-head">
           <h1>ballad</h1>
-          <a href="#" id="not-logged">Login / Sign-Up</a>
+          <a href="#" id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Sign-Up</a>
           <a href="#" id="logged">Isaiah<i class="fa fa-caret-down" aria-hidden="true"></i>
             <ul class="dropdown">
               <li>Logout</li>
@@ -26,9 +26,9 @@
         </div>
         <div class="bottom-head">
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="popular.html">Browse</a></li>
-            <li><a href="editor.html">+Create</a></li>
+            <li><a href="#about" id="ab">About</a></li>
+            <li><a href="popular.html" id="br">Browse</a></li>
+            <li><a href="editor.html" id="cr">+Create</a></li>
           </ul>
         </div>
       </div>
@@ -44,6 +44,7 @@
     <section id="head">
       <div class="head-box">
         <h1>The notepad for lyricists</h1>
+        <img src="../static/images/Laptop.png" alt="">
       </div>
     </section>
 
@@ -53,55 +54,59 @@
       <!-- These are the divs that will hold three popular ballads. The see more link will link to the actual popular page. Only the first couple lines of the lyrics will show in these boxes-->
 
       <div class="pop-ballad" th:each="popular : ${topThree}" th:object="${popular}">
+        <div class="top-border">
+
+        </div>
         <h1 th:text="*{title}">Humble</h1>
         <h2 th:text="*{owner.firstName}">Kendrick Lamar</h2>
-        <p th:text="*{ballad}">Wicked or weakness?
-You gotta see this
-Waaaaay (yeah, yeah!)
+        <p th:text="*{ballad}">"My left stroke just went Viral<br>Right stroke put lil' baby in a spiral"</p>
+        <span>March 7, 2017</span>
+<div class="bottom-border">
 
-[Album Intro]
-Nobody pray for me
-It's been that day for me
-Waaaaay (yeah, yeah!)</p>
+</div>
       </div>
-      <div class="pop-ballad" th:remove="all">
-        <h1 >Humble</h1>
-        <h2>Kendrick Lamar</h2>
-        <p>Wicked or weakness?
-You gotta see this
-Waaaaay (yeah, yeah!)
+      <div class="pop-ballad">
+        <div class="top-border">
 
-[Album Intro]
-Nobody pray for me
-It's been that day for me
-Waaaaay (yeah, yeah!)</p>
+        </div>
+        <h1>Humble</h1>
+        <h2>Marlanna Evans</h2>
+        <p>"Just as sure as the earth is round We bounce back up when they throw is down. So don't forget your crown."</p>
+        <span>March 7, 2017</span>
+<div class="bottom-border">
+
+</div>
       </div>
-      <div class="pop-ballad" th:remove="all">
-        <h1 >Humble</h1>
-        <h2>Kendrick Lamar</h2>
-        <p>Wicked or weakness?
-You gotta see this
-Waaaaay (yeah, yeah!)
-        </p>
+      <div class="pop-ballad">
+        <div class="top-border"></div>
+        <h1>Humble</h1>
+        <h2>Jackson Philips</h2>
+        <p>"What am I good for? Somebody tell me, Because I don't know anymore"</p>
+        <span>March 7, 2017</span>
+<div class="bottom-border">
+
+</div>
       </div>
       </div>
 
 
-      <a href="popular.html" th:href="@{/popular}">See More -></a>
+      <a href="popular.html" th:href="@{/popular}">See More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
     </section>
 
     <section id="about">
       <div class="overview">
-        <div class="description">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</p>
-        </div>
         <div class="pic">
 
         </div>
+        <div class="description">
+          <h1>Create Lyrics with ease using the ballad editor</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore </p>
+        </div>
+
       </div>
 
       <div class="quote">
-        <p>Music is the greatest communication in the world. Even if people don't understand the language you're singing in they still know good music.<br/><span>--Lou Rawls</span></p>
+        <p>"Music is the greatest communication in the world. Even if people don't understand the language you're singing in they still know good music."<br/><span>--Lou Rawls</span></p>
       </div>
 
       <div class="features">

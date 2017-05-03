@@ -19,4 +19,6 @@ public interface BalladRepository {
     List<Ballad> sortByMostRecent();
     List<Ballad> sortByAlphabetical(boolean isAz);
     List<Ballad> sortByPopular();
+
+    List<Ballad> getTopThreePopular();
 }

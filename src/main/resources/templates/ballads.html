@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layout :: head(${ballad_title})">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title></title>
-    <link href="css/normalize.css" rel="stylesheet">
-    <link href="../static/css/styles.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet"/>
+    <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
   <body id="ballads-page">
 
-    <header>
+    <header th:replace="layout :: nav">
       <nav>
         <ul>
           <li><a href="home.html">ballad</a></li>
@@ -23,25 +23,47 @@
 
     <section id="tools-section">
       <div id="search-container">
-        <input type="text" name="ballads-search"></input>
+        <input type="text" name="ballads-search"/>
         <button>Search</button>
       </div>
-
-      <ul>
-        <li><a id="sort">Sort</a>
+<!--TODO Make table with sorting options or hardcode and make work-->
+      <select id="sort">
+        <option>Recent</option>
+        <option>Public</option>
+        <option>Private</option>
+        <option>Likes</option>
+        <!--<option th:field="" th:text=""></option>-->
+      </select>
+      <!--TODO-->
+      <ul th:remove="all">
+        <!--<li><a id="sort">Sort</a>-->
           <ul>
             <li><a>Recent</a></li>
             <li><a>Public</a></li>
             <li><a>Private</a></li>
             <li><a>Likes</a></li>
           </ul>
-        </li>
+        <!--</li>-->
       </ul>
     </section>
 
     <section id="ballad-cards-section">
       <div id="ballad-cards-container">
-        <div class="ballad-card">
+        <div class="ballad-card" th:each="theBallad : ${ballads}" th:object="${theBallad}">
+          <h1 th:text="*{title}">Kendrick Lamar</h1>
+          <p th:text="*{ballad}">If I didn't ride blade on curb, would you still love me? If I minimized my net worth, would you still love me?</p>
+          <!-- Toggling Between Public, Private, and Liked Classes-->
+          <div class="private" th:class="*{publicView} ? 'private' : 'public'">
+            <span th:text="*{publicView} ? 'Private' : 'Public'">Private</span>
+          </div>
+          <!-- <div class="public">
+            <span>Public</span>
+          </div> -->
+          <!-- <div class="liked">
+            <span>Liked</span>
+          </div> -->
+        </div>
+        <div class="ballad-card" th:remove="all">
           <h1>Kendrick Lamar</h1>
           <p>If I didn't ride blade on curb, would you still love me? If I minimized my net worth, would you still love me?</p>
           <!-- Toggling Between Public, Private, and Liked Classes-->
@@ -55,7 +77,7 @@
             <span>Liked</span>
           </div> -->
         </div>
-        <div class="ballad-card">
+        <div class="ballad-card" th:remove="all">
           <h1>Kendrick Lamar</h1>
           <p>If I didn't ride blade on curb, would you still love me? If I minimized my net worth, would you still love me?</p>
           <!-- Toggling Between Public, Private, and Liked Classes-->
@@ -69,21 +91,7 @@
             <span>Liked</span>
           </div> -->
         </div>
-        <div class="ballad-card">
-          <h1>Kendrick Lamar</h1>
-          <p>If I didn't ride blade on curb, would you still love me? If I minimized my net worth, would you still love me?</p>
-          <!-- Toggling Between Public, Private, and Liked Classes-->
-          <div class="private">
-            <span>Private</span>
-          </div>
-          <!-- <div class="public">
-            <span>Public</span>
-          </div> -->
-          <!-- <div class="liked">
-            <span>Liked</span>
-          </div> -->
-        </div>
-        <div class="ballad-card">
+        <div class="ballad-card" th:remove="all">
           <h1>Kendrick Lamar</h1>
           <p>If I didn't ride blade on curb, would you still love me? If I minimized my net worth, would you still love me?</p>
           <!-- Toggling Between Public, Private, and Liked Classes-->

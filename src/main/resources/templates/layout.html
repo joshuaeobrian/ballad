@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"/>
-
+<head th:fragment="head(page_title)">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:text="${page_title}"></title>
+    <link href="css/normalize.css" rel="stylesheet"/>
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 <body>
-<div>
-<nav th:fragment="nav">
-    <div class="nav-wrapper">
-        <a href="testing/home.html" th:href="@{/}" class="brand-logo">Ballad</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="testing/ballad.html" th:href="@{/ballad}">Create Ballad</a></li>
-            <li><a href="testing/sign_up.html" th:href="@{/signup}">Sign Up</a></li>
-            <li><a href="testing/profile.html" th:href="@{/profile}">My Profile</a></li>
-            <li><a href="testing/login.html" th:href="@{/login}">Login</a></li>
-        </ul>
+
+<header th:fragment="nav">
+    <div class="head-container">
+        <div class="top-head">
+            <h1><a href="home.html" th:href="@{/}">ballad</a></h1>
+            <a href="login.html" th:href="@{/login}" th:text="${isLoggedIn}? 'Logout':'Login/Sign-up'">Login/Sign-up</a>
+            <a href="#" id="not-logged">Login / Sign-Up</a>
+            <a href="#" id="logged">Isaiah<i class="fa fa-caret-down" aria-hidden="true"></i>
+                <ul class="dropdown">
+                    <li>Logout</li>
+                    <li>Profile Settings</li>
+                    <li>My Ballads</li>
+                </ul>
+            </a>
+        </div>
+        <div class="bottom-head">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="popular.html" th:href="@{/popular}">Browse</a></li>
+                <li><a href="editor.html" th:href="@{/editor}">+Create</a></li>
+
+            </ul>
+        </div>
     </div>
-</nav>
-</div>
-
-
+</header>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 </body>

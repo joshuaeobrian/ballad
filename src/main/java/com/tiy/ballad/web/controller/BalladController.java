@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by josh on 4/27/17.
@@ -31,17 +32,8 @@ public class BalladController {
         return 0;
     }
 
-    @RequestMapping("/")
-    public String  index(){
 
-        return "testing/home";
-    }
-
-    @RequestMapping("/login")
-    public String loginForm(){
-        return "testing/login";
-    }
-    @PostMapping("/validate")
+   @PostMapping("/validate")
     public String validate(ModelMap modelMap,String username, String password){
         try {
             User user = userService.login(username, password);
@@ -53,41 +45,30 @@ public class BalladController {
 
     }
 
-    @RequestMapping("/signup")
+    @RequestMapping("/popular")
     public String signUpForm(){
-        return "testing/sign_up";
-    }
-    @PostMapping("/addUser")
-    public String signUpUser(HttpSession session, User user){
-        try {
-            Integer id =  userService.saveNewUser(user);
-            session.setAttribute("id", id);
-            return "redirect:/profile";
-        }catch (Exception e){
-            return "redirect:/signup";
-        }
-
+        return "popular";
 
     }
 
-    @RequestMapping("/profile")
+    @RequestMapping("/myballads")
     public String profile(@ModelAttribute("id") Integer id, Model model){
-        User user = userService.findUserById(id);
-        model.addAttribute("public", balladService.showMyBallads(user));
+        User user = userService.findUserById(4);
+        System.out.println(user.toString());
+        List<Ballad> ballad = balladService.showMyBallads(user);
+        System.out.println(ballad.toString());
+        model.addAttribute("ballads", ballad);
+        model.addAttribute("ballad_title","My Ballads");
 
 
-        return "testing/profile";
+        return "ballads";
     }
 
-    @RequestMapping("/profilecfg")
-    public String profileConfig(){
-        return "testing/profilecfg";
-    }
 
-    @RequestMapping("/ballad")
+    @RequestMapping("/editor")
     public String ballad(Model model){
         model.addAttribute("ballad",new Ballad());
-        return "testing/ballad";
+        return "editor";
     }
 
     @RequestMapping("/ballad/{id}")

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layout :: head('Ballad Editor')">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title></title>
-    <link href="css/normalize.css" rel="stylesheet">
-    <link href="../static/css/styles.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet"/>
+    <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
   <body id="editor-page">
-    <header>
+    <header th:replace="layout :: nav">
       <nav>
         <ul>
           <li><a href="home.html">ballad</a></li>

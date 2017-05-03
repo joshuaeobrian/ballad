@@ -200,14 +200,42 @@ public class BalladRepositoryImpl implements BalladRepository {
     @Override
     public List<Ballad> getTopThreePopular() {
         return template.query("SELECT\n" +
-                        "  (select count(*) from ballad_interaction where ballad_id = b.id AND favorite = TRUE GROUP BY ballad_id),\n" +
+                        "  (select count(*) from ballad_interaction where ballad_id = b.id AND favorite = TRUE GROUP BY ballad_id) AS count,\n" +
                         "  b.id as id, b.title as title, b.ballad as ballad, b.creation_date AS creation_date, b.public AS ispublic,\n" +
                         "  u.id as user_id, u.first_name, u.last_name, u.email, u.username, u.password,u.active\n" +
 
                         "FROM ballads AS b\n" +
                         "  JOIN ballad_users as u on b.creator_id = u.id\n" +
                         "  JOIN ballad_interaction as i ON b.id = i.ballad_id\n" +
-                        "  WHERE b.public=TRUE AND favorite=TRUE GROUP BY b.id, u.id LIMIT 3;",
+                        "  WHERE b.public=TRUE AND favorite=TRUE GROUP BY b.id, u.id ORDER BY count desc LIMIT 3;",
+                (rs, i) -> new Ballad(
+                        rs.getInt("id"),
+                        rs.getString("title"),
+                        rs.getString("ballad"),
+                        new User(
+                                rs.getInt("user_id"),
+                                rs.getString("first_name"),
+                                rs.getString("last_name"),
+                                rs.getString("username")
+                        ),
+                        collaborators( rs.getInt("id")),
+                        LocalDate.parse(rs.getString("creation_date")),
+                        null,
+                        true,
+                        true
+                ));
+    }
+
+    @Override
+    public List<Ballad> getPopularBallads() {
+        return template.query("SELECT\n" +
+                        "  COALESCE((select count(*) from ballad_interaction where ballad_id = b.id and favorite = TRUE GROUP BY ballad_id),0) AS count,\n" +
+                        "  b.id as id, b.title as title, b.ballad as ballad, b.creation_date AS creation_date, b.public AS ispublic,\n" +
+                        "  u.id as user_id, u.first_name, u.last_name, u.email, u.username, u.password,u.active\n" +
+                        "FROM ballads AS b\n" +
+                        "  JOIN ballad_users as u on b.creator_id = u.id\n" +
+                        "  JOIN ballad_interaction as i ON b.id = i.ballad_id\n" +
+                        " WHERE b.public=TRUE GROUP BY b.id, u.id ORDER BY count DESC;",
                 (rs, i) -> new Ballad(
                         rs.getInt("id"),
                         rs.getString("title"),

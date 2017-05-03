@@ -2,6 +2,7 @@ package com.tiy.ballad.web.controller;
 
 import com.tiy.ballad.model.Ballad;
 import com.tiy.ballad.service.BalladService;
+import com.tiy.ballad.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +17,26 @@ import javax.servlet.http.HttpSession;
 public class HomeController {
     @Autowired
     private BalladService balladService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/")
     public String  index(HttpSession session, Model model){
+        Integer userId = 0;
+        boolean userLoggedIn = false;
+        if(session.isNew()){
+            session.setAttribute("userId",0);
+        }else{
+            userId = Integer.parseInt(session.getAttribute("userId").toString());
+            if(userId !=0){
+                model.addAttribute("user", userService.findUserById(userId));
+                userLoggedIn = true;
+            }
+        }
         /**
          * if session contains user id > 0
          */
-        model.addAttribute("isLoggedIn", false);
+        model.addAttribute("isLoggedIn", userLoggedIn);
         model.addAttribute("topThree",balladService.getTopThreePopular());
         return "home";
     }

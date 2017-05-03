@@ -39,4 +39,8 @@ public class BalladService {
     public List<Ballad> getTopThreePopular() {
         return repository.getTopThreePopular();
     }
+
+    public List<Ballad> getPopularBallads() {
+        return repository.getPopularBallads();
+    }
 }

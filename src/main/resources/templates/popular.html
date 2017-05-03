@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layout :: head('Browse')">
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title></title>
-    <link href="css/normalize.css" rel="stylesheet">
-    <link href="../static/css/styles.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet"/>
+    <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
   <body id="popular-page">
 
-    <header>
+    <header th:replace="layout :: nav">
       <nav>
         <ul>
           <li><a href="home.html">ballad</a></li>
@@ -64,32 +65,32 @@ Now I'm free, free fallin', fallin'</p>
       </div>
       <!-- this is where all of the popular ballads are being listed -->
       <div class="container">
-        <div class="pop-ballad">
+        <div class="pop-ballad" th:each="ballad : ${popular}" th:object="${ballad}">
+          <h1 th:text="*{title}">My Song1</h1>
+          <h2 th:text="|*{owner.firstName} *{owner.lastName}|">Isaiah</h2>
+          <p th:text="*{ballad}">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute</p>
+        </div>
+        <div class="pop-ballad" th:remove="all">
           <h1>My Song1</h1>
           <h2>Isaiah</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute</p>
         </div>
-        <div class="pop-ballad">
+        <div class="pop-ballad" th:remove="all">
           <h1>My Song1</h1>
           <h2>Isaiah</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute</p>
         </div>
-        <div class="pop-ballad">
+        <div class="pop-ballad" th:remove="all">
           <h1>My Song1</h1>
           <h2>Isaiah</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute</p>
         </div>
-        <div class="pop-ballad">
+        <div class="pop-ballad" th:remove="all">
           <h1>My Song1</h1>
           <h2>Isaiah</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute</p>
         </div>
-        <div class="pop-ballad">
-          <h1>My Song1</h1>
-          <h2>Isaiah</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute</p>
-        </div>
-        <div class="pop-ballad">
+        <div class="pop-ballad" th:remove="all">
           <h1>My Song1</h1>
           <h2>Isaiah</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute</p>

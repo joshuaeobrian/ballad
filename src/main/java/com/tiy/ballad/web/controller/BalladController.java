@@ -46,7 +46,11 @@ public class BalladController {
     }
 
     @RequestMapping("/popular")
-    public String signUpForm(){
+    public String popular(Model model){
+
+        model.addAttribute("popular", balladService.getPopularBallads());
+
+
         return "popular";
 
     }

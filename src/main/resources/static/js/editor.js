@@ -16,7 +16,7 @@ const postForRhymes = (word)=>{
             const wordsToTrim = jQuery.parseJSON(data);
             console.log("BREAK:");
             console.log(wordsToTrim);
-            const bankedWords = rhymeBank.querySelectorAll("li");
+            const bankedWords = rhymeBank.querySelectorAll("h5");
             for(let i = 0; i < bankedWords.length; i++){
                 rhymeBank.removeChild(bankedWords[i]);
             }
@@ -24,10 +24,7 @@ const postForRhymes = (word)=>{
             for(let i = 0; i < wordsToTrim.length; i++){
                 let element = document.createElement("h5");
                 element.textContent = wordsToTrim[i]["word"];
-
-                let li = document.createElement('li');
-                li.appendChild(element);
-                rhymeBank.appendChild(li);
+                rhymeBank.appendChild(element);
 
             }
 
@@ -149,15 +146,17 @@ $(document).ready(function () {
                 document.location.href = "/login";
             },
             Export: ()=>{
-                let link = document.getElementById('export');
-                var blob = new Blob([input.value], {type: "text/plain;charset=utf-8"});
-                //link.download = "ballad.txt";
-                //window.location.href = "data:text/plain;charset=UTF-8,Hello World";
-                //const text = window.URL.createObjectURL(input.value);
-                //link.href = text;
-                saveAs(blob,"myBallad.txt");
+                // const ballad = {
+                //     title: $("#title").val(),
+                //     content: $("#ballad-input").val(),
+                // };
+                // $.get("/download",
+                //     {
+                //       ballad
+                //
+                //     });
 
-
+                document.location.href = "/download?title="+$("#title").val()+"&content="+$("#ballad-input").val();
             },
             Notes:()=>{
                 console.log(action);

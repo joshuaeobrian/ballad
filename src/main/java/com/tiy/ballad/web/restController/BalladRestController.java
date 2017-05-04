@@ -5,9 +5,11 @@ import com.tiy.ballad.model.User;
 import com.tiy.ballad.service.BalladService;
 import com.tiy.ballad.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -66,6 +68,21 @@ public class BalladRestController {
     public List<Ballad> sortBalladsByRecent(HttpSession session,Boolean userOnly ,Boolean isPublic, Boolean isPrivate, Integer caseId){
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         return balladService.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId);
+    }
+
+    @GetMapping("/download")
+    public ResponseEntity<byte[]> downloadBallad( String title, String content) throws Exception{
+        byte[] output = content.getBytes();
+
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("charset", "utf-8");
+        headers.setContentType(MediaType.valueOf("text/html"));
+        headers.setContentType(MediaType.TEXT_MARKDOWN);
+        headers.setContentLength(output.length);
+        headers.set("Content-disposition", "attachment; filename="+title+".txt");
+
+        return new ResponseEntity<byte[]>(output, headers, HttpStatus.OK);
     }
 
 

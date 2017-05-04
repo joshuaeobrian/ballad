@@ -7,7 +7,7 @@
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
-  <body id="login-page">
+  <body ><!--id="login-page"-->
 
 
     <header id="global-header" th:replace="layout :: nav">
@@ -33,8 +33,8 @@
         </div>
       </div>
     </header>
-
-    <section id="login-section">
+    <div th:fragment="loginPage" id="login-page">
+    <section  id="login-section">
       <!-- Toggle Between Signup and Login Forms -->
       <form id="signup-form" th:style="${signup}? '' : 'display:none'">
         <h1>Signup</h1>
@@ -83,11 +83,15 @@
         <!-- <hr> -->
         <span>Ready to create lyrics but don't have an account? <a href="#" id="signup">Sign up!</a></span>
       </form>
+
     </section>
+    </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
 
     <script src="../static/js/login.js" th:src="@{/js/login.js}"></script>
+
+
     <script src="https://use.fontawesome.com/555750ba4f.js"></script>
   </body>
 </html>

@@ -35,9 +35,21 @@
             </ul>
         </div>
     </div>
+
 </header>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+<div th:fragment="universalScripts">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+
+    <script src="../static/js/login.js" th:src="@{/js/login.js}"></script>
+
+
+    <script src="https://use.fontawesome.com/555750ba4f.js"></script>
+</div>
+
 </body>
 </html>

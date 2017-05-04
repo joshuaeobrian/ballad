@@ -34,7 +34,7 @@
 
     <div class="header2">
       <div class="top-head">
-        <input type="text" name="" placeholder="Untitled ballad" />
+        <input type="text" name="" id="title" placeholder="Untitled ballad" />
         <!-- <span>By: Isaiah Anderson</span> -->
       </div>
       <div class="bottom-head">
@@ -65,8 +65,8 @@
           </label>
         </div>
         <div class="save">
-          <button>Export</button>
-          <button>Save</button>
+          <button value="Export">Export</button>
+          <button value="Save">Save</button>
         </div>
       </div>
     </div>
@@ -88,16 +88,14 @@
             <li>A</li>
             <li>B</li>
           </ul>
-          <textarea name="name" rows="8" cols="80">Cat</textarea>
+          <textarea name="name" id="ballad-input" rows="8" cols="80">Cat</textarea>
         </div>
-        <div class="rhymes">
-
+        <div class="rhymes" id="rhyme-bank">
+          <h5></h5>
         </div>
       </div>
     <!-- <button type="button" name="button">Save</button>
     <button type="button" name="button">Export</button> -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../static/js/script.js"></script>
     <!-- <input type="text" name="" value="title" />
     <h2 th:text="${isLoggedIn} ? 'By: '+${user.firstName}+' '+${user.lastName} :  ''">by: Isaiah Anderson</h2>
     <div class="container">
@@ -127,12 +125,15 @@
 =======
     <button type="button" name="button">Save</button>
     <button type="button" name="button">Export</button>-->
->>>>>>> 20c167a6eebb6afb6733077a7d6b17bf92f7cd69
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script th:src="@{/js/FileSaver.js}"></script>
+    <div th:replace="login :: loginPage"></div>
+    <div th:replace="layout :: universalScripts">
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+      <script src="https://use.fontawesome.com/555750ba4f.js"></script>
+    </div>
     <script type="text/javascript" src="../static/js/editor.js" th:src="@{/js/editor.js}"></script>
-    <script type="text/javascript" src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+
 
     <script src="https://use.fontawesome.com/555750ba4f.js"></script>
   </body>

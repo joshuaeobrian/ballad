@@ -21,4 +21,6 @@ public interface BalladRepository {
     List<Ballad> sortByPopular();
 
     List<Ballad> getTopThreePopular();
+
+    List<Ballad> getPopularBallads();
 }

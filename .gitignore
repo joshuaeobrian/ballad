@@ -26,4 +26,4 @@ nbdist/
 ### Sass ###
 .sass-cache/
 styles.css.map
-styles.scss
+#styles.scss

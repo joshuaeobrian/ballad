@@ -41,7 +41,7 @@
     <section id="head">
       <div class="head-box">
         <h1>The notepad for lyricists</h1>
-        <img src="../static/images/Laptop.png" alt="">
+        <img src="../static/images/Laptop.png" th:src="@{/images/Laptop.png}" alt=""/>
       </div>
     </section>
 
@@ -50,19 +50,15 @@
       <div class="preview-container">
       <!-- These are the divs that will hold three popular ballads. The see more link will link to the actual popular page. Only the first couple lines of the lyrics will show in these boxes-->
 
-      <div class="pop-ballad" th:each="popular : ${topThree}" th:object="${popular}">
-        <div class="top-border">
-
-        </div>
-        <h1 th:text="*{title}">Humble</h1>
-        <h2 th:text="*{owner.firstName}">Kendrick Lamar</h2>
-        <p th:text="*{ballad}">"My left stroke just went Viral<br>Right stroke put lil' baby in a spiral"</p>
-        <span>March 7, 2017</span>
-<div class="bottom-border">
-
-</div>
+        <div class="pop-ballad" th:each="popular : ${topThree}" th:object="${popular}">
+            <div class="top-border"></div>
+              <h1 th:text="*{title}">Humble</h1>
+              <h2 th:text="*{owner.firstName}">Kendrick Lamar</h2>
+              <p th:text="*{ballad}">"My left stroke just went Viral<br/>Right stroke put lil' baby in a spiral"</p>
+              <span th:text="*{{creationDate}}">March 7, 2017</span>
+          <div class="bottom-border"></div>
       </div>
-      <div class="pop-ballad">
+      <div class="pop-ballad" th:remove="all">
         <div class="top-border">
 
         </div>
@@ -74,7 +70,7 @@
 
 </div>
       </div>
-      <div class="pop-ballad">
+        <div class="pop-ballad" th:remove="all">
         <div class="top-border"></div>
         <h1>Humble</h1>
         <h2>Jackson Philips</h2>
@@ -120,20 +116,7 @@
     <footer></footer>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-      var logged = false;
-      $("#logged").css('display','none');
-      $('#not-logged').click(function() {
-        $('#not-logged').css('display', 'none');
-        $('#logged').css('display', 'block');
-      });
-
-      $('#logged').click(function() {
-        $('.dropdown').slideToggle();
-      })
-    })
-    </script>
+    <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
     <script src="https://use.fontawesome.com/555750ba4f.js"></script>
   </body>
 </html>

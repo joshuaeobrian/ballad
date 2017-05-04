@@ -3,6 +3,7 @@ package com.tiy.ballad.web.controller;
 import com.tiy.ballad.model.Ballad;
 import com.tiy.ballad.model.User;
 import com.tiy.ballad.service.BalladService;
+import com.tiy.ballad.service.SessionService;
 import com.tiy.ballad.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,8 @@ public class BalladController {
     private UserService userService;
     @Autowired
     private BalladService balladService;
+    @Autowired
+    private SessionService sessionService;
 
     @ModelAttribute("id")
     public Integer getID(){
@@ -46,17 +49,24 @@ public class BalladController {
     }
 
     @RequestMapping("/popular")
-    public String signUpForm(){
-        return "popular";
+    public String popular(HttpSession session,Model model){
+        Object[] current = sessionService.isSession(session);
 
+        model.addAttribute("user", current[1]);
+        model.addAttribute("isLoggedIn", current[0]);
+
+        model.addAttribute("popular", balladService.getPopularBallads());
+        return "popular";
     }
 
-    @RequestMapping("/myballads")
-    public String profile(@ModelAttribute("id") Integer id, Model model){
-        User user = userService.findUserById(4);
-        System.out.println(user.toString());
+    @RequestMapping("/my-ballads")
+    public String profile(HttpSession session, Model model){
+        Object[] current = sessionService.isSession(session);
+        User user =(User) current[1];
+        model.addAttribute("user", current[1]);
+        model.addAttribute("isLoggedIn", current[0]);
         List<Ballad> ballad = balladService.showMyBallads(user);
-        System.out.println(ballad.toString());
+
         model.addAttribute("ballads", ballad);
         model.addAttribute("ballad_title","My Ballads");
 
@@ -66,7 +76,10 @@ public class BalladController {
 
 
     @RequestMapping("/editor")
-    public String ballad(Model model){
+    public String ballad(HttpSession session, Model model){
+        Object[] current = sessionService.isSession(session);
+        model.addAttribute("user", current[1]);
+        model.addAttribute("isLoggedIn", current[0]);
         model.addAttribute("ballad",new Ballad());
         return "editor";
     }
@@ -75,7 +88,6 @@ public class BalladController {
     public String displayBalladWithId(@PathVariable Integer id, Model model,HttpSession session){
         session.setAttribute("balladId",id);
         Ballad ballad = balladService.findBalladById(id);
-//        session.setAttribute("id",ballad.getOwner().getId());
 
         model.addAttribute("ballad", ballad);
         return "testing/ballad";

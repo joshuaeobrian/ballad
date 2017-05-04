@@ -118,6 +118,9 @@ $(document).ready(function () {
                 input.value = (input.value+"\n\n["+action+"]\n");
                 console.log(action);
             },
+            Section: ()=>{
+                input.value = (input.value+"\n\n["+action+"]\n");
+            },
             Outro: ()=>{
                 input.value = (input.value+"\n\n["+action+"]\n");
                 console.log(action);
@@ -127,7 +130,8 @@ $(document).ready(function () {
                     title: $("#title").val(),
                     content: $("#ballad-input").val(),
                 };
-                button.textContent = "Update";
+                //button.textContent = "Update";
+                button.value = "Update";
                 postBallads("/saveNewBallad",ballad);
 
             },
@@ -139,6 +143,20 @@ $(document).ready(function () {
                 postBallads("/updateBallad",ballad);
             },
             Delete: ()=>{
+
+            },
+            Unknown: ()=>{
+                document.location.href = "/login";
+            },
+            Export: ()=>{
+                let link = document.getElementById('export');
+                var blob = new Blob([input.value], {type: "text/plain;charset=utf-8"});
+                //link.download = "ballad.txt";
+                //window.location.href = "data:text/plain;charset=UTF-8,Hello World";
+                //const text = window.URL.createObjectURL(input.value);
+                //link.href = text;
+                saveAs(blob,"myBallad.txt");
+
 
             },
             Notes:()=>{

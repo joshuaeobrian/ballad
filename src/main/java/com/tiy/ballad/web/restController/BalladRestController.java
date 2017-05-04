@@ -23,23 +23,18 @@ public class BalladRestController {
     private UserService userService;
 
     @PostMapping("/saveNewBallad")
-    public String saveNewBallad(HttpSession session,String title,  String content){
-
-        Integer userId = Integer.parseInt(session.getAttribute("id").toString());
+    public void saveNewBallad(HttpSession session,String title,  String content){
+        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         User owner = userService.findUserById(userId);
         Ballad ballad = new Ballad(title,content, owner);
         Integer balladId = balladService.saveNewBallad(ballad);
         System.out.println("This is ballad ID: "+balladId);
         session.setAttribute("balladId",balladId);
-
-
-
-      return null;
     }
 
     @PostMapping("/updateBallad")
     public void updateBallad(HttpSession session, String title, String content){
-        Integer userId = Integer.parseInt(session.getAttribute("id").toString());
+        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         Integer balladId = Integer.parseInt(session.getAttribute("balladId").toString());
         System.out.println("This is user ID: "+userId);
         System.out.println("This is ballad ID: "+balladId);
@@ -49,20 +44,17 @@ public class BalladRestController {
         ballad.setBallad(content);
         balladService.updateBallad(ballad, user);
 
-
-
     }
 
     @PostMapping("/deleteBallad")
-    public String deleteBalladWithId(Integer balladId){
+    public void deleteBalladWithId(Integer balladId){
         balladService.deleteBallad(balladId);
-        return null;
     }
 
     @PostMapping("/myBallads")
     public List<Ballad> showMyBallads(HttpSession session){
         if(!session.isNew()){
-            Integer id = Integer.parseInt(session.getAttribute("id").toString());
+            Integer id = Integer.parseInt(session.getAttribute("userId").toString());
             User user = userService.findUserById(id);
             return balladService.showMyBallads(user);
         }else{
@@ -70,28 +62,12 @@ public class BalladRestController {
         }
     }
 
-    @GetMapping("/sortByRecent")
-    public List<Ballad> sortBalladsByRecent(){
-        return null;
-    }
-    @PostMapping("/sortByAlphabetical")
-    public List<Ballad> sortByAlphabetical(boolean isAz){
-        return null;
+    @GetMapping("/sortBallads")
+    public List<Ballad> sortBalladsByRecent(HttpSession session,Boolean userOnly ,Boolean isPublic, Boolean isPrivate, Integer caseId){
+        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
+        return balladService.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId);
     }
 
-    @GetMapping("/sortByLikes")
-    public List<Ballad> sortByLikes(){
-        return null;
-    }
-    @GetMapping("/sortByTag")
-    public List<Ballad> sortByTag(String tagName){
-        return null;
-    }
-
-    @GetMapping("/showByTag")
-    public List<Ballad> showAllWithTagName(){
-        return null;
-    }
 
 
 }

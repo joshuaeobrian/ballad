@@ -43,4 +43,8 @@ public class BalladService {
     public List<Ballad> getPopularBallads() {
         return repository.getPopularBallads();
     }
+
+    public List<Ballad> sortBallads(Boolean userOnly,Integer userId,Boolean isPublic, Boolean isPrivate, Integer caseId) {
+        return repository.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId);
+    }
 }

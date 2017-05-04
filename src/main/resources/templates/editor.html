@@ -46,7 +46,7 @@
         <button type="button" name="button" value="Section">+Section</button>
       </div>
       <div class="main-area">
-        <textarea id="ballad-input" name="name" rows="8" cols="80">Cat</textarea>
+        <textarea id="ballad-input" name="name" rows="8" cols="80">{{content}}</textarea>
       </div>
       <div class="rhymes">
         <ul id="rhyme-bank">
@@ -57,10 +57,12 @@
         </ul>
       </div>
     </div>
-    <button type="button" name="button">Save</button>
-    <button type="button" name="button">Export</button>
+    <button type="button" name="button" value="Save" th:value="${isLoggedIn} ? 'Save':'Unknown'">Save</button>
+    <button type="button" name="button" value="Export">Export</button>
+    <a href="#" download="ballad.txt" id="export">export</a>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script th:src="@{/js/FileSaver.js}"></script>
     <script type="text/javascript" src="../static/js/editor.js" th:src="@{/js/editor.js}"></script>
     <script type="text/javascript" src="../static/js/script.js" th:src="@{/js/script.js}"></script>
     <script src="https://use.fontawesome.com/555750ba4f.js"></script>

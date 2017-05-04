@@ -16,9 +16,11 @@ header {
     header .head-container .top-head {
       justify-content: space-between;
       height: 50%; }
-      header .head-container .top-head h1 {
+      header .head-container .top-head #logo {
         font-size: 3.5em;
         color: #00a; }
+        header .head-container .top-head #logo img {
+          width: 45%; }
       header .head-container .top-head a {
         text-decoration: none;
         letter-spacing: 1px;
@@ -33,7 +35,7 @@ header {
           right: 10%; }
           header .head-container .top-head a .dropdown li {
             width: 100%;
-            font-size: .8em;
+            font-size: 1em;
             line-height: 25px;
             letter-spacing: 1px; }
             header .head-container .top-head a .dropdown li:hover {
@@ -206,7 +208,12 @@ header {
     #home-page #about .features .feature-visual {
       width: 50%;
       height: 100%;
-      background: #04a777; }
+      background: #04a777;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #home-page #about .features .feature-visual img {
+        width: 70%; }
 #home-page footer {
   height: 200px;
   width: 100%;
@@ -230,31 +237,60 @@ header {
       height: auto;
       margin-bottom: 40px; }
 
-#login-page #login-section {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  width: 100%; }
-
-#login-page form {
-  display: flex;
-  flex-direction: column;
-  width: 90%; }
-  #login-page form h1 {
-    margin-top: 45px;
-    margin-bottom: 45px; }
-  #login-page form label {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 5px; }
-  #login-page form input {
-    height: 30px;
-    margin-bottom: 45px;
-    width: 30%; }
-  #login-page form button {
-    height: 30px;
-    margin-bottom: 45px;
-    width: 15%; }
+#login-page {
+  text-align: left; }
+  #login-page #login-section {
+    width: 80%;
+    margin: 0 auto;
+    border-top: 1px solid black; }
+  #login-page #signup-form {
+    display: none; }
+  #login-page h1 {
+    color: #9c0f5f;
+    font-size: 3em; }
+  #login-page input {
+    width: 400px;
+    height: 25px;
+    border: 2px solid #2a2a2a; }
+  #login-page .usr, #login-page .pass, #login-page .sub, #login-page .fname, #login-page .lname, #login-page .eaddress {
+    margin: 50px 0; }
+    #login-page .usr label, #login-page .pass label, #login-page .sub label, #login-page .fname label, #login-page .lname label, #login-page .eaddress label {
+      font-size: 1.5em;
+      font-weight: bold; }
+    #login-page .usr input, #login-page .pass input, #login-page .sub input, #login-page .fname input, #login-page .lname input, #login-page .eaddress input {
+      margin-top: 15px; }
+  #login-page .pass {
+    margin-bottom: 0; }
+  #login-page .sub {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    border-bottom: 2px solid black; }
+    #login-page .sub button {
+      background: #04a777;
+      box-sizing: border-box;
+      padding: 10px 25px;
+      font-size: 1.5em;
+      border-radius: 20px;
+      border: none;
+      color: white; }
+    #login-page .sub a {
+      text-decoration: none;
+      color: #555;
+      font-size: 1.1em; }
+  #login-page span {
+    color: #555;
+    text-weight: 300;
+    font-size: 1.2em;
+    padding-bottom: 100px; }
+    #login-page span a {
+      text-decoration: none;
+      text-weight: bold;
+      color: #2a2a2a; }
 
 #ballads-page
 #ballads-page #tools-section {
@@ -323,12 +359,101 @@ header {
 #ballads-page .liked {
   background: red; }
 
-#editor-page input {
-  border: none; }
+#editor-page header {
+  height: 100px; }
+#editor-page .header2 {
+  width: 100%;
+  height: 140px;
+  background: #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  #editor-page .header2 .top-head, #editor-page .header2 .bottom-head {
+    width: 80%;
+    height: 50%; }
+  #editor-page .header2 .top-head input {
+    font-size: 2.5em;
+    background: none;
+    color: white;
+    font-style: italic;
+    border: none;
+    margin-top: 10px; }
+    #editor-page .header2 .top-head input:after {
+      content: "By: Isaiah Anderson"; }
+  #editor-page .header2 .bottom-head {
+    display: flex;
+    justify-content: space-between; }
+    #editor-page .header2 .bottom-head .tools, #editor-page .header2 .bottom-head .rhyme, #editor-page .header2 .bottom-head .transform, #editor-page .header2 .bottom-head .align, #editor-page .header2 .bottom-head .notes, #editor-page .header2 .bottom-head .status, #editor-page .header2 .bottom-head .save {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 1.5em; }
+    #editor-page .header2 .bottom-head .tools span {
+      color: white;
+      letter-spacing: 1px; }
+    #editor-page .header2 .bottom-head .rhyme button {
+      background: none;
+      border: none;
+      color: #04a777;
+      font-size: 1em;
+      letter-spacing: 1px; }
+    #editor-page .header2 .bottom-head .transform button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1em;
+      margin: 3px; }
+    #editor-page .header2 .bottom-head .align button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1em;
+      margin: 3px; }
+    #editor-page .header2 .bottom-head .save {
+      justify-content: flex-end;
+      width: 20%; }
+      #editor-page .header2 .bottom-head .save button {
+        background: #04a777;
+        color: white;
+        font-size: 1em;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        margin-left: 15px; }
 #editor-page .container {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between; }
+  #editor-page .container .main-area {
+    width: 70%; }
+    #editor-page .container .main-area #rhyme-scheme {
+      margin: 0;
+      position: absolute;
+      font-size: 1.5em;
+      padding-top: 80px;
+      line-height: 40px;
+      list-style: none;
+      color: #9c0f5f; }
+      #editor-page .container .main-area #rhyme-scheme li {
+        box-sizing: border-box;
+        padding-right: 10px;
+        border-right: 1px solid black; }
+    #editor-page .container .main-area textarea {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      padding-left: 80px;
+      padding-top: 80px;
+      font-size: 1.5em;
+      line-height: 40px;
+      border: none; }
+  #editor-page .container .rhymes {
+    width: 30%;
+    height: 100%;
+    background: #ddd; }
 
 * {
   font-family: 'Istok Web', sans-serif; }

@@ -58,7 +58,12 @@ $(document).ready(function () {
         e.preventDefault();
         $("#signup-form").show();
         $("#login-form").hide();
+    });
 
+    $("#login").click(function (e) {
+        e.preventDefault();
+        $("#signup-form").hide();
+        $("#login-form").show();
     });
 
 });

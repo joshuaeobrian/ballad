@@ -20,9 +20,12 @@ header {
       justify-content: space-between;
       // background: rgba(0,0,0,.2);
       height: 50%;
-      h1 {
+      #logo {
         font-size: 3.5em;
         color: #00a;
+        img {
+          width: 45%;
+        }
         // padding: 0;
       }
       a {
@@ -40,7 +43,7 @@ header {
           // border: 1px solid black;
           li {
             width: 100%;
-            font-size: .8em;
+            font-size: 1em;
             line-height: 25px;
             letter-spacing: 1px;
             &:hover {
@@ -295,6 +298,12 @@ header {
         width: 50%;
         height: 100%;
         background: $green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 70%;
+        }
       }
     }
   }

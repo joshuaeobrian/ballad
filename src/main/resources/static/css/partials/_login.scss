@@ -1,40 +1,71 @@
 
 
-#login-page #login-section {
-  align-items: center;
-  display: flex;
-  // height: 500px;
-  justify-content: center;
-  width: 100%;
-}
-
-#login-page form {
-  display: flex;
-  flex-direction: column;
-  // flex-wrap: wrap;
-  // height: 300px;
-  width: 90%;
-
+#login-page {
+  text-align: left;
+  #login-section {
+    width: 80%;
+    margin: 0 auto;
+    border-top: 1px solid black;
+  }
+  #signup-form {
+    display: none;
+  }
   h1 {
-    margin-top: 45px;
-    margin-bottom: 45px;
+    color: $magenta;
+    font-size: 3em;
   }
-
-  label {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
   input {
-    height: 30px;
-    margin-bottom: 45px;
-    width: 30%;
+    width: 400px;
+    height: 25px;
+    border: 2px solid $black;
   }
+  .usr,.pass,.sub,.fname,.lname,.eaddress {
+    margin: 50px 0;
+    label {
+      font-size: 1.5em;
+      font-weight: bold;
 
-  button {
-    height: 30px;
-    margin-bottom: 45px;
-    width: 15%;
+    }
+    input {
+      margin-top: 15px;
+    }
+  }
+  .pass {
+    margin-bottom: 0;
+  }
+  .sub {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    border-bottom: 2px solid black;
+    button {
+      background: $green;
+      box-sizing: border-box;
+      padding: 10px 25px;
+      font-size: 1.5em;
+      border-radius: 20px;
+      border: none;
+      color: white;
+    }
+    a {
+      text-decoration: none;
+      color: #555;
+      font-size: 1.1em;
+    }
+  }
+  span {
+    color: #555;
+    text-weight: 300;
+    font-size: 1.2em;
+    padding-bottom: 100px;
+    a {
+      text-decoration: none;
+      text-weight: bold;
+      color: $black;
+    }
   }
 }

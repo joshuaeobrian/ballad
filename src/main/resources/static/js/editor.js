@@ -1,7 +1,6 @@
 /**
  * Created by josh on 4/30/17.
  */
-console.log("hello");
 const input = document.getElementById("ballad-input");
 const rhymeBank = document.getElementById("rhyme-bank");
 const balladBank = document.getElementById("ballads");
@@ -27,10 +26,8 @@ const postForRhymes = (word)=>{
                 rhymeBank.appendChild(element);
 
             }
-
             return words;
         }
-
     );
 };
 
@@ -62,9 +59,8 @@ $(document).ready(function () {
         // let con = $("#user-input").prop("")
         const txt = selectedText();
         if (txt != "" && !txt.includes(" ")){
-            console.log(postForRhymes(txt));
+           postForRhymes(txt);
         }
-
     });
 
     /**
@@ -81,13 +77,9 @@ $(document).ready(function () {
             let index = input.value.substring(0,cursorPosition).split(" ");
             let word = index[index.length-1];
             if(word != ""&& !word.includes("[")){
-                console.log(word);
-
-                console.log(postForRhymes(word));
+               postForRhymes(word);
 
             }
-
-
         }
     });
     $("button").click(function (e) {
@@ -96,7 +88,6 @@ $(document).ready(function () {
         if(action.includes("Note")){
             action = "Notes";
         }
-
         const actions = {
             Intro: ()=>{
                 // $("#ballad-input").append("["+action+"]\n");
@@ -127,30 +118,19 @@ $(document).ready(function () {
                     title: $("#title").val(),
                     content: $("#ballad-input").val(),
                 };
-                //button.textContent = "Update";
-                button.value = "Update";
-                postBallads("/saveNewBallad",ballad);
 
-            },
-            Update: ()=>{
-                const ballad = {
-                    title: $("#title").val(),
-                    content: $("#ballad-input").val(),
-                };
-                postBallads("/updateBallad",ballad);
+                postBallads("/saveBallad",ballad);
+
             },
             Delete: ()=>{
 
-            },
-            Unknown: ()=>{
-                document.location.href = "/login";
             },
             Export: ()=>{
                 const ballad = {
                     title: $("#title").val(),
                     content: $("#ballad-input").val(),
                 };
-                postBallads("/saveNewBallad",ballad);
+                postBallads("/saveBallad",ballad);
 
                 document.location.href = "/download";
             },
@@ -160,6 +140,4 @@ $(document).ready(function () {
         };
         actions[action]();
     });
-
-
 });

@@ -24,7 +24,7 @@ public class BalladRestController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/saveNewBallad")
+    @PostMapping("/saveBallad")
     public void saveNewBallad(HttpSession session,String title,  String content){
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         if(userId == 0){
@@ -32,28 +32,32 @@ public class BalladRestController {
             session.setAttribute("ballad", content);
         }else{
             User owner = userService.findUserById(userId);
+            Integer balladId = Integer.parseInt(session.getAttribute("balladId").toString());
             Ballad ballad = new Ballad(title,content, owner);
-            Integer balladId = balladService.saveNewBallad(ballad);
-            System.out.println("This is ballad ID: "+balladId);
+            if(balladId != 0){
+                balladService.updateBallad(ballad,owner);
+            }else{
+                balladId = balladService.saveNewBallad(ballad);
+            }
+
             session.setAttribute("balladId",balladId);
         }
 
 
     }
 
-    @PostMapping("/updateBallad")
-    public void updateBallad(HttpSession session, String title, String content){
-        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
-        Integer balladId = Integer.parseInt(session.getAttribute("balladId").toString());
-        System.out.println("This is user ID: "+userId);
-        System.out.println("This is ballad ID: "+balladId);
-        User user = userService.findUserById(userId);
-        Ballad ballad = balladService.findBalladById(balladId);
-        ballad.setTitle(title);
-        ballad.setBallad(content);
-        balladService.updateBallad(ballad, user);
-
-    }
+//    @PostMapping("/updateBallad")
+//    public void updateBallad(HttpSession session, String title, String content){
+//        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
+//        Integer balladId = Integer.parseInt(session.getAttribute("balladId").toString());
+//
+//        User user = userService.findUserById(userId);
+//        Ballad ballad = balladService.findBalladById(balladId);
+//        ballad.setTitle(title);
+//        ballad.setBallad(content);
+//        balladService.updateBallad(ballad, user);
+//
+//    }
 
     @PostMapping("/deleteBallad")
     public void deleteBalladWithId(Integer balladId){

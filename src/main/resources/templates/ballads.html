@@ -66,8 +66,8 @@
           <h1 th:text="*{title}">Kendrick Lamar</h1>
           <p th:text="*{ballad}">{{sfs}}</p>
           <!-- Toggling Between Public, Private, and Liked Classes-->
-          <div class="private" th:class="*{publicView} ? 'private' : 'public'">
-            <span th:text="*{publicView} ? 'Private' : 'Public'">Private</span>
+          <div class="private" th:class="*{publicView} ? 'public' : 'private'">
+            <span th:text="*{publicView} ? 'Public' : 'Private'">Private</span>
           </div>
           <!-- <div class="public">
             <span>Public</span>

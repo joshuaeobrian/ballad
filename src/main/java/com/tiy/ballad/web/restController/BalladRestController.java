@@ -27,11 +27,18 @@ public class BalladRestController {
     @PostMapping("/saveNewBallad")
     public void saveNewBallad(HttpSession session,String title,  String content){
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
-        User owner = userService.findUserById(userId);
-        Ballad ballad = new Ballad(title,content, owner);
-        Integer balladId = balladService.saveNewBallad(ballad);
-        System.out.println("This is ballad ID: "+balladId);
-        session.setAttribute("balladId",balladId);
+        if(userId == 0){
+            session.setAttribute("title",title);
+            session.setAttribute("ballad", content);
+        }else{
+            User owner = userService.findUserById(userId);
+            Ballad ballad = new Ballad(title,content, owner);
+            Integer balladId = balladService.saveNewBallad(ballad);
+            System.out.println("This is ballad ID: "+balladId);
+            session.setAttribute("balladId",balladId);
+        }
+
+
     }
 
     @PostMapping("/updateBallad")
@@ -71,13 +78,23 @@ public class BalladRestController {
     }
 
     @GetMapping("/download")
-    public ResponseEntity<byte[]> downloadBallad( String title, String content) throws Exception{
+    public ResponseEntity<byte[]> downloadBallad(HttpSession session, Integer balladId) throws Exception{
+        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
+        String title = "";
+        String content = "";
+        if(userId == 0){
+            title = session.getAttribute("title").toString();
+            content = session.getAttribute("ballad").toString();
+        }
+
+        Ballad ballad =balladService.findBalladById(7);
+
         byte[] output = content.getBytes();
 
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("charset", "utf-8");
-        headers.setContentType(MediaType.valueOf("text/html"));
+//        headers.setContentType(MediaType.valueOf("text/html"));
         headers.setContentType(MediaType.TEXT_MARKDOWN);
         headers.setContentLength(output.length);
         headers.set("Content-disposition", "attachment; filename="+title+".txt");

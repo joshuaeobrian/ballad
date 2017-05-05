@@ -146,11 +146,11 @@ $(document).ready(function () {
                 document.location.href = "/login";
             },
             Export: ()=>{
-                // const ballad = {
-                //     title: $("#title").val(),
-                //     content: $("#ballad-input").val(),
-                // };
-                // $.get("/download",
+                const ballad = {
+                    title: $("#title").val(),
+                    content: $("#ballad-input").val(),
+                };
+                // $.post("/download",
                 //     {
                 //       ballad
                 //

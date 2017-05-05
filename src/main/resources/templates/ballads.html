@@ -61,9 +61,10 @@
 
     <section id="ballad-cards-section">
       <div id="ballad-cards-container">
+
         <div class="ballad-card" th:each="theBallad : ${ballads}" th:object="${theBallad}">
           <h1 th:text="*{title}">Kendrick Lamar</h1>
-          <p th:text="*{ballad}">If I didn't ride blade on curb, would you still love me? If I minimized my net worth, would you still love me?</p>
+          <p th:text="*{ballad}">{{sfs}}</p>
           <!-- Toggling Between Public, Private, and Liked Classes-->
           <div class="private" th:class="*{publicView} ? 'private' : 'public'">
             <span th:text="*{publicView} ? 'Private' : 'Public'">Private</span>

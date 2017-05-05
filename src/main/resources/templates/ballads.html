@@ -13,7 +13,7 @@
 
       <div class="head-container">
         <div class="top-head">
-          <a href="home.html" id="logo"><img src="../static/images/ballad-logo_black.png" alt=""></a>
+          <a href="home.html" id="logo"><img src="../static/images/ballad-logo_black.png" alt=""/></a>
           <a href="#" id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Sign-Up</a>
           <a href="#" id="logged">Isaiah<i class="fa fa-caret-down" aria-hidden="true"></i>
             <ul class="dropdown">
@@ -120,8 +120,11 @@
       </div>
     </section>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
-    <script src="https://use.fontawesome.com/555750ba4f.js"></script>
+    <div th:replace="login :: loginPage"></div>
+    <div th:replace="layout :: universalScripts">
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+      <script src="https://use.fontawesome.com/555750ba4f.js"></script>
+    </div>
   </body>
 </html>

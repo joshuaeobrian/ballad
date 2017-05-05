@@ -16,7 +16,7 @@ const postForRhymes = (word)=>{
             const wordsToTrim = jQuery.parseJSON(data);
             console.log("BREAK:");
             console.log(wordsToTrim);
-            const bankedWords = rhymeBank.querySelectorAll("li");
+            const bankedWords = rhymeBank.querySelectorAll("h5");
             for(let i = 0; i < bankedWords.length; i++){
                 rhymeBank.removeChild(bankedWords[i]);
             }
@@ -24,10 +24,7 @@ const postForRhymes = (word)=>{
             for(let i = 0; i < wordsToTrim.length; i++){
                 let element = document.createElement("h5");
                 element.textContent = wordsToTrim[i]["word"];
-
-                let li = document.createElement('li');
-                li.appendChild(element);
-                rhymeBank.appendChild(li);
+                rhymeBank.appendChild(element);
 
             }
 
@@ -127,6 +124,9 @@ $(document).ready(function () {
                 input.value = (input.value+"\n\n["+action+"]\n");
                 console.log(action);
             },
+            Section: ()=>{
+                input.value = (input.value+"\n\n["+action+"]\n");
+            },
             Outro: ()=>{
                 input.value = (input.value+"\n\n["+action+"]\n");
                 console.log(action);
@@ -136,7 +136,8 @@ $(document).ready(function () {
                     title: $("#title").val(),
                     content: $("#ballad-input").val(),
                 };
-                button.textContent = "Update";
+                //button.textContent = "Update";
+                button.value = "Update";
                 postBallads("/saveNewBallad",ballad);
 
             },
@@ -149,6 +150,22 @@ $(document).ready(function () {
             },
             Delete: ()=>{
 
+            },
+            Unknown: ()=>{
+                document.location.href = "/login";
+            },
+            Export: ()=>{
+                // const ballad = {
+                //     title: $("#title").val(),
+                //     content: $("#ballad-input").val(),
+                // };
+                // $.get("/download",
+                //     {
+                //       ballad
+                //
+                //     });
+
+                document.location.href = "/download?title="+$("#title").val()+"&content="+$("#ballad-input").val();
             },
             Notes:()=>{
                 console.log(action);

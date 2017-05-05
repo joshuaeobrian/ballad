@@ -12,7 +12,7 @@
 
       <div class="head-container">
         <div class="top-head">
-          <a href="home.html" id="logo"><img src="../static/images/ballad-logo_black.png" alt=""></a>
+          <a href="home.html" id="logo"><img src="../static/images/ballad-logo_black.png" alt=""/></a>
           <a href="#" id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Sign-Up</a>
           <a href="#" id="logged">Isaiah<i class="fa fa-caret-down" aria-hidden="true"></i>
             <ul class="dropdown">
@@ -34,7 +34,7 @@
 
     <div class="header2">
       <div class="top-head">
-        <input type="text" name="" placeholder="Untitled ballad" />
+        <input type="text" name="" id="title" placeholder="Untitled ballad" />
         <!-- <span>By: Isaiah Anderson</span> -->
       </div>
       <div class="bottom-head">
@@ -68,13 +68,13 @@
         <div class="status">
           <span>Public</span>
           <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox"/>
             <div class="slider round"></div>
           </label>
         </div>
         <div class="save">
-          <button>Export</button>
-          <button>Save</button>
+          <button value="Export">Export</button>
+          <button value="Save">Save</button>
         </div>
       </div>
     </div>
@@ -96,19 +96,17 @@
             <li>A</li>
             <li>B</li>
           </ul>
-          <textarea name="name" rows="8" cols="80" id="text-to-render"></textarea>
+          <textarea name="name" rows="8" cols="80" id="ballad-input"></textarea>
           <div id="rendered-text">
 
           </div>
         </div>
-        <div class="rhymes">
-
+        <div class="rhymes" id="rhyme-bank">
+          <h5></h5>
         </div>
       </div>
     <!-- <button type="button" name="button">Save</button>
     <button type="button" name="button">Export</button> -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../static/js/script.js"></script>
     <!-- <input type="text" name="" value="title" />
     <h2 th:text="${isLoggedIn} ? 'By: '+${user.firstName}+' '+${user.lastName} :  ''">by: Isaiah Anderson</h2>
     <div class="container">
@@ -120,7 +118,7 @@
         <button type="button" name="button" value="Section">+Section</button>
       </div>
       <div class="main-area">
-        <textarea id="ballad-input" name="name" rows="8" cols="80">Cat</textarea>
+        <textarea id="ballad-input" name="name" rows="8" cols="80">{{content}}</textarea>
       </div>
       <div class="rhymes">
         <ul id="rhyme-bank">
@@ -131,12 +129,22 @@
         </ul>
       </div>
     </div>
+<<<<<<< HEAD
+    <button type="button" name="button" value="Save" th:value="${isLoggedIn} ? 'Save':'Unknown'">Save</button>
+    <button type="button" name="button" value="Export">Export</button>
+    <a href="#" download="ballad.txt" id="export">export</a>
+=======
     <button type="button" name="button">Save</button>
     <button type="button" name="button">Export</button>-->
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <div th:replace="login :: loginPage"></div>
+    <div th:replace="layout :: universalScripts">
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+      <script src="https://use.fontawesome.com/555750ba4f.js"></script>
+    </div>
     <script type="text/javascript" src="../static/js/editor.js" th:src="@{/js/editor.js}"></script>
-    <script type="text/javascript" src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+
 
     <script src="https://use.fontawesome.com/555750ba4f.js"></script>
   </body>

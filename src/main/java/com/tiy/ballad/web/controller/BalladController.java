@@ -81,6 +81,7 @@ public class BalladController {
         model.addAttribute("user", current[1]);
         model.addAttribute("isLoggedIn", current[0]);
         model.addAttribute("ballad",new Ballad());
+        model.addAttribute("isEditor",true);
         return "editor";
     }
 

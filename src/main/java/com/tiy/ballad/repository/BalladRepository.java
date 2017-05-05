@@ -16,9 +16,8 @@ public interface BalladRepository {
     List<Ballad> showPublicBallads();
     List<Ballad> showCollaborating();
     Ballad findBalladById(Integer balladId);
-    List<Ballad> sortByMostRecent();
-    List<Ballad> sortByAlphabetical(boolean isAz);
-    List<Ballad> sortByPopular();
+    List<Ballad> sortBallads(Boolean userOnly,Integer userId,Boolean isPublic, Boolean isPrivate, Integer caseId);
+
 
     List<Ballad> getTopThreePopular();
 

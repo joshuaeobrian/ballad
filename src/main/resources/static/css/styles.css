@@ -398,7 +398,7 @@ header {
         margin: 0;
         padding: 10px;
         background: #2a2a2a; }
-        #editor-page .header2 .bottom-head .tools span ul li:hover {
+        #editor-page .header2 .bottom-head .tools span ul li {
           color: #04a777; }
     #editor-page .header2 .bottom-head .rhyme button {
       background: none;

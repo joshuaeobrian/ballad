@@ -53,12 +53,7 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "?," +
                         "(SELECT id FROM log_roles WHERE action='Edit')," +
                         "(SELECT id FROM ballad_items WHERE item_type='Ballad')" +
-                        ");",
-                ballad.getTitle(),
-                ballad.getBallad(),
-                ballad.getId(),
-                ballad.getId(),
-                user.getId());
+                        ");", ballad.getTitle(), ballad.getBallad(), ballad.getId(), ballad.getId(), user.getId());
     }
 
     @Override
@@ -66,11 +61,7 @@ public class BalladRepositoryImpl implements BalladRepository {
         template.update("DELETE FROM ballad_interaction WHERE ballad_id = ?;\n" +
                 "DELETE FROM collaborators WHERE ballad_id = ?;\n" +
                 "DELETE FROM ballad_logs WHERE ballad_id = ?;\n" +
-                "DELETE FROM ballads WHERE id=?;",
-                balladId,
-                balladId,
-                balladId,
-                balladId);
+                "DELETE FROM ballads WHERE id=?;", balladId, balladId, balladId, balladId);
     }
 
     @Override
@@ -84,31 +75,13 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "  JOIN ballad_interaction as i ON b.id = i.ballad_id\n" +
                         "  WHERE b.creator_id =?;",
                 new Object[]{user.getId()},
-                (rs,i)-> new Ballad(
-                        rs.getInt("id"),
-                        rs.getString("title"),
-                        rs.getString("ballad"),
-                        user,
-                        collaborators( rs.getInt("id")),
-                        LocalDate.parse(rs.getString("creation_date")),
-                        null,
-                        rs.getBoolean("favorite"),
-                        rs.getBoolean("ispublic")
-                ));
-
+                (rs,i)-> new Ballad(rs.getInt("id"), rs.getString("title"), rs.getString("ballad"), user, collaborators( rs.getInt("id")), LocalDate.parse(rs.getString("creation_date")), null, rs.getBoolean("favorite"), rs.getBoolean("ispublic")));
     }
     public List<User> collaborators(Integer balladId){
         try {
             return template.query("SELECT u.id AS user_id, u.first_name, u.last_name, u.email, u.username, u.password,u.active FROM collaborators AS c JOIN ballad_users AS u ON c.ballad_user_id = u.id WHERE ballad_id=?",
                     new Object[]{balladId},
-                    (rs, i) -> new User(
-                            rs.getInt("user_id"),
-                            rs.getString("first_name"),
-                            rs.getString("last_name"),
-                            rs.getString("email"),
-                            rs.getString("username"),
-                            rs.getString("password"),
-                            rs.getBoolean("active")
+                    (rs, i) -> new User(rs.getInt("user_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"), rs.getString("username"), rs.getString("password"), rs.getBoolean("active")
                     ));
         }catch (Exception e){
             return null;
@@ -125,24 +98,9 @@ public class BalladRepositoryImpl implements BalladRepository {
                        "  JOIN ballad_users as u on b.creator_id = u.id \n" +
                        "  JOIN ballad_interaction as i ON b.id = i.ballad_id\n" +
                        "  WHERE b.public=TRUE;",
-               (rs, i) -> new Ballad(
-                       rs.getInt("id"),
-                       rs.getString("title"),
-                       rs.getString("ballad"),
-                       new User(
-                               rs.getInt("user_id"),
-                               rs.getString("first_name"),
-                               rs.getString("last_name"),
-                               rs.getString("email"),
-                               rs.getString("username"),
-                               rs.getString("password"),
-                               rs.getBoolean("active")
-                       ),
-                       collaborators( rs.getInt("id")),
-                       LocalDate.parse(rs.getString("creation_date")),
-                       null,
-                       rs.getBoolean("favorite"),
-                       rs.getBoolean("liked")
+               (rs, i) -> new Ballad(rs.getInt("id"), rs.getString("title"), rs.getString("ballad"),
+                       new User(rs.getInt("user_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("username")),
+                       collaborators( rs.getInt("id")),LocalDate.parse(rs.getString("creation_date")), null, rs.getBoolean("favorite"), rs.getBoolean("liked")
                ));
     }
 
@@ -161,40 +119,39 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "  JOIN ballad_users as u on b.creator_id = u.id \n" +
                         "  JOIN ballad_interaction as i ON b.id = i.ballad_id\n" +
                         "  WHERE b.id=?;",
-                new Object[]{balladId},(rs, i) -> new Ballad(
-                        rs.getInt("id"),
-                        rs.getString("title"),
-                        rs.getString("ballad"),
-                        new User(
-                                rs.getInt("user_id"),
-                                rs.getString("first_name"),
-                                rs.getString("last_name"),
-                                rs.getString("email"),
-                                rs.getString("username"),
-                                rs.getString("password"),
-                                rs.getBoolean("active")
-                        ),
-                        collaborators( rs.getInt("id")),
-                        LocalDate.parse(rs.getString("creation_date")),
-                        null,
-                        rs.getBoolean("favorite"),
-                        rs.getBoolean("liked")
+                new Object[]{balladId},(rs, i) -> new Ballad(rs.getInt("id"), rs.getString("title"), rs.getString("ballad"),
+                        new User(rs.getInt("user_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("username")),
+                        collaborators( rs.getInt("id")), LocalDate.parse(rs.getString("creation_date")), null, rs.getBoolean("favorite"), rs.getBoolean("liked")
                 ));
     }
 
     @Override
-    public List<Ballad> sortByMostRecent() {
-        return null;
-    }
-
-    @Override
-    public List<Ballad> sortByAlphabetical(boolean isAz) {
-        return null;
-    }
-
-    @Override
-    public List<Ballad> sortByPopular() {
-        return null;
+    public List<Ballad> sortBallads(Boolean userOnly,Integer userId,Boolean isPublic, Boolean isPrivate, Integer caseId) {
+        return template.query("SELECT\n" +
+                        "  COALESCE((SELECT count(*) FROM ballad_interaction WHERE ballad_id = b.id AND favorite = TRUE GROUP BY ballad_id),0) AS likecount,\n" +
+                        "  b.id AS id, b.title AS title, b.ballad AS ballad, b.creation_date AS creation_date, b.public AS ispublic,\n" +
+                        "  u.id AS user_id, u.first_name, u.last_name, u.email, u.username, u.password,u.active\n" +
+                        "FROM ballads AS b\n" +
+                        "  JOIN ballad_users AS u ON b.creator_id = u.id\n" +
+                        "  JOIN ballad_interaction AS i ON b.id = i.ballad_id\n" +
+                        " WHERE CASE WHEN ? THEN u.id=? OR b.public=? AND b.public=?\n" +
+                        "       ELSE b.public=TRUE OR b.public=FALSE END GROUP BY b.id, u.id ORDER BY\n" +
+                        "  CASE WHEN (1 = 1) THEN b.title END ASC,\n" +
+                        "  CASE WHEN (0 = 2) THEN b.title END DESC,\n" +
+                        "  CASE WHEN (0 = 3) THEN b.creation_date END ASC,\n" +
+                        "  CASE WHEN (0 = 4) THEN b.creation_date END DESC,\n" +
+                        "  CASE WHEN (0 = 5) THEN 'likecount' END  ASC,\n" +
+                        "  CASE WHEN (0 = 6) THEN 'likecount' END  DESC,\n" +
+                        "  CASE WHEN (0 = 7) THEN u.username END  ASC,\n" +
+                        "  CASE WHEN (0 = 8) THEN u.username END  DESC;",
+                new Object[]{
+                        userOnly, userId, isPublic, isPrivate, caseId, caseId, caseId, caseId, caseId, caseId, caseId, caseId
+                },
+                (rs, i) -> new Ballad(rs.getInt("id"), rs.getString("title"), rs.getString("ballad"),
+                        new User(rs.getInt("user_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("username")),
+                        collaborators( rs.getInt("id")), LocalDate.parse(rs.getString("creation_date")),
+                        null, true, true
+                ));
     }
 
     @Override
@@ -203,29 +160,24 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "  (select count(*) from ballad_interaction where ballad_id = b.id AND favorite = TRUE GROUP BY ballad_id) AS count,\n" +
                         "  b.id as id, b.title as title, b.ballad as ballad, b.creation_date AS creation_date, b.public AS ispublic,\n" +
                         "  u.id as user_id, u.first_name, u.last_name, u.email, u.username, u.password,u.active\n" +
-
                         "FROM ballads AS b\n" +
                         "  JOIN ballad_users as u on b.creator_id = u.id\n" +
                         "  JOIN ballad_interaction as i ON b.id = i.ballad_id\n" +
                         "  WHERE b.public=TRUE AND favorite=TRUE GROUP BY b.id, u.id ORDER BY count desc LIMIT 3;",
                 (rs, i) -> new Ballad(
-                        rs.getInt("id"),
-                        rs.getString("title"),
-                        rs.getString("ballad"),
+                        rs.getInt("id"), rs.getString("title"), rs.getString("ballad"),
                         new User(
-                                rs.getInt("user_id"),
-                                rs.getString("first_name"),
-                                rs.getString("last_name"),
-                                rs.getString("username")
+                                rs.getInt("user_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("username")
                         ),
-                        collaborators( rs.getInt("id")),
-                        LocalDate.parse(rs.getString("creation_date")),
-                        null,
-                        true,
-                        true
+                        collaborators( rs.getInt("id")), LocalDate.parse(rs.getString("creation_date")),
+                        null, true, true
                 ));
     }
 
+    /**
+     * Eliminate with sort method
+     * @return
+     */
     @Override
     public List<Ballad> getPopularBallads() {
         return template.query("SELECT\n" +

@@ -5,9 +5,11 @@ import com.tiy.ballad.model.User;
 import com.tiy.ballad.service.BalladService;
 import com.tiy.ballad.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -23,23 +25,18 @@ public class BalladRestController {
     private UserService userService;
 
     @PostMapping("/saveNewBallad")
-    public String saveNewBallad(HttpSession session,String title,  String content){
-
-        Integer userId = Integer.parseInt(session.getAttribute("id").toString());
+    public void saveNewBallad(HttpSession session,String title,  String content){
+        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         User owner = userService.findUserById(userId);
         Ballad ballad = new Ballad(title,content, owner);
         Integer balladId = balladService.saveNewBallad(ballad);
         System.out.println("This is ballad ID: "+balladId);
         session.setAttribute("balladId",balladId);
-
-
-
-      return null;
     }
 
     @PostMapping("/updateBallad")
     public void updateBallad(HttpSession session, String title, String content){
-        Integer userId = Integer.parseInt(session.getAttribute("id").toString());
+        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         Integer balladId = Integer.parseInt(session.getAttribute("balladId").toString());
         System.out.println("This is user ID: "+userId);
         System.out.println("This is ballad ID: "+balladId);
@@ -49,20 +46,17 @@ public class BalladRestController {
         ballad.setBallad(content);
         balladService.updateBallad(ballad, user);
 
-
-
     }
 
     @PostMapping("/deleteBallad")
-    public String deleteBalladWithId(Integer balladId){
+    public void deleteBalladWithId(Integer balladId){
         balladService.deleteBallad(balladId);
-        return null;
     }
 
     @PostMapping("/myBallads")
     public List<Ballad> showMyBallads(HttpSession session){
         if(!session.isNew()){
-            Integer id = Integer.parseInt(session.getAttribute("id").toString());
+            Integer id = Integer.parseInt(session.getAttribute("userId").toString());
             User user = userService.findUserById(id);
             return balladService.showMyBallads(user);
         }else{
@@ -70,28 +64,27 @@ public class BalladRestController {
         }
     }
 
-    @GetMapping("/sortByRecent")
-    public List<Ballad> sortBalladsByRecent(){
-        return null;
-    }
-    @PostMapping("/sortByAlphabetical")
-    public List<Ballad> sortByAlphabetical(boolean isAz){
-        return null;
+    @GetMapping("/sortBallads")
+    public List<Ballad> sortBalladsByRecent(HttpSession session,Boolean userOnly ,Boolean isPublic, Boolean isPrivate, Integer caseId){
+        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
+        return balladService.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId);
     }
 
-    @GetMapping("/sortByLikes")
-    public List<Ballad> sortByLikes(){
-        return null;
-    }
-    @GetMapping("/sortByTag")
-    public List<Ballad> sortByTag(String tagName){
-        return null;
+    @GetMapping("/download")
+    public ResponseEntity<byte[]> downloadBallad( String title, String content) throws Exception{
+        byte[] output = content.getBytes();
+
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("charset", "utf-8");
+        headers.setContentType(MediaType.valueOf("text/html"));
+        headers.setContentType(MediaType.TEXT_MARKDOWN);
+        headers.setContentLength(output.length);
+        headers.set("Content-disposition", "attachment; filename="+title+".txt");
+
+        return new ResponseEntity<byte[]>(output, headers, HttpStatus.OK);
     }
 
-    @GetMapping("/showByTag")
-    public List<Ballad> showAllWithTagName(){
-        return null;
-    }
 
 
 }

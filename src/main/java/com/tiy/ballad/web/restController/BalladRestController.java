@@ -78,16 +78,21 @@ public class BalladRestController {
     }
 
     @GetMapping("/download")
-    public ResponseEntity<byte[]> downloadBallad(HttpSession session, Integer balladId) throws Exception{
+    public ResponseEntity<byte[]> downloadBallad(HttpSession session) throws Exception{
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         String title = "";
         String content = "";
         if(userId == 0){
             title = session.getAttribute("title").toString();
             content = session.getAttribute("ballad").toString();
+        }else{
+            Integer balladId = Integer.parseInt(session.getAttribute("balladId").toString());
+            Ballad ballad =balladService.findBalladById(balladId);
+            title = ballad.getTitle();
+            content = ballad.getBallad();
         }
 
-        Ballad ballad =balladService.findBalladById(7);
+
 
         byte[] output = content.getBytes();
 
@@ -95,7 +100,7 @@ public class BalladRestController {
         HttpHeaders headers = new HttpHeaders();
         headers.set("charset", "utf-8");
 //        headers.setContentType(MediaType.valueOf("text/html"));
-        headers.setContentType(MediaType.TEXT_MARKDOWN);
+        headers.setContentType(MediaType.TEXT_PLAIN);
         headers.setContentLength(output.length);
         headers.set("Content-disposition", "attachment; filename="+title+".txt");
 

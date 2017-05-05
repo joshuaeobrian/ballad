@@ -150,13 +150,9 @@ $(document).ready(function () {
                     title: $("#title").val(),
                     content: $("#ballad-input").val(),
                 };
-                // $.post("/download",
-                //     {
-                //       ballad
-                //
-                //     });
+                postBallads("/saveNewBallad",ballad);
 
-                document.location.href = "/download?title="+$("#title").val()+"&content="+$("#ballad-input").val();
+                document.location.href = "/download";
             },
             Notes:()=>{
                 console.log(action);

@@ -57,6 +57,15 @@ const selectedText = ()=>{
 };
 
 $(document).ready(function () {
+    $('#text-to-render').on('input', function() {
+      var text = $('#text-to-render').val();
+      text = text.replace(/\n/gi, "<br />");
+      $('#rendered-text').html(text);
+    })
+
+    $('#tools').click(function() {
+      $('#tool-list').slideToggle();
+    })
     /**
      * event listener for on click launches function to
      * get a word when double clicked or highlighted

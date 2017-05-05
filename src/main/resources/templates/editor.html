@@ -39,7 +39,15 @@
       </div>
       <div class="bottom-head">
         <div class="tools">
-          <span>Tools <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+          <span id="tools">Tools <i class="fa fa-caret-down" aria-hidden="true"></i>
+            <ul id="tool-list">
+              <li>+Chorus</li>
+              <li>+Verse</li>
+              <li>+Bridge</li>
+              <li>+Section</li>
+              <li>+Template</li>
+            </ul>
+          </span>
         </div>
         <div class="rhyme">
           <button>ABAB</button>
@@ -88,7 +96,10 @@
             <li>A</li>
             <li>B</li>
           </ul>
-          <textarea name="name" rows="8" cols="80">Cat</textarea>
+          <textarea name="name" rows="8" cols="80" id="text-to-render"></textarea>
+          <div id="rendered-text">
+
+          </div>
         </div>
         <div class="rhymes">
 

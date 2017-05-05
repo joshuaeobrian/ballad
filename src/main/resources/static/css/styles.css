@@ -391,6 +391,15 @@ header {
     #editor-page .header2 .bottom-head .tools span {
       color: white;
       letter-spacing: 1px; }
+      #editor-page .header2 .bottom-head .tools span ul {
+        list-style: none;
+        position: absolute;
+        display: none;
+        margin: 0;
+        padding: 10px;
+        background: #2a2a2a; }
+        #editor-page .header2 .bottom-head .tools span ul li:hover {
+          color: #04a777; }
     #editor-page .header2 .bottom-head .rhyme button {
       background: none;
       border: none;
@@ -449,7 +458,21 @@ header {
       padding-top: 80px;
       font-size: 1.5em;
       line-height: 40px;
-      border: none; }
+      border: none;
+      background: transparent;
+      resize: none;
+      color: #2a2a2a; }
+    #editor-page .container .main-area #rendered-text {
+      z-index: -1;
+      position: absolute;
+      top: 240px;
+      width: 70%;
+      height: 100%;
+      box-sizing: border-box;
+      padding-left: 80px;
+      padding-top: 80px;
+      font-size: 1.5em;
+      line-height: 40px; }
   #editor-page .container .rhymes {
     width: 30%;
     height: 100%;

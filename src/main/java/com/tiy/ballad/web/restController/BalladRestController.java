@@ -1,5 +1,6 @@
 package com.tiy.ballad.web.restController;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.tiy.ballad.model.Ballad;
 import com.tiy.ballad.model.User;
 import com.tiy.ballad.service.BalladService;
@@ -25,39 +26,31 @@ public class BalladRestController {
     private UserService userService;
 
     @PostMapping("/saveBallad")
-    public void saveNewBallad(HttpSession session,String title,  String content){
+    public void saveNewBallad(HttpSession session, String title, String content, Boolean isPublic){
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         if(userId == 0){
             session.setAttribute("title",title);
             session.setAttribute("ballad", content);
+
         }else{
             User owner = userService.findUserById(userId);
             Integer balladId = Integer.parseInt(session.getAttribute("balladId").toString());
-            Ballad ballad = new Ballad(title,content, owner);
+            Ballad ballad;
             if(balladId != 0){
+                ballad = balladService.findBalladById(balladId);
+                ballad.setTitle(title);
+                ballad.setBallad(content);
+                ballad.setPublicView(isPublic);
                 balladService.updateBallad(ballad,owner);
-            }else{
-                balladId = balladService.saveNewBallad(ballad);
-            }
 
+            }else{
+                ballad = new Ballad(title,content, owner, isPublic);
+                balladId = balladService.saveNewBallad(ballad);
+
+            }
             session.setAttribute("balladId",balladId);
         }
-
-
     }
-
-//    @PostMapping("/updateBallad")
-//    public void updateBallad(HttpSession session, String title, String content){
-//        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
-//        Integer balladId = Integer.parseInt(session.getAttribute("balladId").toString());
-//
-//        User user = userService.findUserById(userId);
-//        Ballad ballad = balladService.findBalladById(balladId);
-//        ballad.setTitle(title);
-//        ballad.setBallad(content);
-//        balladService.updateBallad(ballad, user);
-//
-//    }
 
     @PostMapping("/deleteBallad")
     public void deleteBalladWithId(Integer balladId){
@@ -95,15 +88,10 @@ public class BalladRestController {
             title = ballad.getTitle();
             content = ballad.getBallad();
         }
-
-
-
         byte[] output = content.getBytes();
-
-
         HttpHeaders headers = new HttpHeaders();
         headers.set("charset", "utf-8");
-//        headers.setContentType(MediaType.valueOf("text/html"));
+
         headers.setContentType(MediaType.TEXT_PLAIN);
         headers.setContentLength(output.length);
         headers.set("Content-disposition", "attachment; filename="+title+".txt");

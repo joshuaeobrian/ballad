@@ -13,13 +13,10 @@ const postForRhymes = (word)=>{
             "word": word,
         },function (data) {
             const wordsToTrim = jQuery.parseJSON(data);
-            console.log("BREAK:");
-            console.log(wordsToTrim);
             const bankedWords = rhymeBank.querySelectorAll("h5");
             for(let i = 0; i < bankedWords.length; i++){
                 rhymeBank.removeChild(bankedWords[i]);
             }
-
             for(let i = 0; i < wordsToTrim.length; i++){
                 let element = document.createElement("h5");
                 element.textContent = wordsToTrim[i]["word"];
@@ -35,7 +32,7 @@ const postBallads = (url,ballad)=>{
     $.post(url,
         ballad,
         function (response) {
-            console.log(response);
+
         }
     );
 };
@@ -51,6 +48,15 @@ const selectedText = ()=>{
 };
 
 $(document).ready(function () {
+    $('#text-to-render').on('input', function() {
+      var text = $('#text-to-render').val();
+      text = text.replace(/\n/gi, "<br />");
+      $('#rendered-text').html(text);
+    })
+
+    $('#tools').click(function() {
+      $('#tool-list').slideToggle();
+    })
     /**
      * event listener for on click launches function to
      * get a word when double clicked or highlighted
@@ -73,7 +79,6 @@ $(document).ready(function () {
         //This is controlled for when you press space
         if(e.which == 32){
             var cursorPosition = $("#ballad-input").prop("selectionStart");
-            console.log(cursorPosition);
             let index = input.value.substring(0,cursorPosition).split(" ");
             let word = index[index.length-1];
             if(word != ""&& !word.includes("[")){
@@ -82,6 +87,7 @@ $(document).ready(function () {
             }
         }
     });
+
     $("button").click(function (e) {
         let button = e.target;
         let action = button.value;
@@ -89,38 +95,18 @@ $(document).ready(function () {
             action = "Notes";
         }
         const actions = {
-            Intro: ()=>{
-                // $("#ballad-input").append("["+action+"]\n");
-                console.log(input.value);
-                input.value = (input.value+"["+action+"]\n");
-            },
-            Verse: ()=>{
-                input.value = (input.value+"\n\n["+action+"]\n");
-                console.log(action);
-            },
-            Chorus: ()=>{
-                input.value = (input.value+"\n\n["+action+"]\n");
-                console.log(action);
-            },
-            Bridge: ()=>{
-                input.value = (input.value+"\n\n["+action+"]\n");
-                console.log(action);
-            },
-            Section: ()=>{
-                input.value = (input.value+"\n\n["+action+"]\n");
-            },
-            Outro: ()=>{
-                input.value = (input.value+"\n\n["+action+"]\n");
-                console.log(action);
-            },
             Save: ()=>{
                 const ballad = {
                     title: $("#title").val(),
                     content: $("#ballad-input").val(),
+                    isPublic: $('#isPublic').prop('checked'),
                 };
 
-                postBallads("/saveBallad",ballad);
-
+                if($("#title").val() != "") {
+                    postBallads("/saveBallad", ballad);
+                }else{
+                    $("#title").css('border','1px solid red');
+                }
             },
             Delete: ()=>{
 
@@ -129,6 +115,7 @@ $(document).ready(function () {
                 const ballad = {
                     title: $("#title").val(),
                     content: $("#ballad-input").val(),
+                    isPublic: $('#isPublic').prop('checked'),
                 };
                 postBallads("/saveBallad",ballad);
 
@@ -140,4 +127,7 @@ $(document).ready(function () {
         };
         actions[action]();
     });
+
+
+
 });

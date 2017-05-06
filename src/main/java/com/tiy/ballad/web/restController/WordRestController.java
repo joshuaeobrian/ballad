@@ -21,7 +21,6 @@ public class WordRestController {
 
     @PostMapping("/api/rhymingWord")
     public String rhymingWords(String word) throws IOException {
-        System.out.println(word);
         return repository.getWordsThatRhymeWith(word);
     }
 
@@ -32,7 +31,6 @@ public class WordRestController {
 
     @PostMapping("/api/sugWord")
     public String suggestedWords(String substring){
-
         return service.getSuggestedWords(substring);
     }
 }

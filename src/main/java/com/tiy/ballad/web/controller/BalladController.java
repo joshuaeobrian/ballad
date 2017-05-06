@@ -58,12 +58,25 @@ public class BalladController {
         return "editor";
     }
 
-    @RequestMapping("/ballad/{id}")
+    @RequestMapping("/editor/{id}")
     public String displayBalladWithId(@PathVariable Integer id, Model model,HttpSession session){
-        session.setAttribute("balladId",id);
+        if(session.isNew()|| Integer.parseInt(session.getAttribute("userId").toString())==0){
+            return "redirect:/";
+        }
+        Object[] current = sessionService.isSession(session);
+        User user =(User) current[1];
+        model.addAttribute("user", current[1]);
+        model.addAttribute("isLoggedIn", current[0]);
         Ballad ballad = balladService.findBalladById(id);
-        model.addAttribute("ballad", ballad);
-        return "testing/ballad";
+        if(user.getId() == ballad.getOwner().getId() ){
+            session.setAttribute("balladId",id);
+            model.addAttribute("ballad", ballad);
+            return "editor";
+        }else{
+            return "redirect:/";
+        }
+
+
     }
 
 

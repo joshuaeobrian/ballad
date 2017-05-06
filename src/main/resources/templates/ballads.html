@@ -38,15 +38,7 @@
         <input type="text" name="ballads-search"/>
         <button>Search</button>
       </div>
-<!--TODO Make table with sorting options or hardcode and make work-->
-      <select id="sort">
-        <option>Recent</option>
-        <option>Public</option>
-        <option>Private</option>
-        <option>Likes</option>
-        <!--<option th:field="" th:text=""></option>-->
-      </select>
-      <!--TODO-->
+
       <ul th:remove="all">
         <!--<li><a id="sort">Sort</a>-->
           <ul>
@@ -63,6 +55,7 @@
       <div id="ballad-cards-container">
 
         <div class="ballad-card" th:each="theBallad : ${ballads}" th:object="${theBallad}">
+          <input type="hidden" th:value="*{id}"/>
           <h1 th:text="*{title}">Kendrick Lamar</h1>
           <p th:text="*{ballad}">{{sfs}}</p>
           <!-- Toggling Between Public, Private, and Liked Classes-->
@@ -127,5 +120,6 @@
       <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
       <script src="https://use.fontawesome.com/555750ba4f.js"></script>
     </div>
+  <script src="../static/js/ballads.js" th:src="@{/js/ballads.js}"></script>
   </body>
 </html>

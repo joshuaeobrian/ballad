@@ -7,7 +7,7 @@
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
-  <body id="editor-page">
+  <body id="editor-page" th:object="${ballad}">
     <header id="global-header" th:replace="layout :: nav">
 
       <div class="head-container">
@@ -34,12 +34,20 @@
 
     <div class="header2">
       <div class="top-head">
-        <input type="text" name="" id="title" placeholder="Untitled ballad" />
+        <input type="text" name="" id="title" th:value="*{title}" placeholder="Untitled ballad" />
         <!-- <span>By: Isaiah Anderson</span> -->
       </div>
       <div class="bottom-head">
         <div class="tools">
-          <span>Tools <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+          <span id="tools">Tools <i class="fa fa-caret-down" aria-hidden="true"></i>
+            <ul id="tool-list">
+              <li>+Chorus</li>
+              <li>+Verse</li>
+              <li>+Bridge</li>
+              <li>+Section</li>
+              <li>+Template</li>
+            </ul>
+          </span>
         </div>
         <div class="rhyme">
           <button>ABAB</button>
@@ -60,7 +68,7 @@
         <div class="status">
           <span>Public</span>
           <label class="switch">
-            <input type="checkbox"/>
+            <input type="checkbox" id="isPublic" th:checked="*{publicView}"/>
             <div class="slider round"></div>
           </label>
         </div>
@@ -88,7 +96,10 @@
             <li>A</li>
             <li>B</li>
           </ul>
-          <textarea name="name" id="ballad-input" rows="8" cols="80">Cat</textarea>
+          <textarea name="name" rows="8" cols="80" id="ballad-input" th:text="*{ballad}"></textarea>
+          <div id="rendered-text">
+
+          </div>
         </div>
         <div class="rhymes" id="rhyme-bank">
           <h5></h5>

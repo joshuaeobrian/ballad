@@ -22,8 +22,8 @@ public class BalladRepositoryImpl implements BalladRepository {
     public Integer saveNewBallad(Ballad ballad) {
         //TODO: add log table and interaction for creator
         return template.queryForObject("WITH ballad_insert AS (\n" +
-                        "  INSERT INTO ballads(title, ballad, creator_id)\n" +
-                        "  VALUES (?,?,?)\n" +
+                        "  INSERT INTO ballads(title, ballad, creator_id, public)\n" +
+                        "  VALUES (?,?,?,?)\n" +
                         "  RETURNING id, creator_id\n" +
                         "),\n" +
                         "interaction AS (\n" +
@@ -40,20 +40,26 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "      (SELECT id FROM log_roles WHERE action='Created'),\n" +
                         "      (SELECT id FROM ballad_items WHERE item_type='Ballad')\n" +
                         "    ) RETURNING ballad_id;"
-                ,new Object[]{ballad.getTitle(),ballad.getBallad(),ballad.getOwner().getId()},
+                ,new Object[]{ballad.getTitle(),ballad.getBallad(),ballad.getOwner().getId(), ballad.isPublicView()},
                 (rs, i)-> rs.getInt("ballad_id"));
     }
 
     @Override
     public void updateBallad(Ballad ballad,User user) {
-        template.update("UPDATE ballads set title=?, ballad=? WHERE id=?;" +
+        template.update("UPDATE ballads set title=?, ballad=?, public=? WHERE id=?;" +
                         "INSERT INTO ballad_logs(ballad_id, ballad_user_id, action_id, item_id) " +
                         "VALUES(" +
                         "?," +
                         "?," +
                         "(SELECT id FROM log_roles WHERE action='Edit')," +
                         "(SELECT id FROM ballad_items WHERE item_type='Ballad')" +
-                        ");", ballad.getTitle(), ballad.getBallad(), ballad.getId(), ballad.getId(), user.getId());
+                        ");",
+                ballad.getTitle(),
+                ballad.getBallad(),
+                ballad.isPublicView(),
+                ballad.getId(),
+                ballad.getId(),
+                user.getId());
     }
 
     @Override
@@ -121,7 +127,8 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "  WHERE b.id=?;",
                 new Object[]{balladId},(rs, i) -> new Ballad(rs.getInt("id"), rs.getString("title"), rs.getString("ballad"),
                         new User(rs.getInt("user_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("username")),
-                        collaborators( rs.getInt("id")), LocalDate.parse(rs.getString("creation_date")), null, rs.getBoolean("favorite"), rs.getBoolean("liked")
+                        collaborators( rs.getInt("id")), LocalDate.parse(rs.getString("creation_date")),
+                        null, rs.getBoolean("favorite"), rs.getBoolean("ispublic")
                 ));
     }
 

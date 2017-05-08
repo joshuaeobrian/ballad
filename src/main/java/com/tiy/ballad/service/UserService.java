@@ -13,8 +13,8 @@ public class UserService {
     @Autowired
     private UserRepository repository;
 
-    public User login(String  username,String password){
-        return repository.getUserByLoginAndPassword(username,password);
+    public User login(String  username){
+        return repository.getUserByLogin(username);
     }
 
     public User findUserById(Integer id){

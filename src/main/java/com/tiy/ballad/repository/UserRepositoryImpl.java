@@ -72,11 +72,10 @@ public class UserRepositoryImpl implements UserRepository {
                 ));
 
     }
-
     @Override
-    public User getUserByLoginAndPassword(String usernameOrEmail, String password) {
-        return template.queryForObject("SELECT id, first_name, last_name,email, username,password,active from ballad_users where password=? AND username=? or password=? AND email=?",
-                new Object[]{password,usernameOrEmail,password,usernameOrEmail},
+    public User getUserByLogin(String usernameOrEmail) {
+        return template.queryForObject("SELECT id, first_name, last_name,email, username,password,active from ballad_users where username=? or  email=?",
+                new Object[]{usernameOrEmail,usernameOrEmail},
                 (rs,i)->new User(
                         rs.getInt("id"),
                         rs.getString("first_name"),

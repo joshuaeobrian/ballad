@@ -2,6 +2,7 @@ package com.tiy.ballad.web.restController;
 
 import com.tiy.ballad.model.User;
 import com.tiy.ballad.service.UserService;
+import com.tiy.ballad.web.PasswordStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,13 +21,17 @@ public class UserRestController {
     public boolean validateUser(HttpSession session, String username, String password){
 
         try {
-            User user = service.login(username, password);
+            User user = service.login(username);
             System.out.println(user);
-            session.setAttribute("userId",user.getId());
-            System.out.println(session.getAttribute("userId"));
-
-
-            return true;
+            boolean validate = PasswordStorage.verifyPassword(password, user.getPassword());
+            if(validate){
+                session.setAttribute("userId",user.getId());
+                System.out.println(session.getAttribute("userId"));
+                return true;
+            }else{
+                session.setAttribute("userId",0);
+                return false;
+            }
         }
         catch (Exception e){
             session.setAttribute("userId",0);
@@ -38,6 +43,7 @@ public class UserRestController {
     @PostMapping("/signUp")
     public String saveNewUser(HttpSession session, User user){
         try {
+            user.setPassword(PasswordStorage.createHash(user.getPassword()));
             Integer id = service.saveNewUser(user);
             session.setAttribute("userId",id);
             System.out.println(session.getAttribute("userId"));

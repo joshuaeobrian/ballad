@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Profile Settings</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+  </head>
+  <body id="profile">
+    <header id="global-header" th:replace="layout :: nav">
+      <div class="head-container">
+        <div class="top-head">
+          <a href="home.html" id="logo"><img src="../static/images/ballad-logo_black.png" alt=""/></a>
+          <a href="#" id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Sign-Up</a>
+          <a href="#" id="logged">Isaiah<i class="fa fa-caret-down" aria-hidden="true"></i>
+            <ul class="dropdown">
+              <li>Logout</li>
+              <li>Profile Settings</li>
+              <li>My Ballads</li>
+            </ul>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="container">
+      <div class="settings">
+        <h1>Settings</h1>
+        <button type="button" name="button">Save</button>
+      </div>
+      <div class="top">
+        <div class="lprofile">
+          <h2>Profile Picture</h2>
+          <div class="profile-pic">
+
+          </div>
+          <p>update</p>
+        </div>
+        <div class="rprofile">
+          <h2>Profile Color</h2>
+          <button type="button" name="button">Pink <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+        </div>
+      </div>
+      <div class="info">
+        <div class="field">
+          <h3>First Name</h3>
+          <div class="field-foot">
+            <p>Nayvadius</p>
+            <span>update</span>
+          </div>
+        </div>
+        <div class="field">
+          <h3>Last Name</h3>
+          <div class="field-foot">
+            <p>Cash</p>
+            <span>update</span>
+          </div>
+        </div>
+        <div class="field">
+          <h3>Email Address</h3>
+          <div class="field-foot">
+            <p>Future@freebandz.com</p>
+            <span>update</span>
+          </div>
+        </div>
+        <div class="field">
+          <h3>Username</h3>
+          <div class="field-foot">
+            <p>Future</p>
+            <span>update</span>
+          </div>
+        </div>
+        <div class="field">
+          <h3>Password</h3>
+          <div class="field-foot">
+            <p>Nayvadius</p>
+            <span>update</span>
+          </div>
+        </div>
+        <div class="field">
+          <h3>Bio</h3>
+          <div class="field-foot">
+            <p>Nayvadius</p>
+            <span>update</span>
+          </div>
+        </div>
+        <div class="field">
+          <h3>Delete Account</h3>
+          <div class="field-foot">
+            <button type="button" name="button">Delete</button>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://use.fontawesome.com/555750ba4f.js"></script>
+  </body>
+</html>

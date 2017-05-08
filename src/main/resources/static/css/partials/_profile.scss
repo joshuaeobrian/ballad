@@ -1,0 +1,88 @@
+#profile {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    // height: 300px;
+    // background: red;
+    .settings {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h1 {
+        font-size: 3em;
+      }
+      button {
+        font-size: 1.9em;
+        color: white;
+        // background: $green;
+        padding: 5px 30px;
+        border-radius: 20px;
+        border: none;
+      }
+    }
+    .top {
+      width: 45%;
+      height: 300px;
+      // background: black;
+      display: flex;
+      justify-content: space-between;
+
+      .lprofile,.rprofile {
+        width: 40%;
+        // background: green;
+        h2 {
+          border-bottom: 2px solid black;
+          font-weight: bold;
+          font-size: 1.6em;
+        }
+      }
+      .lprofile {
+        .profile-pic {
+          width: 150px;
+          height: 150px;
+          margin: 0 auto;
+          border-radius: 50%;
+          background: blue;
+        }
+        p {
+          font-style: italic;
+          text-align: center;
+        }
+      }
+      .rprofile {
+        button {
+          background: $magenta;
+          font-size: 1.5em;
+          padding: 6px 20px;
+          border-radius: 15px;
+          border: none;
+          color: white;
+        }
+      }
+    }
+    .info {
+      width: 40%;
+      .field {
+        width: 100%;
+        h3 {
+          border-bottom: 1px solid black;
+        }
+        div {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        button {
+          color: white;
+          background: $black;
+          padding: 10px 20px;
+          font-size: 1.5em;
+          border: none;
+          border-radius: 20px;
+        }
+      }
+    }
+  }
+}

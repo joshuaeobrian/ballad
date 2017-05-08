@@ -7,7 +7,7 @@
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
-  <body id="editor-page">
+  <body id="editor-page" th:object="${ballad}">
     <header id="global-header" th:replace="layout :: nav">
 
       <div class="head-container">
@@ -34,7 +34,7 @@
 
     <div class="header2">
       <div class="top-head">
-        <input type="text" name="" id="title" placeholder="Untitled ballad" />
+        <input type="text" name="" id="title" th:value="*{title}" placeholder="Untitled ballad" />
         <!-- <span>By: Isaiah Anderson</span> -->
       </div>
       <div class="bottom-head">
@@ -68,7 +68,7 @@
         <div class="status">
           <span>Public</span>
           <label class="switch">
-            <input type="checkbox"/>
+            <input type="checkbox" id="isPublic" th:checked="*{publicView}"/>
             <div class="slider round"></div>
           </label>
         </div>
@@ -96,7 +96,7 @@
             <li>A</li>
             <li>B</li>
           </ul>
-          <textarea name="name" rows="8" cols="80" id="ballad-input"></textarea>
+          <textarea name="name" rows="8" cols="80" id="ballad-input" th:text="*{ballad}"></textarea>
           <div id="rendered-text">
 
           </div>

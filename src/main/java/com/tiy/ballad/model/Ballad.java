@@ -34,10 +34,11 @@ public class Ballad {
     public Ballad() {
     }
 
-    public Ballad(String title, String ballad, User owner) {
+    public Ballad(String title, String ballad, User owner, boolean publicView) {
         this.title = title;
         this.ballad = ballad;
         this.owner = owner;
+        this.publicView = publicView;
     }
 
     public Ballad(Integer id, String title, String ballad, User owner, List<User> collaborators, LocalDate creationDate, LocalDate lastEdit, boolean favorite, boolean publicView) {

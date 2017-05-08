@@ -4,6 +4,7 @@ import com.tiy.ballad.model.User;
 import com.tiy.ballad.service.UserService;
 import com.tiy.ballad.web.PasswordStorage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -53,15 +54,18 @@ public class UserRestController {
         }
     }
 
-    @PostMapping("/ updateUser")
-    public void updateUser(User user){
+    @PostMapping("/updateUser")
+    public void updateUser(User user) throws PasswordStorage.CannotPerformOperationException {
+
+        user.setPassword(PasswordStorage.createHash(user.getPassword()));
         service.updateUserInfo(user);
 
     }
 
-    @PostMapping("/disableAccount")
-    public void disableAccount(Integer id){
-        service.deleteUser(id);
+    @GetMapping("/disableAccount")
+    public void disableAccount(HttpSession session){
+        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
+        service.deleteUser(userId);
     }
 
 }

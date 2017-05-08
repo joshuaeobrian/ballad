@@ -20,6 +20,11 @@ const postForRhymes = (word)=>{
             for(let i = 0; i < wordsToTrim.length; i++){
                 let element = document.createElement("h5");
                 element.textContent = wordsToTrim[i]["word"];
+                element.style.cursor = "pointer";
+                element.style.display = "inline";
+                // element.style.border = "1px solid";
+                element.style.margin = "5px";
+
                 rhymeBank.appendChild(element);
 
             }

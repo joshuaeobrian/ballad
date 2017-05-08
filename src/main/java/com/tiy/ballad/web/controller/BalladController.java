@@ -47,7 +47,7 @@ public class BalladController {
         return "ballads";
     }
 
-
+//TODO refactor these down to one function
     @RequestMapping("/editor")
     public String ballad(HttpSession session, Model model){
         Object[] current = sessionService.isSession(session);
@@ -55,7 +55,7 @@ public class BalladController {
         model.addAttribute("user", current[1]);
         model.addAttribute("isLoggedIn", current[0]);
         model.addAttribute("ballad",new Ballad());
-        model.addAttribute("isEditor",true);
+        model.addAttribute("isHidden",true);
         return "editor";
     }
 

@@ -12,6 +12,9 @@ $(document).ready(function() {
     $("#my-ballads").click(function () {
         document.location.href = "/my-ballads";
     });
+    $("#profile-settings").click(function () {
+        document.location.href = "/Profile";
+    });
 
     $('#logged').click(function() {
         $('.dropdown').slideToggle();

@@ -1,86 +1,156 @@
-#ballads-page 
-
-#ballads-page #tools-section {
-  background: #f1f1f1;
-  height: 150px;
-  width: 100%;
-
-  ul {
-    float: right;
-    margin-right: 5%;
-
-    li {
-      list-style-type: none;
-    }
-  }
-}
-
-#ballads-page #search-container {
-  float: left;
-  margin-left: 5%;
-}
-
-#ballads-page #ballad-cards-section {
-  background: pink;
-  clear: both;
-  height: auto;
-  width: 100%;
-}
-
-#ballads-page #ballad-cards-container {
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 90%;
-
-}
-
-#ballads-page .ballad-card {
-  background: white;
-  border-top: 15px solid black;
-  border-bottom: 15px solid black;
-  box-sizing: border-box;
-  height: auto;
-  margin: 10px 0px;
-  width: 30%;
-
-  h1 {
-    padding: 5px 10px;
-  }
-
-  p {
-    padding: 5px 10px;
-  }
-
-  div {
-    align-items: center;
-    border-radius: 50%;
+#ballads-page {
+  // background: linear-gradient(#F4E6ED,#A8A8FF);
+  #tools-section {
+    width: 80%;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 50px;
     display: flex;
-    float: right;
-    height: 50px;
-    justify-content: center;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    width: 50px;
+    justify-content: space-between;
+    align-items: center;
+    .lbox {
+      h2 {
+        font-size: 3em;
+        color: $green
+      }
+    }
+    .mbox {
+      width: 30%;
+      input {
+        width:100%;
+        // height: 20px;
+        border: none;
+        border-bottom: 2px solid $black;
+        font-size: 2em;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .rbox {
+      .layout-icon {
+        width: 30px;
+        height: 30px;
+        background: black;
+        display: inline-block;
+      }
+      #sort-list {
+        position: absolute;
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
 
-    span {
-      font-size: 0.75rem;
-      color: white;
+        li {
+          text-align: right;
+        }
+      }
     }
   }
-}
+  #ballad-cards-container-grid {
 
-#ballads-page .private {
-  background: blue;
-}
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .column1,.column2,.column3 {
+      width: 33%;
 
-#ballads-page .public {
-  background: green;
-}
+    }
+    .ballad-card {
+      box-sizing: border-box;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 80px;
+      // background: #fff;
+      transition: .1s;
+      &:hover {
 
-#ballads-page .liked {
-  background: red;
+        transform: scale(1.01);
+      }
+      // padding: 10px;
+      .btop,.bbottom {
+        height: 10px;
+        width: 100%;
+        border-radius: 5px;
+        background: $black;
+        clear: both;
+      }
+      h1,h2,p {
+        padding-left: 10px;
+      }
+      h1 {
+        font-size: 2em;
+        text-transform: uppercase;
+        margin: 0;
+        margin-top: 20px;
+        // padding-left:
+      }
+      h2 {
+        font-size: 1.4em;
+        margin: 0;
+      }
+      p {
+        // margin: 0;
+        font-weight: lighter;
+        font-size: 1.2em;
+        letter-spacing: 1px;
+        margin: 20px 0;
+      }
+      .date {
+        float: left;
+        font-size: .9em;
+      }
+      .private {
+        float: right;
+        span {
+          color: $green;
+          font-weight: 500;
+          font-size: 1.3em;
+        }
+        // &:after {
+        //   clear: both;
+        // }
+      }
+    }
+  }
+
+  #ballad-cards-container-list {
+    width: 80%;
+    margin: 0 auto;
+    display: none;
+    .ballad-card {
+      width: 100%;
+      .btop,.bbottom {
+        height: 10px;
+        width: 100%;
+        border-radius: 5px;
+        background: $black;
+        clear: both;
+      }
+      &:nth-child(n+2) {
+        .btop {
+          height: 0px;
+        }
+      }
+      .content-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+          font-size: 1.5em;
+          text-transform: uppercase;
+        }
+        h2 {
+          font-size: 1.3em;
+        }
+        p {
+          width: 35%;
+          margin: 10px 0;
+        }
+      }
+    }
+  }
+
 }

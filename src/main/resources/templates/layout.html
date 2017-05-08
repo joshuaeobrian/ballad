@@ -19,14 +19,14 @@
                 <span><i class="fa fa-caret-down" th:class="${isLoggedIn}? 'fa fa-caret-down':'fa fa-user-circle-o'" aria-hidden="true"></i>
                     <ul class="dropdown">
                         <li id="logout">Logout</li>
-                        <li>Profile Settings</li>
+                        <li id="profile-settings">Profile Settings</li>
                         <li id="my-ballads">My Ballads</li>
                     </ul>
                 </span>
             </a>
         </div>
 
-        <div class="bottom-head" th:style="${isEditor} ? 'display:none;' : ''">
+        <div class="bottom-head" th:style="${isHidden} ? 'display:none;' : ''">
             <ul>
                 <li><a id="ab" href="#about" th:href="@{/#about}">About</a></li>
                 <li><a id="br" href="popular.html" th:href="@{/popular}">Browse</a></li>

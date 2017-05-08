@@ -43,7 +43,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findUserById(Integer id) {
-        return template.queryForObject("SELECT id, first_name, last_name, email, username, password, active FROM ballad_users where id=?",
+        return template.queryForObject("SELECT id, first_name, last_name, email, username, password, active, about,profile_image,color_code FROM ballad_users where id=?",
                 new Object[]{id},
                 (rs,i)-> new User(
                         rs.getInt("id"),
@@ -52,7 +52,10 @@ public class UserRepositoryImpl implements UserRepository {
                         rs.getString("email"),
                         rs.getString("username"),
                         rs.getString("password"),
-                        rs.getBoolean("active")
+                        rs.getBoolean("active"),
+                        rs.getBytes("profile_image"),
+                        rs.getString("about"),
+                        rs.getString("color_code")
                 ));
     }
 

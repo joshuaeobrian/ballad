@@ -26,7 +26,7 @@ import java.net.URLConnection;
 public class DataMuseRepository {
         private final String SUGGESTED = "sug?s=";
         private final String RHYMING = "https://api.datamuse.com/words?rel_rhy=";
-        private final String RELATED_TO = "/words?ml=breakfast&rel_rhy=grape";
+        private final String RELATED_TO = "/words?ml=breakfast&rel_rhy=";
 
         private final String API_URL = "https://api.datamuse.com/";
 

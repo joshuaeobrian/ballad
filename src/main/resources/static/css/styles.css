@@ -292,72 +292,111 @@ header {
       text-weight: bold;
       color: #2a2a2a; }
 
-#ballads-page
 #ballads-page #tools-section {
-  background: #f1f1f1;
-  height: 150px;
-  width: 100%; }
-  #ballads-page
-  #ballads-page #tools-section ul {
-    float: right;
-    margin-right: 5%; }
-    #ballads-page
-    #ballads-page #tools-section ul li {
-      list-style-type: none; }
-
-#ballads-page #search-container {
-  float: left;
-  margin-left: 5%; }
-
-#ballads-page #ballad-cards-section {
-  background: pink;
-  clear: both;
-  height: auto;
-  width: 100%; }
-
-#ballads-page #ballad-cards-container {
-  height: auto;
+  width: 80%;
+  height: 100px;
+  margin: 0 auto;
+  margin-bottom: 50px;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 90%; }
-
-#ballads-page .ballad-card {
-  background: white;
-  border-top: 15px solid black;
-  border-bottom: 15px solid black;
-  box-sizing: border-box;
-  height: auto;
-  margin: 10px 0px;
-  width: 30%; }
-  #ballads-page .ballad-card h1 {
-    padding: 5px 10px; }
-  #ballads-page .ballad-card p {
-    padding: 5px 10px; }
-  #ballads-page .ballad-card div {
-    align-items: center;
-    border-radius: 50%;
-    display: flex;
-    float: right;
-    height: 50px;
-    justify-content: center;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    width: 50px; }
-    #ballads-page .ballad-card div span {
-      font-size: 0.75rem;
-      color: white; }
-
-#ballads-page .private {
-  background: blue; }
-
-#ballads-page .public {
-  background: green; }
-
-#ballads-page .liked {
-  background: red; }
+  justify-content: space-between;
+  align-items: center; }
+  #ballads-page #tools-section .lbox h2 {
+    font-size: 3em;
+    color: #04a777; }
+  #ballads-page #tools-section .mbox {
+    width: 30%; }
+    #ballads-page #tools-section .mbox input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #2a2a2a;
+      font-size: 2em; }
+      #ballads-page #tools-section .mbox input:focus {
+        outline: none; }
+  #ballads-page #tools-section .rbox .layout-icon {
+    width: 30px;
+    height: 30px;
+    background: black;
+    display: inline-block; }
+  #ballads-page #tools-section .rbox #sort-list {
+    position: absolute;
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    #ballads-page #tools-section .rbox #sort-list li {
+      text-align: right; }
+#ballads-page #ballad-cards-container-grid {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; }
+  #ballads-page #ballad-cards-container-grid .column1, #ballads-page #ballad-cards-container-grid .column2, #ballads-page #ballad-cards-container-grid .column3 {
+    width: 33%; }
+  #ballads-page #ballad-cards-container-grid .ballad-card {
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 80px;
+    transition: .1s; }
+    #ballads-page #ballad-cards-container-grid .ballad-card:hover {
+      transform: scale(1.01); }
+    #ballads-page #ballad-cards-container-grid .ballad-card .btop, #ballads-page #ballad-cards-container-grid .ballad-card .bbottom {
+      height: 10px;
+      width: 100%;
+      border-radius: 5px;
+      background: #2a2a2a;
+      clear: both; }
+    #ballads-page #ballad-cards-container-grid .ballad-card h1, #ballads-page #ballad-cards-container-grid .ballad-card h2, #ballads-page #ballad-cards-container-grid .ballad-card p {
+      padding-left: 10px; }
+    #ballads-page #ballad-cards-container-grid .ballad-card h1 {
+      font-size: 2em;
+      text-transform: uppercase;
+      margin: 0;
+      margin-top: 20px; }
+    #ballads-page #ballad-cards-container-grid .ballad-card h2 {
+      font-size: 1.4em;
+      margin: 0; }
+    #ballads-page #ballad-cards-container-grid .ballad-card p {
+      font-weight: lighter;
+      font-size: 1.2em;
+      letter-spacing: 1px;
+      margin: 20px 0; }
+    #ballads-page #ballad-cards-container-grid .ballad-card .date {
+      float: left;
+      font-size: .9em; }
+    #ballads-page #ballad-cards-container-grid .ballad-card .private {
+      float: right; }
+      #ballads-page #ballad-cards-container-grid .ballad-card .private span {
+        color: #04a777;
+        font-weight: 500;
+        font-size: 1.3em; }
+#ballads-page #ballad-cards-container-list {
+  width: 80%;
+  margin: 0 auto;
+  display: none; }
+  #ballads-page #ballad-cards-container-list .ballad-card {
+    width: 100%; }
+    #ballads-page #ballad-cards-container-list .ballad-card .btop, #ballads-page #ballad-cards-container-list .ballad-card .bbottom {
+      height: 10px;
+      width: 100%;
+      border-radius: 5px;
+      background: #2a2a2a;
+      clear: both; }
+    #ballads-page #ballad-cards-container-list .ballad-card:nth-child(n+2) .btop {
+      height: 0px; }
+    #ballads-page #ballad-cards-container-list .ballad-card .content-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      #ballads-page #ballad-cards-container-list .ballad-card .content-container h1 {
+        font-size: 1.5em;
+        text-transform: uppercase; }
+      #ballads-page #ballad-cards-container-list .ballad-card .content-container h2 {
+        font-size: 1.3em; }
+      #ballads-page #ballad-cards-container-list .ballad-card .content-container p {
+        width: 35%;
+        margin: 10px 0; }
 
 #editor-page header {
   height: 100px; }
@@ -477,6 +516,68 @@ header {
     width: 30%;
     height: 100%;
     background: #ddd; }
+
+#profile .container {
+  width: 80%;
+  margin: 0 auto; }
+  #profile .container .settings {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    #profile .container .settings h1 {
+      font-size: 3em; }
+    #profile .container .settings button {
+      font-size: 1.9em;
+      color: white;
+      padding: 5px 30px;
+      border-radius: 20px;
+      border: none; }
+  #profile .container .top {
+    width: 45%;
+    height: 300px;
+    display: flex;
+    justify-content: space-between; }
+    #profile .container .top .lprofile, #profile .container .top .rprofile {
+      width: 40%; }
+      #profile .container .top .lprofile h2, #profile .container .top .rprofile h2 {
+        border-bottom: 2px solid black;
+        font-weight: bold;
+        font-size: 1.6em; }
+    #profile .container .top .lprofile .profile-pic {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: blue; }
+    #profile .container .top .lprofile p {
+      font-style: italic;
+      text-align: center; }
+    #profile .container .top .rprofile button {
+      background: #9c0f5f;
+      font-size: 1.5em;
+      padding: 6px 20px;
+      border-radius: 15px;
+      border: none;
+      color: white; }
+  #profile .container .info {
+    width: 40%; }
+    #profile .container .info .field {
+      width: 100%; }
+      #profile .container .info .field h3 {
+        border-bottom: 1px solid black; }
+      #profile .container .info .field div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+      #profile .container .info .field button {
+        color: white;
+        background: #2a2a2a;
+        padding: 10px 20px;
+        font-size: 1.5em;
+        border: none;
+        border-radius: 20px; }
 
 * {
   font-family: 'Istok Web', sans-serif; }

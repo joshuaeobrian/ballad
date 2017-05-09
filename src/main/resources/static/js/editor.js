@@ -128,7 +128,7 @@ $(document).ready(function () {
         if(action.includes("Note")){
             action = "Notes";
         }
-        /*const actions = {
+        const actions = {
             Save: ()=>{
                 const ballad = {
                     title: $("#title").val(),
@@ -159,7 +159,7 @@ $(document).ready(function () {
                 console.log(action);
             }
         };
-        actions[action]();*/
+        actions[action]();
     });
 
 

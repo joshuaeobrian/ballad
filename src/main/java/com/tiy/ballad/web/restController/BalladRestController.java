@@ -69,9 +69,9 @@ public class BalladRestController {
     }
 
     @PostMapping("/sortBallads")
-    public List<Ballad> sortBalladsByRecent(HttpSession session,Boolean userOnly ,Boolean isPublic, Boolean isPrivate, Integer caseId){
+    public List<Ballad> sortBalladsByRecent(HttpSession session,Boolean userOnly ,Boolean isPublic, Boolean isPrivate, Integer caseId,String search){
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
-        return balladService.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId);
+        return balladService.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId,search);
     }
 
     @GetMapping("/download")

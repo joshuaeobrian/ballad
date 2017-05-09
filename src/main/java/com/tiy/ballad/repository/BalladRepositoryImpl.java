@@ -133,7 +133,7 @@ public class BalladRepositoryImpl implements BalladRepository {
     }
 
     @Override
-    public List<Ballad> sortBallads(Boolean userOnly,Integer userId,Boolean isPublic, Boolean isPrivate, Integer caseId) {
+    public List<Ballad> sortBallads(Boolean userOnly,Integer userId,Boolean isPublic, Boolean isPrivate, Integer caseId,String search) {
         return template.query("SELECT\n" +
                         "  COALESCE((SELECT count(*) FROM ballad_interaction WHERE ballad_id = b.id AND favorite = TRUE GROUP BY ballad_id),0) AS likecount,\n" +
                         "  b.id AS id, b.title AS title, b.ballad AS ballad, b.creation_date AS creation_date, b.public AS ispublic,\n" +
@@ -141,7 +141,8 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "FROM ballads AS b\n" +
                         "  JOIN ballad_users AS u ON b.creator_id = u.id\n" +
                         "  JOIN ballad_interaction AS i ON b.id = i.ballad_id\n" +
-                        " WHERE CASE WHEN ? THEN u.id=? OR b.public=? AND b.public=?\n" +
+                        " WHERE lower(b.ballad) LIKE lower(?) OR lower(b.title) LIKE lower(?) OR lower(u.first_name) LIKE lower(?) OR lower(last_name) LIKE lower(?) AND" +
+                        " CASE WHEN ? THEN u.id=? OR b.public=? AND b.public=?\n" +
                         "       ELSE b.public=TRUE  END GROUP BY b.id, u.id ORDER BY\n" +
                         "  CASE WHEN (? = 1) THEN b.title END ASC,\n" +
                         "  CASE WHEN (? = 2) THEN b.title END DESC,\n" +
@@ -154,7 +155,7 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "  CASE WHEN (? = 9) THEN b.public END  ASC," +
                         "  CASE WHEN (? = 10) THEN b.public END  DESC;",
                 new Object[]{
-                        userOnly, userId, isPublic, isPrivate, caseId, caseId, caseId, caseId, caseId, caseId, caseId, caseId,caseId, caseId
+                        '%'+search+'%','%'+search+'%','%'+search+'%','%'+search+'%',userOnly, userId, isPublic, isPrivate, caseId, caseId, caseId, caseId, caseId, caseId, caseId, caseId,caseId, caseId
                 },
                 (rs, i) -> new Ballad(rs.getInt("id"), rs.getString("title"), rs.getString("ballad"),
                         new User(rs.getInt("user_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("username")),

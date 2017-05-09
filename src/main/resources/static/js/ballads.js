@@ -1,4 +1,11 @@
+const sortIndex = {
+    Title:1,
+    Recent:4,
+    Public:10,
+    Private:9,
+    Likes:6,
 
+};
 const cardView = document.getElementsByClassName("ballad-card-view")[0];
 let isUser = false;
 const createBallad = (ballad)=>{
@@ -117,6 +124,7 @@ $(document).ready(function () {
             isPublic: true,
             isPrivate: false,
             caseId: 3,
+            search: $("#ballads-search").val(),
             
         };
         getBallads("/sortBallads",config);
@@ -126,6 +134,7 @@ $(document).ready(function () {
         $(document).closest("div.column1").remove();
         console.log(e.target.textContent);
         const sort = e.target.textContent;
+
         if(pageLocation.includes("my-ballads")){
             isUser = true;
         }
@@ -136,7 +145,8 @@ $(document).ready(function () {
                     userOnly:isUser,
                     isPublic: true,
                     isPrivate: isUser,
-                    caseId: 4,
+                    caseId: sortIndex[sort],
+                    search: $("#ballads-search").val(),
 
                 };
                 getBallads("/sortBallads",config);
@@ -147,7 +157,8 @@ $(document).ready(function () {
                     userOnly:isUser,
                     isPublic: true,
                     isPrivate: isUser,
-                    caseId: 10,
+                    caseId: sortIndex[sort],
+                    search: $("#ballads-search").val(),
 
                 };
                 getBallads("/sortBallads",config);
@@ -158,7 +169,8 @@ $(document).ready(function () {
                     userOnly:isUser,
                     isPublic: true,
                     isPrivate: isUser,
-                    caseId: 9,
+                    caseId: sortIndex[sort],
+                    search: $("#ballads-search").val(),
 
                 };
                 getBallads("/sortBallads",config);
@@ -169,6 +181,13 @@ $(document).ready(function () {
         };
         action[sort]();
     });
+
+    $("#ballads-search").on('keydown',function (e) {
+        console.log($("#ballads-search").val());
+        if(pageLocation.includes("my-ballads")){
+           // getBallads("/myBallads");
+        }
+    })
 
     $("div").on('click',".ballad-card",function (e) {
         console.log($(this).attr("class"));

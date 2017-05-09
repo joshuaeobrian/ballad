@@ -44,7 +44,7 @@ public class BalladService {
         return repository.getPopularBallads();
     }
 
-    public List<Ballad> sortBallads(Boolean userOnly,Integer userId,Boolean isPublic, Boolean isPrivate, Integer caseId) {
-        return repository.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId);
+    public List<Ballad> sortBallads(Boolean userOnly,Integer userId,Boolean isPublic, Boolean isPrivate, Integer caseId,String search) {
+        return repository.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId,search);
     }
 }

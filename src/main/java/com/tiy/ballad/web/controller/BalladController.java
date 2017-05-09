@@ -33,7 +33,7 @@ public class BalladController {
         User user =(User) current[1];
         model.addAttribute("user", current[1]);
         model.addAttribute("isLoggedIn", current[0]);
-        List<Ballad> ballad = balladService.sortBallads(false,user.getId(),true, true,3);
+        List<Ballad> ballad = balladService.sortBallads(false,user.getId(),true, true,3,"");
         model.addAttribute("ballads", ballad);
         model.addAttribute("count", new Count(0));
         model.addAttribute("ballad_title","Popular");
@@ -46,7 +46,7 @@ public class BalladController {
         User user =(User) current[1];
         model.addAttribute("user", current[1]);
         model.addAttribute("isLoggedIn", current[0]);
-        List<Ballad> ballad = balladService.sortBallads(true,user.getId(),true, false,3);
+        List<Ballad> ballad = balladService.sortBallads(true,user.getId(),true, false,3,"");
         model.addAttribute("ballads", ballad);
         model.addAttribute("count", new Count(0));
         model.addAttribute("ballad_title","My Ballads");

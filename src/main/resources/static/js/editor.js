@@ -48,6 +48,25 @@ const selectedText = ()=>{
 };
 
 $(document).ready(function () {
+
+  $('.slideout-menu, .overlay').hide();
+
+  $('#editor-page #slideout-button').click(function() {
+    console.log("hi");
+
+    $(".slideout-menu").animate({width:'toggle'},500);
+    $(".slideout-menu, .overlay").show();
+  });
+
+  $(".fa-arrow-left").click(function() {
+    $(".slideout-menu").animate({width:'toggle'},500);
+    $(".overlay").hide();
+  });
+
+
+
+
+
     $('#text-to-render').on('input', function() {
       var text = $('#text-to-render').val();
       text = text.replace(/\n/gi, "<br />");
@@ -94,7 +113,7 @@ $(document).ready(function () {
         if(action.includes("Note")){
             action = "Notes";
         }
-        const actions = {
+        /*const actions = {
             Save: ()=>{
                 const ballad = {
                     title: $("#title").val(),
@@ -125,9 +144,12 @@ $(document).ready(function () {
                 console.log(action);
             }
         };
-        actions[action]();
+        actions[action]();*/
     });
 
 
 
 });
+
+
+// Created by Emily on May 9

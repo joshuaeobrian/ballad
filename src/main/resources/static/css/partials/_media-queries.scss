@@ -10,6 +10,10 @@
       display: none;
     }
 
+  #editor-page .header2 {
+    height: 100px;
+  }
+
   #editor-page .header2 .bottom-head {
       display: none;
   }
@@ -23,6 +27,7 @@
 
     input {
       float: left;
+      margin-top: 0;
       width: 50%;
     }
 
@@ -62,6 +67,10 @@
       height: auto;
       width: 40px;
     }
+  }
+
+  #editor-page .container .main-area {
+    width: 100%;
   }
 
   #editor-page #rhyme-bank {

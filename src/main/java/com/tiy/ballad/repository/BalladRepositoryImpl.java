@@ -142,7 +142,7 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "  JOIN ballad_users AS u ON b.creator_id = u.id\n" +
                         "  JOIN ballad_interaction AS i ON b.id = i.ballad_id\n" +
                         " WHERE CASE WHEN ? THEN u.id=? OR b.public=? AND b.public=?\n" +
-                        "       ELSE b.public=TRUE OR b.public=FALSE END GROUP BY b.id, u.id ORDER BY\n" +
+                        "       ELSE b.public=TRUE  END GROUP BY b.id, u.id ORDER BY\n" +
                         "  CASE WHEN (? = 1) THEN b.title END ASC,\n" +
                         "  CASE WHEN (? = 2) THEN b.title END DESC,\n" +
                         "  CASE WHEN (? = 3) THEN b.creation_date END ASC,\n" +
@@ -150,9 +150,11 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "  CASE WHEN (? = 5) THEN 'likecount' END  ASC,\n" +
                         "  CASE WHEN (? = 6) THEN 'likecount' END  DESC,\n" +
                         "  CASE WHEN (? = 7) THEN u.username END  ASC,\n" +
-                        "  CASE WHEN (? = 8) THEN u.username END  DESC;",
+                        "  CASE WHEN (? = 8) THEN u.username END  DESC,"+
+                        "  CASE WHEN (? = 9) THEN b.public END  ASC," +
+                        "  CASE WHEN (? = 10) THEN b.public END  DESC;",
                 new Object[]{
-                        userOnly, userId, isPublic, isPrivate, caseId, caseId, caseId, caseId, caseId, caseId, caseId, caseId
+                        userOnly, userId, isPublic, isPrivate, caseId, caseId, caseId, caseId, caseId, caseId, caseId, caseId,caseId, caseId
                 },
                 (rs, i) -> new Ballad(rs.getInt("id"), rs.getString("title"), rs.getString("ballad"),
                         new User(rs.getInt("user_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("username")),

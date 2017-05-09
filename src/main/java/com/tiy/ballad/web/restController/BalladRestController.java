@@ -68,7 +68,7 @@ public class BalladRestController {
         }
     }
 
-    @GetMapping("/sortBallads")
+    @PostMapping("/sortBallads")
     public List<Ballad> sortBalladsByRecent(HttpSession session,Boolean userOnly ,Boolean isPublic, Boolean isPrivate, Integer caseId){
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         return balladService.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId);

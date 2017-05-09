@@ -38,7 +38,7 @@
         <h2>ballads</h2>
       </div>
       <div class="mbox">
-        <input type="text" name="ballads-search"/>
+        <input type="text" id="ballads-search" name="ballads-search"/>
       </div>
       <div class="rbox">
         <div class="layout-icon">
@@ -46,13 +46,13 @@
         </div>
         <span id="sort-dropdown">Sort <i class="fa fa-caret-down" aria-hidden="true"></i></span>
         <!--TODO-->
-        <ul th:remove="all" id="sort-list">
-          <!--<li><a id="sort">Sort</a>-->
-              <li><a>Recent</a></li>
-              <li><a>Public</a></li>
-              <li><a>Private</a></li>
-              <li><a>Likes</a></li>
-          <!--</li>-->
+        <ul id="sort-list">
+
+              <li>Recent</li>
+              <li>Public</li>
+              <li>Private</li>
+              <li>Likes</li>
+
         </ul>
       </div>
 
@@ -61,21 +61,25 @@
     </section>
 
     <section id="ballad-cards-section">
-      <div id="ballad-cards-container-grid">
-        <div class="column1" th:with="columCount=${1}" th:each="theBallad : ${ballads}" th:object="${theBallad}" th:class="'column'+${columCount==1} ? '1' : ''">
-          <div class="ballad-card">
+      <div class="ballad-card-view" id="ballad-cards-container-grid">
+        <div class="column1" th:remove="all">
+          <div class="ballad-card" th:each="theBallad : ${ballads}" th:object="${theBallad}">
             <div class="btop"></div>
+
+              <input type="hidden" th:value="*{id}"/>
             <h1 th:text="*{title}">Love</h1>
-            <h2>Kendrick Lamar</h2>
-            <p th:text="*{ballad}">If I didn't ride blade on curb, would you still love me? If I minimized my net worth, would you still love me?</p>
+            <h2 th:text="|*{owner.firstName} *{owner.lastName}|">Kendrick Lamar</h2>
+            <p th:text="*{#strings.substring(ballad,0,20)}">If I didn't ride blade on curb, would you still love me? If I minimized my net worth, would you still love me?</p>
             <div class="date">
-              <span>12/2/16</span>
+              <span th:text="*{creationDate}">12/2/16</span>
             </div>
             <div class="private" th:class="*{publicView} ? 'private' : 'public'">
-              <span th:text="*{publicView} ? 'Private' : 'Public'">Private</span>
+              <span th:text="*{publicView} ? 'Private' : ''">Private</span>
             </div>
+
             <div class="bbottom"></div>
           </div>
+
           <div class="ballad-card" th:remove="all">
             <div class="btop"></div>
             <h1>I'm the One</h1>
@@ -94,130 +98,134 @@ I'm the one, yeah</p>
             <div class="bbottom"></div>
           </div>
 
-        </div>
-        <div class="column2">
-          <div class="ballad-card" th:remove="all">
-            <div class="btop"></div>
-            <h1>Humble</h1>
-            <h2>Kendrick Lamar</h2>
-            <p>This shit way too crazy, ayy, you do not amaze me, ayy
-I blew cool from AC, ayy, Obama just paged me, ayy
-I don't fabricate it, ayy, most of y'all be fakin', ayy
-I stay modest 'bout it, ayy, she elaborate it, ayy</p>
-            <div class="date">
-              <span>12/2/16</span>
-            </div>
-            <div class="private">
-              <span>Private</span>
-            </div>
-            <div class="bbottom"></div>
-          </div>
-          <div class="ballad-card" th:remove="all">
-            <div class="btop"></div>
-            <h1>Shape of You</h1>
-            <h2>Ed Sheeran</h2>
-            <p>The club isn't the best place to find a lover
-So the bar is where I go
-Me and my friends at the table doing shots
-Drinking fast and then we talk slow</p>
-            <div class="date">
-              <span>12/2/16</span>
-            </div>
-            <div class="private">
-              <span>Private</span>
-            </div>
-            <div class="bbottom"></div>
-          </div>
-        </div>
-        <div class="column3">
-          <div class="ballad-card" th:remove="all">
-            <div class="btop"></div>
-            <h1>Sign of the Times</h1>
-            <h2>Harry Styles</h2>
-            <p>You can't bribe the door on your way to the sky
-You look pretty good down here
-But you ain't really good</p>
-            <div class="date">
-              <span>12/2/16</span>
-            </div>
-            <div class="private">
-              <span>Private</span>
-            </div>
-            <div class="bbottom"></div>
-          </div>
-          <div class="ballad-card" th:remove="all">
-            <div class="btop"></div>
-            <h1>Slow Hands</h1>
-            <h2>Nial Horan</h2>
-            <p>I just wanna take my time
-We could do this, baby, all night, yeah
-'Cause I want you bad
-Yeah, I want you, baby</p>
-            <div class="date">
-              <span>12/2/16</span>
-            </div>
-            <div class="private">
-              <span>Private</span>
-            </div>
-            <div class="bbottom"></div>
-          </div>
-        </div>
+        <!--</div>-->
+        <!--<div class="column2" th:remove="all">-->
+          <!--<div class="ballad-card" th:remove="all">-->
+            <!--<div class="btop"></div>-->
+            <!--<h1>Humble</h1>-->
+            <!--<h2>Kendrick Lamar</h2>-->
+            <!--<p>This shit way too crazy, ayy, you do not amaze me, ayy-->
+<!--I blew cool from AC, ayy, Obama just paged me, ayy-->
+<!--I don't fabricate it, ayy, most of y'all be fakin', ayy-->
+<!--I stay modest 'bout it, ayy, she elaborate it, ayy</p>-->
+            <!--<div class="date">-->
+              <!--<span>12/2/16</span>-->
+            <!--</div>-->
+            <!--<div class="private">-->
+              <!--<span>Private</span>-->
+            <!--</div>-->
+            <!--<div class="bbottom"></div>-->
+          <!--</div>-->
+          <!--<div class="ballad-card" th:remove="all">-->
+            <!--<div class="btop"></div>-->
+            <!--<h1>Shape of You</h1>-->
+            <!--<h2>Ed Sheeran</h2>-->
+            <!--<p>The club isn't the best place to find a lover-->
+<!--So the bar is where I go-->
+<!--Me and my friends at the table doing shots-->
+<!--Drinking fast and then we talk slow</p>-->
+            <!--<div class="date">-->
+              <!--<span>12/2/16</span>-->
+            <!--</div>-->
+            <!--<div class="private">-->
+              <!--<span>Private</span>-->
+            <!--</div>-->
+            <!--<div class="bbottom"></div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="column3"th:remove="all">-->
+          <!--<div class="ballad-card" th:remove="all">-->
+            <!--<div class="btop"></div>-->
+            <!--<h1>Sign of the Times</h1>-->
+            <!--<h2>Harry Styles</h2>-->
+            <!--<p>You can't bribe the door on your way to the sky-->
+<!--You look pretty good down here-->
+<!--But you ain't really good</p>-->
+            <!--<div class="date">-->
+              <!--<span>12/2/16</span>-->
+            <!--</div>-->
+            <!--<div class="private">-->
+              <!--<span>Private</span>-->
+            <!--</div>-->
+            <!--<div class="bbottom"></div>-->
+          <!--</div>-->
+          <!--<div class="ballad-card" th:remove="all">-->
+            <!--<div class="btop"></div>-->
+            <!--<h1>Slow Hands</h1>-->
+            <!--<h2>Nial Horan</h2>-->
+            <!--<p>I just wanna take my time-->
+<!--We could do this, baby, all night, yeah-->
+<!--'Cause I want you bad-->
+<!--Yeah, I want you, baby</p>-->
+            <!--<div class="date">-->
+              <!--<span>12/2/16</span>-->
+            <!--</div>-->
+            <!--<div class="private">-->
+              <!--<span>Private</span>-->
+            <!--</div>-->
+            <!--<div class="bbottom"></div>-->
+          <!--</div>-->
+        <!--</div>-->
+
       </div>
-      <div id="ballad-cards-container-list">
-        <div class="ballad-card" th:remove="all">
-          <div class="btop"></div>
-          <div class="content-container">
-            <h1>Slow Hands</h1>
-            <h2>Nial Horan</h2>
-            <p>I just wanna take my time
-  We could do this, baby, all night, yeah
-  'Cause I want you bad
-  Yeah, I want you, baby</p>
-            <div class="date">
-              <span>12/2/16</span>
-            </div>
-            <div class="private">
-              <span>Private</span>
-            </div>
-          </div>
-          <div class="bbottom"></div>
-        </div>
-        <div class="ballad-card" th:remove="all">
-          <div class="btop"></div>
-          <div class="content-container">
-            <h1>Slow Hands</h1>
-            <h2>Nial Horan</h2>
-            <p>I just wanna take my time
-  We could do this, baby, all night, yeah
-  'Cause I want you bad
-  Yeah, I want you, baby</p>
-            <div class="date">
-              <span>12/2/16</span>
-            </div>
-            <div class="private">
-              <span>Private</span>
-            </div>
-          </div>
-          <div class="bbottom"></div>
-        </div>
-        <div class="ballad-card" th:remove="all">
-          <div class="btop"></div>
-          <div class="content-container">
-            <h1>Slow Hands</h1>
-            <h2>Nial Horan</h2>
-            <p>I just wanna take my time
-  We could do this, baby, all night, yeah
-  'Cause I want you bad
-  Yeah, I want you, baby</p>
-            <div class="date">
-              <span>12/2/16</span>
-            </div>
-            <div class="private">
-              <span>Private</span>
-            </div>
-          </div>
-          <div class="bbottom"></div>
-        </div>
+        <!--&lt;!&ndash;list view&ndash;&gt;-->
+      <!--<div id="ballad-cards-container-list" >-->
+        <!--<div class="ballad-card" th:each="theBallad : ${ballads}" th:object="${theBallad}">-->
+          <!--<div class="btop"></div>-->
+          <!--<div class="content-container">-->
+            <!--<input type="hidden" th:value="*{id}"/>-->
+            <!--<h1 th:text="*{title}">Slow Hands</h1>-->
+            <!--<h2 th:text="|*{owner.firstName} *{owner.lastName}|">Nial Horan</h2>-->
+            <!--<p th:text="*{ballad}">I just wanna take my time-->
+  <!--We could do this, baby, all night, yeah-->
+  <!--'Cause I want you bad-->
+  <!--Yeah, I want you, baby</p>-->
+            <!--<div class="date">-->
+              <!--<span th:text="*{creationDate}">12/2/16</span>-->
+            <!--</div>-->
+            <!--<div class="private" th:class="*{publicView} ? 'private' : 'public'">-->
+              <!--<span th:text="*{publicView} ? 'Private' : ''">Private</span>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="bbottom"></div>-->
+        <!--</div>-->
+        <!--<div class="ballad-card" th:remove="all">-->
+          <!--<div class="btop"></div>-->
+          <!--<div class="content-container">-->
+            <!--<h1>Slow Hands</h1>-->
+            <!--<h2>Nial Horan</h2>-->
+            <!--<p>I just wanna take my time-->
+  <!--We could do this, baby, all night, yeah-->
+  <!--'Cause I want you bad-->
+  <!--Yeah, I want you, baby</p>-->
+            <!--<div class="date">-->
+              <!--<span>12/2/16</span>-->
+            <!--</div>-->
+            <!--<div class="private">-->
+              <!--<span>Private</span>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="bbottom"></div>-->
+        <!--</div>-->
+        <!--<div class="ballad-card" th:remove="all">-->
+          <!--<div class="btop"></div>-->
+          <!--<div class="content-container">-->
+            <!--<h1>Slow Hands</h1>-->
+            <!--<h2>Nial Horan</h2>-->
+            <!--<p>I just wanna take my time-->
+  <!--We could do this, baby, all night, yeah-->
+  <!--'Cause I want you bad-->
+  <!--Yeah, I want you, baby</p>-->
+            <!--<div class="date">-->
+              <!--<span>12/2/16</span>-->
+            <!--</div>-->
+            <!--<div class="private">-->
+              <!--<span>Private</span>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="bbottom"></div>-->
+        <!--</div>-->
+      <!--</div>-->
       </div>
     </section>
 

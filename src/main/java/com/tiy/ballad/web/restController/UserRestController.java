@@ -6,8 +6,10 @@ import com.tiy.ballad.web.PasswordStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  * Created by josh on 4/27/17.
@@ -23,7 +25,7 @@ public class UserRestController {
 
         try {
             User user = service.login(username);
-            System.out.println(user);
+//            System.out.println(user);
             boolean validate = PasswordStorage.verifyPassword(password, user.getPassword());
             if(validate){
                 session.setAttribute("userId",user.getId());
@@ -55,9 +57,19 @@ public class UserRestController {
     }
 
     @PostMapping("/updateUser")
-    public void updateUser(User user) throws PasswordStorage.CannotPerformOperationException {
+    public void updateUser(HttpSession session, User user, MultipartFile file) throws PasswordStorage.CannotPerformOperationException {
+        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
+        user.setId(userId);
+        try {
+            user.setPhoto(file.getBytes());
+        } catch (IOException e) {
+            System.out.println("Unable to upload file");
+        }
+        if(!user.getPassword().contains("sha1")){
+            user.setPassword(PasswordStorage.createHash(user.getPassword()));
+        }
 
-        user.setPassword(PasswordStorage.createHash(user.getPassword()));
+        System.out.println(user.toString());
         service.updateUserInfo(user);
 
     }

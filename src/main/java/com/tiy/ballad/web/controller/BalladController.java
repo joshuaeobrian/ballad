@@ -1,6 +1,7 @@
 package com.tiy.ballad.web.controller;
 
 import com.tiy.ballad.model.Ballad;
+import com.tiy.ballad.model.Count;
 import com.tiy.ballad.model.User;
 import com.tiy.ballad.service.BalladService;
 import com.tiy.ballad.service.SessionService;
@@ -29,10 +30,14 @@ public class BalladController {
     @RequestMapping("/popular")
     public String popular(HttpSession session,Model model){
         Object[] current = sessionService.isSession(session);
+        User user =(User) current[1];
         model.addAttribute("user", current[1]);
         model.addAttribute("isLoggedIn", current[0]);
-        model.addAttribute("popular", balladService.getPopularBallads());
-        return "popular";
+        List<Ballad> ballad = balladService.sortBallads(false,user.getId(),true, true,3);
+        model.addAttribute("ballads", ballad);
+        model.addAttribute("count", new Count(0));
+        model.addAttribute("ballad_title","Popular");
+        return "ballads";
     }
 
     @RequestMapping("/my-ballads")
@@ -43,6 +48,7 @@ public class BalladController {
         model.addAttribute("isLoggedIn", current[0]);
         List<Ballad> ballad = balladService.sortBallads(true,user.getId(),true, false,3);
         model.addAttribute("ballads", ballad);
+        model.addAttribute("count", new Count(0));
         model.addAttribute("ballad_title","My Ballads");
         return "ballads";
     }
@@ -72,6 +78,7 @@ public class BalladController {
         if(user.getId() == ballad.getOwner().getId() ){
             session.setAttribute("balladId",id);
             model.addAttribute("ballad", ballad);
+            model.addAttribute("isHidden",true);
             return "editor";
         }else{
             return "redirect:/";

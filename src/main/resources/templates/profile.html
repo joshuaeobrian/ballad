@@ -23,19 +23,20 @@
     </header>
 
     <section class="container" th:object="${user}">
+      <form th:action="@{/update-profile}" method="post" enctype="multipart/form-data">
       <div class="settings">
         <h1>Settings</h1>
-        <button type="button" name="button">Save</button>
+        <button type="submit" name="button">Save</button>
       </div>
       <div class="top">
         <div class="lprofile">
           <h2>Profile Picture</h2>
           <div class="profile-pic">
-
-              <img id="profile-image" src="" th:style="'width:150px; height:100; border-radius:50%;'"/>
+            <!--<img th:src="@{|/profile/${user.id}.jpeg|}" alt="jpeg" />-->
+              <img id="profile-image" src="" th:src="${user.getPhoto()}+'.jpg'" th:style="'width:150px; height:100; border-radius:50%;'"/>
 
           </div>
-          <input type="file" id="update-image"/>
+          <input type="file" id="update-image" name="file"/>
           <span class="update" style="cursor: pointer">update</span>
         </div>
         <div class="rprofile">
@@ -47,7 +48,7 @@
         <div class="field">
           <h3>First Name</h3>
           <div class="field-foot">
-            <input type="text" th:value="*{firstName}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
+            <input type="text" name="firstName" th:value="*{firstName}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
 
           </div>
@@ -55,7 +56,7 @@
         <div class="field">
           <h3>Last Name</h3>
           <div class="field-foot">
-            <input type="text" th:value="*{lastName}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
+            <input type="text" name="lastName" th:value="*{lastName}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
 
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
 
@@ -64,7 +65,7 @@
         <div class="field">
           <h3>Email Address</h3>
           <div class="field-foot">
-            <input type="email" th:value="*{email}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
+            <input type="email" name="email" th:value="*{email}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
 
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
           </div>
@@ -73,7 +74,7 @@
           <h3>Username</h3>
           <div class="field-foot">
             <!--<p th:text="*{username}">Future</p>-->
-            <input type="text" th:value="*{username}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
+            <input type="text" name="username" th:value="*{username}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
 
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
 
@@ -82,7 +83,7 @@
         <div class="field">
           <h3>Password</h3>
           <div class="field-foot">
-            <input type="password" th:value="*{password}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
+            <input type="password" name="password" th:value="*{password}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
 
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
 
@@ -91,7 +92,7 @@
         <div class="field">
           <h3>Bio</h3>
           <div class="field-foot">
-            <textarea th:text="*{about}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
+            <textarea th:text="*{about}" name="about" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
 
 
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
@@ -106,13 +107,14 @@
           </div>
         </div>
       </div>
+      </form>
     </section>
 
     <div th:replace="layout :: universalScripts">
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
       <script src="https://use.fontawesome.com/555750ba4f.js"></script>
-      <script src="../static/js/ballads.js"></script>
+      <!--<script src="../static/js/ballads.js"></script>-->
     </div>
   <script src="../static/js/profileSettings.js" th:src="@{/js/profileSettings.js}"></script>
   </body>

@@ -4,6 +4,8 @@
 const input = document.getElementById("ballad-input");
 const rhymeBank = document.getElementById("rhyme-bank");
 const balladBank = document.getElementById("ballads");
+let lineRhyme = false;
+const rhymeScheme = [['A','B','A','B'],['A','B','B','A'],['A','A','B','B']];
 
 
 const postForRhymes = (word)=>{
@@ -52,6 +54,11 @@ const selectedText = ()=>{
     }
 };
 
+const isRhymingLine =() =>{
+    lineRhyme = !lineRhyme;
+    return lineRhyme;
+}
+
 $(document).ready(function () {
     $('#text-to-render').on('input', function() {
       var text = $('#text-to-render').val();
@@ -82,12 +89,15 @@ $(document).ready(function () {
     $("#ballad-input").on('keydown', function (e) {
 
         //This is controlled for when you press space
-        if(e.which == 32){
+        if(e.which == 13){
             var cursorPosition = $("#ballad-input").prop("selectionStart");
             let index = input.value.substring(0,cursorPosition).split(" ");
             let word = index[index.length-1];
-            if(word != ""&& !word.includes("[")){
-               postForRhymes(word);
+            console.log(word);
+            if(word != ""&& !word.includes("[")&& isRhymingLine()){
+                let trash = word.split("\n");
+                console.log(trash);
+               postForRhymes(trash[trash.length-1]);
 
             }
         }

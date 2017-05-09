@@ -26,7 +26,9 @@ public class UserService {
     }
 
     public void updateUserInfo(User user){
+        System.out.println("updating..");
         repository.updateUserInfo(user);
+        System.out.println("updating.....");
     }
     public void deleteUser(Integer userId){
         repository.deleteUser(userId);

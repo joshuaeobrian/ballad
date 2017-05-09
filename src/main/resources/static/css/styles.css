@@ -419,6 +419,10 @@ header {
     margin-top: 10px; }
     #editor-page .header2 .top-head input:after {
       content: "By: Isaiah Anderson"; }
+  #editor-page .header2 .top-head .save-and-cancel {
+    display: none; }
+  #editor-page .header2 .top-head #ellipses-container {
+    display: none; }
   #editor-page .header2 .bottom-head {
     display: flex;
     justify-content: space-between; }
@@ -585,5 +589,52 @@ header {
 body {
   margin: 0;
   padding: 0; }
+
+@media (max-width: 768px) {
+  #editor-page header {
+    display: none; }
+
+  #editor-page .header2 .bottom-head {
+    display: none; }
+
+  #editor-page .header2 .top-head {
+    font-size: 0.75em;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%; }
+    #editor-page .header2 .top-head input {
+      float: left;
+      width: 50%; }
+    #editor-page .header2 .top-head .save-and-cancel {
+      align-items: center;
+      display: flex;
+      float: left;
+      height: 100%;
+      justify-content: center;
+      width: 40%; }
+      #editor-page .header2 .top-head .save-and-cancel .fa-check {
+        color: #04a777;
+        display: inline-block;
+        font-size: 2rem;
+        padding: 0 10px; }
+      #editor-page .header2 .top-head .save-and-cancel .fa-times {
+        color: #9c0f5f;
+        display: inline-block;
+        font-size: 2rem;
+        padding: 0 20px; }
+    #editor-page .header2 .top-head #ellipses-container {
+      align-items: center;
+      display: flex;
+      float: right;
+      height: 100%;
+      justify-content: flex-end;
+      width: 9%; }
+    #editor-page .header2 .top-head .ellipses {
+      height: auto;
+      width: 40px; }
+
+  #editor-page #rhyme-bank {
+    display: none; } }
 
 /*# sourceMappingURL=styles.css.map */

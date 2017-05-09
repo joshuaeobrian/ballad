@@ -28,6 +28,14 @@
           content: "By: Isaiah Anderson";
         }
       }
+
+      .save-and-cancel {
+        display: none;
+      }
+
+      #ellipses-container {
+        display: none;
+      }
     }
     .bottom-head {
       display: flex;

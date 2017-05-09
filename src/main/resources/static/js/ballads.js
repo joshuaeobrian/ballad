@@ -1,3 +1,4 @@
+
 const cardView = document.getElementsByClassName("ballad-card-view")[0];
 let isUser = false;
 const createBallad = (ballad)=>{
@@ -135,7 +136,7 @@ $(document).ready(function () {
                     userOnly:isUser,
                     isPublic: true,
                     isPrivate: isUser,
-                    ,
+                    caseId: 4,
 
                 };
                 getBallads("/sortBallads",config);
@@ -172,6 +173,7 @@ $(document).ready(function () {
     $("div").on('click',".ballad-card",function (e) {
         console.log($(this).attr("class"));
         console.log("hello");
+
         const ballad_id = $(this).children("input:first").val();
         console.log(ballad_id);
         window.location = "/editor/"+ballad_id;

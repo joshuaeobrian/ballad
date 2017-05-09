@@ -4,10 +4,50 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title></title>
+    <script src="https://use.fontawesome.com/ab03b8820e.js"></script>
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
   <body id="editor-page" th:object="${ballad}">
+
+
+
+    <div class="slideout-menu">
+      <div class="slideout-menu-header">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <h1>Untitled ballad</h1>
+      </div>
+      <div class="slideout-tools-section">
+        <h2>Tools</h2>
+          <ul>
+            <a><li>+ Chorus</li></a>
+            <a><li>+ Verse</li></a>
+            <a><li>+ Bridge</li></a>
+            <a><li>+ Section</li></a>
+            <a><li>+ Template</li></a>
+          </ul>
+      </div>
+      <div class="slideout-rhyme-section">
+        <span>ABAB</span>
+      </div>
+      <div class="slideout-formatting-section">
+        <i class="fa fa-bold" aria-hidden="true"></i>
+        <i class="fa fa-italic" aria-hidden="true"></i>
+        <i class="fa fa-underline" aria-hidden="true"></i>
+        <i class="fa fa-align-left" aria-hidden="true"></i>
+        <i class="fa fa-align-center" aria-hidden="true"></i>
+        <i class="fa fa-align-right" aria-hidden="true"></i>
+      </div>
+      <div class="slideout-public-section">
+        <h2>Public</h2>
+        <label class="switch">
+          <input type="checkbox" th:checked="*{publicView}"/>
+          <div class="slider round"></div>
+        </label>
+      </div>
+    </div>
+    <div class="overlay"></div>
+
     <header id="global-header" th:replace="layout :: nav">
 
       <div class="head-container">
@@ -36,16 +76,23 @@
       <div class="top-head">
         <input type="text" name="" id="title" th:value="*{title}" placeholder="Untitled ballad" />
         <!-- <span>By: Isaiah Anderson</span> -->
+        <div class="save-and-cancel">
+          <i class="fa fa-check" aria-hidden="true"></i>
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div id="ellipses-container">
+          <a id="slideout-button"><img class="ellipses" src="../static/images/ellipses.png" th:src="@{/images/ellipses.png}" alt="More"/></a>
+        </div>
       </div>
       <div class="bottom-head">
         <div class="tools">
           <span id="tools">Tools <i class="fa fa-caret-down" aria-hidden="true"></i>
             <ul id="tool-list">
-              <li>+Chorus</li>
-              <li>+Verse</li>
-              <li>+Bridge</li>
-              <li>+Section</li>
-              <li>+Template</li>
+              <li value="Chorus">+ Chorus</li>
+              <li value="Verse">+ Verse</li>
+              <li value="Bridge">+ Bridge</li>
+              <li value="Section">+ Section</li>
+              <li value="Template">+ Template</li>
             </ul>
           </span>
         </div>

@@ -36,23 +36,25 @@
     <section id="tools-section">
       <div class="lbox">
         <h2>ballads</h2>
+
       </div>
       <div class="mbox">
         <input type="text" id="ballads-search" name="ballads-search"/>
       </div>
+
       <div class="rbox">
         <div class="layout-icon">
 
         </div>
         <span id="sort-dropdown">Sort <i class="fa fa-caret-down" aria-hidden="true"></i></span>
         <!--TODO-->
+
         <ul id="sort-list">
 
               <li>Recent</li>
               <li>Public</li>
               <li>Private</li>
               <li>Likes</li>
-
         </ul>
       </div>
 
@@ -61,6 +63,7 @@
     </section>
 
     <section id="ballad-cards-section">
+
       <div class="ballad-card-view" id="ballad-cards-container-grid">
         <div class="column1" th:remove="all">
           <div class="ballad-card" th:each="theBallad : ${ballads}" th:object="${theBallad}">
@@ -85,18 +88,12 @@
             <h1>I'm the One</h1>
             <h2>DJ Khaled</h2>
             <p>I'm the one, yeah, I'm the one, yeah
-And you sick of all those other imitators
-Don't let the only real one intimidate ya
-See you watchin', don't run outta time now
-I'm the one, yeah</p>
-            <div class="date">
-              <span>12/2/16</span>
-            </div>
-            <div class="private">
-              <span>Private</span>
-            </div>
-            <div class="bbottom"></div>
-          </div>
+                        And you sick of all those other imitators
+                        Don't let the only real one intimidate ya
+                        See you watchin', don't run outta time now
+                I'm the one, yeah</p>
+
+
 
         <!--</div>-->
         <!--<div class="column2" th:remove="all">-->
@@ -167,7 +164,7 @@ I'm the one, yeah</p>
           <!--</div>-->
         <!--</div>-->
 
-      </div>
+
         <!--&lt;!&ndash;list view&ndash;&gt;-->
       <!--<div id="ballad-cards-container-list" >-->
         <!--<div class="ballad-card" th:each="theBallad : ${ballads}" th:object="${theBallad}">-->
@@ -226,6 +223,8 @@ I'm the one, yeah</p>
           <!--<div class="bbottom"></div>-->
         <!--</div>-->
       <!--</div>-->
+          </div>
+        </div>
       </div>
     </section>
 
@@ -234,7 +233,7 @@ I'm the one, yeah</p>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
       <script src="https://use.fontawesome.com/555750ba4f.js"></script>
-      <!--<script src="../static/js/ballads.js"></script>-->
+
     </div>
   <script src="../static/js/ballads.js" th:src="@{/js/ballads.js}"></script>
   </body>

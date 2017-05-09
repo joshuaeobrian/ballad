@@ -1,4 +1,195 @@
 #editor-page {
+
+  .slideout-menu {
+    background: white;
+    height: 200%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70%;
+    z-index: 100;
+
+    .slideout-menu-header {
+      align-items: center;
+      border-bottom: 4px solid $black;
+      display: flex;
+      left: 5%;
+      position: relative;
+      width: 90%;
+      height: 98px;
+
+      .fa-arrow-left {
+        color: gray;
+        font-size: 1.5rem;
+        padding-right: 20px;
+      }
+
+      h1 {
+        color: $black;
+        font-style: italic;
+        font-size: 2rem;
+        margin-top: 20px;
+      }
+    }
+
+    .slideout-tools-section {
+      border-bottom: 4px solid $black;
+      margin-left: 5%;
+      width: 90%;
+
+      h2 {
+        color: $black;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      ul {
+        margin-bottom: 40px;
+
+        a {
+          color: $black;
+          display: block;
+          font-size: 1.25rem;
+          font-weight: bold;
+          margin-top: 20px;
+          text-decoration: none;
+
+          li {
+            list-style-type: none;
+          }
+        }
+
+        a:hover {
+          color: $green;
+        }
+      }
+    }
+
+    .slideout-rhyme-section {
+      align-items: center;
+      border-bottom: 4px solid $black;
+      display: flex;
+      height: 100px;
+      justify-content: center;
+      margin-left: 5%;
+      width: 90%;
+
+      span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $green;
+      }
+    }
+
+    .slideout-formatting-section {
+      align-items: center;
+      border-bottom: 4px solid $black;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: 175px;
+      justify-content: center;
+      margin-left: 5%;
+      width: 90%;
+
+      .fa {
+        color: $black;
+        font-size: 2rem;
+        padding: 0 10%;
+      }
+    }
+
+    .slideout-public-section {
+      height: 100px;
+      margin-left: 5%;
+      width: 90%;
+
+      h2 {
+        color: $green;
+        display: inline-block;
+        font-size: 1.50rem;
+        margin-top: 20px;
+        width: 50%;
+      }
+
+        /* The switch - the box around the slider */
+      .switch {
+        float: right;
+        position: relative;
+        display: inline-block;
+        margin-top: 20px;
+        width: 60px;
+        height: 34px;
+      }
+
+      /* Hide default HTML checkbox */
+      .switch input {display:none;}
+
+      /* The slider */
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      input:checked + .slider {
+        background-color: $green;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+
+      /* Rounded sliders */
+      .slider.round {
+        border-radius: 34px;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
+
+      }
+    }
+
+
+  .overlay {
+    background: linear-gradient(
+      rgba(42, 42, 42, 0.90),
+      rgba(42, 42, 42, 0.90));
+    height: 200%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+  }
+
   header {
     height: 100px;
   }
@@ -18,7 +209,7 @@
       // display: flex;
       // align-items: center;
       input {
-        font-size: 2.5em;
+        font-size: 2rem;
         background: none;
         color: white;
         font-style: italic;
@@ -27,6 +218,14 @@
         &:after {
           content: "By: Isaiah Anderson";
         }
+      }
+
+      .save-and-cancel {
+        display: none;
+      }
+
+      #ellipses-container {
+        display: none;
       }
     }
     .bottom-head {

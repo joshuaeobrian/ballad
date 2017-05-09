@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout :: head('Profile')">
     <meta charset="utf-8"/>
@@ -22,6 +23,7 @@
       </div>
     </header>
 
+
     <section class="container" th:object="${user}">
       <form th:action="@{/update-profile}" method="post" enctype="multipart/form-data">
       <div class="settings">
@@ -32,12 +34,16 @@
         <div class="lprofile">
           <h2>Profile Picture</h2>
           <div class="profile-pic">
+
             <!--<img th:src="@{|/profile/${user.id}.jpeg|}" alt="jpeg" />-->
               <img id="profile-image" src="" th:src="${user.getPhoto()}+'.jpg'" th:style="'width:150px; height:100; border-radius:50%;'"/>
 
           </div>
           <input type="file" id="update-image" name="file"/>
           <span class="update" style="cursor: pointer">update</span>
+
+
+          </div>
         </div>
         <div class="rprofile">
           <h2>Profile Color</h2>
@@ -57,22 +63,23 @@
           <h3>Last Name</h3>
           <div class="field-foot">
             <input type="text" name="lastName" th:value="*{lastName}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
-
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
-
           </div>
         </div>
         <div class="field">
           <h3>Email Address</h3>
           <div class="field-foot">
+
             <input type="email" name="email" th:value="*{email}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
 
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
+
           </div>
         </div>
         <div class="field">
           <h3>Username</h3>
           <div class="field-foot">
+
             <!--<p th:text="*{username}">Future</p>-->
             <input type="text" name="username" th:value="*{username}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
 
@@ -83,6 +90,7 @@
         <div class="field">
           <h3>Password</h3>
           <div class="field-foot">
+
             <input type="password" name="password" th:value="*{password}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
 
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
@@ -92,6 +100,7 @@
         <div class="field">
           <h3>Bio</h3>
           <div class="field-foot">
+
             <textarea th:text="*{about}" name="about" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
 
 
@@ -107,6 +116,7 @@
           </div>
         </div>
       </div>
+
       </form>
     </section>
 
@@ -117,5 +127,6 @@
       <!--<script src="../static/js/ballads.js"></script>-->
     </div>
   <script src="../static/js/profileSettings.js" th:src="@{/js/profileSettings.js}"></script>
+
   </body>
 </html>

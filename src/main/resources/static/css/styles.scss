@@ -1,4 +1,3 @@
-
 @import "partials/variables";
 @import "partials/home";
 @import "partials/popular";
@@ -8,6 +7,7 @@
 @import "partials/profile";
 
 @import url('https://fonts.googleapis.com/css?family=Istok+Web');
+
 * {
   font-family: 'Istok Web', sans-serif;
 
@@ -17,3 +17,8 @@ body {
   margin: 0;
   padding: 0;
 }
+<<<<<<< HEAD
+=======
+
+@import "partials/media-queries";
+>>>>>>> c0e886663b823eaf4415b599fff68fa4f0249f3d

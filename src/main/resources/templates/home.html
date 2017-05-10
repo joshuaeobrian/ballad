@@ -9,6 +9,9 @@
   </head>
   <body id="home-page">
 
+
+<!-- GLOBAL LOGIN -->
+
     <div id="global-login">
       <div class="modal-container">
         <div class="modal">
@@ -73,6 +76,9 @@
       </div>
     </div>
 
+
+<!-- GLOBAL HEADER -->
+
     <header id="global-header" th:replace="layout :: nav">
 
       <div class="head-container">
@@ -91,15 +97,14 @@
           <ul>
             <li><a href="#about" id="ab">About</a></li>
             <li><a href="popular.html" id="br">Browse</a></li>
-            <li><a href="editor.html" id="cr">+Create</a></li>
+            <li><a href="editor.html" id="cr">+ Create</a></li>
           </ul>
         </div>
       </div>
     </header>
 
 
-
-
+<!-- HOME PAGE -->
 
     <section id="head">
       <div class="head-box">
@@ -114,75 +119,79 @@
       <!-- These are the divs that will hold three popular ballads. The see more link will link to the actual popular page. Only the first couple lines of the lyrics will show in these boxes-->
 
         <div class="pop-ballad" th:each="popular : ${topThree}" th:object="${popular}">
-            <div class="top-border"></div>
-              <h1 th:text="*{title}">Humble</h1>
-              <h2 th:text="*{owner.firstName}">Kendrick Lamar</h2>
-              <p th:text="*{ballad}">"My left stroke just went Viral<br/>Right stroke put lil' baby in a spiral"</p>
-              <span th:text="*{{creationDate}}">March 7, 2017</span>
+          <div class="top-border"></div>
+            <h1 th:text="*{title}">Humble</h1>
+            <h2 th:text="*{owner.firstName}">Kendrick Lamar</h2>
+            <p th:text="*{ballad}">"My left stroke just went Viral<br/>Right stroke put lil' baby in a spiral"</p>
+            <span th:text="*{{creationDate}}">March 7, 2017</span>
           <div class="bottom-border"></div>
-      </div>
-      <div class="pop-ballad" th:remove="all">
-        <div class="top-border">
-
         </div>
-        <h1>Humble</h1>
-        <h2>Marlanna Evans</h2>
-        <p>"Just as sure as the earth is round We bounce back up when they throw is down. So don't forget your crown."</p>
-        <span>March 7, 2017</span>
-<div class="bottom-border">
-
-</div>
-      </div>
         <div class="pop-ballad" th:remove="all">
-        <div class="top-border"></div>
-        <h1>Humble</h1>
-        <h2>Jackson Philips</h2>
-        <p>"What am I good for? Somebody tell me, Because I don't know anymore"</p>
-        <span>March 7, 2017</span>
-<div class="bottom-border">
-
-</div>
+          <div class="top-border"></div>
+          <h1>Humble</h1>
+          <h2>Marlanna Evans</h2>
+          <p>"Just as sure as the earth is round We bounce back up when they throw is down. So don't forget your crown."</p>
+          <span>March 7, 2017</span>
+          <div class="bottom-border"></div>
+        </div>
+        <div class="pop-ballad" th:remove="all">
+          <div class="top-border"></div>
+          <h1>Humble</h1>
+          <h2>Jackson Philips</h2>
+          <p>"What am I good for? Somebody tell me, Because I don't know anymore"</p>
+          <span>March 7, 2017</span>
+          <div class="bottom-border"></div>
+        </div>
       </div>
-      </div>
-
 
       <a href="popular.html" th:href="@{/popular}">See More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+
     </section>
 
     <section id="about">
       <div class="overview">
+        <div class="description-container">
+          <div class="description">
+            <h2>Create lyrics with ease using ballad's Editor tool</h2>
+            <p>Build your own song structure and start writing using ballad’s Rhyme Generator </p>
+          </div>
+        </div>
         <div class="pic">
-
+          <img src="../static/images/Phone-with-shadow.png" alt="Mobile view"/>
         </div>
-        <div class="description">
-          <h1>Create Lyrics with ease using the ballad editor</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore </p>
-        </div>
-
       </div>
 
       <div class="quote">
-        <p>"Music is the greatest communication in the world. Even if people don't understand the language you're singing in they still know good music."<br/><span>--Lou Rawls</span></p>
+        <p>"Music is the greatest communication in the world. Even if people don't understand the language you're singing in they still know good music."
+          <br/>
+          <span>—Lou Rawls</span>
+        </p>
       </div>
 
       <div class="features">
-        <div class="feature">
-          <h1>Feature</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+        <div class="feature-description-container">
+          <div class="feature-description">
+            <h1>The Rhyme Generator</h1>
+            <p>Discover words that fit your chosen rhyme scheme quickly and easily</p>
+          </div>
         </div>
         <div class="feature-visual">
           <img src="../static/images/Laptop_white-background.png" th:src="@{/images/Laptop_white-background.png}" alt=""/>
         </div>
       </div>
+
     </section>
+
     <div th:replace="login :: loginPage"></div>
+
     <footer></footer>
-  <div th:replace="layout :: universalScripts">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../static/js/home.js" th:src="@{/js/script.js}"></script>
-    <script src="../static/js/login.js" th:src="@{/js/login.js}"></script>
-    <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
-    <script src="https://use.fontawesome.com/555750ba4f.js"></script>
-  </div>
+
+    <div th:replace="layout :: universalScripts">
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="../static/js/home.js" th:src="@{/js/script.js}"></script>
+      <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+      <script src="https://use.fontawesome.com/555750ba4f.js"></script>
+    </div>
+
   </body>
 </html>

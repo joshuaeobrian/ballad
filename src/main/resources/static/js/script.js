@@ -1,14 +1,14 @@
-const postUser = (url,user)=>{
-    $.post(url,
-        user,
-        function (data) {
-            console.log(data);
-            if(url.includes("userlogin")){
-                handleUserLogin(data);
-            }
-        });
-
-};
+// const postUser = (url,user)=>{
+//     $.post(url,
+//         user,
+//         function (data) {
+//             console.log(data);
+//             if(url.includes("userlogin")){
+//                 handleUserLogin(data);
+//             }
+//         });
+//
+// };
 
 function handleUserLogin(data) {
     if(data){
@@ -24,21 +24,6 @@ function handleUserLogin(data) {
     }
 }
 
-$(document).ready(function () {
-
-  $('.modal-overlay, .modal-container').hide();
-
-  $('#not-logged').click(function() {
-    console.log("hi");
-
-    $(".modal-overlay, .modal-container").show();
-  });
-
-  $(".fa-times").click(function() {
-    $(".modal-overlay, .modal-container").hide();
-  });
-
-
 $(document).ready(function() {
 //      var logged = false;
 //      $("#logged").css('display','none');
@@ -49,9 +34,8 @@ $(document).ready(function() {
   $('.modal-overlay, .modal-container').hide();
 
   $('#not-logged').click(function() {
-    console.log("hi");
-
-  $(".modal-overlay, .modal-container").show();
+      console.log("hi");
+      $(".modal-overlay, .modal-container").show();
   });
 
   $(".fa-times").click(function() {

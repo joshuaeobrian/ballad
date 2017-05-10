@@ -6,6 +6,71 @@
     <link rel="stylesheet" href="../static/css/styles.css">
   </head>
   <body id="profile">
+
+    <div id="global-login">
+      <div class="modal-container">
+        <div class="modal">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <div th:fragment="loginPage" id="login-page">
+          <section  id="login-section">
+
+            <form id="signup-form" th:style="${signup}? '' : 'display:none'">
+              <h1>Signup</h1>
+              <div class="fname">
+                <label for="first-name">First Name</label><br/>
+                <input type="text" id="first-name" name="first-name"/>
+              </div>
+              <div class="lname">
+                <label for="last-name">Last Name</label><br/>
+                <input type="text" id="last-name" name="last-name"/>
+              </div>
+              <div class="eaddress">
+                <label for="email-address">Email Address</label><br/>
+                <input type="text" id="email-address" name="email-address"/>
+              </div>
+              <div class="usr">
+                <label for="signup-username">Username</label><br/>
+                <input type="text" id="signup-username" name="signup-username"/>
+              </div>
+              <div class="pass">
+                <label for="signup-password">Password</label><br/>
+                <input type="text" id="signup-password" name="signup-password"/>
+              </div>
+              <div class="sub">
+                <button id="signup-btn">Submit</button>
+              </div>
+              <span>Already have an account? <a href="#" id="login">Login!</a></span>
+
+            </form>
+
+            <form id="login-form" th:style="${signup}? 'display:none' : ''">
+              <h1>Login</h1>
+              <div class="usr">
+                <label for="login-username">Username</label><br/>
+                <input type="text" id="login-username" name="username"/>
+              </div>
+              <div class="pass">
+                <label for="login-password">Password</label><br/>
+                <input type="text" id="login-password" name="login-password"/>
+              </div>
+              <div class="sub">
+                <button id="login-btn">Submit</button>
+                <a href="#">Forgot your password?</a>
+              </div>
+
+
+              <span>Ready to create lyrics but don't have an account? <a href="#" id="signup">Sign up!</a></span>
+            </form>
+
+          </section>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-overlay">
+      </div>
+    </div>
+
     <header id="global-header" th:replace="layout :: nav">
       <div class="head-container">
         <div class="top-head">
@@ -92,7 +157,8 @@
         </div>
       </div>
     </section>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
     <script src="https://use.fontawesome.com/555750ba4f.js"></script>
   </body>
 </html>

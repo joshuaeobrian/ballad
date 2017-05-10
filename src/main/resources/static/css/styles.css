@@ -44,7 +44,7 @@ body {
       display: none; }
     #global-login .modal-container .modal h1 {
       color: #9c0f5f;
-      font-size: 3em; }
+      font-size: 3rem; }
     #global-login .modal-container .modal input {
       width: 400px;
       height: 25px;
@@ -52,7 +52,7 @@ body {
     #global-login .modal-container .modal .usr, #global-login .modal-container .modal .pass, #global-login .modal-container .modal .sub, #global-login .modal-container .modal .fname, #global-login .modal-container .modal .lname, #global-login .modal-container .modal .eaddress {
       margin: 50px 0; }
       #global-login .modal-container .modal .usr label, #global-login .modal-container .modal .pass label, #global-login .modal-container .modal .sub label, #global-login .modal-container .modal .fname label, #global-login .modal-container .modal .lname label, #global-login .modal-container .modal .eaddress label {
-        font-size: 1.5em;
+        font-size: 1.5rem;
         font-weight: bold; }
       #global-login .modal-container .modal .usr input, #global-login .modal-container .modal .pass input, #global-login .modal-container .modal .sub input, #global-login .modal-container .modal .fname input, #global-login .modal-container .modal .lname input, #global-login .modal-container .modal .eaddress input {
         margin-top: 15px; }
@@ -71,18 +71,18 @@ body {
         background: #04a777;
         box-sizing: border-box;
         padding: 10px 25px;
-        font-size: 1.5em;
+        font-size: 1.5rem;
         border-radius: 20px;
         border: none;
         color: white; }
       #global-login .modal-container .modal .sub a {
         text-decoration: none;
         color: #555;
-        font-size: 1.1em; }
+        font-size: 1.1rem; }
     #global-login .modal-container .modal span {
       color: #555;
       text-weight: 300;
-      font-size: 1.2em; }
+      font-size: 1.2rem; }
       #global-login .modal-container .modal span a {
         text-decoration: none;
         text-weight: bold;
@@ -104,45 +104,43 @@ header {
       align-items: center; }
     header .head-container .top-head {
       justify-content: space-between;
-      height: 50%; }
-      header .head-container .top-head #logo {
-        font-size: 3.5em;
-        color: #00a; }
-        header .head-container .top-head #logo img {
-          width: 45%; }
+      height: 55%; }
+      header .head-container .top-head #logo img {
+        object-fit: contain;
+        width: 40%; }
       header .head-container .top-head a {
         text-decoration: none;
         letter-spacing: 1px;
         color: #2a2a2a; }
         header .head-container .top-head a .dropdown {
           display: none;
-          position: absolute;
+          list-style: none;
           margin: 0;
           padding: 0;
-          list-style: none;
-          text-align: right;
-          right: 10%; }
+          position: absolute;
+          right: 10%;
+          text-align: right; }
           header .head-container .top-head a .dropdown li {
             width: 100%;
-            font-size: 1em;
+            font-size: 1rem;
             line-height: 25px;
             letter-spacing: 1px; }
             header .head-container .top-head a .dropdown li:hover {
               background: rgba(100, 20, 50, 0.1); }
     header .head-container .bottom-head {
       justify-content: flex-start;
-      height: 50%; }
+      height: 45%; }
       header .head-container .bottom-head ul {
+        list-style: none;
         margin: 0;
-        padding: 0;
-        list-style: none; }
+        padding: 0; }
         header .head-container .bottom-head ul li {
           float: left;
-          margin-right: 30px; }
+          margin-right: 40px; }
           header .head-container .bottom-head ul li a {
             text-decoration: none;
             letter-spacing: 1px;
-            font-size: 1.1em;
+            font-size: 1.15rem;
             font-weight: bold; }
           header .head-container .bottom-head ul li #ab {
             color: #9c0f5f; }
@@ -169,7 +167,7 @@ header {
     #home-page #head .head-box h1 {
       margin: 0;
       width: 40%;
-      font-size: 4em;
+      font-size: 4rem;
       line-height: 80px;
       color: #fff; }
     #home-page #head .head-box img {
@@ -178,7 +176,7 @@ header {
   width: 80%;
   margin: 0 auto; }
   #home-page #preview h2 {
-    font-size: 3em;
+    font-size: 2.5rem;
     margin: 40px 0px;
     color: #9c0f5f; }
   #home-page #preview .preview-container {
@@ -186,9 +184,9 @@ header {
     justify-content: space-around; }
     #home-page #preview .preview-container .pop-ballad {
       display: inline-block;
-      padding: 20px;
+      padding: 20px 20px 40px 20px;
       width: 280px;
-      height: 400px;
+      height: auto;
       position: relative; }
       #home-page #preview .preview-container .pop-ballad:nth-child(1) .top-border, #home-page #preview .preview-container .pop-ballad:nth-child(1) .bottom-border {
         background: #9c0f5f; }
@@ -217,21 +215,23 @@ header {
       #home-page #preview .preview-container .pop-ballad .bottom-border {
         clear: both; }
       #home-page #preview .preview-container .pop-ballad h1 {
-        font-size: 2em;
-        margin: 10 0; }
+        font-size: 2rem;
+        margin: 20px 0 10px 0; }
       #home-page #preview .preview-container .pop-ballad h2 {
-        font-size: 1.5em;
-        margin: 0;
-        color: #2a2a2a; }
+        color: #2a2a2a;
+        font-size: 1.5rem;
+        margin: 0px 0px 20px 0px; }
       #home-page #preview .preview-container .pop-ballad p {
-        line-height: 30px; }
+        line-height: 25px;
+        margin-bottom: 20px; }
       #home-page #preview .preview-container .pop-ballad span {
-        float: right; }
+        float: left;
+        margin-bottom: 20px; }
   #home-page #preview a {
     margin: 40px 0px;
     float: right;
     text-decoration: none;
-    font-size: 2.5em;
+    font-size: 1.5rem;
     color: #9c0f5f; }
 #home-page #about {
   clear: both;
@@ -241,59 +241,75 @@ header {
     width: 100%;
     height: 500px;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center; }
-    #home-page #about .overview .description {
+    #home-page #about .overview .description-container {
+      align-items: center;
       box-sizing: border-box;
-      width: 50%;
+      display: flex;
       height: 100%;
-      padding: 30px; }
-      #home-page #about .overview .description h1 {
+      justify-content: flex-start;
+      margin-right: 10%;
+      width: 40%; }
+      #home-page #about .overview .description-container .description h2 {
         color: white;
-        font-size: 3em; }
-      #home-page #about .overview .description p {
-        font-size: 2em;
-        line-height: 50px;
+        font-size: 2.5rem;
+        margin-bottom: 20px; }
+      #home-page #about .overview .description-container .description p {
+        font-size: 1.5rem;
         color: #fff; }
     #home-page #about .overview .pic {
-      width: 50%;
+      align-items: flex-end;
+      display: flex;
+      float: left;
       height: 100%;
-      background: url("../images/Phone.png");
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat; }
+      justify-content: flex-start;
+      width: 50%; }
+      #home-page #about .overview .pic img {
+        height: 100%;
+        object-fit: contain; }
   #home-page #about .quote {
+    align-items: center;
     background: #fff;
     display: flex;
-    align-items: center;
     box-sizing: border-box;
     padding: 100px 0; }
     #home-page #about .quote p {
-      width: 60%;
+      color: #2a2a2a;
+      font-size: 1.75rem;
+      font-style: italic;
       margin: 0 auto;
       text-align: center;
-      font-size: 2em;
-      line-height: 50px;
-      color: #2a2a2a;
-      font-style: italic; }
+      width: 50%; }
       #home-page #about .quote p span {
-        float: right; }
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: bold;
+        float: right;
+        margin-top: 20px; }
   #home-page #about .features {
     display: flex;
     justify-content: space-between;
     height: 500px; }
-    #home-page #about .features .feature {
-      width: 50%;
-      height: 100%;
+    #home-page #about .features .feature-description-container {
+      align-items: center;
+      background: #2a2a2a;
       box-sizing: border-box;
+      display: flex;
+      height: 100%;
+      justify-content: center;
       padding: 50px;
-      color: #fff;
-      background: #2a2a2a; }
-      #home-page #about .features .feature h1 {
-        font-size: 3em; }
-      #home-page #about .features .feature p {
-        font-size: 1.5em;
-        line-height: 40px; }
+      width: 50%; }
+      #home-page #about .features .feature-description-container .feature-description {
+        color: white;
+        width: 80%; }
+        #home-page #about .features .feature-description-container .feature-description h1 {
+          font-size: 2.5rem; }
+        #home-page #about .features .feature-description-container .feature-description p {
+          font-size: 1.5rem;
+          font-weight: normal;
+          margin-top: 20px; }
     #home-page #about .features .feature-visual {
       width: 50%;
       height: 100%;
@@ -347,7 +363,7 @@ html {
     display: none; }
   #login-page h1 {
     color: #9c0f5f;
-    font-size: 3em; }
+    font-size: 3rem; }
   #login-page input {
     width: 400px;
     height: 25px;
@@ -355,7 +371,7 @@ html {
   #login-page .usr, #login-page .pass, #login-page .sub, #login-page .fname, #login-page .lname, #login-page .eaddress {
     margin: 50px 0; }
     #login-page .usr label, #login-page .pass label, #login-page .sub label, #login-page .fname label, #login-page .lname label, #login-page .eaddress label {
-      font-size: 1.5em;
+      font-size: 1.5rem;
       font-weight: bold; }
     #login-page .usr input, #login-page .pass input, #login-page .sub input, #login-page .fname input, #login-page .lname input, #login-page .eaddress input {
       margin-top: 15px; }
@@ -374,18 +390,18 @@ html {
       background: #04a777;
       box-sizing: border-box;
       padding: 10px 25px;
-      font-size: 1.5em;
+      font-size: 1.5rem;
       border-radius: 20px;
       border: none;
       color: white; }
     #login-page .sub a {
       text-decoration: none;
       color: #555;
-      font-size: 1.1em; }
+      font-size: 1.1rem; }
   #login-page span {
     color: #555;
     text-weight: 300;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     padding-bottom: 100px; }
     #login-page span a {
       text-decoration: none;
@@ -407,7 +423,7 @@ html {
     justify-content: space-between;
     align-items: center; }
     #ballads-page #tools-section .lbox h2 {
-      font-size: 3em;
+      font-size: 3rem;
       color: #04a777; }
     #ballads-page #tools-section .mbox {
       width: 30%; }
@@ -415,7 +431,7 @@ html {
         width: 100%;
         border: none;
         border-bottom: 2px solid #2a2a2a;
-        font-size: 2em; }
+        font-size: 2rem; }
         #ballads-page #tools-section .mbox input:focus {
           outline: none; }
     #ballads-page #tools-section .rbox .layout-icon {
@@ -455,27 +471,27 @@ html {
       #ballads-page #ballad-cards-container-grid .ballad-card h1, #ballads-page #ballad-cards-container-grid .ballad-card h2, #ballads-page #ballad-cards-container-grid .ballad-card p {
         padding-left: 10px; }
       #ballads-page #ballad-cards-container-grid .ballad-card h1 {
-        font-size: 2em;
+        font-size: 2rem;
         text-transform: uppercase;
         margin: 0;
         margin-top: 20px; }
       #ballads-page #ballad-cards-container-grid .ballad-card h2 {
-        font-size: 1.4em;
+        font-size: 1.4rem;
         margin: 0; }
       #ballads-page #ballad-cards-container-grid .ballad-card p {
         font-weight: lighter;
-        font-size: 1.2em;
+        font-size: 1.2rem;
         letter-spacing: 1px;
         margin: 20px 0; }
       #ballads-page #ballad-cards-container-grid .ballad-card .date {
         float: left;
-        font-size: .9em; }
+        font-size: .9rem; }
       #ballads-page #ballad-cards-container-grid .ballad-card .private {
         float: right; }
         #ballads-page #ballad-cards-container-grid .ballad-card .private span {
           color: #04a777;
           font-weight: 500;
-          font-size: 1.3em; }
+          font-size: 1.3rem; }
   #ballads-page #ballad-cards-container-list {
     width: 80%;
     margin: 0 auto;
@@ -496,10 +512,10 @@ html {
         justify-content: space-between;
         align-items: center; }
         #ballads-page #ballad-cards-container-list .ballad-card .content-container h1 {
-          font-size: 1.5em;
+          font-size: 1.5rem;
           text-transform: uppercase; }
         #ballads-page #ballad-cards-container-list .ballad-card .content-container h2 {
-          font-size: 1.3em; }
+          font-size: 1.3rem; }
         #ballads-page #ballad-cards-container-list .ballad-card .content-container p {
           width: 35%;
           margin: 10px 0; }
@@ -680,7 +696,7 @@ html {
         display: flex;
         align-items: center;
         color: white;
-        font-size: 1.5em; }
+        font-size: 1.5rem; }
       #editor-page .header2 .bottom-head .tools span {
         color: white;
         letter-spacing: 1px; }
@@ -697,19 +713,19 @@ html {
         background: none;
         border: none;
         color: #04a777;
-        font-size: 1em;
+        font-size: 1rem;
         letter-spacing: 1px; }
       #editor-page .header2 .bottom-head .transform button {
         background: none;
         border: none;
         color: white;
-        font-size: 1em;
+        font-size: 1rem;
         margin: 3px; }
       #editor-page .header2 .bottom-head .align button {
         background: none;
         border: none;
         color: white;
-        font-size: 1em;
+        font-size: 1rem;
         margin: 3px; }
       #editor-page .header2 .bottom-head .save {
         justify-content: flex-end;
@@ -717,7 +733,7 @@ html {
         #editor-page .header2 .bottom-head .save button {
           background: #04a777;
           color: white;
-          font-size: 1em;
+          font-size: 1rem;
           box-sizing: border-box;
           padding: 10px 20px;
           border: none;
@@ -734,7 +750,7 @@ html {
       #editor-page .container .main-area #rhyme-scheme {
         margin: 0;
         position: absolute;
-        font-size: 1.5em;
+        font-size: 1.5rem;
         padding-top: 80px;
         line-height: 40px;
         list-style: none;
@@ -749,7 +765,7 @@ html {
         box-sizing: border-box;
         padding-left: 80px;
         padding-top: 80px;
-        font-size: 1.5em;
+        font-size: 1.5rem;
         line-height: 40px;
         border: none;
         background: transparent;
@@ -764,7 +780,7 @@ html {
         box-sizing: border-box;
         padding-left: 80px;
         padding-top: 80px;
-        font-size: 1.5em;
+        font-size: 1.5rem;
         line-height: 40px; }
     #editor-page .container .rhymes {
       width: 30%;
@@ -787,9 +803,9 @@ html {
       justify-content: space-between;
       align-items: center; }
       #profile .container .settings h1 {
-        font-size: 3em; }
+        font-size: 3rem; }
       #profile .container .settings button {
-        font-size: 1.9em;
+        font-size: 1.9rem;
         color: white;
         padding: 5px 30px;
         border-radius: 20px;
@@ -804,7 +820,7 @@ html {
         #profile .container .top .lprofile h2, #profile .container .top .rprofile h2 {
           border-bottom: 2px solid black;
           font-weight: bold;
-          font-size: 1.6em; }
+          font-size: 1.6rem; }
       #profile .container .top .lprofile .profile-pic {
         width: 150px;
         height: 150px;
@@ -816,7 +832,7 @@ html {
         text-align: center; }
       #profile .container .top .rprofile button {
         background: #9c0f5f;
-        font-size: 1.5em;
+        font-size: 1.5rem;
         padding: 6px 20px;
         border-radius: 15px;
         border: none;
@@ -835,20 +851,78 @@ html {
           color: white;
           background: #2a2a2a;
           padding: 10px 20px;
-          font-size: 1.5em;
+          font-size: 1.5rem;
           border: none;
           border-radius: 20px; }
 
 * {
-  font-family: 'Istok Web', sans-serif; }
+  font-family: 'Istok Web', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0; }
 
-body {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0; }
 
 @media (max-width: 768px) {
+  header {
+    height: 100px; }
+
   header .head-container .bottom-head {
     display: none; } }
+@media (max-width: 768px) {
+  #home-page #head .head-box {
+    display: block; }
+    #home-page #head .head-box h1 {
+      display: block;
+      font-size: 2.75rem;
+      line-height: 60px;
+      padding: 40px 0px;
+      text-align: center;
+      width: 100%; }
+    #home-page #head .head-box img {
+      display: block;
+      padding-top: 20px;
+      width: 100%; }
+
+  #home-page #preview h2 {
+    font-size: 2.25rem;
+    margin: 40px 0px 20px 0px;
+    text-align: center; }
+  #home-page #preview a {
+    font-size: 1.5rem; }
+
+  #home-page #preview .preview-container {
+    flex-direction: column;
+    justify-content: center; }
+    #home-page #preview .preview-container .pop-ballad {
+      display: block;
+      height: auto;
+      margin-left: 12.5%;
+      padding: 40px 0px;
+      width: 75%; }
+      #home-page #preview .preview-container .pop-ballad h1 {
+        text-align: center; }
+      #home-page #preview .preview-container .pop-ballad p {
+        text-align: center; }
+
+  #home-page #about .overview {
+    display: block;
+    height: 900px; }
+    #home-page #about .overview .description {
+      display: block;
+      height: 50%;
+      padding: 0;
+      width: 100%; }
+      #home-page #about .overview .description h1 {
+        text-align: center; }
+      #home-page #about .overview .description p {
+        text-align: center; }
+    #home-page #about .overview .pic {
+      display: block;
+      height: 50%;
+      padding: 0; } }
 @media (max-width: 768px) {
   #editor-page header {
     display: none; }

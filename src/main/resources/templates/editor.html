@@ -10,6 +10,69 @@
   </head>
   <body id="editor-page" th:object="${ballad}">
 
+    <div id="global-login">
+      <div class="modal-container">
+        <div class="modal">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <div th:fragment="loginPage" id="login-page">
+          <section  id="login-section">
+            <!-- Toggle Between Signup and Login Forms -->
+            <form id="signup-form" th:style="${signup}? '' : 'display:none'">
+              <h1>Signup</h1>
+              <div class="fname">
+                <label for="first-name">First Name</label><br/>
+                <input type="text" id="first-name" name="first-name"/>
+              </div>
+              <div class="lname">
+                <label for="last-name">Last Name</label><br/>
+                <input type="text" id="last-name" name="last-name"/>
+              </div>
+              <div class="eaddress">
+                <label for="email-address">Email Address</label><br/>
+                <input type="text" id="email-address" name="email-address"/>
+              </div>
+              <div class="usr">
+                <label for="signup-username">Username</label><br/>
+                <input type="text" id="signup-username" name="signup-username"/>
+              </div>
+              <div class="pass">
+                <label for="signup-password">Password</label><br/>
+                <input type="text" id="signup-password" name="signup-password"/>
+              </div>
+              <div class="sub">
+                <button id="signup-btn">Submit</button>
+              </div>
+              <span>Already have an account? <a href="#" id="login">Login!</a></span>
+
+            </form>
+
+            <form id="login-form" th:style="${signup}? 'display:none' : ''">
+              <h1>Login</h1>
+              <div class="usr">
+                <label for="login-username">Username</label><br/>
+                <input type="text" id="login-username" name="username"/>
+              </div>
+              <div class="pass">
+                <label for="login-password">Password</label><br/>
+                <input type="text" id="login-password" name="login-password"/>
+              </div>
+              <div class="sub">
+                <button id="login-btn">Submit</button>
+                <a href="#">Forgot your password?</a>
+              </div>
+
+              <!-- <hr> -->
+              <span>Ready to create lyrics but don't have an account? <a href="#" id="signup">Sign up!</a></span>
+            </form>
+
+          </section>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-overlay">
+      </div>
+    </div>
 
 
     <div class="slideout-menu">
@@ -66,7 +129,7 @@
           <ul>
             <li><a href="#about" id="ab">About</a></li>
             <li><a href="popular.html" id="br">Browse</a></li>
-            <li><a href="editor.html" id="cr">+Create</a></li>
+            <li><a href="editor.html" id="cr">+ Create</a></li>
           </ul>
         </div> -->
       </div>

@@ -220,7 +220,6 @@ $(document).ready(function () {
 
     $("#ballads-search").on('keydown',function (e) {
 
-        console.log($("#ballads-search").val());
         let config = {
                 userOnly: false,
                 isPublic: true,
@@ -238,10 +237,13 @@ $(document).ready(function () {
     $("div").on('click',".ballad-card",function (e) {
         console.log($(this).attr("class"));
         console.log("hello");
+        if(pageLocation.includes("my-ballads")){
+            const ballad_id = $(this).find("input[type=hidden]").val();
+            console.log(ballad_id);
+            window.location = "/editor/"+ballad_id;
+        }
 
-        const ballad_id = $(this).children("input:first").val();
-        console.log(ballad_id);
-        window.location = "/editor/"+ballad_id;
+
     });
 
 

@@ -1,4 +1,10 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 #profile {
+  height: 100%;
   .container {
     width: 80%;
     margin: 0 auto;

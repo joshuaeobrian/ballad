@@ -25,17 +25,16 @@
 
 
     <section class="container" th:object="${user}">
-      <form th:action="@{/update-profile}" method="post" enctype="multipart/form-data">
+      <!--<form th:action="@{/update-profile}" method="post" enctype="multipart/form-data">-->
       <div class="settings">
         <h1>Settings</h1>
-        <button type="submit" name="button">Save</button>
+        <button type="button" name="button">Save</button>
       </div>
       <div class="top">
         <div class="lprofile">
           <h2>Profile Picture</h2>
           <div class="profile-pic">
 
-            <!--<img th:src="@{|/profile/${user.id}.jpeg|}" alt="jpeg" />-->
               <img id="profile-image" src="" th:src="${user.getPhoto()}+'.jpg'" th:style="'width:150px; height:100; border-radius:50%;'"/>
 
           </div>
@@ -49,7 +48,7 @@
           <h2>Profile Color</h2>
           <button type="button" name="button">Pink <i class="fa fa-angle-down" aria-hidden="true"></i></button>
         </div>
-      </div>
+      <!--</div>-->
       <div class="info">
         <div class="field">
           <h3>First Name</h3>
@@ -80,7 +79,7 @@
           <h3>Username</h3>
           <div class="field-foot">
 
-            <!--<p th:text="*{username}">Future</p>-->
+
             <input type="text" name="username" th:value="*{username}" th:style="'width:80%;  font-size:20px; border:none;'" disabled="disabled"/>
 
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
@@ -117,7 +116,7 @@
         </div>
       </div>
 
-      </form>
+      <!--</form>-->
     </section>
 
     <div th:replace="layout :: universalScripts">

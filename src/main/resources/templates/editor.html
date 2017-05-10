@@ -10,7 +10,7 @@
   </head>
   <body id="editor-page" th:object="${ballad}">
 
-
+  <div id="global-login" th:replace="layout :: loginForm"></div>
 
     <div class="slideout-menu">
       <div class="slideout-menu-header">
@@ -186,7 +186,7 @@
     <button type="button" name="button">Save</button>
     <button type="button" name="button">Export</button>-->
 
-    <div th:replace="login :: loginPage"></div>
+
     <div th:replace="layout :: universalScripts">
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>

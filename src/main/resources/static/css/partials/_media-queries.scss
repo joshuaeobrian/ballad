@@ -1,3 +1,82 @@
+// LAYOUT
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+
+  header {
+    height: 100px;
+  }
+
+  header .head-container .bottom-head {
+    display: none;
+  }
+}
+
+// HOME PAGE
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 768px) {
+  #home-page #head .head-box {
+    display: block;
+
+    h1 {
+      display: block;
+      font-size: 2.75rem;
+      line-height: 60px;
+      padding: 40px 0px;
+      text-align: center;
+      width: 100%;
+    }
+
+    img {
+      display: block;
+      padding-top: 20px;
+      width: 100%;
+    }
+  }
+
+
+#home-page #preview {
+
+  h2 {
+    font-size: 2.25rem;
+    margin: 40px 0px 20px 0px;
+    text-align: center;
+  }
+
+  a {
+      font-size: 1rem;
+  }
+
+#home-page #preview .preview-container {
+  flex-direction: column;
+  justify-content: center;
+
+  .pop-ballad {
+    display: block;
+    height: auto;
+    margin-left: 12.5%;
+    padding: 40px 0px;
+    width: 75%;
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+}
+}
+}
+
 // EDITOR PAGE
 
 @media (max-width: 1024px) {

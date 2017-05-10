@@ -1,3 +1,4 @@
+const pageLocation = window.location.href;
 const sortIndex = {
     Title:1,
     Recent:4,
@@ -6,13 +7,24 @@ const sortIndex = {
     Likes:6,
 
 };
-const cardView = document.getElementsByClassName("ballad-card-view")[0];
+const toggleViewVals={
+    true: "ballad-cards-container-grid",
+    false: "ballad-cards-container-list",
+};
+let isGrid = true;
+const cardView = document.getElementById("ballad-cards-section").firstElementChild;
 let isUser = false;
 const createBallad = (ballad)=>{
+
     var bCard = document.createElement("div");
     bCard.classList.add( "ballad-card");
+
     var btop = document.createElement("div");
     btop.className = "btop";
+
+    var listDiv = document.createElement("div");
+    listDiv.className = "content-container";
+
     var hiddenId = document.createElement("input");
     hiddenId.type = "hidden";
     hiddenId.value = ballad["id"];
@@ -41,35 +53,26 @@ const createBallad = (ballad)=>{
     bbottom.className ="bbottom";
 
     bCard.appendChild(btop);
-    bCard.appendChild(hiddenId);
-    bCard.appendChild(title);
-    bCard.appendChild(author);
-    bCard.appendChild(content);
-    bCard.appendChild(date);
-    bCard.appendChild(typeDiv);
+
+    listDiv.appendChild(hiddenId);
+    listDiv.appendChild(title);
+    listDiv.appendChild(author);
+    listDiv.appendChild(content);
+    listDiv.appendChild(date);
+    listDiv.appendChild(typeDiv);
+
+    bCard.appendChild(listDiv);
+
     bCard.appendChild(bbottom);
     bCard.style.cursor = "pointer";
 
     return bCard;
-
 };
 function clearBallads(){
-    const col1 = document.querySelectorAll("div.column1");
-    const col2 = document.querySelectorAll("div.column2");
-    const col3 = document.querySelectorAll("div.column3");
-
-    for(let i = 0; i < col1.length; i++){
-        cardView.removeChild(col1[i]);
+    while(cardView.hasChildNodes()){
+        cardView.removeChild(cardView.lastChild);
     }
-    for(let i = 0; i < col2.length; i++){
-        cardView.removeChild(col2[i]);
-    }
-    for(let i = 0; i < col3.length; i++){
-        cardView.removeChild(col3[i]);
-    }
-
 }
-
 function getBallads(url,config){
     clearBallads();
     $.post(url,
@@ -82,39 +85,37 @@ function getBallads(url,config){
         column2.className = "column2";
         const column3 = document.createElement("div");
         column3.className = "column3";
+        console.log("isGrid: "+isGrid);
         for(var i = 0; i < ballads.length; i++){
             count ++;
-            if(count == 1){
-                column1.appendChild(createBallad(ballads[i]));
-            }else if(count == 2){
-                column2.appendChild(createBallad(ballads[i]));
+            if(isGrid) {
+                if (count == 1) {
+                    column1.appendChild(createBallad(ballads[i]));
+                } else if (count == 2) {
+                    column2.appendChild(createBallad(ballads[i]));
+                } else {
+                    column3.appendChild(createBallad(ballads[i]));
+                    count = 0;
+                }
             }else{
-                column3.appendChild(createBallad(ballads[i]));
-                count = 0;
+                cardView.appendChild(createBallad(ballads[i]))
             }
         }
-
         cardView.appendChild(column1);
         cardView.appendChild(column2);
         cardView.appendChild(column3);
     });
-
 }
 
-$(document).ready(function () {
-
-    const pageLocation = window.location.href;
-
-    $('#sort-dropdown').click(function() {
-        $('#sort-list').slideToggle();
-    });
-
-    // $('.layout-icon').click(function() {
-    //     $('#ballad-cards-container-grid').toggle();
-    //     $('#ballad-cards-container-list').toggle();
-    //
-    // });
-    
+function toggleListView(){
+    if(isGrid){
+        cardView.id = toggleViewVals[isGrid];
+    }else{
+        cardView.id=toggleViewVals[isGrid];
+    }
+    mainLoad();
+}
+function mainLoad() {
     if(pageLocation.includes("my-ballads")){
         getBallads("/myBallads");
     }
@@ -122,13 +123,32 @@ $(document).ready(function () {
         let config = {
             userOnly:false,
             isPublic: true,
-            isPrivate: false,
+            isPrivate: true,
             caseId: 3,
             search: $("#ballads-search").val(),
-            
+
         };
         getBallads("/sortBallads",config);
     }
+}
+
+$(document).ready(function () {
+
+    mainLoad();
+
+    $('#sort-dropdown').click(function() {
+        $('#sort-list').slideToggle();
+    });
+
+    $('.layout-icon').click(function() {
+        console.log(isGrid);
+        isGrid = !isGrid;
+        toggleListView()
+
+
+    });
+    
+
 
     $("#sort-list li").click(function (e) {
         $(document).closest("div.column1").remove();
@@ -176,7 +196,15 @@ $(document).ready(function () {
                 getBallads("/sortBallads",config);
             },
             Likes:()=>{
+                let config = {
+                    userOnly:isUser,
+                    isPublic: true,
+                    isPrivate: isUser,
+                    caseId: sortIndex[sort],
+                    search: $("#ballads-search").val(),
 
+                };
+                getBallads("/sortBallads",config);
             }
         };
         action[sort]();
@@ -187,7 +215,8 @@ $(document).ready(function () {
         if(pageLocation.includes("my-ballads")){
            // getBallads("/myBallads");
         }
-    })
+    });
+
 
     $("div").on('click',".ballad-card",function (e) {
         console.log($(this).attr("class"));
@@ -197,5 +226,6 @@ $(document).ready(function () {
         console.log(ballad_id);
         window.location = "/editor/"+ballad_id;
     });
+
 
 });

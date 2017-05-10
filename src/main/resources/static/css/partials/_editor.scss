@@ -1,4 +1,10 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 #editor-page {
+  height: 100%;
 
   .slideout-menu {
     background: white;
@@ -182,9 +188,11 @@
     background: linear-gradient(
       rgba(42, 42, 42, 0.90),
       rgba(42, 42, 42, 0.90));
+    bottom: 0;
     height: 200%;
     left: 0;
     position: absolute;
+    right: 0;
     top: 0;
     width: 100%;
     z-index: 50;

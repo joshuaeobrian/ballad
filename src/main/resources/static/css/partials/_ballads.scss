@@ -1,5 +1,12 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 #ballads-page {
   // background: linear-gradient(#F4E6ED,#A8A8FF);
+  height: 100%;
+
   #tools-section {
     width: 80%;
     height: 100px;

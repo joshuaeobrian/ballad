@@ -954,27 +954,27 @@ h1, h2, h3, h4, h5, h6 {
   img {
     display: block;
     padding-top: 20px;
-    width: 100%; } }
-#home-page #preview h2 {
-  font-size: 2.25rem;
-  margin: 40px 0px 20px 0px;
-  text-align: center; }
-#home-page #preview a {
-  font-size: 1rem; }
-#home-page #preview #home-page #preview .preview-container {
-  flex-direction: column;
-  justify-content: center; }
-  #home-page #preview #home-page #preview .preview-container .pop-ballad {
-    display: block;
-    height: auto;
-    margin-left: 12.5%;
-    padding: 40px 0px;
-    width: 75%; }
-    #home-page #preview #home-page #preview .preview-container .pop-ballad h1 {
-      text-align: center; }
-    #home-page #preview #home-page #preview .preview-container .pop-ballad p {
-      text-align: center; }
+    width: 100%; }
 
+  #home-page #preview h2 {
+    font-size: 2.25rem;
+    margin: 40px 0px 20px 0px;
+    text-align: center; }
+  #home-page #preview a {
+    font-size: 1rem; }
+  #home-page #preview #home-page #preview .preview-container {
+    flex-direction: column;
+    justify-content: center; }
+    #home-page #preview #home-page #preview .preview-container .pop-ballad {
+      display: block;
+      height: auto;
+      margin-left: 12.5%;
+      padding: 40px 0px;
+      width: 75%; }
+      #home-page #preview #home-page #preview .preview-container .pop-ballad h1 {
+        text-align: center; }
+      #home-page #preview #home-page #preview .preview-container .pop-ballad p {
+        text-align: center; } }
 @media (max-width: 768px) {
   #editor-page header {
     display: none; }

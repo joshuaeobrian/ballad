@@ -1,4 +1,93 @@
 @import url("https://fonts.googleapis.com/css?family=Istok+Web");
+html {
+  min-height: 100%;
+  position: relative; }
+
+body {
+  height: 100%; }
+
+#global-login .modal-overlay {
+  background: linear-gradient(rgba(42, 42, 42, 0.9), rgba(42, 42, 42, 0.9));
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 50; }
+#global-login .modal-container {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  text-align: left;
+  top: 0;
+  width: 100%;
+  z-index: 100; }
+  #global-login .modal-container .modal {
+    background: white;
+    height: auto;
+    margin-left: 25%;
+    position: relative;
+    top: 100px;
+    width: 50%; }
+    #global-login .modal-container .modal .fa-times {
+      color: #2a2a2a;
+      font-size: 1.5rem;
+      top: 5%;
+      position: absolute;
+      right: 5%; }
+    #global-login .modal-container .modal #login-section {
+      width: 80%;
+      margin: 0 auto;
+      padding-top: 20px;
+      padding-bottom: 60px; }
+    #global-login .modal-container .modal #signup-form {
+      display: none; }
+    #global-login .modal-container .modal h1 {
+      color: #9c0f5f;
+      font-size: 3em; }
+    #global-login .modal-container .modal input {
+      width: 400px;
+      height: 25px;
+      border: 2px solid #2a2a2a; }
+    #global-login .modal-container .modal .usr, #global-login .modal-container .modal .pass, #global-login .modal-container .modal .sub, #global-login .modal-container .modal .fname, #global-login .modal-container .modal .lname, #global-login .modal-container .modal .eaddress {
+      margin: 50px 0; }
+      #global-login .modal-container .modal .usr label, #global-login .modal-container .modal .pass label, #global-login .modal-container .modal .sub label, #global-login .modal-container .modal .fname label, #global-login .modal-container .modal .lname label, #global-login .modal-container .modal .eaddress label {
+        font-size: 1.5em;
+        font-weight: bold; }
+      #global-login .modal-container .modal .usr input, #global-login .modal-container .modal .pass input, #global-login .modal-container .modal .sub input, #global-login .modal-container .modal .fname input, #global-login .modal-container .modal .lname input, #global-login .modal-container .modal .eaddress input {
+        margin-top: 15px; }
+    #global-login .modal-container .modal .pass {
+      margin-bottom: 0; }
+    #global-login .modal-container .modal .sub {
+      width: 400px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      padding-top: 30px;
+      padding-bottom: 60px;
+      border-bottom: 2px solid black; }
+      #global-login .modal-container .modal .sub button {
+        background: #04a777;
+        box-sizing: border-box;
+        padding: 10px 25px;
+        font-size: 1.5em;
+        border-radius: 20px;
+        border: none;
+        color: white; }
+      #global-login .modal-container .modal .sub a {
+        text-decoration: none;
+        color: #555;
+        font-size: 1.1em; }
+    #global-login .modal-container .modal span {
+      color: #555;
+      text-weight: 300;
+      font-size: 1.2em; }
+      #global-login .modal-container .modal span a {
+        text-decoration: none;
+        text-weight: bold;
+        color: #2a2a2a; }
+
 header {
   height: 200px;
   margin: 0; }
@@ -249,30 +338,41 @@ header {
 @media (min-width: 700px) {
   h1 {
     font-size: .1em; } }
-#popular-page #popular {
-  width: 100%;
-  height: auto;
-  background: rgba(0, 0, 0, 0.1); }
-  #popular-page #popular h1 {
-    margin: 0; }
-  #popular-page #popular .container {
-    width: 80%;
-    height: 600px;
-    margin: 0 auto;
+html {
+  min-height: 100%;
+  position: relative; }
+
+#popular-page {
+  height: 100%; }
+  #popular-page #popular {
+    width: 100%;
+    height: auto;
     background: rgba(0, 0, 0, 0.1); }
-    #popular-page #popular .container .pop-ballad {
-      background: rgba(0, 0, 0, 0.1);
-      display: inline-block;
-      width: 30%;
-      height: auto;
-      margin-bottom: 40px; }
+    #popular-page #popular h1 {
+      margin: 0; }
+    #popular-page #popular .container {
+      width: 80%;
+      height: 600px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.1); }
+      #popular-page #popular .container .pop-ballad {
+        background: rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        width: 30%;
+        height: auto;
+        margin-bottom: 40px; }
+
+html {
+  min-height: 100%;
+  position: relative; }
 
 #login-page {
+  height: 100%;
   text-align: left; }
   #login-page #login-section {
     width: 80%;
     margin: 0 auto;
-    border-top: 1px solid black; }
+    padding-top: 40px; }
   #login-page #signup-form {
     display: none; }
   #login-page h1 {
@@ -322,292 +422,452 @@ header {
       text-weight: bold;
       color: #2a2a2a; }
 
-#ballads-page #tools-section {
-  width: 80%;
-  height: 100px;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center; }
-  #ballads-page #tools-section .lbox h2 {
-    font-size: 3em;
-    color: #04a777; }
-  #ballads-page #tools-section .mbox {
-    width: 30%; }
-    #ballads-page #tools-section .mbox input {
-      width: 100%;
-      border: none;
-      border-bottom: 2px solid #2a2a2a;
-      font-size: 2em; }
-      #ballads-page #tools-section .mbox input:focus {
-        outline: none; }
-  #ballads-page #tools-section .rbox .layout-icon {
-    width: 30px;
-    height: 30px;
-    background: black;
-    display: inline-block; }
-  #ballads-page #tools-section .rbox #sort-list {
-    position: absolute;
-    display: none;
-    list-style: none;
-    margin: 0;
-    padding: 0; }
-    #ballads-page #tools-section .rbox #sort-list li {
-      text-align: right; }
-#ballads-page #ballad-cards-container-grid {
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between; }
-  #ballads-page #ballad-cards-container-grid .column1, #ballads-page #ballad-cards-container-grid .column2, #ballads-page #ballad-cards-container-grid .column3 {
-    width: 33%; }
-  #ballads-page #ballad-cards-container-grid .ballad-card {
-    box-sizing: border-box;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 80px;
-    transition: .1s; }
-    #ballads-page #ballad-cards-container-grid .ballad-card:hover {
-      transform: scale(1.01); }
-    #ballads-page #ballad-cards-container-grid .ballad-card .btop, #ballads-page #ballad-cards-container-grid .ballad-card .bbottom {
-      height: 10px;
-      width: 100%;
-      border-radius: 5px;
-      background: #2a2a2a;
-      clear: both; }
-    #ballads-page #ballad-cards-container-grid .ballad-card h1, #ballads-page #ballad-cards-container-grid .ballad-card h2, #ballads-page #ballad-cards-container-grid .ballad-card p {
-      padding-left: 10px; }
-    #ballads-page #ballad-cards-container-grid .ballad-card h1 {
-      font-size: 2em;
-      text-transform: uppercase;
-      margin: 0;
-      margin-top: 20px; }
-    #ballads-page #ballad-cards-container-grid .ballad-card h2 {
-      font-size: 1.4em;
-      margin: 0; }
-    #ballads-page #ballad-cards-container-grid .ballad-card p {
-      font-weight: lighter;
-      font-size: 1.2em;
-      letter-spacing: 1px;
-      margin: 20px 0; }
-    #ballads-page #ballad-cards-container-grid .ballad-card .date {
-      float: left;
-      font-size: .9em; }
-    #ballads-page #ballad-cards-container-grid .ballad-card .private {
-      float: right; }
-      #ballads-page #ballad-cards-container-grid .ballad-card .private span {
-        color: #04a777;
-        font-weight: 500;
-        font-size: 1.3em; }
-#ballads-page #ballad-cards-container-list {
-  width: 80%;
-  margin: 0 auto;
-  display: none; }
-  #ballads-page #ballad-cards-container-list .ballad-card {
-    width: 100%; }
-    #ballads-page #ballad-cards-container-list .ballad-card .btop, #ballads-page #ballad-cards-container-list .ballad-card .bbottom {
-      height: 10px;
-      width: 100%;
-      border-radius: 5px;
-      background: #2a2a2a;
-      clear: both; }
-    #ballads-page #ballad-cards-container-list .ballad-card:nth-child(n+2) .btop {
-      height: 0px; }
-    #ballads-page #ballad-cards-container-list .ballad-card .content-container {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center; }
-      #ballads-page #ballad-cards-container-list .ballad-card .content-container h1 {
-        font-size: 1.5em;
-        text-transform: uppercase; }
-      #ballads-page #ballad-cards-container-list .ballad-card .content-container h2 {
-        font-size: 1.3em; }
-      #ballads-page #ballad-cards-container-list .ballad-card .content-container p {
-        width: 35%;
-        margin: 10px 0; }
+html {
+  min-height: 100%;
+  position: relative; }
 
-#editor-page header {
-  height: 100px; }
-#editor-page .header2 {
-  width: 100%;
-  height: 140px;
-  background: #2a2a2a;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  #editor-page .header2 .top-head, #editor-page .header2 .bottom-head {
+#ballads-page {
+  height: 100%; }
+  #ballads-page #tools-section {
     width: 80%;
-    height: 50%; }
-  #editor-page .header2 .top-head input {
-    font-size: 2.5em;
-    background: none;
-    color: white;
-    font-style: italic;
-    border: none;
-    margin-top: 10px; }
-    #editor-page .header2 .top-head input:after {
-      content: "By: Isaiah Anderson"; }
-  #editor-page .header2 .bottom-head {
-    display: flex;
-    justify-content: space-between; }
-    #editor-page .header2 .bottom-head .tools, #editor-page .header2 .bottom-head .rhyme, #editor-page .header2 .bottom-head .transform, #editor-page .header2 .bottom-head .align, #editor-page .header2 .bottom-head .notes, #editor-page .header2 .bottom-head .status, #editor-page .header2 .bottom-head .save {
-      display: flex;
-      align-items: center;
-      color: white;
-      font-size: 1.5em; }
-    #editor-page .header2 .bottom-head .tools span {
-      color: white;
-      letter-spacing: 1px; }
-      #editor-page .header2 .bottom-head .tools span ul {
-        list-style: none;
-        position: absolute;
-        display: none;
-        margin: 0;
-        padding: 10px;
-        background: #2a2a2a; }
-        #editor-page .header2 .bottom-head .tools span ul li:hover {
-          color: #04a777; }
-    #editor-page .header2 .bottom-head .rhyme button {
-      background: none;
-      border: none;
-      color: #04a777;
-      font-size: 1em;
-      letter-spacing: 1px; }
-    #editor-page .header2 .bottom-head .transform button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1em;
-      margin: 3px; }
-    #editor-page .header2 .bottom-head .align button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1em;
-      margin: 3px; }
-    #editor-page .header2 .bottom-head .save {
-      justify-content: flex-end;
-      width: 20%; }
-      #editor-page .header2 .bottom-head .save button {
-        background: #04a777;
-        color: white;
-        font-size: 1em;
-        box-sizing: border-box;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 20px;
-        margin-left: 15px; }
-#editor-page .container {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; }
-  #editor-page .container .main-area {
-    width: 70%; }
-    #editor-page .container .main-area #rhyme-scheme {
-      margin: 0;
-      position: absolute;
-      font-size: 1.5em;
-      padding-top: 80px;
-      line-height: 40px;
-      list-style: none;
-      color: #9c0f5f; }
-      #editor-page .container .main-area #rhyme-scheme li {
-        box-sizing: border-box;
-        padding-right: 10px;
-        border-right: 1px solid black; }
-    #editor-page .container .main-area textarea {
-      width: 100%;
-      height: 100%;
-      box-sizing: border-box;
-      padding-left: 80px;
-      padding-top: 80px;
-      font-size: 1.5em;
-      line-height: 40px;
-      border: none;
-      background: transparent;
-      resize: none;
-      color: #2a2a2a; }
-    #editor-page .container .main-area #rendered-text {
-      z-index: -1;
-      position: absolute;
-      top: 240px;
-      width: 70%;
-      height: 100%;
-      box-sizing: border-box;
-      padding-left: 80px;
-      padding-top: 80px;
-      font-size: 1.5em;
-      line-height: 40px; }
-  #editor-page .container .rhymes {
-    width: 30%;
-    height: 100%;
-    background: #ddd; }
-
-#profile .container {
-  width: 80%;
-  margin: 0 auto; }
-  #profile .container .settings {
-    width: 100%;
-    height: 50px;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center; }
-    #profile .container .settings h1 {
-      font-size: 3em; }
-    #profile .container .settings button {
-      font-size: 1.9em;
-      color: white;
-      padding: 5px 30px;
-      border-radius: 20px;
-      border: none; }
-  #profile .container .top {
-    width: 45%;
-    height: 300px;
+    #ballads-page #tools-section .lbox h2 {
+      font-size: 3em;
+      color: #04a777; }
+    #ballads-page #tools-section .mbox {
+      width: 30%; }
+      #ballads-page #tools-section .mbox input {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid #2a2a2a;
+        font-size: 2em; }
+        #ballads-page #tools-section .mbox input:focus {
+          outline: none; }
+    #ballads-page #tools-section .rbox .layout-icon {
+      width: 30px;
+      height: 30px;
+      background: black;
+      display: inline-block; }
+    #ballads-page #tools-section .rbox #sort-list {
+      position: absolute;
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      #ballads-page #tools-section .rbox #sort-list li {
+        text-align: right; }
+  #ballads-page #ballad-cards-container-grid {
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between; }
-    #profile .container .top .lprofile, #profile .container .top .rprofile {
-      width: 40%; }
-      #profile .container .top .lprofile h2, #profile .container .top .rprofile h2 {
-        border-bottom: 2px solid black;
-        font-weight: bold;
-        font-size: 1.6em; }
-    #profile .container .top .lprofile .profile-pic {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto;
-      border-radius: 50%;
-      background: blue; }
-    #profile .container .top .lprofile p {
-      font-style: italic;
-      text-align: center; }
-    #profile .container .top .rprofile button {
-      background: #9c0f5f;
-      font-size: 1.5em;
-      padding: 6px 20px;
-      border-radius: 15px;
-      border: none;
-      color: white; }
-  #profile .container .info {
-    width: 40%; }
-    #profile .container .info .field {
+    #ballads-page #ballad-cards-container-grid .column1, #ballads-page #ballad-cards-container-grid .column2, #ballads-page #ballad-cards-container-grid .column3 {
+      width: 33%; }
+    #ballads-page #ballad-cards-container-grid .ballad-card {
+      box-sizing: border-box;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 80px;
+      transition: .1s; }
+      #ballads-page #ballad-cards-container-grid .ballad-card:hover {
+        transform: scale(1.01); }
+      #ballads-page #ballad-cards-container-grid .ballad-card .btop, #ballads-page #ballad-cards-container-grid .ballad-card .bbottom {
+        height: 10px;
+        width: 100%;
+        border-radius: 5px;
+        background: #2a2a2a;
+        clear: both; }
+      #ballads-page #ballad-cards-container-grid .ballad-card h1, #ballads-page #ballad-cards-container-grid .ballad-card h2, #ballads-page #ballad-cards-container-grid .ballad-card p {
+        padding-left: 10px; }
+      #ballads-page #ballad-cards-container-grid .ballad-card h1 {
+        font-size: 2em;
+        text-transform: uppercase;
+        margin: 0;
+        margin-top: 20px; }
+      #ballads-page #ballad-cards-container-grid .ballad-card h2 {
+        font-size: 1.4em;
+        margin: 0; }
+      #ballads-page #ballad-cards-container-grid .ballad-card p {
+        font-weight: lighter;
+        font-size: 1.2em;
+        letter-spacing: 1px;
+        margin: 20px 0; }
+      #ballads-page #ballad-cards-container-grid .ballad-card .date {
+        float: left;
+        font-size: .9em; }
+      #ballads-page #ballad-cards-container-grid .ballad-card .private {
+        float: right; }
+        #ballads-page #ballad-cards-container-grid .ballad-card .private span {
+          color: #04a777;
+          font-weight: 500;
+          font-size: 1.3em; }
+  #ballads-page #ballad-cards-container-list {
+    width: 80%;
+    margin: 0 auto;
+    display: none; }
+    #ballads-page #ballad-cards-container-list .ballad-card {
       width: 100%; }
-      #profile .container .info .field h3 {
-        border-bottom: 1px solid black; }
-      #profile .container .info .field div {
+      #ballads-page #ballad-cards-container-list .ballad-card .btop, #ballads-page #ballad-cards-container-list .ballad-card .bbottom {
+        height: 10px;
+        width: 100%;
+        border-radius: 5px;
+        background: #2a2a2a;
+        clear: both; }
+      #ballads-page #ballad-cards-container-list .ballad-card:nth-child(n+2) .btop {
+        height: 0px; }
+      #ballads-page #ballad-cards-container-list .ballad-card .content-container {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center; }
-      #profile .container .info .field button {
+        #ballads-page #ballad-cards-container-list .ballad-card .content-container h1 {
+          font-size: 1.5em;
+          text-transform: uppercase; }
+        #ballads-page #ballad-cards-container-list .ballad-card .content-container h2 {
+          font-size: 1.3em; }
+        #ballads-page #ballad-cards-container-list .ballad-card .content-container p {
+          width: 35%;
+          margin: 10px 0; }
+
+html {
+  min-height: 100%;
+  position: relative; }
+
+#editor-page {
+  height: 100%; }
+  #editor-page .slideout-menu {
+    background: white;
+    height: 200%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70%;
+    z-index: 100; }
+    #editor-page .slideout-menu .slideout-menu-header {
+      align-items: center;
+      border-bottom: 4px solid #2a2a2a;
+      display: flex;
+      left: 5%;
+      position: relative;
+      width: 90%;
+      height: 98px; }
+      #editor-page .slideout-menu .slideout-menu-header .fa-arrow-left {
+        color: gray;
+        font-size: 1.5rem;
+        padding-right: 20px; }
+      #editor-page .slideout-menu .slideout-menu-header h1 {
+        color: #2a2a2a;
+        font-style: italic;
+        font-size: 2rem;
+        margin-top: 20px; }
+    #editor-page .slideout-menu .slideout-tools-section {
+      border-bottom: 4px solid #2a2a2a;
+      margin-left: 5%;
+      width: 90%; }
+      #editor-page .slideout-menu .slideout-tools-section h2 {
+        color: #2a2a2a;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 20px; }
+      #editor-page .slideout-menu .slideout-tools-section ul {
+        margin-bottom: 40px; }
+        #editor-page .slideout-menu .slideout-tools-section ul a {
+          color: #2a2a2a;
+          display: block;
+          font-size: 1.25rem;
+          font-weight: bold;
+          margin-top: 20px;
+          text-decoration: none; }
+          #editor-page .slideout-menu .slideout-tools-section ul a li {
+            list-style-type: none; }
+        #editor-page .slideout-menu .slideout-tools-section ul a:hover {
+          color: #04a777; }
+    #editor-page .slideout-menu .slideout-rhyme-section {
+      align-items: center;
+      border-bottom: 4px solid #2a2a2a;
+      display: flex;
+      height: 100px;
+      justify-content: center;
+      margin-left: 5%;
+      width: 90%; }
+      #editor-page .slideout-menu .slideout-rhyme-section span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #04a777; }
+    #editor-page .slideout-menu .slideout-formatting-section {
+      align-items: center;
+      border-bottom: 4px solid #2a2a2a;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: 175px;
+      justify-content: center;
+      margin-left: 5%;
+      width: 90%; }
+      #editor-page .slideout-menu .slideout-formatting-section .fa {
+        color: #2a2a2a;
+        font-size: 2rem;
+        padding: 0 10%; }
+    #editor-page .slideout-menu .slideout-public-section {
+      height: 100px;
+      margin-left: 5%;
+      width: 90%;
+      /* The switch - the box around the slider */
+      /* Hide default HTML checkbox */
+      /* The slider */
+      /* Rounded sliders */ }
+      #editor-page .slideout-menu .slideout-public-section h2 {
+        color: #04a777;
+        display: inline-block;
+        font-size: 1.50rem;
+        margin-top: 20px;
+        width: 50%; }
+      #editor-page .slideout-menu .slideout-public-section .switch {
+        float: right;
+        position: relative;
+        display: inline-block;
+        margin-top: 20px;
+        width: 60px;
+        height: 34px; }
+      #editor-page .slideout-menu .slideout-public-section .switch input {
+        display: none; }
+      #editor-page .slideout-menu .slideout-public-section .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s; }
+      #editor-page .slideout-menu .slideout-public-section .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s; }
+      #editor-page .slideout-menu .slideout-public-section input:checked + .slider {
+        background-color: #04a777; }
+      #editor-page .slideout-menu .slideout-public-section input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3; }
+      #editor-page .slideout-menu .slideout-public-section input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px); }
+      #editor-page .slideout-menu .slideout-public-section .slider.round {
+        border-radius: 34px; }
+      #editor-page .slideout-menu .slideout-public-section .slider.round:before {
+        border-radius: 50%; }
+  #editor-page .overlay {
+    background: linear-gradient(rgba(42, 42, 42, 0.9), rgba(42, 42, 42, 0.9));
+    bottom: 0;
+    height: 200%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 50; }
+  #editor-page header {
+    height: 100px; }
+  #editor-page .header2 {
+    width: 100%;
+    height: 140px;
+    background: #2a2a2a;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    #editor-page .header2 .top-head, #editor-page .header2 .bottom-head {
+      width: 80%;
+      height: 50%; }
+    #editor-page .header2 .top-head input {
+      font-size: 2rem;
+      background: none;
+      color: white;
+      font-style: italic;
+      border: none;
+      margin-top: 10px; }
+      #editor-page .header2 .top-head input:after {
+        content: "By: Isaiah Anderson"; }
+    #editor-page .header2 .top-head .save-and-cancel {
+      display: none; }
+    #editor-page .header2 .top-head #ellipses-container {
+      display: none; }
+    #editor-page .header2 .bottom-head {
+      display: flex;
+      justify-content: space-between; }
+      #editor-page .header2 .bottom-head .tools, #editor-page .header2 .bottom-head .rhyme, #editor-page .header2 .bottom-head .transform, #editor-page .header2 .bottom-head .align, #editor-page .header2 .bottom-head .notes, #editor-page .header2 .bottom-head .status, #editor-page .header2 .bottom-head .save {
+        display: flex;
+        align-items: center;
         color: white;
-        background: #2a2a2a;
-        padding: 10px 20px;
-        font-size: 1.5em;
+        font-size: 1.5em; }
+      #editor-page .header2 .bottom-head .tools span {
+        color: white;
+        letter-spacing: 1px; }
+        #editor-page .header2 .bottom-head .tools span ul {
+          list-style: none;
+          position: absolute;
+          display: none;
+          margin: 0;
+          padding: 10px;
+          background: #2a2a2a; }
+          #editor-page .header2 .bottom-head .tools span ul li:hover {
+            color: #04a777; }
+      #editor-page .header2 .bottom-head .rhyme button {
+        background: none;
         border: none;
-        border-radius: 20px; }
+        color: #04a777;
+        font-size: 1em;
+        letter-spacing: 1px; }
+      #editor-page .header2 .bottom-head .transform button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1em;
+        margin: 3px; }
+      #editor-page .header2 .bottom-head .align button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1em;
+        margin: 3px; }
+      #editor-page .header2 .bottom-head .save {
+        justify-content: flex-end;
+        width: 20%; }
+        #editor-page .header2 .bottom-head .save button {
+          background: #04a777;
+          color: white;
+          font-size: 1em;
+          box-sizing: border-box;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          margin-left: 15px; }
+  #editor-page .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
+    #editor-page .container .main-area {
+      width: 70%; }
+      #editor-page .container .main-area #rhyme-scheme {
+        margin: 0;
+        position: absolute;
+        font-size: 1.5em;
+        padding-top: 80px;
+        line-height: 40px;
+        list-style: none;
+        color: #9c0f5f; }
+        #editor-page .container .main-area #rhyme-scheme li {
+          box-sizing: border-box;
+          padding-right: 10px;
+          border-right: 1px solid black; }
+      #editor-page .container .main-area textarea {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding-left: 80px;
+        padding-top: 80px;
+        font-size: 1.5em;
+        line-height: 40px;
+        border: none;
+        background: transparent;
+        resize: none;
+        color: #2a2a2a; }
+      #editor-page .container .main-area #rendered-text {
+        z-index: -1;
+        position: absolute;
+        top: 240px;
+        width: 70%;
+        height: 100%;
+        box-sizing: border-box;
+        padding-left: 80px;
+        padding-top: 80px;
+        font-size: 1.5em;
+        line-height: 40px; }
+    #editor-page .container .rhymes {
+      width: 30%;
+      height: 100%;
+      background: #ddd; }
+
+html {
+  min-height: 100%;
+  position: relative; }
+
+#profile {
+  height: 100%; }
+  #profile .container {
+    width: 80%;
+    margin: 0 auto; }
+    #profile .container .settings {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      #profile .container .settings h1 {
+        font-size: 3em; }
+      #profile .container .settings button {
+        font-size: 1.9em;
+        color: white;
+        padding: 5px 30px;
+        border-radius: 20px;
+        border: none; }
+    #profile .container .top {
+      width: 45%;
+      height: 300px;
+      display: flex;
+      justify-content: space-between; }
+      #profile .container .top .lprofile, #profile .container .top .rprofile {
+        width: 40%; }
+        #profile .container .top .lprofile h2, #profile .container .top .rprofile h2 {
+          border-bottom: 2px solid black;
+          font-weight: bold;
+          font-size: 1.6em; }
+      #profile .container .top .lprofile .profile-pic {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        border-radius: 50%;
+        background: blue; }
+      #profile .container .top .lprofile p {
+        font-style: italic;
+        text-align: center; }
+      #profile .container .top .rprofile button {
+        background: #9c0f5f;
+        font-size: 1.5em;
+        padding: 6px 20px;
+        border-radius: 15px;
+        border: none;
+        color: white; }
+    #profile .container .info {
+      width: 40%; }
+      #profile .container .info .field {
+        width: 100%; }
+        #profile .container .info .field h3 {
+          border-bottom: 1px solid black; }
+        #profile .container .info .field div {
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
+        #profile .container .info .field button {
+          color: white;
+          background: #2a2a2a;
+          padding: 10px 20px;
+          font-size: 1.5em;
+          border: none;
+          border-radius: 20px; }
 
 * {
   font-family: 'Istok Web', sans-serif; }
@@ -615,5 +875,62 @@ header {
 body {
   margin: 0;
   padding: 0; }
+
+@media (max-width: 768px) {
+  header .head-container .bottom-head {
+    display: none; } }
+@media (max-width: 768px) {
+  #editor-page header {
+    display: none; }
+
+  #editor-page .header2 {
+    height: 100px; }
+
+  #editor-page .header2 .bottom-head {
+    display: none; }
+
+  #editor-page .header2 .top-head {
+    font-size: 0.75em;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%; }
+    #editor-page .header2 .top-head input {
+      float: left;
+      margin-top: 0;
+      width: 50%; }
+    #editor-page .header2 .top-head .save-and-cancel {
+      align-items: center;
+      display: flex;
+      float: left;
+      height: 100%;
+      justify-content: center;
+      width: 40%; }
+      #editor-page .header2 .top-head .save-and-cancel .fa-check {
+        color: #04a777;
+        display: inline-block;
+        font-size: 2rem;
+        padding: 0 10px; }
+      #editor-page .header2 .top-head .save-and-cancel .fa-times {
+        color: #9c0f5f;
+        display: inline-block;
+        font-size: 2rem;
+        padding: 0 20px; }
+    #editor-page .header2 .top-head #ellipses-container {
+      align-items: center;
+      display: flex;
+      float: right;
+      height: 100%;
+      justify-content: flex-end;
+      width: 9%; }
+    #editor-page .header2 .top-head .ellipses {
+      height: auto;
+      width: 40px; }
+
+  #editor-page .container .main-area {
+    width: 100%; }
+
+  #editor-page #rhyme-bank {
+    display: none; } }
 
 /*# sourceMappingURL=styles.css.map */

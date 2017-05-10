@@ -1,11 +1,16 @@
-
+html {
+  min-height: 100%;
+  position: relative;
+}
 
 #login-page {
+  height: 100%;
   text-align: left;
   #login-section {
     width: 80%;
     margin: 0 auto;
-    border-top: 1px solid black;
+    padding-top: 40px;
+    // border-top: 1px solid black;
   }
   #signup-form {
     display: none;

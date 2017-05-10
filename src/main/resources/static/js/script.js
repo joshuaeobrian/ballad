@@ -24,6 +24,20 @@ function handleUserLogin(data) {
     }
 }
 
+// $(document).ready(function () {
+//
+//   $('.modal-overlay, .modal-container').hide();
+//
+//   $('#not-logged').click(function() {
+//     console.log("hi");
+//
+//     $(".modal-overlay, .modal-container").show();
+//   });
+//
+//   $(".fa-times").click(function() {
+//     $(".modal-overlay, .modal-container").hide();
+//   });
+
 $(document).ready(function() {
 //      var logged = false;
 //      $("#logged").css('display','none');
@@ -34,8 +48,7 @@ $(document).ready(function() {
   $('.modal-overlay, .modal-container').hide();
 
   $('#not-logged').click(function() {
-      console.log("hi");
-      $(".modal-overlay, .modal-container").show();
+        $(".modal-overlay, .modal-container").show();
   });
 
   $(".fa-times").click(function() {
@@ -89,6 +102,9 @@ $(document).ready(function() {
     });
     $("#my-ballads").click(function () {
         document.location.href = "/my-ballads";
+    });
+    $("#profile-settings").click(function () {
+        document.location.href = "/Profile";
     });
 
     $('#logged').click(function() {

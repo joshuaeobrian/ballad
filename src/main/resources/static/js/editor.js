@@ -4,6 +4,8 @@
 const input = document.getElementById("ballad-input");
 const rhymeBank = document.getElementById("rhyme-bank");
 const balladBank = document.getElementById("ballads");
+let lineRhyme = false;
+const rhymeScheme = [['A','B','A','B'],['A','B','B','A'],['A','A','B','B']];
 
 
 const postForRhymes = (word)=>{
@@ -20,6 +22,11 @@ const postForRhymes = (word)=>{
             for(let i = 0; i < wordsToTrim.length; i++){
                 let element = document.createElement("h5");
                 element.textContent = wordsToTrim[i]["word"];
+                element.style.cursor = "pointer";
+                element.style.display = "inline";
+                // element.style.border = "1px solid";
+                element.style.margin = "5px";
+
                 rhymeBank.appendChild(element);
 
             }
@@ -46,6 +53,11 @@ const selectedText = ()=>{
         return txt;
     }
 };
+
+const isRhymingLine =() =>{
+    lineRhyme = !lineRhyme;
+    return lineRhyme;
+}
 
 $(document).ready(function () {
 
@@ -96,12 +108,15 @@ $(document).ready(function () {
     $("#ballad-input").on('keydown', function (e) {
 
         //This is controlled for when you press space
-        if(e.which == 32){
+        if(e.which == 13){
             var cursorPosition = $("#ballad-input").prop("selectionStart");
             let index = input.value.substring(0,cursorPosition).split(" ");
             let word = index[index.length-1];
-            if(word != ""&& !word.includes("[")){
-               postForRhymes(word);
+            console.log(word);
+            if(word != ""&& !word.includes("[")&& isRhymingLine()){
+                let trash = word.split("\n");
+                console.log(trash);
+               postForRhymes(trash[trash.length-1]);
 
             }
         }
@@ -113,7 +128,7 @@ $(document).ready(function () {
         if(action.includes("Note")){
             action = "Notes";
         }
-        /*const actions = {
+        const actions = {
             Save: ()=>{
                 const ballad = {
                     title: $("#title").val(),
@@ -144,7 +159,7 @@ $(document).ready(function () {
                 console.log(action);
             }
         };
-        actions[action]();*/
+        actions[action]();
     });
 
 

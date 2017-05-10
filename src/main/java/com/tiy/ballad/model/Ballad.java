@@ -39,6 +39,7 @@ public class Ballad {
         this.ballad = ballad;
         this.owner = owner;
         this.publicView = publicView;
+
     }
 
     public Ballad(Integer id, String title, String ballad, User owner, List<User> collaborators, LocalDate creationDate, LocalDate lastEdit, boolean favorite, boolean publicView) {

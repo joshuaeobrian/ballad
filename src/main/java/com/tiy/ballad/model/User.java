@@ -1,6 +1,8 @@
 package com.tiy.ballad.model;
 
 
+import java.util.Arrays;
+
 public class User {
 
     private Integer id;
@@ -20,6 +22,8 @@ public class User {
     private byte[] photo;
 
     private String about;
+
+    private String colorCode;
 
     public User() {
     }
@@ -42,7 +46,7 @@ public class User {
 
     }
 
-    public User(Integer id, String firstName, String lastName, String email, String username, String password, boolean active, byte[] photo, String about) {
+    public User(Integer id, String firstName, String lastName, String email, String username, String password, boolean active, byte[] photo, String about, String colorCode) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,8 +56,8 @@ public class User {
         this.active = active;
         this.photo = photo;
         this.about = about;
+        this.colorCode = colorCode;
     }
-
 
     public Integer getId() {
         return id;
@@ -127,6 +131,14 @@ public class User {
         this.about = about;
     }
 
+    public String getColorCode() {
+        return colorCode;
+    }
+
+    public void setColorCode(String colorCode) {
+        this.colorCode = colorCode;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -137,6 +149,9 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", active=" + active +
+                ", photo=" + Arrays.toString(photo) +
+                ", about='" + about + '\'' +
+                ", colorCode='" + colorCode + '\'' +
                 '}';
     }
 }

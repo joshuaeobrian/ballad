@@ -13,8 +13,8 @@ public class UserService {
     @Autowired
     private UserRepository repository;
 
-    public User login(String  username,String password){
-        return repository.getUserByLoginAndPassword(username,password);
+    public User login(String  username){
+        return repository.getUserByLogin(username);
     }
 
     public User findUserById(Integer id){
@@ -26,7 +26,9 @@ public class UserService {
     }
 
     public void updateUserInfo(User user){
+        System.out.println("updating..");
         repository.updateUserInfo(user);
+        System.out.println("updating.....");
     }
     public void deleteUser(Integer userId){
         repository.deleteUser(userId);

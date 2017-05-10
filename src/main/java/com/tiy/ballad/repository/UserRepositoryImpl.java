@@ -30,7 +30,8 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public void updateUserInfo(User user) {
         template.update("UPDATE ballad_users SET first_name=?, last_name=?, email=?, username=?, password=?, active=?, profile_image=?, about=? WHERE id=?",
-                new Object[]{user.getFirstName(),user.getLastName(),user.getEmail(), user.getUsername(),user.getPassword(), user.getPhoto(), user.getAbout()});
+                new Object[]{user.getFirstName(),user.getLastName(),user.getEmail(), user.getUsername(),user.getPassword(), user.isActive(),user.getPhoto(), user.getAbout(),user.getId()});
+        System.out.println("Done.....");
     }
 
     @Override
@@ -43,7 +44,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findUserById(Integer id) {
-        return template.queryForObject("SELECT id, first_name, last_name, email, username, password, active FROM ballad_users where id=?",
+        return template.queryForObject("SELECT id, first_name, last_name, email, username, password, active, about,profile_image,color_code FROM ballad_users where id=?",
                 new Object[]{id},
                 (rs,i)-> new User(
                         rs.getInt("id"),
@@ -52,7 +53,10 @@ public class UserRepositoryImpl implements UserRepository {
                         rs.getString("email"),
                         rs.getString("username"),
                         rs.getString("password"),
-                        rs.getBoolean("active")
+                        rs.getBoolean("active"),
+                        rs.getBytes("profile_image"),
+                        rs.getString("about"),
+                        rs.getString("color_code")
                 ));
     }
 
@@ -72,11 +76,10 @@ public class UserRepositoryImpl implements UserRepository {
                 ));
 
     }
-
     @Override
-    public User getUserByLoginAndPassword(String usernameOrEmail, String password) {
-        return template.queryForObject("SELECT id, first_name, last_name,email, username,password,active from ballad_users where password=? AND username=? or password=? AND email=?",
-                new Object[]{password,usernameOrEmail,password,usernameOrEmail},
+    public User getUserByLogin(String usernameOrEmail) {
+        return template.queryForObject("SELECT id, first_name, last_name,email, username,password,active from ballad_users where username=? or  email=?",
+                new Object[]{usernameOrEmail,usernameOrEmail},
                 (rs,i)->new User(
                         rs.getInt("id"),
                         rs.getString("first_name"),

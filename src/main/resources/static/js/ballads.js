@@ -14,6 +14,7 @@ const toggleViewVals={
 let isGrid = true;
 const cardView = document.getElementById("ballad-cards-section").firstElementChild;
 let isUser = false;
+let sortID= 4;
 const createBallad = (ballad)=>{
 
     var bCard = document.createElement("div");
@@ -159,6 +160,8 @@ $(document).ready(function () {
             isUser = true;
         }
 
+        sortID = sortIndex[sort];
+
         const action = {
             Recent: ()=>{
                 let config = {
@@ -211,10 +214,17 @@ $(document).ready(function () {
     });
 
     $("#ballads-search").on('keydown',function (e) {
-        console.log($("#ballads-search").val());
-        if(pageLocation.includes("my-ballads")){
-           // getBallads("/myBallads");
-        }
+
+        let config = {
+            userOnly:isUser,
+            isPublic: true,
+            isPrivate: isUser,
+            caseId: sortID,
+            search: $("#ballads-search").val(),
+
+        };
+        getBallads("/sortBallads",config);
+
     });
 
 

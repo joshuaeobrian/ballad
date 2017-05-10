@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 $(document).ready(function() {
   $('.color1').animate({
     width: '70%',
@@ -12,7 +12,7 @@ $(document).ready(function() {
   $('.color4').delay(400).animate({
     width: '70%',
   },600);
-})
+});
 
 // const postUser = (url,user)=>{
 //     $.post(url,

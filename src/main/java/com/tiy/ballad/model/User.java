@@ -45,6 +45,18 @@ public class User {
         this.active = active;
 
     }
+    public User(Integer id, String firstName, String lastName, String email, String username, String password, boolean active, String about, String colorCode) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.active = active;
+        this.photo = photo;
+        this.about = about;
+        this.colorCode = colorCode;
+    }
 
     public User(Integer id, String firstName, String lastName, String email, String username, String password, boolean active, byte[] photo, String about, String colorCode) {
         this.id = id;

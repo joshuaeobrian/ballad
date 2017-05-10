@@ -1,3 +1,6 @@
+/**
+ * Global properties
+ */
 const pageLocation = window.location.href;
 const sortIndex = {
     Title:1,
@@ -14,7 +17,9 @@ const toggleViewVals={
 let isGrid = true;
 const cardView = document.getElementById("ballad-cards-section").firstElementChild;
 let isUser = false;
-let sortID= 4;
+
+let currentSortID=3;
+
 const createBallad = (ballad)=>{
 
     var bCard = document.createElement("div");
@@ -160,7 +165,7 @@ $(document).ready(function () {
             isUser = true;
         }
 
-        sortID = sortIndex[sort];
+        currentSortID =sortIndex[sort];
 
         const action = {
             Recent: ()=>{
@@ -215,14 +220,16 @@ $(document).ready(function () {
 
     $("#ballads-search").on('keydown',function (e) {
 
+        console.log($("#ballads-search").val());
         let config = {
-            userOnly:isUser,
-            isPublic: true,
-            isPrivate: isUser,
-            caseId: sortID,
-            search: $("#ballads-search").val(),
+                userOnly: false,
+                isPublic: true,
+                isPrivate: true,
+                caseId: 3,
+                search: $("#ballads-search").val(),
 
-        };
+            };
+
         getBallads("/sortBallads",config);
 
     });

@@ -522,7 +522,8 @@ html {
   #ballads-page #ballad-cards-container-list {
     width: 80%;
     margin: 0 auto;
-    display: none; }
+    /*display: none;*/
+    }
     #ballads-page #ballad-cards-container-list .ballad-card {
       width: 100%; }
       #ballads-page #ballad-cards-container-list .ballad-card .btop, #ballads-page #ballad-cards-container-list .ballad-card .bbottom {

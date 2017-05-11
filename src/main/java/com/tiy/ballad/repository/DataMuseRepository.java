@@ -1,22 +1,13 @@
 package com.tiy.ballad.repository;
 
-import com.tiy.ballad.model.Word;
-import com.tiy.ballad.model.Words;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
-import org.apache.http.client.fluent.Request;
-import org.apache.http.client.fluent.Response;
-import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.net.URLConnection;
 
 /**

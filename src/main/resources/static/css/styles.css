@@ -761,18 +761,37 @@ html {
     justify-content: space-between; }
     #editor-page .container .main-area {
       width: 70%; }
-      #editor-page .container .main-area #rhyme-scheme {
+      #editor-page .container .main-area .scheme {
         margin: 0;
         position: absolute;
         font-size: 1.5em;
         padding-top: 80px;
         line-height: 40px;
-        list-style: none;
         color: #9c0f5f; }
-        #editor-page .container .main-area #rhyme-scheme li {
-          box-sizing: border-box;
+        #editor-page .container .main-area .scheme .rhymetype.A {
+          color: #26547c; }
+        #editor-page .container .main-area .scheme .rhymetype.B {
+          color: #04a777; }
+        #editor-page .container .main-area .scheme .rhymetype.C {
+          color: #2a2a2a; }
+        #editor-page .container .main-area .scheme .rhymetype.D {
+          color: #9c0f5f; }
+        #editor-page .container .main-area .scheme .rhymetype.sectionedchorus {
           padding-right: 10px;
-          border-right: 1px solid black; }
+          padding-left: 10px;
+          border-right: 2px solid #04a777; }
+        #editor-page .container .main-area .scheme .rhymetype.sectionedverse {
+          padding-right: 10px;
+          padding-left: 15px;
+          border-right: 2px solid #9c0f5f; }
+        #editor-page .container .main-area .scheme .rhymetype.sectionedbridge {
+          padding-right: 10px;
+          padding-left: 5px;
+          border-right: 2px solid #26547c; }
+        #editor-page .container .main-area .scheme .rhymetype.sectionedsection {
+          padding-right: 10px;
+          padding-left: 5px;
+          border-right: 2px solid #2a2a2a; }
       #editor-page .container .main-area textarea {
         width: 100%;
         height: 100%;

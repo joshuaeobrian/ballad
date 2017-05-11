@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(document).ready(function() {
   $('.color1').animate({
     width: '70%',

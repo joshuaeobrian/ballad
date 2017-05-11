@@ -522,8 +522,7 @@ html {
   #ballads-page #ballad-cards-container-list {
     width: 80%;
     margin: 0 auto;
-    /*display: none;*/
-    }
+    display: none; }
     #ballads-page #ballad-cards-container-list .ballad-card {
       width: 100%; }
       #ballads-page #ballad-cards-container-list .ballad-card .btop, #ballads-page #ballad-cards-container-list .ballad-card .bbottom {
@@ -829,10 +828,19 @@ html {
         padding-top: 80px;
         font-size: 1.5rem;
         line-height: 40px; }
-    #editor-page .container .rhymes {
+    #editor-page .container .rhymes-container {
       width: 30%;
       height: 100%;
-      background: #ddd; }
+      background: #ddd;
+      text-align: center; }
+      #editor-page .container .rhymes-container .rhymes {
+        width: 100%; }
+        #editor-page .container .rhymes-container .rhymes .rhyme {
+          display: inline-block;
+          padding: 5px 10px;
+          border-radius: 5px;
+          border: 1px solid #2a2a2a;
+          margin: 5px; }
 
 html {
   min-height: 100%;

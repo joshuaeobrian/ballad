@@ -103,6 +103,16 @@ $(document).ready(function() {
    }
    process();
  })
+ $('#wordtorhyme').keydown(function(e) {
+   if(e.keyCode == 13) {
+     var rhymelist = lex.rhymes($('#wordtorhyme').val());
+     rhymeboxes = '';
+     for(var i = 0; i < rhymelist.length; i++) {
+       rhymeboxes += '<div class="rhyme">'+rhymelist[i]+'</div>';
+     }
+     $('.rhymes').html(rhymeboxes);
+   }
+ })
 })
 function process() {
  var text = $('#mytext').val();
@@ -151,13 +161,15 @@ function getRhymes() {
    }
  }
  var words = lines[linetorhyme].text.split(" ");
- rhymelist = lex.rhymes(words[words.length-1]);
+ $('#wordtorhyme').val(words[words.length-1]);
+ rhymelist = lex.rhymes($('#wordtorhyme').val());
  rhymeboxes = '';
  for(var i = 0; i < rhymelist.length; i++) {
    rhymeboxes += '<div class="rhyme">'+rhymelist[i]+'</div>';
  }
  $('.rhymes').html(rhymeboxes);
 }
+
 
 
 

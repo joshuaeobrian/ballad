@@ -8,7 +8,7 @@ html {
 
   .slideout-menu {
     background: white;
-    height: 200%;
+    height:  200%;
     position: absolute;
     right: 0;
     top: 0;
@@ -243,12 +243,12 @@ html {
         display: flex;
         align-items: center;
         color: white;
-        font-size: 1.5em;
+        font-size: 1.5rem;
       }
       .tools {
         span {
           color: white;
-          // font-size: 1em;
+          // font-size: 1rem;
           letter-spacing: 1px;
           ul {
             list-style: none;
@@ -268,7 +268,7 @@ html {
           background: none;
           border: none;
           color: $green;
-          font-size: 1em;
+          font-size: 1rem;
           letter-spacing: 1px;
         }
       }
@@ -277,7 +277,7 @@ html {
           background: none;
           border:none;
           color: white;
-          font-size: 1em;
+          font-size: 1rem;
           margin: 3px;
         }
       }
@@ -286,7 +286,7 @@ html {
           background: none;
           border:none;
           color: white;
-          font-size: 1em;
+          font-size: 1rem;
           margin: 3px;
         }
       }
@@ -296,7 +296,7 @@ html {
         button {
           background: $green;
           color: white;
-          font-size: 1em;
+          font-size: 1rem;
           box-sizing: border-box;
           padding: 10px 20px;
           border: none;
@@ -317,7 +317,7 @@ html {
       .scheme {
         margin: 0;
         position: absolute;
-        font-size: 1.5em;
+        font-size: 1.5rem;
         padding-top: 80px;
         line-height: 40px;
         // list-style: none;
@@ -367,7 +367,7 @@ html {
         box-sizing: border-box;
         padding-left: 80px;
         padding-top: 80px;
-        font-size: 1.5em;
+        font-size: 1.5rem;
         line-height: 40px;
         border: none;
         background: transparent;
@@ -384,7 +384,7 @@ html {
         box-sizing: border-box;
         padding-left: 80px;
         padding-top: 80px;
-        font-size: 1.5em;
+        font-size: 1.5rem;
         line-height: 40px;
         // background: red;
       }

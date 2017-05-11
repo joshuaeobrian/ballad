@@ -17,7 +17,7 @@ html {
     align-items: center;
     .lbox {
       h2 {
-        font-size: 3em;
+        font-size: 3rem;
         color: $green
       }
     }
@@ -28,7 +28,7 @@ html {
         // height: 20px;
         border: none;
         border-bottom: 2px solid $black;
-        font-size: 2em;
+        font-size: 2rem;
         &:focus {
           outline: none;
         }
@@ -87,33 +87,33 @@ html {
         padding-left: 10px;
       }
       h1 {
-        font-size: 2em;
+        font-size: 2rem;
         text-transform: uppercase;
         margin: 0;
         margin-top: 20px;
         // padding-left:
       }
       h2 {
-        font-size: 1.4em;
+        font-size: 1.4rem;
         margin: 0;
       }
       p {
         // margin: 0;
         font-weight: lighter;
-        font-size: 1.2em;
+        font-size: 1.2rem;
         letter-spacing: 1px;
         margin: 20px 0;
       }
       .date {
         float: left;
-        font-size: .9em;
+        font-size: .9rem;
       }
       .private {
         float: right;
         span {
           color: $green;
           font-weight: 500;
-          font-size: 1.3em;
+          font-size: 1.3rem;
         }
         // &:after {
         //   clear: both;
@@ -146,11 +146,11 @@ html {
         justify-content: space-between;
         align-items: center;
         h1 {
-          font-size: 1.5em;
+          font-size: 1.5rem;
           text-transform: uppercase;
         }
         h2 {
-          font-size: 1.3em;
+          font-size: 1.3rem;
         }
         p {
           width: 35%;

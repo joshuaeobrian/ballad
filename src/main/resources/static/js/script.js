@@ -38,7 +38,6 @@ function handleUserLogin(data) {
 //     $(".modal-overlay, .modal-container").hide();
 //   });
 
-
 $(document).ready(function() {
 //      var logged = false;
 //      $("#logged").css('display','none');
@@ -49,8 +48,6 @@ $(document).ready(function() {
   $('.modal-overlay, .modal-container').hide();
 
   $('#not-logged').click(function() {
-
-
         $(".modal-overlay, .modal-container").show();
   });
 

@@ -1,3 +1,6 @@
+/**
+ * Global properties
+ */
 const pageLocation = window.location.href;
 const sortIndex = {
     Title:1,
@@ -14,6 +17,9 @@ const toggleViewVals={
 let isGrid = true;
 const cardView = document.getElementById("ballad-cards-section").firstElementChild;
 let isUser = false;
+
+let currentSortID=3;
+
 const createBallad = (ballad)=>{
 
     var bCard = document.createElement("div");
@@ -159,6 +165,8 @@ $(document).ready(function () {
             isUser = true;
         }
 
+        currentSortID =sortIndex[sort];
+
         const action = {
             Recent: ()=>{
                 let config = {
@@ -211,20 +219,31 @@ $(document).ready(function () {
     });
 
     $("#ballads-search").on('keydown',function (e) {
-        console.log($("#ballads-search").val());
-        if(pageLocation.includes("my-ballads")){
-           // getBallads("/myBallads");
-        }
+
+        let config = {
+                userOnly: false,
+                isPublic: true,
+                isPrivate: true,
+                caseId: 3,
+                search: $("#ballads-search").val(),
+
+            };
+
+        getBallads("/sortBallads",config);
+
     });
 
 
     $("div").on('click',".ballad-card",function (e) {
         console.log($(this).attr("class"));
         console.log("hello");
+        if(pageLocation.includes("my-ballads")){
+            const ballad_id = $(this).find("input[type=hidden]").val();
+            console.log(ballad_id);
+            window.location = "/editor/"+ballad_id;
+        }
 
-        const ballad_id = $(this).children("input:first").val();
-        console.log(ballad_id);
-        window.location = "/editor/"+ballad_id;
+
     });
 
 

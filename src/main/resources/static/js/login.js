@@ -3,24 +3,33 @@ const postUser = (url,user)=>{
         user,
         function (data) {
             console.log(data);
-            if(url.includes("userlogin")){
+
                 handleUserLogin(data);
-            }
+
         });
 
 };
 
 function handleUserLogin(data) {
-    if(data){
+    if(data[0]&&data[1]){
         console.log("ok");
         // getBallads("/myBallads")
         document.location.href="/";
     }else{
+
         const login = document.getElementById("login-section");
         const label = document.createElement("label");
-        label.textContent = "Username or Password is incorrect.";
-        label.style.color = "red";
-        login.appendChild(label);
+        const passwordValidation = document.getElementById("password-validation");
+        const userValidation = document.getElementById("user-validation");
+        //valid.style.background = (data[0])? "" : "red";
+        userValidation.textContent = (data[0])? "" : "Username or Email is Incorrect!";
+        userValidation.style.color = "red";
+        userValidation.style.fontSize = "0.90rem";
+        passwordValidation.textContent = (data[1])? "" : "Password is Incorrect!";
+        passwordValidation.style.color = "red";
+        passwordValidation.style.fontSize = "0.90rem";
+
+
     }
 }
 

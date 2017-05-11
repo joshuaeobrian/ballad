@@ -301,38 +301,38 @@ $(document).ready(function () {
         if(action.includes("Note")){
             action = "Notes";
         }
-        const actions = {
-            Save: ()=>{
-                const ballad = {
-                    title: $("#title").val(),
-                    content: $("#ballad-input").val(),
-                    isPublic: $('#isPublic').prop('checked'),
-                };
+        if(action == 'Notes'||action == 'Save'||action == 'Export') {
+            const actions = {
+                Save: () => {
+                    const ballad = {
+                        title: $("#title").val(),
+                        content: $("#ballad-input").val(),
+                        isPublic: $('#isPublic').prop('checked'),
+                    };
 
-                if($("#title").val() != "") {
+                    if ($("#title").val() != "") {
+                        postBallads("/saveBallad", ballad);
+                    } else {
+                        $("#title").css('border', '1px solid red');
+                    }
+                },
+
+                Export: () => {
+                    const ballad = {
+                        title: $("#title").val(),
+                        content: $("#ballad-input").val(),
+                        isPublic: $('#isPublic').prop('checked'),
+                    };
                     postBallads("/saveBallad", ballad);
-                }else{
-                    $("#title").css('border','1px solid red');
+
+                    document.location.href = "/download";
+                },
+                Notes: () => {
+                    console.log(action);
                 }
-            },
-            Delete: ()=>{
-
-            },
-            Export: ()=>{
-                const ballad = {
-                    title: $("#title").val(),
-                    content: $("#ballad-input").val(),
-                    isPublic: $('#isPublic').prop('checked'),
-                };
-                postBallads("/saveBallad",ballad);
-
-                document.location.href = "/download";
-            },
-            Notes:()=>{
-                console.log(action);
-            }
-        };
-        actions[action]();
+            };
+            actions[action]();
+        }
     });
 
 

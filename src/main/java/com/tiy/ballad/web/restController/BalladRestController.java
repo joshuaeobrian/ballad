@@ -5,6 +5,11 @@ import com.tiy.ballad.model.Ballad;
 import com.tiy.ballad.model.User;
 import com.tiy.ballad.service.BalladService;
 import com.tiy.ballad.service.UserService;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -79,6 +84,7 @@ public class BalladRestController {
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         String title = "";
         String content = "";
+
         if(userId == 0){
             title = session.getAttribute("title").toString();
             content = session.getAttribute("ballad").toString();
@@ -92,9 +98,12 @@ public class BalladRestController {
         HttpHeaders headers = new HttpHeaders();
         headers.set("charset", "utf-8");
 
-        headers.setContentType(MediaType.TEXT_PLAIN);
+        headers.setContentType(MediaType.APPLICATION_PDF);
         headers.setContentLength(output.length);
-        headers.set("Content-disposition", "attachment; filename="+title+".txt");
+        headers.add("content-disposition", "inline;filename=" +title+".pdf");
+
+//        headers.set("Content-disposition", "attachment; filename="");
+
 
         return new ResponseEntity<byte[]>(output, headers, HttpStatus.OK);
     }

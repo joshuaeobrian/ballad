@@ -20,28 +20,28 @@ public class UserRestController {
     @Autowired
     private UserService service;
 
-    @PostMapping("/userlogin")
-    public boolean validateUser(HttpSession session, String username, String password){
-
-        try {
-            User user = service.login(username);
-//            System.out.println(user);
-            boolean validate = PasswordStorage.verifyPassword(password, user.getPassword());
-            if(validate){
-                session.setAttribute("userId",user.getId());
-                System.out.println(session.getAttribute("userId"));
-                return true;
-            }else{
-                session.setAttribute("userId",0);
-                return false;
-            }
-        }
-        catch (Exception e){
-            session.setAttribute("userId",0);
-            return false;
-        }
-
-    }
+//    @PostMapping("/userlogin")
+//    public boolean validateUser(HttpSession session, String username, String password){
+//
+//        try {
+//            User user = service.login(username);
+////            System.out.println(user);
+//            boolean validate = PasswordStorage.verifyPassword(password, user.getPassword());
+//            if(validate){
+//                session.setAttribute("userId",user.getId());
+//                System.out.println(session.getAttribute("userId"));
+//                return true;
+//            }else{
+//                session.setAttribute("userId",0);
+//                return false;
+//            }
+//        }
+//        catch (Exception e){
+//            session.setAttribute("userId",0);
+//            return false;
+//        }
+//
+//    }
 
     @PostMapping("/signUp")
     public String saveNewUser(HttpSession session, User user){
@@ -56,23 +56,6 @@ public class UserRestController {
         }
     }
 
-    @PostMapping("/updateUser")
-    public void updateUser(HttpSession session, User user, MultipartFile file) throws PasswordStorage.CannotPerformOperationException {
-        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
-        user.setId(userId);
-        try {
-            user.setPhoto(file.getBytes());
-        } catch (IOException e) {
-            System.out.println("Unable to upload file");
-        }
-        if(!user.getPassword().contains("sha1")){
-            user.setPassword(PasswordStorage.createHash(user.getPassword()));
-        }
-
-        System.out.println(user.toString());
-        service.updateUserInfo(user);
-
-    }
 
     @GetMapping("/disableAccount")
     public void disableAccount(HttpSession session){

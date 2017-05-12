@@ -24,20 +24,6 @@ function handleUserLogin(data) {
     }
 }
 
-// $(document).ready(function () {
-//
-//   $('.modal-overlay, .modal-container').hide();
-//
-//   $('#not-logged').click(function() {
-//     console.log("hi");
-//
-//     $(".modal-overlay, .modal-container").show();
-//   });
-//
-//   $(".fa-times").click(function() {
-//     $(".modal-overlay, .modal-container").hide();
-//   });
-
 $(document).ready(function() {
 //      var logged = false;
 //      $("#logged").css('display','none');
@@ -54,6 +40,23 @@ $(document).ready(function() {
   $(".fa-times").click(function() {
     $(".modal-overlay, .modal-container").hide();
   });
+
+
+
+  $('.global-slideout-menu, .global-slideout-overlay').hide();
+
+  $('.global-slideout-button').click(function() {
+    console.log("hi");
+
+    $(".global-slideout-menu").animate({width:'toggle'},500);
+    $(".global-slideout-menu, .global-slideout-overlay").show();
+  });
+
+  $(".fa-arrow-left").click(function() {
+    $(".global-slideout-menu").animate({width:'toggle'},500);
+    $(".global-slideout-overlay").hide();
+  });
+
 
   /**
    * This section is for user login

@@ -1,22 +1,22 @@
 
 let image;
-const updateUser = (url,user)=>{
-    $.ajax({
-        type: "POST",
-        url: url,
-        async: true,
-        data: user,
-        contentType: "multipart/form-data",
-        processData: false,
-        success: function(msg) {
-            alert("File has been uploaded successfully");
-        },
-        error:function(msg) {
-            $("#upload-error").html("Couldn't upload file");
-        }
-    });
-
-};
+// const updateUser = (url,user)=>{
+//     $.ajax({
+//         type: "POST",
+//         url: url,
+//         async: true,
+//         data: user,
+//         contentType: "multipart/form-data",
+//         processData: false,
+//         success: function(msg) {
+//             alert("File has been uploaded successfully");
+//         },
+//         error:function(msg) {
+//             $("#upload-error").html("Couldn't upload file");
+//         }
+//     });
+//
+// };
 function imageUrl(input) {
     if(input.files && input.files[0]){
         let reader = new FileReader();
@@ -30,7 +30,7 @@ function imageUrl(input) {
 
     }
 }
-$(function () {
+$(document).ready(function () {
    console.log("hello");
 
     $(".field").click(function (e) {
@@ -40,6 +40,10 @@ $(function () {
 
     $("#update-image").change(function () {
         imageUrl(this);
+    });
+
+    $('#color-dropdown').click(function() {
+        $('#color-list').slideToggle();
     });
 
     // $('button').click(function (e) {
@@ -73,4 +77,3 @@ $(function () {
     //
     // });
 });
-

@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout :: head('Profile')">
     <meta charset="utf-8"/>
-    <title>Profile Settings</title>
+    <title>ballad | Profile Settings</title>
     <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
   </head>
   <body id="profile">
@@ -110,7 +110,16 @@
           </div>
         <div class="rprofile">
           <h2>Profile Color</h2>
-          <button type="button" name="button">Pink <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+          <span id="color-dropdown">
+            <span id="current-color">Pink</span>
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+          </span>
+          <ul id="color-list">
+            <li value="blue">Blue</li>
+            <li value="green">Green</li>
+            <li value="pink">Pink</li>
+            <li value="yellow">Yellow</li>
+          </ul>
         </div>
       </div>
       <!--</div>-->
@@ -165,7 +174,7 @@
           <h3>Bio</h3>
           <div class="field-foot">
 
-            <textarea th:text="*{about}" name="about" th:style="'width:80%;  font-size:20px; border:none;'" />
+            <textarea th:text="*{about}" name="about" th:style="'width:80%;  font-size:20px; border:none;'"></textarea>
 
 
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
@@ -184,14 +193,12 @@
       </form>
     </section>
 
-
     <div th:replace="layout :: universalScripts">
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
       <script src="https://use.fontawesome.com/555750ba4f.js"></script>
-      <!--<script src="../static/js/ballads.js"></script>-->
     </div>
-    <script src="../static/js/profileSettings.js" th:src="@{/js/profileSettings.js}"></script>
+    <script type="text/javascript" src="../static/js/profileSettings.js" th:src="@{/js/profileSettings.js}"></script>
 
   </body>
 </html>

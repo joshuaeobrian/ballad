@@ -3,7 +3,7 @@
   <head th:replace="layout :: head('Ballad Editor')">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>ballad | Editor</title>
     <script src="https://use.fontawesome.com/ab03b8820e.js"></script>
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
@@ -12,7 +12,7 @@
 
   <div id="global-login" th:replace="layout :: loginForm"></div>
 
-    <div class="slideout-menu">
+    <div id="editor-slideout-menu">
       <div class="slideout-menu-header">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
         <h1>Untitled ballad</h1>
@@ -46,7 +46,7 @@
         </label>
       </div>
     </div>
-    <div class="overlay"></div>
+    <div id="editor-slideout-overlay"></div>
 
     <header id="global-header" th:replace="layout :: nav">
 
@@ -80,8 +80,8 @@
           <i class="fa fa-check" aria-hidden="true"></i>
           <i class="fa fa-times" aria-hidden="true"></i>
         </div>
-        <div id="ellipses-container">
-          <a id="slideout-button"><img class="ellipses" src="../static/images/ellipses.png" th:src="@{/images/ellipses.png}" alt="More"/></a>
+        <div class="hamburger-container">
+          <a id="editor-slideout-button"><i class="fa fa-bars" aria-hidden="true"></i></a>
         </div>
       </div>
       <div class="bottom-head">

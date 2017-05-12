@@ -14,6 +14,26 @@ $(document).ready(function() {
   },600);
 });
 
+// SLIDER
+$(".features-carousel-for").slick({
+ arrows: false,
+ autoplay: true,
+ asNavFor: ".features-carousel-nav",
+ fade: true,
+ slidesToScroll: 1,
+ slidesToShow: 1
+});
+
+$(".features-carousel-nav").slick({
+  arrows: false,
+  autoplay: true,
+  asNavFor: ".features-carousel-for",
+  infinite: true,
+  dots: true,
+  slidesToScroll: 1,
+  slidesToShow: 1
+});
+
 // const postUser = (url,user)=>{
 //     $.post(url,
 //         user,

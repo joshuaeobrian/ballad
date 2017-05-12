@@ -61,18 +61,18 @@ const isRhymingLine =() =>{
 
 $(document).ready(function () {
 
-  $('.slideout-menu, .overlay').hide();
+  $('#editor-slideout-menu, #editor-slideout-overlay').hide();
 
-  $('#editor-page #slideout-button').click(function() {
+  $('#editor-page #editor-slideout-button').click(function() {
     console.log("hi");
 
-    $(".slideout-menu").animate({width:'toggle'},500);
-    $(".slideout-menu, .overlay").show();
+    $("#editor-slideout-menu").animate({width:'toggle'},500);
+    $("#editor-slideout-menu, #editor-slideout-overlay").show();
   });
 
   $(".fa-arrow-left").click(function() {
-    $(".slideout-menu").animate({width:'toggle'},500);
-    $(".overlay").hide();
+    $("#editor-slideout-menu").animate({width:'toggle'},500);
+    $("#editor-slideout-overlay").hide();
   });
 
 

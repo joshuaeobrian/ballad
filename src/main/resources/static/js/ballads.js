@@ -242,8 +242,6 @@ $(document).ready(function () {
             console.log(ballad_id);
             window.location = "/editor/"+ballad_id;
         }
-
-
     });
 
 

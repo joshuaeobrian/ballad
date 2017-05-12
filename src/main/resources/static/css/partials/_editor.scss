@@ -318,18 +318,50 @@ html {
     justify-content: space-between;
     .main-area {
       width: 70%;
-      #rhyme-scheme {
+      .scheme {
         margin: 0;
         position: absolute;
         font-size: 1.5rem;
         padding-top: 80px;
         line-height: 40px;
-        list-style: none;
+        // list-style: none;
         color: $magenta;
-        li {
-          box-sizing: border-box;
+        // li {
+        //   box-sizing: border-box;
+        //   padding-right: 10px;
+        //   border-right: 1px solid black;
+        // }
+        .rhymetype.A {
+          color: $blue;
+        }
+        .rhymetype.B {
+          color: $green;
+        }
+        .rhymetype.C {
+          color: $black;
+        }
+        .rhymetype.D {
+          color: $magenta;
+        }
+        .rhymetype.sectionedchorus {
           padding-right: 10px;
-          border-right: 1px solid black;
+          padding-left: 10px;
+          border-right: 2px solid $green;
+        }
+        .rhymetype.sectionedverse {
+          padding-right: 10px;
+          padding-left: 15px;
+          border-right: 2px solid $magenta;
+        }
+        .rhymetype.sectionedbridge {
+          padding-right: 10px;
+          padding-left: 5px;
+          border-right: 2px solid $blue;
+        }
+        .rhymetype.sectionedsection {
+          padding-right: 10px;
+          padding-left: 5px;
+          border-right: 2px solid $black;
         }
       }
       textarea {

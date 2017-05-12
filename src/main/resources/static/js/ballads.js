@@ -39,7 +39,7 @@ const createBallad = (ballad)=>{
     var author = document.createElement("h2");
     author.textContent = ballad["owner"]["firstName"]+" "+ballad["owner"]["lastName"];
     var content = document.createElement("p");
-    content.textContent = ballad["ballad"];
+    content.textContent = (ballad["ballad"].length < 50)? ballad["ballad"] : ballad["ballad"].substring(0,50);
 
     var date = document.createElement("div");
     date.className = "date";
@@ -220,7 +220,6 @@ $(document).ready(function () {
 
     $("#ballads-search").on('keydown',function (e) {
 
-        console.log($("#ballads-search").val());
         let config = {
                 userOnly: false,
                 isPublic: true,
@@ -238,10 +237,11 @@ $(document).ready(function () {
     $("div").on('click',".ballad-card",function (e) {
         console.log($(this).attr("class"));
         console.log("hello");
-
-        const ballad_id = $(this).children("input:first").val();
-        console.log(ballad_id);
-        window.location = "/editor/"+ballad_id;
+        if(pageLocation.includes("my-ballads")){
+            const ballad_id = $(this).find("input[type=hidden]").val();
+            console.log(ballad_id);
+            window.location = "/editor/"+ballad_id;
+        }
     });
 
 

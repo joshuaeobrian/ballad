@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by josh on 4/27/17.
@@ -20,28 +22,28 @@ public class UserRestController {
     @Autowired
     private UserService service;
 
-    @PostMapping("/userlogin")
-    public boolean validateUser(HttpSession session, String username, String password){
-
-        try {
-            User user = service.login(username);
-//            System.out.println(user);
-            boolean validate = PasswordStorage.verifyPassword(password, user.getPassword());
-            if(validate){
-                session.setAttribute("userId",user.getId());
-                System.out.println(session.getAttribute("userId"));
-                return true;
-            }else{
-                session.setAttribute("userId",0);
-                return false;
-            }
-        }
-        catch (Exception e){
-            session.setAttribute("userId",0);
-            return false;
-        }
-
-    }
+//    @PostMapping("/userlogin")
+//    public boolean validateUser(HttpSession session, String username, String password){
+//
+//        try {
+//            User user = service.login(username);
+////            System.out.println(user);
+//            boolean validate = PasswordStorage.verifyPassword(password, user.getPassword());
+//            if(validate){
+//                session.setAttribute("userId",user.getId());
+//                System.out.println(session.getAttribute("userId"));
+//                return true;
+//            }else{
+//                session.setAttribute("userId",0);
+//                return false;
+//            }
+//        }
+//        catch (Exception e){
+//            session.setAttribute("userId",0);
+//            return false;
+//        }
+//
+//    }
 
     @PostMapping("/signUp")
     public String saveNewUser(HttpSession session, User user){
@@ -56,28 +58,31 @@ public class UserRestController {
         }
     }
 
-    @PostMapping("/updateUser")
-    public void updateUser(HttpSession session, User user, MultipartFile file) throws PasswordStorage.CannotPerformOperationException {
-        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
-        user.setId(userId);
-        try {
-            user.setPhoto(file.getBytes());
-        } catch (IOException e) {
-            System.out.println("Unable to upload file");
-        }
-        if(!user.getPassword().contains("sha1")){
-            user.setPassword(PasswordStorage.createHash(user.getPassword()));
-        }
-
-        System.out.println(user.toString());
-        service.updateUserInfo(user);
-
-    }
 
     @GetMapping("/disableAccount")
     public void disableAccount(HttpSession session){
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         service.deleteUser(userId);
+    }
+    @PostMapping("/check-username")
+    public HashMap<String,Boolean> isUsernameTaken(String username) {
+        HashMap<String, Boolean> map = new HashMap<>();
+        try {
+            User user = service.login(username);
+
+            if (user.getUsername().equals(username)) {
+                map.put("usernameExist", true);
+            }
+            if (user.getEmail().equals(username)) {
+                map.put("emailExist", true);
+            }
+        return map;
+        } catch (Exception e) {
+            map.put("usernameExist", false);
+            map.put("emailExist", false);
+            return map;
+        }
+
     }
 
 }

@@ -20,23 +20,29 @@
             <h1>Signup</h1>
             <div class="fname">
               <label for="first-name">First Name</label><br/>
-              <input type="text" id="first-name" name="first-name"/>
+              <input type="text" id="first-name" name="first-name" required="required"/>
+                <div id="sign-up-fname"></div>
             </div>
             <div class="lname">
               <label for="last-name">Last Name</label><br/>
-              <input type="text" id="last-name" name="last-name"/>
+              <input type="text" id="last-name" name="last-name" required="required"/>
+                <div id="sign-up-lname"></div>
             </div>
             <div class="eaddress">
               <label for="email-address">Email Address</label><br/>
-              <input type="text" id="email-address" name="email-address"/>
+              <input type="text" id="email-address" name="email-address" required="required"/>
+                <div id="sign-up-email"></div>
             </div>
             <div class="usr">
               <label for="signup-username">Username</label><br/>
-              <input type="text" id="signup-username" name="signup-username"/>
+              <input type="text" id="signup-username" name="signup-username" required="required"/>
+                <div id="sign-up-username"></div>
             </div>
             <div class="pass">
               <label for="signup-password">Password</label><br/>
-              <input type="text" id="signup-password" name="signup-password"/>
+              <input type="text" id="signup-password" name="signup-password" required="required"/>
+                <div  id="password-strength" style="margin: 5px auto; display:none; text-align: center; width: 80%; padding: 10px; border-radius: 10px; background: #F26430; color:white;"></div>
+                <div id="sign-up-password"></div>
             </div>
             <div class="sub">
               <button id="signup-btn">Submit</button>
@@ -45,15 +51,17 @@
 
           </form>
 
-          <form id="login-form" th:style="${signup}? 'display:none' : ''">
+          <form id="login-form" th:action="@{/userlogin}" th:style="${signup}? 'display:none' : ''">
             <h1>Login</h1>
-            <div class="usr">
+            <div class="usr" >
               <label for="login-username">Username</label><br/>
-              <input type="text" id="login-username" name="username"/>
+              <input type="text" id="login-username" name="username" required="required"/>
+                <div  id="user-validation"></div>
             </div>
             <div class="pass">
               <label for="login-password">Password</label><br/>
-              <input type="text" id="login-password" name="login-password"/>
+              <input type="password" id="login-password" name="login-password" required="required"/>
+                <div id="password-validation"></div>
             </div>
             <div class="sub">
               <button id="login-btn">Submit</button>

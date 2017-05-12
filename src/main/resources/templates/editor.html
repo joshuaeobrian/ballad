@@ -88,16 +88,16 @@
         <div class="tools">
           <span id="tools">Tools <i class="fa fa-caret-down" aria-hidden="true"></i>
             <ul id="tool-list">
-              <li value="Chorus">+ Chorus</li>
-              <li value="Verse">+ Verse</li>
-              <li value="Bridge">+ Bridge</li>
-              <li value="Section">+ Section</li>
-              <li value="Template">+ Template</li>
+              <li value="Chorus" id="chorus">+ Chorus</li>
+              <li value="Verse" id="verse">+ Verse</li>
+              <li value="Bridge" id="bridge">+ Bridge</li>
+              <li value="Section" id="section">+ Section</li>
+              <li value="Template" id="template">+ Template</li>
             </ul>
           </span>
         </div>
         <div class="rhyme">
-          <button>ABAB</button>
+          <button id="default-scheme">ABAB</button>
         </div>
         <div class="transform">
           <button><i class="fa fa-bold" aria-hidden="true"></i></button>
@@ -139,13 +139,16 @@
       </div> -->
       <div class="container">
         <div class="main-area">
-          <ul id="rhyme-scheme">
+          <div class="scheme">
+
+          </div>
+          <!-- <ul id="rhyme-scheme">
             <li>A</li>
             <li>B</li>
             <li>A</li>
             <li>B</li>
-          </ul>
-          <textarea name="name" rows="8" cols="80" id="ballad-input" th:text="*{ballad}"></textarea>
+          </ul> -->
+          <textarea name="name" rows="8" cols="80" id="mytext" th:text="*{ballad}"></textarea>
           <div id="rendered-text">
 
           </div>
@@ -192,6 +195,7 @@
       <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
       <script src="https://use.fontawesome.com/555750ba4f.js"></script>
     </div>
+    <script src="../static/js/rita-full.min.js" th:src="@{/js/rita-full.min.js}"></script>
     <script type="text/javascript" src="../static/js/editor.js" th:src="@{/js/editor.js}"></script>
 
 

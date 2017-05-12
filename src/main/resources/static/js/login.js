@@ -35,14 +35,26 @@ const SIGN_UP =
     };
 const emptyField = "Field must not be empty.";
 const postUser = (url,user)=>{
+    var isExist = {};
     $.post(url,
         user,
         function (data) {
             console.log(data);
-
+            if(url == "/signUp"|| url == "/userlogin") {
                 handleUserLogin(data);
+            }else{
+
+                if((/[\W@{1}.+]/g).exec(user.username) && (user.username.includes("com")||user.username.includes("net")||user.username.includes("me"))) {
+                    EMAIL_VAL.textContent = (data["emailExist"]) ? "Email already used" : "";
+                    SIGN_UP.emailVal = !data["emailExist"];
+                }else{
+                    USERNAME_VAL.textContent = (data["usernameExist"]) ? "Username is taken" : "";
+                    SIGN_UP.usernameVal=!data["usernameExist"];
+                }
+            }
 
         });
+    return isExist;
 
 };
 
@@ -123,6 +135,9 @@ $(document).ready(function () {
         signUpValidation(user);
         if(SIGN_UP["fnameVal"] && SIGN_UP["lnameVal"] && SIGN_UP["emailVal"] && SIGN_UP["usernameVal"] && SIGN_UP["passwordVal"]) {
              postUser("/signUp",user);
+        }else{
+            EMAIL_VAL.textContent = (SIGN_UP["emailVal"])? "":"Please Try and Recover Account";
+            USERNAME_VAL.textContent = (SIGN_UP["usernameVal"]) ? "" : "Please pick different username";
         }
     });
 
@@ -162,9 +177,13 @@ $(document).ready(function () {
             EMAIL_VAL.style.color = "red";
             val += ($(this).val().length > 6 && (/[\W@{1}.+]/g).exec($(this).val()) && ($(this).val().includes("com")||$(this).val().includes("net")||$(this).val().includes("me"))) ? "" : "This is not a valid Email. \n";
             EMAIL_VAL.textContent =val;
+
             if($(this).val().length > 6 && (/[\W@{1}.+]/g).exec($(this).val()) && ($(this).val().includes("com")||$(this).val().includes("net")||$(this).val().includes("me"))){
+                console.log("yep");
+                postUser("/check-username",{username:$(this).val()});
                 SIGN_UP["emailVal"]=true;
             }else{
+                console.log("nope");
                 SIGN_UP["emailVal"]=false;
             }
 
@@ -180,11 +199,21 @@ $(document).ready(function () {
             val += ((/[a-z+]/g).exec(usr)) ? "" : "Needs at least 1 Letter! \r\n";
             val += ((/[0-9+]/g).exec(usr)) ? "" : "Needs at least 1 Number! \r\n";
             val += ((/\s/g).exec(usr))? "Password can not contain spaces \r\n":"";
-            USERNAME_VAL.textContent =val;
+
 
         if(usr.length >= 4 && new RegExp((/[a-z]/g)).test(usr)&&new RegExp((/[0-9]/g)).test(usr)){
-            SIGN_UP["usernameVal"]=true;
+            var response = postUser("/check-username",{username:usr});
+
+            // if(){
+            //     val = "Username already exists.";
+            // }else{
+            //     SIGN_UP["usernameVal"]=true;
+            // }
+
+        }else{
+            SIGN_UP["usernameVal"]=false;
         }
+        USERNAME_VAL.textContent =val;
     });
 
     $("#signup-password").on("keyup", function () {

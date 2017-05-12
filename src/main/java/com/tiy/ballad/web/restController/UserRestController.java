@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by josh on 4/27/17.
@@ -61,6 +63,26 @@ public class UserRestController {
     public void disableAccount(HttpSession session){
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         service.deleteUser(userId);
+    }
+    @PostMapping("/check-username")
+    public HashMap<String,Boolean> isUsernameTaken(String username) {
+        HashMap<String, Boolean> map = new HashMap<>();
+        try {
+            User user = service.login(username);
+
+            if (user.getUsername().equals(username)) {
+                map.put("usernameExist", true);
+            }
+            if (user.getEmail().equals(username)) {
+                map.put("emailExist", true);
+            }
+        return map;
+        } catch (Exception e) {
+            map.put("usernameExist", false);
+            map.put("emailExist", false);
+            return map;
+        }
+
     }
 
 }

@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout :: head('Profile')">
     <meta charset="utf-8"/>
-    <title>ballad | Profile Settings</title>
+    <title>ballad | Settings</title>
     <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
   </head>
   <body id="profile">
@@ -104,7 +104,7 @@
 
           </div>
           <input type="file" id="update-image" name="file"/>
-          <span class="update" style="cursor: pointer">update</span>
+          <!-- <span class="update" style="cursor: pointer">update</span> -->
 
 
           </div>
@@ -115,17 +115,17 @@
             <i class="fa fa-angle-down" aria-hidden="true"></i>
           </span>
           <ul id="color-list">
-            <li value="blue">Blue</li>
-            <li value="green">Green</li>
-            <li value="pink">Pink</li>
-            <li value="yellow">Yellow</li>
+            <li id="blue" value="blue">Blue</li>
+            <li id="green" value="green">Green</li>
+            <li id="pink" value="pink">Pink</li>
+            <li id="yellow" value="yellow">Yellow</li>
           </ul>
         </div>
       </div>
       <!--</div>-->
       <div class="info">
         <div class="field">
-          <h3>First Name</h3>
+          <h2>First Name</h2>
           <div class="field-foot">
             <input type="text" name="firstname" th:value="*{firstName}" th:style="'width:80%;  font-size:20px; border:none;'" />
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
@@ -133,14 +133,14 @@
           </div>
         </div>
         <div class="field">
-          <h3>Last Name</h3>
+          <h2>Last Name</h2>
           <div class="field-foot">
             <input type="text" name="lastName" th:value="*{lastName}" th:style="'width:80%;  font-size:20px; border:none;'" />
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
           </div>
         </div>
         <div class="field">
-          <h3>Email Address</h3>
+          <h2>Email Address</h2>
           <div class="field-foot">
 
             <input type="email" name="email" th:value="*{email}" th:style="'width:80%;  font-size:20px; border:none;'" />
@@ -150,7 +150,7 @@
           </div>
         </div>
         <div class="field">
-          <h3>Username</h3>
+          <h2>Username</h2>
           <div class="field-foot">
 
 
@@ -161,7 +161,7 @@
           </div>
         </div>
         <div class="field">
-          <h3>Password</h3>
+          <h2>Password</h2>
           <div class="field-foot">
 
             <input type="password" name="password" th:style="'width:80%;  font-size:20px; border:none;'" />
@@ -171,7 +171,7 @@
           </div>
         </div>
         <div class="field">
-          <h3>Bio</h3>
+          <h2>Bio</h2>
           <div class="field-foot">
 
             <textarea th:text="*{about}" name="about" th:style="'width:80%;  font-size:20px; border:none;'"></textarea>
@@ -182,7 +182,7 @@
           </div>
         </div>
         <div class="field">
-          <h3>Delete Account</h3>
+          <h2>Delete Account</h2>
           <div class="field-foot">
             <button type="button" name="button">Delete</button>
             <span></span>

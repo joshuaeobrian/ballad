@@ -97,19 +97,19 @@ body {
       position: absolute;
       right: 5%; }
     #global-login .modal-container .modal #login-section {
-      width: 80%;
       margin: 0 auto;
-      padding-top: 20px;
-      padding-bottom: 60px; }
+      padding-top: 40px;
+      padding-bottom: 60px;
+      width: 80%; }
     #global-login .modal-container .modal #signup-form {
       display: none; }
     #global-login .modal-container .modal h1 {
-      color: #9c0f5f;
-      font-size: 3rem; }
+      color: #2a2a2a;
+      font-size: 2.5rem; }
     #global-login .modal-container .modal input {
-      width: 400px;
+      border: 2px solid #2a2a2a;
       height: 25px;
-      border: 2px solid #2a2a2a; }
+      width: 60%; }
     #global-login .modal-container .modal .usr, #global-login .modal-container .modal .pass, #global-login .modal-container .modal .sub, #global-login .modal-container .modal .fname, #global-login .modal-container .modal .lname, #global-login .modal-container .modal .eaddress {
       margin: 50px 0; }
       #global-login .modal-container .modal .usr label, #global-login .modal-container .modal .pass label, #global-login .modal-container .modal .sub label, #global-login .modal-container .modal .fname label, #global-login .modal-container .modal .lname label, #global-login .modal-container .modal .eaddress label {
@@ -130,12 +130,12 @@ body {
       border-bottom: 2px solid black; }
       #global-login .modal-container .modal .sub button {
         background: #04a777;
-        box-sizing: border-box;
-        padding: 10px 25px;
-        font-size: 1.5rem;
-        border-radius: 20px;
+        border-radius: 15px;
         border: none;
-        color: white; }
+        box-sizing: border-box;
+        color: white;
+        font-size: 1.15rem;
+        padding: 10px 25px; }
       #global-login .modal-container .modal .sub a {
         text-decoration: none;
         color: #555;
@@ -476,8 +476,8 @@ html {
   #login-page #signup-form {
     display: none; }
   #login-page h1 {
-    color: #9c0f5f;
-    font-size: 3rem; }
+    color: #2a2a2a;
+    font-size: 2.5rem; }
   #login-page input {
     width: 400px;
     height: 25px;
@@ -504,8 +504,8 @@ html {
       background: #04a777;
       box-sizing: border-box;
       padding: 10px 25px;
-      font-size: 1.5rem;
-      border-radius: 20px;
+      font-size: 1.15rem;
+      border-radius: 15px;
       border: none;
       color: white; }
     #login-page .sub a {
@@ -937,13 +937,16 @@ html {
       justify-content: space-between;
       align-items: center; }
       #profile .container .settings h1 {
-        font-size: 3rem; }
+        font-size: 2.5rem; }
       #profile .container .settings button {
-        font-size: 1.9rem;
+        background: #04a777;
+        border: none;
+        border-radius: 15px;
+        box-sizing: border-box;
         color: white;
-        padding: 5px 30px;
-        border-radius: 20px;
-        border: none; }
+        font-size: 1.15rem;
+        font-weight: bold;
+        padding: 10px 20px; }
     #profile .container .top {
       display: flex;
       height: 300px;
@@ -951,17 +954,18 @@ html {
       margin-top: 60px;
       width: 45%; }
       #profile .container .top .lprofile, #profile .container .top .rprofile {
-        width: 40%; }
+        width: 33%; }
         #profile .container .top .lprofile h2, #profile .container .top .rprofile h2 {
           border-bottom: 2px solid black;
           font-weight: bold;
-          font-size: 1.6rem; }
+          font-size: 1.5rem;
+          padding-bottom: 4px; }
       #profile .container .top .lprofile .profile-pic {
-        width: 150px;
-        height: 150px;
-        margin: 0 auto;
+        background: #04a777;
         border-radius: 50%;
-        background: blue; }
+        margin: 20px 0px 20px 10px;
+        height: 140px;
+        width: 140px; }
       #profile .container .top .lprofile p {
         font-style: italic;
         text-align: center; }
@@ -969,11 +973,18 @@ html {
         background: #9c0f5f;
         border: none;
         border-radius: 15px;
-        color: white;
-        font-size: 1.5rem;
-        padding: 6px 20px;
+        box-sizing: border-box;
+        padding: 10px 15px;
         position: relative;
         top: 20px; }
+        #profile .container .top .rprofile #color-dropdown span {
+          color: white;
+          font-size: 1.15rem;
+          font-weight: bold; }
+        #profile .container .top .rprofile #color-dropdown i {
+          color: white;
+          font-size: 1.15rem;
+          font-weight: bold; }
       #profile .container .top .rprofile #color-list {
         display: none;
         list-style: none;
@@ -982,25 +993,49 @@ html {
         position: relative;
         top: 40px; }
         #profile .container .top .rprofile #color-list li {
+          font-size: 1.15rem;
+          font-weight: bold;
           padding-left: 12px;
           text-align: left; }
+        #profile .container .top .rprofile #color-list #blue:hover {
+          color: #26547c; }
+        #profile .container .top .rprofile #color-list #green:hover {
+          color: #04a777; }
+        #profile .container .top .rprofile #color-list #pink:hover {
+          color: #9c0f5f; }
+        #profile .container .top .rprofile #color-list #yellow:hover {
+          color: #ffd166; }
     #profile .container .info {
       width: 40%; }
       #profile .container .info .field {
         width: 100%; }
-        #profile .container .info .field h3 {
-          border-bottom: 1px solid black; }
+        #profile .container .info .field h2 {
+          border-bottom: 2px solid black;
+          font-size: 1.5rem;
+          font-weight: bold;
+          padding-bottom: 4px; }
         #profile .container .info .field div {
+          align-items: center;
           display: flex;
           justify-content: space-between;
-          align-items: center; }
+          padding-top: 8px;
+          padding-bottom: 30px; }
+          #profile .container .info .field div input {
+            border: none;
+            width: 60%; }
+          #profile .container .info .field div textarea {
+            border: none;
+            width: 60%; }
         #profile .container .info .field button {
-          color: white;
           background: #2a2a2a;
-          padding: 10px 20px;
-          font-size: 1.5rem;
           border: none;
-          border-radius: 20px; }
+          border-radius: 15px;
+          box-sizing: border-box;
+          color: white;
+          font-size: 1.15rem;
+          font-weight: bold;
+          margin-top: 8px;
+          padding: 10px 20px; }
 
 * {
   font-family: 'Istok Web', sans-serif;

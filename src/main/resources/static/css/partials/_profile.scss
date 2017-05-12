@@ -5,7 +5,7 @@ html {
 
 #profile {
   height: 100%;
-  
+
   .container {
     width: 80%;
     margin: 0 auto;
@@ -20,16 +20,18 @@ html {
       align-items: center;
 
       h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
 
       button {
-        font-size: 1.9rem;
-        color: white;
-        // background: $green;
-        padding: 5px 30px;
-        border-radius: 20px;
+        background: $green;
         border: none;
+        border-radius: 15px;
+        box-sizing: border-box;
+        color: white;
+        font-size: 1.15rem;
+        font-weight: bold;
+        padding: 10px 20px;
       }
     }
 
@@ -42,23 +44,24 @@ html {
       width: 45%;
 
       .lprofile, .rprofile {
-        width: 40%;
+        width: 33%;
 
         h2 {
           border-bottom: 2px solid black;
           font-weight: bold;
-          font-size: 1.6rem;
+          font-size: 1.5rem;
+          padding-bottom: 4px;
         }
       }
 
       .lprofile {
 
         .profile-pic {
-          width: 150px;
-          height: 150px;
-          margin: 0 auto;
+          background: $green;
           border-radius: 50%;
-          background: blue;
+          margin: 20px 0px 20px 10px;
+          height: 140px;
+          width: 140px;
         }
 
         p {
@@ -73,11 +76,22 @@ html {
           background: $magenta;
           border: none;
           border-radius: 15px;
-          color: white;
-          font-size: 1.5rem;
-          padding: 6px 20px;
+          box-sizing: border-box;
+          padding: 10px 15px;
           position: relative;
           top: 20px;
+
+          span {
+            color: white;
+            font-size: 1.15rem;
+            font-weight: bold;
+          }
+
+          i {
+            color: white;
+            font-size: 1.15rem;
+            font-weight: bold;
+          }
         }
 
         #color-list {
@@ -89,8 +103,26 @@ html {
           top: 40px;
 
           li {
+            font-size: 1.15rem;
+            font-weight: bold;
             padding-left: 12px;
             text-align: left;
+          }
+
+          #blue:hover {
+            color: $blue;
+          }
+
+          #green:hover {
+            color: $green;
+          }
+
+          #pink:hover {
+            color: $magenta;
+          }
+
+          #yellow:hover {
+            color: $yellow;
           }
         }
       }
@@ -102,23 +134,41 @@ html {
       .field {
         width: 100%;
 
-        h3 {
-          border-bottom: 1px solid black;
+        h2 {
+          border-bottom: 2px solid black;
+          font-size: 1.5rem;
+          font-weight: bold;
+          padding-bottom: 4px;
         }
 
         div {
+          align-items: center;
           display: flex;
           justify-content: space-between;
-          align-items: center;
+          padding-top: 8px;
+          padding-bottom: 30px;
+
+          input {
+            border: none;
+            width: 60%;
+          }
+
+          textarea {
+            border: none;
+            width: 60%;
+          }
         }
 
         button {
-          color: white;
           background: $black;
-          padding: 10px 20px;
-          font-size: 1.5rem;
           border: none;
-          border-radius: 20px;
+          border-radius: 15px;
+          box-sizing: border-box;
+          color: white;
+          font-size: 1.15rem;
+          font-weight: bold;
+          margin-top: 8px;
+          padding: 10px 20px;
         }
       }
     }

@@ -6,38 +6,46 @@ html {
 #login-page {
   height: 100%;
   text-align: left;
+
   #login-section {
     width: 80%;
     margin: 0 auto;
     padding-top: 40px;
     // border-top: 1px solid black;
   }
+
   #signup-form {
     display: none;
   }
+
   h1 {
-    color: $magenta;
-    font-size: 3rem;
+    color: $black;
+    font-size: 2.5rem;
   }
+
   input {
     width: 400px;
     height: 25px;
     border: 2px solid $black;
   }
+
   .usr,.pass,.sub,.fname,.lname,.eaddress {
     margin: 50px 0;
+
     label {
       font-size: 1.5rem;
       font-weight: bold;
-
     }
+
     input {
       margin-top: 15px;
     }
   }
+
   .pass {
     margin-bottom: 0;
   }
+
   .sub {
     width: 400px;
     display: flex;
@@ -47,26 +55,30 @@ html {
     padding-top: 30px;
     padding-bottom: 60px;
     border-bottom: 2px solid black;
+
     button {
       background: $green;
       box-sizing: border-box;
       padding: 10px 25px;
-      font-size: 1.5rem;
-      border-radius: 20px;
+      font-size: 1.15rem;
+      border-radius: 15px;
       border: none;
       color: white;
     }
+
     a {
       text-decoration: none;
       color: #555;
       font-size: 1.1rem;
     }
   }
+
   span {
     color: #555;
     text-weight: 300;
     font-size: 1.2rem;
     padding-bottom: 100px;
+
     a {
       text-decoration: none;
       text-weight: bold;

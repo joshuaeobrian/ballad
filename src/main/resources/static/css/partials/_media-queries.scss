@@ -8,6 +8,16 @@
 
   header {
     height: 100px;
+
+    .head-container .top-head {
+      #logged, #not-logged {
+        display: none;
+      }
+
+      .fa-bars {
+        display: inline-block;
+      }
+    }
   }
 
   header .head-container .bottom-head {
@@ -22,8 +32,17 @@
 }
 
 @media (max-width: 768px) {
+  #home-page #logo img {
+    width: 40%;
+  }
+
+  #home-page #head .head-top {
+    z-index: -1;
+  }
+
   #home-page #head .head-box {
     display: block;
+    z-index: 100;
 
     h1 {
       display: block;
@@ -76,74 +95,140 @@
   }
 }
 
+#home-page #about {
+  height: auto;
+}
+
 #home-page #about .overview {
   display: block;
-  height: 900px;
+  height: auto;
 
-  .description {
+  .description-container {
+    align-items: flex-start;
+    height: auto;
+    margin: 0 10%;
+    width: 80%;
+
+    .description {
+      display: block;
+      height: 50%;
+      margin-top: 20%;
+      padding: 0;
+      text-align: center;
+      width: 100%;
+
+        h2 {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+
+        p {
+          font-size: 1.25rem;
+          text-align: center;
+        }
+      }
+    }
+
+    .pic {
+      align-items: flex-end;
+      clear: both;
+      display: block;
+      float: none;
+      padding: 0;
+      justify-content: center;
+      width: 100%;
+
+      img {
+        height: auto;
+        margin-top: 15%;
+        object-fit: contain;
+        width: 100%;
+      }
+    }
+  }
+
+  #home-page #about .quote {
+    align-items: none;
+    clear: both;
     display: block;
-    height: 50%;
-    // margin-left: 25%;
+    height: auto;
+    margin-top: 15%;
     padding: 0;
     width: 100%;
 
-    h1 {
-      text-align: center;
+    p {
+      font-size: 1.5rem;
+      width: 80%;
+
+      span {
+        font-size: 1.5rem;
+        margin-bottom: 15%;
+      }
     }
-
-    p{
-      text-align: center;
-    }
   }
 
-  .pic {
-    display: block;
-    height: 50%;
-    padding: 0;
-    // width: 100%;
-  }
-}
-
-    img {
-      display: block;
-      padding-top: 20px;
-      width: 100%;
-    }
-
-
-#home-page #preview {
-
-  h2 {
-    font-size: 2.25rem;
-    margin: 40px 0px 20px 0px;
-    text-align: center;
-  }
-
-  a {
-      font-size: 1rem;
-  }
-
-#home-page #preview .preview-container {
-  flex-direction: column;
-  justify-content: center;
-
-  .pop-ballad {
-    display: block;
+  #home-page .features-carousel-section {
+    clear: both;
     height: auto;
-    margin-left: 12.5%;
-    padding: 40px 0px;
-    width: 75%;
+    position: relative;
+    width: 100%;
+  }
+
+  #home-page .features-carousel-nav {
+    clear: both;
+    display: block;
+    float: none;
+    height: auto;
+    width: 100%;
+  }
+
+  #home-page .features-carousel-description {
+    color: white;
+    height: auto;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    position: static;
+    width: 100%;
 
     h1 {
+      font-size: 1.5rem;
       text-align: center;
     }
 
     p {
+      font-size: 1.25rem;
+      margin-top: 20px;
       text-align: center;
     }
   }
+
+  #home-page .features-carousel-for {
+    background: $black;
+    clear: both;
+    display: block;
+    float: none;
+    height: auto;
+    margin-top: -30px;
+    width: 100%;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
   }
-}
+
+  #home-page footer {
+    height: 10px;
+
+    img {
+      height: auto;
+      margin-left: 10%;
+      margin-top: -5%;
+      object-fit: contain;
+      position: static;
+      width: 30%;
+    }
+  }
 }
 
 
@@ -168,6 +253,8 @@
   }
 
   #editor-page .header2 .top-head {
+    align-items: center;
+    display: flex;
     font-size: 0.75em;
     position: relative;
     top: 50%;
@@ -176,6 +263,7 @@
 
     input {
       float: left;
+      font-size: 1.5rem;
       margin-top: 0;
       width: 50%;
     }
@@ -203,20 +291,23 @@
       }
     }
 
-    #ellipses-container {
+
+    .hamburger-container {
       align-items: center;
       display: flex;
       float: right;
       height: 100%;
       justify-content: flex-end;
-      width: 9%;
-    }
+      width: 10%;
 
-    .ellipses {
-      height: auto;
-      width: 40px;
+      #editor-slideout-button .fa-bars {
+        color: white;
+        display: inline-block;
+        font-size: 1.5rem;
+      }
     }
   }
+
 
   #editor-page .container .main-area {
     width: 100%;

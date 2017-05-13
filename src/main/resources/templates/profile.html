@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout :: head('Profile')">
     <meta charset="utf-8"/>
-    <title>Profile Settings</title>
+    <title>ballad | Settings</title>
     <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
   </head>
   <body id="profile">
@@ -76,7 +76,7 @@
       <div class="head-container">
         <div class="top-head">
           <a href="home.html" id="logo"><img src="../static/images/ballad-logo_black.png" alt=""/></a>
-          <a href="#" id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Sign-Up</a>
+          <a href="#" id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Signup</a>
           <a href="#" id="logged">Isaiah<i class="fa fa-caret-down" aria-hidden="true"></i>
             <ul class="dropdown">
               <li>Logout</li>
@@ -104,19 +104,28 @@
 
           </div>
           <input type="file" id="update-image" name="file"/>
-          <span class="update" style="cursor: pointer">update</span>
+          <!-- <span class="update" style="cursor: pointer">update</span> -->
 
 
           </div>
         <div class="rprofile">
           <h2>Profile Color</h2>
-          <button type="button" name="button">Pink <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+          <span id="color-dropdown">
+            <span id="current-color">Pink</span>
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+          </span>
+          <ul id="color-list">
+            <li id="blue" value="blue">Blue</li>
+            <li id="green" value="green">Green</li>
+            <li id="pink" value="pink">Pink</li>
+            <li id="yellow" value="yellow">Yellow</li>
+          </ul>
         </div>
       </div>
       <!--</div>-->
       <div class="info">
         <div class="field">
-          <h3>First Name</h3>
+          <h2>First Name</h2>
           <div class="field-foot">
             <input type="text" name="firstname" th:value="*{firstName}" th:style="'width:80%;  font-size:20px; border:none;'" />
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
@@ -124,14 +133,14 @@
           </div>
         </div>
         <div class="field">
-          <h3>Last Name</h3>
+          <h2>Last Name</h2>
           <div class="field-foot">
             <input type="text" name="lastName" th:value="*{lastName}" th:style="'width:80%;  font-size:20px; border:none;'" />
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
           </div>
         </div>
         <div class="field">
-          <h3>Email Address</h3>
+          <h2>Email Address</h2>
           <div class="field-foot">
 
             <input type="email" name="email" th:value="*{email}" th:style="'width:80%;  font-size:20px; border:none;'" />
@@ -141,7 +150,7 @@
           </div>
         </div>
         <div class="field">
-          <h3>Username</h3>
+          <h2>Username</h2>
           <div class="field-foot">
 
 
@@ -152,7 +161,7 @@
           </div>
         </div>
         <div class="field">
-          <h3>Password</h3>
+          <h2>Password</h2>
           <div class="field-foot">
 
             <input type="password" name="password" th:style="'width:80%;  font-size:20px; border:none;'" />
@@ -162,10 +171,11 @@
           </div>
         </div>
         <div class="field">
-          <h3>Bio</h3>
+          <h2>Bio</h2>
           <div class="field-foot">
 
             <textarea th:text="*{about}" name="about" th:style="'width:80%;  font-size:20px; border:none;'" ></textarea>
+
 
 
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
@@ -173,7 +183,7 @@
           </div>
         </div>
         <div class="field">
-          <h3>Delete Account</h3>
+          <h2>Delete Account</h2>
           <div class="field-foot">
             <button type="button" name="button">Delete</button>
             <span></span>
@@ -184,14 +194,12 @@
       </form>
     </section>
 
-
     <div th:replace="layout :: universalScripts">
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script type="text/javascript" src="../static/js/script.js" th:src="@{/js/script.js}"></script>
       <script type="text/javascript" src="https://use.fontawesome.com/555750ba4f.js"></script>
-      <!--<script src="../static/js/ballads.js"></script>-->
     </div>
-    <script src="../static/js/profileSettings.js" th:src="@{/js/profileSettings.js}"></script>
+    <script type="text/javascript" src="../static/js/profileSettings.js" th:src="@{/js/profileSettings.js}"></script>
 
   </body>
 </html>

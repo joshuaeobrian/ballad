@@ -6,9 +6,12 @@ html {
 #editor-page {
   height: 100%;
 
-  .slideout-menu {
+
+// EDITOR SLIDEOUT MENU
+
+  #editor-slideout-menu {
     background: white;
-    height:  200%;
+    height: 200%;
     position: absolute;
     right: 0;
     top: 0;
@@ -26,15 +29,14 @@ html {
 
       .fa-arrow-left {
         color: gray;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         padding-right: 20px;
       }
 
       h1 {
         color: $black;
         font-style: italic;
-        font-size: 2rem;
-        margin-top: 20px;
+        font-size: 1.5rem;
       }
     }
 
@@ -45,18 +47,20 @@ html {
 
       h2 {
         color: $black;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: bold;
         margin-top: 20px;
       }
 
       ul {
-        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
 
         a {
           color: $black;
           display: block;
-          font-size: 1.25rem;
+          font-size: 1.15rem;
           font-weight: bold;
           margin-top: 20px;
           text-decoration: none;
@@ -76,13 +80,13 @@ html {
       align-items: center;
       border-bottom: 4px solid $black;
       display: flex;
-      height: 100px;
+      height: 60px;
       justify-content: center;
       margin-left: 5%;
       width: 90%;
 
       span {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: bold;
         color: $green;
       }
@@ -94,14 +98,14 @@ html {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      height: 175px;
+      height: 120px;
       justify-content: center;
       margin-left: 5%;
       width: 90%;
 
       .fa {
         color: $black;
-        font-size: 2rem;
+        font-size: 1.25rem;
         padding: 0 10%;
       }
     }
@@ -114,7 +118,7 @@ html {
       h2 {
         color: $green;
         display: inline-block;
-        font-size: 1.50rem;
+        font-size: 1.25rem;
         margin-top: 20px;
         width: 50%;
       }
@@ -183,8 +187,7 @@ html {
       }
     }
 
-
-  .overlay {
+  #editor-slideout-overlay {
     background: linear-gradient(
       rgba(42, 42, 42, 0.90),
       rgba(42, 42, 42, 0.90));
@@ -232,10 +235,11 @@ html {
         display: none;
       }
 
-      #ellipses-container {
+      .hamburger-container #editor-slideout-button .fa-bars {
         display: none;
       }
     }
+
     .bottom-head {
       display: flex;
       justify-content: space-between;

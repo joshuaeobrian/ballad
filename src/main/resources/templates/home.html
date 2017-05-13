@@ -3,8 +3,9 @@
   <head th:replace="layout :: head('Home')">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
-    <link href="css/normalize.css" rel="stylesheet"/>
+    <title>ballad | The notepad for lyricists</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/slick.css" th:href="@{/css/slick.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/slick-theme.css" th:href="@{/css/slick-theme.css}"/>
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
   </head>
   <body id="home-page">
@@ -85,7 +86,7 @@
       <div class="head-container">
         <div class="top-head">
           <a href="home.html" id="logo"><img src="../static/images/ballad-logo_black.png" th:src="@{/images/ballad-logo_black.png}" alt=""/></a>
-          <a id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Sign-Up</a>
+          <a id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Signup</a>
           <a href="#" id="logged">Isaiah<i class="fa fa-caret-down" aria-hidden="true"></i>
             <ul class="dropdown">
               <li>Logout</li>
@@ -93,6 +94,7 @@
               <li>My Ballads</li>
             </ul>
           </a>
+          <a class="global-slideout-button"><i class="fa fa-bars" aria-hidden="true"></i></a>
         </div>
         <div class="bottom-head">
           <ul>
@@ -103,6 +105,28 @@
         </div>
       </div>
     </header>
+
+
+<!-- GLOBAL MOBILE SLIDEOUT -->
+
+<div class="global-slideout-menu">
+  <div class="slideout-menu-header">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    <img src="../static/images/ballad-logo_black.png" th:src="@{/images/ballad-logo_black.png}" alt=""/>
+  </div>
+  <div class="slideout-tools-section">
+    <h2>Tools</h2>
+      <ul>
+        <a><li>+ Chorus</li></a>
+        <a><li>+ Verse</li></a>
+        <a><li>+ Bridge</li></a>
+        <a><li>+ Section</li></a>
+        <a><li>+ Template</li></a>
+      </ul>
+  </div>
+</div>
+
+<div class="global-slideout-overlay"></div>
 
 
 <!-- HOME PAGE -->
@@ -139,7 +163,7 @@
             <h1 th:text="*{title}">Humble</h1>
             <h2 th:text="*{owner.firstName}">Kendrick Lamar</h2>
             <p th:text="*{ballad}">"My left stroke just went Viral<br/>Right stroke put lil' baby in a spiral"</p>
-            <span th:text="*{{creationDate}}">March 7, 2017</span>
+            <span th:text="*{{creationDate}}">3/7/17</span>
           <div class="bottom-border"></div>
         </div>
         <div class="pop-ballad" th:remove="all">
@@ -147,7 +171,7 @@
           <h1>Humble</h1>
           <h2>Marlanna Evans</h2>
           <p>"Just as sure as the earth is round We bounce back up when they throw is down. So don't forget your crown."</p>
-          <span>March 7, 2017</span>
+          <span>3/7/17</span>
           <div class="bottom-border"></div>
         </div>
         <div class="pop-ballad" th:remove="all">
@@ -155,7 +179,7 @@
           <h1>Humble</h1>
           <h2>Jackson Philips</h2>
           <p>"What am I good for? Somebody tell me, Because I don't know anymore"</p>
-          <span>March 7, 2017</span>
+          <span>3/7/17</span>
           <div class="bottom-border"></div>
         </div>
       </div>
@@ -184,29 +208,47 @@
         </p>
       </div>
 
-      <div class="features">
-        <div class="feature-description-container">
-          <div class="feature-description">
-            <h1>The Rhyme Generator</h1>
-            <p>Discover words that fit your chosen rhyme scheme quickly and easily</p>
-          </div>
-        </div>
-        <div class="feature-visual">
-          <img src="../static/images/Laptop_white-background.png" th:src="@{/images/Laptop_white-background.png}" alt=""/>
-        </div>
-      </div>
-
     </section>
 
+    <section class="features-carousel-section">
+    <div class="features-carousel-for">
+        <div>
+          <img src="../static/images/Rhyme-Generator-Slider.png" th:src="@{/images/Rhyme-Generator-Slider.png}"/>
+        </div>
+        <div>
+          <img src="../static/images/Popular-Ballads-Slider.png" th:src="@{/images/Popular-Ballads-Slider.png}"/>
+        </div>
+        <div>
+          <img src="../static/images/On-the-Go-Slider.png" th:src="@{/images/On-the-Go-Slider.png}"/>
+        </div>
+      </div>
+      <div class="features-carousel-nav">
+        <div class="features-carousel-description">
+          <h1>Generate rhymes</h1>
+          <p>Discover words that fit your chosen rhyme scheme quickly and easily</p>
+        </div>
+        <div class="features-carousel-description">
+          <h1>Explore popular ballads</h1>
+          <p>Browse popular ballads and find inspiration for your own</p>
+        </div>
+        <div class="features-carousel-description">
+          <h1>Access on the go</h1>
+          <p>Open your saved ballads on your phone or tablet wherever you are</p>
+        </div>
+    </div>
+  </section>
 
+    <footer>
+      <a href="home.html"><img src="../static/images/ballad-logo_black.png" th:src="@{/images/ballad-logo_black.png}" alt=""/></a>
+    </footer>
 
-    <footer></footer>
   <div th:replace="layout :: universalScripts">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
     <script src="../static/js/login.js" th:src="@{/js/login.js}"></script>
     <script src="https://use.fontawesome.com/555750ba4f.js"></script>
   </div>
+    <script type="text/javascript" src="../static/js/slick.js" th:src="@{/js/slick.js}"></script>
     <script src="../static/js/home.js" th:src="@{/js/home.js}"></script>
   </body>
 </html>

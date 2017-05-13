@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title th:text="${page_title}"></title>
     <!--<link href="css/normalize.css" rel="stylesheet"/>-->
+    <link rel="stylesheet" type="text/css" href="../static/css/slick.css" th:href="@{/css/slick.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/slick-theme.css" th:href="@{/css/slick-theme.css}"/>
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 <body>
+
+
+<!-- GLOBAL LOGIN -->
 
   <div id="global-login" th:fragment="loginForm">
     <div class="modal-container">
@@ -80,6 +85,9 @@
     <div class="modal-overlay">
     </div>
   </div>
+
+
+<!-- GLOBAL HEADER -->
 
 <header id="global-header"  th:fragment="nav">
     <div class="head-container">

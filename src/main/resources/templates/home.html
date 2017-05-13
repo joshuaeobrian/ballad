@@ -4,8 +4,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>ballad | The notepad for lyricists</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/slick.css" th:href="@{/css/slick.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/slick-theme.css" th:href="@{/css/slick-theme.css}"/>
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
   </head>
   <body id="home-page">
@@ -213,13 +213,13 @@
     <section class="features-carousel-section">
     <div class="features-carousel-for">
         <div>
-          <img src="../static/images/Rhyme-Generator-Slider.png">
+          <img src="../static/images/Rhyme-Generator-Slider.png" th:src="@{/images/Rhyme-Generator-Slider.png}"/>
         </div>
         <div>
-          <img src="../static/images/Popular-Ballads-Slider.png">
+          <img src="../static/images/Popular-Ballads-Slider.png" th:src="@{/images/Popular-Ballads-Slider.png}"/>
         </div>
         <div>
-          <img src="../static/images/On-the-Go-Slider.png">
+          <img src="../static/images/On-the-Go-Slider.png" th:src="@{/images/On-the-Go-Slider.png}"/>
         </div>
       </div>
       <div class="features-carousel-nav">
@@ -248,7 +248,7 @@
     <script src="../static/js/login.js" th:src="@{/js/login.js}"></script>
     <script src="https://use.fontawesome.com/555750ba4f.js"></script>
   </div>
-    <script type="text/javascript" src="../static/js/slick.js"></script>
+    <script type="text/javascript" src="../static/js/slick.js" th:src="@{/js/slick.js}"></script>
     <script src="../static/js/home.js" th:src="@{/js/home.js}"></script>
   </body>
 </html>

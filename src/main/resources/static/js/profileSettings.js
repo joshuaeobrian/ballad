@@ -46,6 +46,26 @@ $(document).ready(function () {
         $('#color-list').slideToggle();
     });
 
+    $("#color-list #blue").click(function() {
+      $("#color-dropdown").css("background", "#26547c");
+      $("#current-color").html("Blue");
+    });
+
+    $("#color-list #green").click(function() {
+      $("#color-dropdown").css("background", "#04a777");
+      $("#current-color").html("Green");
+    });
+
+    $("#color-list #pink").click(function() {
+      $("#color-dropdown").css("background", "#9c0f5f");
+      $("#current-color").html("Pink");
+    });
+
+    $("#color-list #yellow").click(function() {
+      $("#color-dropdown").css("background", "#ffd166");
+      $("#current-color").html("Yellow");
+    });
+
     // $('button').click(function (e) {
     //     const button = e.target.textContent;
     //

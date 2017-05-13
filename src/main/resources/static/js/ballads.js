@@ -146,14 +146,28 @@ $(document).ready(function () {
         $('#sort-list').slideToggle();
     });
 
+    $("#sort-list #recent").click(function() {
+      $("#current-sort").html("Recent");
+    });
+
+    $("#sort-list #public").click(function() {
+      $("#current-sort").html("Public");
+    });
+
+    $("#sort-list #private").click(function() {
+      $("#current-sort").html("Private");
+    });
+
+    $("#sort-list #likes").click(function() {
+      $("#current-sort").html("Likes");
+    });
+
     $('.layout-icon').click(function() {
         console.log(isGrid);
         isGrid = !isGrid;
         toggleListView()
-
-
     });
-    
+
 
 
     $("#sort-list li").click(function (e) {

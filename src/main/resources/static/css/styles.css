@@ -113,10 +113,10 @@ body {
     #global-login .modal-container .modal .usr, #global-login .modal-container .modal .pass, #global-login .modal-container .modal .sub, #global-login .modal-container .modal .fname, #global-login .modal-container .modal .lname, #global-login .modal-container .modal .eaddress {
       margin: 50px 0; }
       #global-login .modal-container .modal .usr label, #global-login .modal-container .modal .pass label, #global-login .modal-container .modal .sub label, #global-login .modal-container .modal .fname label, #global-login .modal-container .modal .lname label, #global-login .modal-container .modal .eaddress label {
-        font-size: 1.5rem;
-        font-weight: bold; }
+        font-weight: bold;
+        font-size: 1.5rem; }
       #global-login .modal-container .modal .usr input, #global-login .modal-container .modal .pass input, #global-login .modal-container .modal .sub input, #global-login .modal-container .modal .fname input, #global-login .modal-container .modal .lname input, #global-login .modal-container .modal .eaddress input {
-        margin-top: 15px; }
+        margin-top: 12px; }
     #global-login .modal-container .modal .pass {
       margin-bottom: 0; }
     #global-login .modal-container .modal .sub {
@@ -309,7 +309,8 @@ header {
         clear: both; }
       #home-page #preview .preview-container .pop-ballad h1 {
         font-size: 2rem;
-        margin: 20px 0 10px 0; }
+        margin: 20px 0 10px 0;
+        text-transform: uppercase; }
       #home-page #preview .preview-container .pop-ballad h2 {
         color: #2a2a2a;
         font-size: 1.5rem;
@@ -488,7 +489,7 @@ html {
       font-size: 1.5rem;
       font-weight: bold; }
     #login-page .usr input, #login-page .pass input, #login-page .sub input, #login-page .fname input, #login-page .lname input, #login-page .eaddress input {
-      margin-top: 15px; }
+      margin-top: 12px; }
   #login-page .pass {
     margin-bottom: 0; }
   #login-page .sub {
@@ -502,12 +503,13 @@ html {
     border-bottom: 2px solid black; }
     #login-page .sub button {
       background: #04a777;
+      border-radius: 15px;
+      border: none;
+      color: white;
       box-sizing: border-box;
       padding: 10px 25px;
       font-size: 1.15rem;
-      border-radius: 15px;
-      border: none;
-      color: white; }
+      font-weight: bold; }
     #login-page .sub a {
       text-decoration: none;
       color: #555;
@@ -529,38 +531,74 @@ html {
 #ballads-page {
   height: 100%; }
   #ballads-page #tools-section {
-    width: 80%;
+    align-items: center;
+    display: flex;
     height: 100px;
+    justify-content: space-between;
     margin: 0 auto;
     margin-bottom: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
-    #ballads-page #tools-section .lbox h2 {
-      font-size: 3rem;
-      color: #04a777; }
+    width: 80%; }
+    #ballads-page #tools-section .lbox {
+      width: 20%; }
+      #ballads-page #tools-section .lbox h2 {
+        font-size: 2.5rem;
+        color: #04a777; }
     #ballads-page #tools-section .mbox {
       width: 30%; }
       #ballads-page #tools-section .mbox input {
-        width: 100%;
         border: none;
-        border-bottom: 2px solid #2a2a2a;
-        font-size: 2rem; }
+        border: 2px solid #2a2a2a;
+        font-size: 1.15rem;
+        width: 100%; }
         #ballads-page #tools-section .mbox input:focus {
           outline: none; }
-    #ballads-page #tools-section .rbox .layout-icon {
-      width: 30px;
-      height: 30px;
-      background: black;
-      display: inline-block; }
-    #ballads-page #tools-section .rbox #sort-list {
-      position: absolute;
-      display: none;
-      list-style: none;
-      margin: 0;
-      padding: 0; }
-      #ballads-page #tools-section .rbox #sort-list li {
-        text-align: right; }
+    #ballads-page #tools-section .rbox {
+      position: relative;
+      right: 0;
+      width: 20%; }
+      #ballads-page #tools-section .rbox .layout-icon {
+        background: #2a2a2a;
+        display: inline-block;
+        height: 30px;
+        position: absolute;
+        right: 140px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px; }
+      #ballads-page #tools-section .rbox #sort-dropdown {
+        background: #04a777;
+        border: none;
+        border-radius: 15px;
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 10px 15px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%); }
+        #ballads-page #tools-section .rbox #sort-dropdown span {
+          color: white;
+          font-size: 1.15rem;
+          font-weight: bold; }
+        #ballads-page #tools-section .rbox #sort-dropdown i {
+          color: white;
+          font-size: 1.15rem;
+          font-weight: bold; }
+      #ballads-page #tools-section .rbox #sort-list {
+        display: none;
+        left: 140px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        top: 90px; }
+        #ballads-page #tools-section .rbox #sort-list li {
+          font-size: 1.15rem;
+          font-weight: bold;
+          padding-right: 30px;
+          text-align: left; }
+        #ballads-page #tools-section .rbox #sort-list li:hover {
+          color: #04a777; }
   #ballads-page #ballad-cards-container-grid {
     width: 80%;
     margin: 0 auto;
@@ -582,30 +620,28 @@ html {
         border-radius: 5px;
         background: #2a2a2a;
         clear: both; }
-      #ballads-page #ballad-cards-container-grid .ballad-card h1, #ballads-page #ballad-cards-container-grid .ballad-card h2, #ballads-page #ballad-cards-container-grid .ballad-card p {
-        padding-left: 10px; }
       #ballads-page #ballad-cards-container-grid .ballad-card h1 {
         font-size: 2rem;
-        text-transform: uppercase;
-        margin: 0;
-        margin-top: 20px; }
+        margin: 20px 0 10px 0;
+        text-transform: uppercase; }
       #ballads-page #ballad-cards-container-grid .ballad-card h2 {
-        font-size: 1.4rem;
-        margin: 0; }
+        color: #2a2a2a;
+        font-size: 1.5rem;
+        margin: 0px 0px 20px 0px; }
       #ballads-page #ballad-cards-container-grid .ballad-card p {
-        font-weight: lighter;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-        margin: 20px 0; }
+        font-size: 1rem;
+        line-height: 25px;
+        margin-bottom: 20px; }
       #ballads-page #ballad-cards-container-grid .ballad-card .date {
         float: left;
-        font-size: .9rem; }
+        font-size: 1rem;
+        margin-bottom: 20px; }
       #ballads-page #ballad-cards-container-grid .ballad-card .private {
         float: right; }
         #ballads-page #ballad-cards-container-grid .ballad-card .private span {
           color: #04a777;
-          font-weight: 500;
-          font-size: 1.3rem; }
+          font-size: 1.3rem;
+          font-weight: bold; }
   #ballads-page #ballad-cards-container-list {
     width: 80%;
     margin: 0 auto;

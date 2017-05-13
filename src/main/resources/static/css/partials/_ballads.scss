@@ -120,6 +120,7 @@ html {
       border-radius: 10px;
       margin-bottom: 80px;
       // background: #fff;
+      position: relative;
       transition: .1s;
 
       &:hover {
@@ -137,6 +138,22 @@ html {
       // h1,h2,p {
       //   padding-left: 10px;
       // }
+
+      .fa-pencil {
+        color: $black;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 50px;
+        top: 30px;
+      }
+
+      .fa-minus-circle {
+        color: $black;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 20px;
+        top: 30px;
+      }
 
       h1 {
         font-size: 2rem;

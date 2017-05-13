@@ -173,21 +173,25 @@ header {
         text-decoration: none;
         letter-spacing: 1px;
         color: #2a2a2a; }
-        header .head-container .top-head a .dropdown {
+      header .head-container .top-head #logged {
+        position: relative; }
+        header .head-container .top-head #logged .dropdown {
           display: none;
-          list-style: none;
+          left: -4px;
           margin: 0;
           padding: 0;
           position: absolute;
-          right: 10%;
-          text-align: right; }
-          header .head-container .top-head a .dropdown li {
-            width: 100%;
+          text-align: left; }
+          header .head-container .top-head #logged .dropdown li {
+            background: white;
             font-size: 1rem;
+            letter-spacing: 1px;
             line-height: 25px;
-            letter-spacing: 1px; }
-            header .head-container .top-head a .dropdown li:hover {
-              background: rgba(100, 20, 50, 0.1); }
+            list-style-type: none;
+            padding-left: 4px;
+            width: 250px; }
+            header .head-container .top-head #logged .dropdown li:hover {
+              color: #04a777; }
       header .head-container .top-head .fa-bars {
         color: #2a2a2a;
         display: none;

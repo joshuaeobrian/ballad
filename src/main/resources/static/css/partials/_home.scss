@@ -253,28 +253,36 @@ header {
         text-decoration: none;
         letter-spacing: 1px;
         color: $black;
+      }
+
+      #logged {
+          position: relative;
 
         .dropdown {
           display: none;
-          list-style: none;
+          left: -4px;
           margin: 0;
           padding: 0;
           position: absolute;
-          right: 10%;
-          text-align: right;
+          // right: 10%;
+          text-align: left;
 
           li {
-            width: 100%;
+            background: white;
             font-size: 1rem;
-            line-height: 25px;
             letter-spacing: 1px;
+            line-height: 25px;
+            list-style-type: none;
+            padding-left: 4px;
+            width: 250px;
 
             &:hover {
-              background: rgba(100,20,50,.1);
+              color: $green;
             }
           }
         }
       }
+
 
       .fa-bars {
         color: $black;

@@ -93,8 +93,8 @@
             <h1><a href="home.html" id="logo" th:href="@{/}"><img src="../static/images/ballad-logo_black.png" th:src="@{/images/ballad-logo_black.png}" alt=""/></a></h1>
 
             <a href="#" id="logged" th:id="${isLoggedIn} ? 'logged': 'not-logged'" >
-                <span th:text="${isLoggedIn} ? ${user.firstName}:'Login/Sign-up'">Isaiah</span>
-                <span><i class="fa fa-caret-down" th:class="${isLoggedIn}? 'fa fa-caret-down':'fa fa-user-circle-o'" aria-hidden="true"></i>
+                <span th:text="${isLoggedIn} ? ${user.firstName}:'Login/Signup'">Isaiah </span>
+                <span><i class="fa fa-angle-down" th:class="${isLoggedIn}? 'fa fa-angle-down':'fa fa-user-circle-o'" aria-hidden="true"></i>
                     <ul class="dropdown">
                         <li id="logout">Logout</li>
                         <li id="profile-settings">Profile Settings</li>

@@ -165,7 +165,7 @@
           <h3>Bio</h3>
           <div class="field-foot">
 
-            <textarea th:text="*{about}" name="about" th:style="'width:80%;  font-size:20px; border:none;'" />
+            <textarea th:text="*{about}" name="about" th:style="'width:80%;  font-size:20px; border:none;'" ></textarea>
 
 
             <span class="update" style="cursor: pointer; text-decoration: underline;">update</span>
@@ -187,8 +187,8 @@
 
     <div th:replace="layout :: universalScripts">
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
-      <script src="https://use.fontawesome.com/555750ba4f.js"></script>
+      <script type="text/javascript" src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+      <script type="text/javascript" src="https://use.fontawesome.com/555750ba4f.js"></script>
       <!--<script src="../static/js/ballads.js"></script>-->
     </div>
     <script src="../static/js/profileSettings.js" th:src="@{/js/profileSettings.js}"></script>

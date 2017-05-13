@@ -39,7 +39,7 @@ const createBallad = (ballad)=>{
     var author = document.createElement("h2");
     author.textContent = ballad["owner"]["firstName"]+" "+ballad["owner"]["lastName"];
     var content = document.createElement("p");
-    content.textContent = (ballad["ballad"].length < 50)? ballad["ballad"] : ballad["ballad"].substring(0,50);
+    content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,150)+"...";
 
     var date = document.createElement("div");
     date.className = "date";

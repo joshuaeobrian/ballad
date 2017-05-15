@@ -634,7 +634,6 @@ html {
             position: absolute;
             width: 30%;
             height: 30%;
-            background: black;
             border-radius: 10px; }
           #ballads-page #tools-section .rbox .layout-icon .container #a {
             top: 0%;
@@ -781,6 +780,8 @@ html {
     border: 2px solid #2a2a2a; }
   .my-ballads #tools-section .rbox #sort-list {
     color: white; }
+  .my-ballads #tools-section .rbox #a, .my-ballads #tools-section .rbox #b, .my-ballads #tools-section .rbox #c, .my-ballads #tools-section .rbox #d, .my-ballads #tools-section .rbox #e, .my-ballads #tools-section .rbox #f {
+    background: #2a2a2a; }
   .my-ballads #ballad-cards-container-grid .ballad-card .fa-pencil, .my-ballads #ballad-cards-container-grid .ballad-card .fa-minus-circle, .my-ballads #ballad-cards-container-grid .ballad-card h1, .my-ballads #ballad-cards-container-grid .ballad-card h2, .my-ballads #ballad-cards-container-grid .ballad-card p, .my-ballads #ballad-cards-container-grid .ballad-card .date {
     color: black; }
   .my-ballads #ballad-cards-container-grid .ballad-card .private span {
@@ -801,6 +802,8 @@ html {
     border: none; }
   .popular #tools-section .rbox #sort-list {
     color: white; }
+  .popular #tools-section .rbox #a, .popular #tools-section .rbox #b, .popular #tools-section .rbox #c, .popular #tools-section .rbox #d, .popular #tools-section .rbox #e, .popular #tools-section .rbox #f {
+    background: white; }
   .popular #ballad-cards-container-grid .ballad-card .fa-pencil, .popular #ballad-cards-container-grid .ballad-card .fa-minus-circle, .popular #ballad-cards-container-grid .ballad-card h1, .popular #ballad-cards-container-grid .ballad-card h2, .popular #ballad-cards-container-grid .ballad-card p, .popular #ballad-cards-container-grid .ballad-card .date, .popular #ballad-cards-container-grid .ballad-card .private span {
     color: white; }
   .popular #ballad-cards-container-grid .ballad-card .bbottom, .popular #ballad-cards-container-grid .ballad-card .btop {

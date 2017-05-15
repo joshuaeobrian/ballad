@@ -134,7 +134,7 @@ html {
             position: absolute;
             width: 30%;
             height: 30%;
-            background: black;
+            // background: black;
             border-radius: 10px;
           }
           #a {
@@ -378,8 +378,15 @@ html {
       border: 2px solid $black;
     }
 
-    .rbox #sort-list {
-      color: white;
+    .rbox {
+
+      #sort-list {
+        color: white;
+      }
+
+      #a,#b,#c,#d,#e,#f {
+        background: $black;
+      }
     }
   }
 
@@ -426,8 +433,15 @@ html {
       border: none;
     }
 
-    .rbox #sort-list {
-      color: white;
+    .rbox {
+
+      #sort-list {
+        color: white;
+      }
+
+      #a,#b,#c,#d,#e,#f {
+        background: white;
+      }
     }
   }
 

@@ -183,6 +183,8 @@ header {
       header .head-container .top-head #logged {
         position: relative; }
         header .head-container .top-head #logged .dropdown {
+          background: white;
+          box-shadow: -1px 1px 3px #888888;
           display: none;
           left: -4px;
           margin: 0;
@@ -190,15 +192,14 @@ header {
           position: absolute;
           text-align: left; }
           header .head-container .top-head #logged .dropdown li {
-            background: white;
             font-size: 1rem;
             letter-spacing: 1px;
             line-height: 25px;
             list-style-type: none;
             padding-left: 4px;
-            width: 250px; }
+            width: 130px; }
             header .head-container .top-head #logged .dropdown li:hover {
-              color: #04a777; }
+              background: #dddddd; }
       header .head-container .top-head .fa-bars {
         color: #2a2a2a;
         display: none;

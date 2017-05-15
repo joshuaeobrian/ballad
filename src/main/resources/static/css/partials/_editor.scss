@@ -215,8 +215,6 @@ html {
         }
 
         .top-head {
-            // display: flex;
-            // align-items: center;
             input {
                 font-size: 2rem;
                 background: none;
@@ -233,7 +231,6 @@ html {
             .save-and-cancel {
                 display: none;
             }
-
             .hamburger-container #editor-slideout-button .fa-bars {
                 display: none;
             }
@@ -406,6 +403,7 @@ html {
         }
     }
 
+
     .container {
         width: 100%;
         height: 100vh;
@@ -422,13 +420,7 @@ html {
                 font-size: 1.5rem;
                 padding-top: 80px;
                 line-height: 40px;
-                // list-style: none;
                 color: $magenta;
-                // li {
-                //   box-sizing: border-box;
-                //   padding-right: 10px;
-                //   border-right: 1px solid black;
-                // }
                 .rhymetype.A {
                     color: $blue;
                 }
@@ -471,7 +463,6 @@ html {
             }
 
             textarea {
-                // position: relative;
                 width: 100%;
                 height: 100%;
                 box-sizing: border-box;

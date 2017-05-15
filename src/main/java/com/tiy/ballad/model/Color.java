@@ -41,4 +41,13 @@ public class Color {
     public void setColorName(String colorName) {
         this.colorName = colorName;
     }
+
+    @Override
+    public String toString() {
+        return "Color{" +
+                "id=" + id +
+                ", hexCode='" + hexCode + '\'' +
+                ", colorName='" + colorName + '\'' +
+                '}';
+    }
 }

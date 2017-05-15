@@ -4,6 +4,8 @@ import com.tiy.ballad.model.Email;
 import com.tiy.ballad.model.User;
 import com.tiy.ballad.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Component;
 
 import javax.mail.*;
@@ -14,10 +16,12 @@ import java.util.Properties;
  * Created by josh on 5/14/17.
  */
 @Component
+@EnableAsync
 public class EmailReset {
     @Autowired
     private EmailService emailService;
 
+    @Async
     public void setUpEmail(User user){
         Email email = emailService.getEmail();
         Properties props = new Properties();

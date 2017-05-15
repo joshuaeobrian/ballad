@@ -810,6 +810,7 @@ html {
         height: 100%;
         box-sizing: border-box;
         padding-left: 80px;
+        padding-right: 60px;
         padding-top: 80px;
         font-size: 1.5rem;
         line-height: 40px;
@@ -832,7 +833,8 @@ html {
       width: 30%;
       height: 100%;
       background: #ddd;
-      text-align: center; }
+      text-align: center;
+      padding-top: 50px; }
       #editor-page .container .rhymes-container .rhymes {
         width: 100%; }
         #editor-page .container .rhymes-container .rhymes .rhyme {

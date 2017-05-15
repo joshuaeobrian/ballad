@@ -42,7 +42,7 @@ $(document).ready(function() {
  $('#mytext').keyup(function(e) {
    if(e.keyCode == 13) {
      getRhymes();
-     console.log($(this).prop('selectionStart'));
+    //  console.log($(this).prop('selectionStart'));
    }
  })
  $('#default-scheme').click(function() {
@@ -113,6 +113,15 @@ $(document).ready(function() {
      $('.rhymes').html(rhymeboxes);
    }
  })
+ $('.fa-align-center').click(function() {
+   $('#mytext').css('text-align','center');
+ })
+ $('.fa-align-left').click(function() {
+   $('#mytext').css('text-align','left');
+ })
+ $('.fa-align-right').click(function() {
+   $('#mytext').css('text-align','right');
+ })
 })
 function process() {
  var text = $('#mytext').val();
@@ -153,7 +162,7 @@ function getRhymes() {
  var textpiece = $('#mytext').val().substring(0,$('#mytext').prop('selectionStart'));
  var linenum = (textpiece.match(/\n/g) || []).length;
  var currentline = lines[linenum].scheme;
- console.log(textpiece.match(/\n/g) || []);
+ // console.log(textpiece.match(/\n/g) || []);
  var linetorhyme = 0;
  for(var i = 0; i < linenum-1; i++) {
    if(lines[i].scheme == currentline) {
@@ -164,7 +173,7 @@ function getRhymes() {
  $('#wordtorhyme').val(words[words.length-1]);
  rhymelist = lex.rhymes($('#wordtorhyme').val());
  rhymeboxes = '';
- for(var i = 0; i < rhymelist.length; i++) {
+ for(var i = 0; i < Math.min(rhymelist.length,50); i++) {
    rhymeboxes += '<div class="rhyme">'+rhymelist[i]+'</div>';
  }
  $('.rhymes').html(rhymeboxes);

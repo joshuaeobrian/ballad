@@ -41,7 +41,7 @@ public class UserController {
         User user =(User) current[1];
 
         model.addAttribute("user",user);
-//        System.out.println(current[1].toString());
+        System.out.println(current[1].toString());
         model.addAttribute("colors",colorService.listColors());
         model.addAttribute("isLoggedIn",current[0]);
         model.addAttribute("myColor",colorService.getColorByID(user.getColorCode()));

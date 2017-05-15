@@ -42,7 +42,7 @@ $(document).ready(function() {
  $('#mytext').keyup(function(e) {
    if(e.keyCode == 13) {
      getRhymes();
-     console.log($(this).prop('selectionStart'));
+    //  console.log($(this).prop('selectionStart'));
    }
  })
  $('#default-scheme').click(function() {
@@ -103,6 +103,37 @@ $(document).ready(function() {
    }
    process();
  })
+ $('#wordtorhyme').keydown(function(e) {
+   if(e.keyCode == 13) {
+     var rhymelist = lex.rhymes($('#wordtorhyme').val());
+     rhymeboxes = '';
+     for(var i = 0; i < rhymelist.length; i++) {
+       rhymeboxes += '<div class="rhyme">'+rhymelist[i]+'</div>';
+     }
+     $('.rhymes').html(rhymeboxes);
+    //  if($('#mytext').selectionStart == $('#mytext').val().length) {
+    //    console.log('Yup');
+    //    lines[lines.length] = lines[lines.length-1];
+    //  }
+   }
+ })
+ $('.fa-align-center').click(function() {
+   $('#mytext').css('text-align','center');
+ })
+ $('.fa-align-left').click(function() {
+   $('#mytext').css('text-align','left');
+ })
+ $('.fa-align-right').click(function() {
+   $('#mytext').css('text-align','right');
+ })
+ $('#current-font').click(function() {
+   $('#fonts').slideToggle();
+ })
+ $('.font-choice').click(function() {
+   $('#mytext').css('font-family',$(this).html());
+   $('#current-font').html($(this).html()+'<i class="fa fa-chevron-down" aria-hidden="true"></i>');
+   $('#fonts').slideToggle();
+ })
 })
 function process() {
  var text = $('#mytext').val();
@@ -143,7 +174,7 @@ function getRhymes() {
  var textpiece = $('#mytext').val().substring(0,$('#mytext').prop('selectionStart'));
  var linenum = (textpiece.match(/\n/g) || []).length;
  var currentline = lines[linenum].scheme;
- console.log(textpiece.match(/\n/g) || []);
+ // console.log(textpiece.match(/\n/g) || []);
  var linetorhyme = 0;
  for(var i = 0; i < linenum-1; i++) {
    if(lines[i].scheme == currentline) {
@@ -151,13 +182,15 @@ function getRhymes() {
    }
  }
  var words = lines[linetorhyme].text.split(" ");
- rhymelist = lex.rhymes(words[words.length-1]);
+ $('#wordtorhyme').val(words[words.length-1]);
+ rhymelist = lex.rhymes($('#wordtorhyme').val());
  rhymeboxes = '';
- for(var i = 0; i < rhymelist.length; i++) {
+ for(var i = 0; i < Math.min(rhymelist.length,50); i++) {
    rhymeboxes += '<div class="rhyme">'+rhymelist[i]+'</div>';
  }
  $('.rhymes').html(rhymeboxes);
 }
+
 
 
 

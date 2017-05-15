@@ -12,12 +12,12 @@
 
 
 $(document).ready(function() {
-//      var logged = false;
-//      $("#logged").css('display','none');
-//      $('#not-logged').click(function() {
-//        $('#not-logged').css('display', 'none');
-//        $('#logged').css('display', 'block');
-//      });
+     // var logged = false;
+     // $("#logged").css('display','none');
+     // $('#not-logged').click(function() {
+     //   $('#not-logged').css('display', 'none');
+     //   $('#logged').css('display', 'block');
+     // });
 
   $('#not-logged').click(function() {
         $(".modal-overlay, .modal-container").toggle();

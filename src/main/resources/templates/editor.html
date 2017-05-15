@@ -100,9 +100,23 @@
           <button id="default-scheme">ABAB</button>
         </div>
         <div class="transform">
-          <button><i class="fa fa-bold" aria-hidden="true"></i></button>
-          <button><i class="fa fa-italic" aria-hidden="true"></i></button>
-          <button><i class="fa fa-underline" aria-hidden="true"></i></button>
+          <div class="font-selector">
+            <h5 id="current-font">Times New Roman<i class="fa fa-chevron-down" aria-hidden="true"></i></h5>
+            <ul id="fonts">
+              <li class="font-choice">Helvetica</li>
+              <li class="font-choice">Sans-serif</li>
+              <li class="font-choice">Monospace</li>
+              <li class="font-choice">Open Sans Condensed</li>
+              <li class="font-choice">Baloo</li>
+              <li class="font-choice">Indie Flower</li>
+              <li class="font-choice">Lobster</li>
+              <li class="font-choice">Josefin Sans</li>
+              <li class="font-choice">Quicksand</li>
+              <li class="font-choice">Pacifico</li>
+              <li class="font-choice">Dancing Script</li>
+            </ul>
+          </div>
+
         </div>
         <div class="align">
           <button  type="button" name="button"><i class="fa fa-align-left" aria-hidden="true"></i></button>
@@ -149,12 +163,15 @@
             <li>B</li>
           </ul> -->
           <textarea name="name" rows="8" cols="80" id="mytext" th:text="*{ballad}"></textarea>
-          <div id="rendered-text">
+          <!-- <div id="rendered-text">
+
+          </div> -->
+        </div>
+        <div class="rhymes-container" id="rhyme-bank">
+          <input type="text" value="man" id="wordtorhyme"/>
+          <div class="rhymes">
 
           </div>
-        </div>
-        <div class="rhymes" id="rhyme-bank">
-          <h5></h5>
         </div>
       </div>
     <!-- <button type="button" name="button">Save</button>

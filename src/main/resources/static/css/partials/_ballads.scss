@@ -282,6 +282,15 @@ html {
         top: 30px;
       }
 
+      .fa-eye {
+        // color: white;
+        // color: $black;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 20px;
+        top: 30px;
+      }
+
       h1 {
         font-size: 2rem;
         margin: 20px 0 10px 0;
@@ -321,7 +330,6 @@ html {
   #ballad-cards-container-list {
     width: 80%;
     margin: 0 auto;
-    display: none;
 
     .ballad-card {
       width: 100%;
@@ -392,7 +400,7 @@ html {
 
   #ballad-cards-container-grid .ballad-card {
 
-    .fa-pencil, .fa-minus-circle, h1, h2, p, .date {
+    .fa-eye, .fa-pencil, .fa-minus-circle, h1, h2, p, .date {
       color: black;
     }
 
@@ -447,7 +455,7 @@ html {
 
   #ballad-cards-container-grid .ballad-card {
 
-    .fa-pencil, .fa-minus-circle, h1, h2, p, .date, .private span {
+    .fa-eye, .fa-pencil, .fa-minus-circle, h1, h2, p, .date, .private span {
       color: white;
     }
 

@@ -217,14 +217,14 @@ function getRhymes() {
 //     );
 // };
 //
-// const postBallads = (url,ballad)=>{
-//     $.post(url,
-//         ballad,
-//         function (response) {
-//
-//         }
-//     );
-// };
+const postBallads = (url,ballad)=>{
+    $.post(url,
+        ballad,
+        function (response) {
+
+        }
+    );
+};
 //
 // const selectedText = ()=>{
 //     let txt = "";
@@ -243,18 +243,18 @@ function getRhymes() {
 
 $(document).ready(function () {
 
-  $('.slideout-menu, .overlay').hide();
+  $('#editor-slideout-menu, #editor-slideout-overlay').hide();
 
-  $('#editor-page #slideout-button').click(function() {
+  $('#editor-page #editor-slideout-button').click(function() {
     console.log("hi");
 
-    $(".slideout-menu").animate({width:'toggle'},500);
-    $(".slideout-menu, .overlay").show();
+    $("#editor-slideout-menu").animate({width:'toggle'},500);
+    $("#editor-slideout-menu, #editor-slideout-overlay").show();
   });
 
   $(".fa-arrow-left").click(function() {
-    $(".slideout-menu").animate({width:'toggle'},500);
-    $(".overlay").hide();
+    $("#editor-slideout-menu").animate({width:'toggle'},500);
+    $("#editor-slideout-overlay").hide();
   });
 
 
@@ -274,35 +274,35 @@ $(document).ready(function () {
      * event listener for on click launches function to
      * get a word when double clicked or highlighted
      */
-    $("#ballad-input").on("click", function (e) {
-        // let con = $("#user-input").prop("")
-        const txt = selectedText();
-        if (txt != "" && !txt.includes(" ")){
-           postForRhymes(txt);
-        }
-    });
+    // $("#ballad-input").on("click", function (e) {
+    //     // let con = $("#user-input").prop("")
+    //     const txt = selectedText();
+    //     if (txt != "" && !txt.includes(" ")){
+    //        postForRhymes(txt);
+    //     }
+    // });
 
-    /**
-     * event listener on keydown if key is space
-     * then is runs the post function to put rhymes
-     * in the dom
-     */
-    $("#ballad-input").on('keydown', function (e) {
-
-        //This is controlled for when you press space
-        if(e.which == 13){
-            var cursorPosition = $("#ballad-input").prop("selectionStart");
-            let index = input.value.substring(0,cursorPosition).split(" ");
-            let word = index[index.length-1];
-            console.log(word);
-            if(word != ""&& !word.includes("[")&& isRhymingLine()){
-                let trash = word.split("\n");
-                console.log(trash);
-               postForRhymes(trash[trash.length-1]);
-
-            }
-        }
-    });
+    // /**
+    //  * event listener on keydown if key is space
+    //  * then is runs the post function to put rhymes
+    //  * in the dom
+    //  */
+    // $("#ballad-input").on('keydown', function (e) {
+    //
+    //     //This is controlled for when you press space
+    //     if(e.which == 13){
+    //         var cursorPosition = $("#ballad-input").prop("selectionStart");
+    //         let index = input.value.substring(0,cursorPosition).split(" ");
+    //         let word = index[index.length-1];
+    //         console.log(word);
+    //         if(word != ""&& !word.includes("[")&& isRhymingLine()){
+    //             let trash = word.split("\n");
+    //             console.log(trash);
+    //            postForRhymes(trash[trash.length-1]);
+    //
+    //         }
+    //     }
+    // });
 
     $("button").click(function (e) {
         let button = e.target;
@@ -311,13 +311,16 @@ $(document).ready(function () {
             action = "Notes";
         }
         if(action == 'Notes'||action == 'Save'||action == 'Export') {
+            console.log(action);
             const actions = {
                 Save: () => {
                     const ballad = {
                         title: $("#title").val(),
-                        content: $("#ballad-input").val(),
+                        content: $("#mytext").val(),
                         isPublic: $('#isPublic').prop('checked'),
                     };
+
+
 
                     if ($("#title").val() != "") {
                         postBallads("/saveBallad", ballad);
@@ -329,7 +332,7 @@ $(document).ready(function () {
                 Export: () => {
                     const ballad = {
                         title: $("#title").val(),
-                        content: $("#ballad-input").val(),
+                        content: $("#mytext").val(),
                         isPublic: $('#isPublic').prop('checked'),
                     };
                     postBallads("/saveBallad", ballad);

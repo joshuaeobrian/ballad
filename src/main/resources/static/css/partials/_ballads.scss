@@ -8,116 +8,185 @@ html {
   height: 100%;
 
   #tools-section {
-    width: 80%;
+    align-items: center;
+    display: flex;
     height: 100px;
+    justify-content: space-between;
     margin: 0 auto;
     margin-bottom: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 80%;
+
     .lbox {
+      width: 20%;
+
       h2 {
-        font-size: 3rem;
-        color: $green
+        font-size: 2.5rem;
+        color: $green;
       }
     }
+
     .mbox {
       width: 30%;
+
       input {
-        width:100%;
-        // height: 20px;
         border: none;
-        border-bottom: 2px solid $black;
-        font-size: 2rem;
+        border: 2px solid $black;
+        font-size: 1.15rem;
+        width: 100%;
+
         &:focus {
           outline: none;
         }
       }
     }
+
     .rbox {
+      position: relative;
+      right: 0;
+      width: 20%;
+
       .layout-icon {
-        width: 30px;
-        height: 30px;
-        background: black;
+        background: $black;
         display: inline-block;
-      }
-      #sort-list {
+        height: 30px;
         position: absolute;
+        right: 140px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+      }
+
+      #sort-dropdown {
+        background: $green;
+        border: none;
+        border-radius: 15px;
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 10px 15px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        span {
+          color: white;
+          font-size: 1.15rem;
+          font-weight: bold;
+        }
+
+        i {
+          color: white;
+          font-size: 1.15rem;
+          font-weight: bold;
+        }
+      }
+
+      #sort-list {
         display: none;
+        left: 140px;
         list-style: none;
         margin: 0;
         padding: 0;
+        position: relative;
+        top: 90px;
 
         li {
-          text-align: right;
+          font-size: 1.15rem;
+          font-weight: bold;
+          padding-right: 30px;
+          text-align: left;
+        }
+
+        li:hover {
+          color: $green;
         }
       }
     }
   }
-  #ballad-cards-container-grid {
 
+  #ballad-cards-container-grid {
     width: 80%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+
     .column1,.column2,.column3 {
       width: 33%;
-
     }
+
     .ballad-card {
       box-sizing: border-box;
       padding: 10px;
       border-radius: 10px;
       margin-bottom: 80px;
       // background: #fff;
+      position: relative;
       transition: .1s;
-      &:hover {
 
+      &:hover {
         transform: scale(1.01);
       }
-      // padding: 10px;
-      .btop,.bbottom {
+
+      .btop, .bbottom {
         height: 10px;
         width: 100%;
         border-radius: 5px;
         background: $black;
         clear: both;
       }
-      h1,h2,p {
-        padding-left: 10px;
+
+      // h1,h2,p {
+      //   padding-left: 10px;
+      // }
+
+      .fa-pencil {
+        color: $black;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 50px;
+        top: 30px;
       }
+
+      .fa-minus-circle {
+        color: $black;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 20px;
+        top: 30px;
+      }
+
       h1 {
         font-size: 2rem;
+        margin: 20px 0 10px 0;
         text-transform: uppercase;
-        margin: 0;
-        margin-top: 20px;
-        // padding-left:
       }
+
       h2 {
-        font-size: 1.4rem;
-        margin: 0;
+        color: $black;
+        font-size: 1.5rem;
+        margin: 0px 0px 20px 0px;
       }
+
       p {
-        // margin: 0;
-        font-weight: lighter;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-        margin: 20px 0;
+        font-size: 1rem;
+        line-height: 25px;
+        margin-bottom: 20px;
       }
+
       .date {
         float: left;
-        font-size: .9rem;
+        font-size: 1rem;
+        margin-bottom: 20px;
       }
+
       .private {
         float: right;
+
         span {
           color: $green;
-          font-weight: 500;
           font-size: 1.3rem;
+          font-weight: bold;
         }
-        // &:after {
-        //   clear: both;
-        // }
       }
     }
   }
@@ -126,8 +195,10 @@ html {
     width: 80%;
     margin: 0 auto;
     display: none;
+
     .ballad-card {
       width: 100%;
+
       .btop,.bbottom {
         height: 10px;
         width: 100%;
@@ -135,23 +206,29 @@ html {
         background: $black;
         clear: both;
       }
+
       &:nth-child(n+2) {
+
         .btop {
           height: 0px;
         }
       }
+
       .content-container {
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         h1 {
           font-size: 1.5rem;
           text-transform: uppercase;
         }
+
         h2 {
           font-size: 1.3rem;
         }
+
         p {
           width: 35%;
           margin: 10px 0;
@@ -159,5 +236,4 @@ html {
       }
     }
   }
-
 }

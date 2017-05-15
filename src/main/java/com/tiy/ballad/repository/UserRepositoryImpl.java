@@ -29,8 +29,18 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public void updateUserInfo(User user) {
-        template.update("UPDATE ballad_users SET first_name=?, last_name=?, email=?, username=?, password=?, active=?, profile_image=?, about=? WHERE id=?",
-                new Object[]{user.getFirstName(),user.getLastName(),user.getEmail(), user.getUsername(),user.getPassword(), user.isActive(),user.getPhoto(), user.getAbout(),user.getId()});
+        template.update("UPDATE ballad_users SET first_name=?, last_name=?, email=?, username=?, password=?, active=?, profile_image=?, about=?, color_code_id=? WHERE id=?",
+                new Object[]{user.getFirstName(),
+                        user.getLastName(),
+                        user.getEmail(),
+                        user.getUsername(),
+                        user.getPassword(),
+                        user.isActive(),
+                        user.getPhoto(),
+                        user.getAbout(),
+                        user.getColorCode(),
+                        user.getId(),
+                        });
         System.out.println("Done.....");
     }
 
@@ -44,7 +54,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User findUserById(Integer id) {
-        return template.queryForObject("SELECT id, first_name, last_name, email, username, password, active, about,profile_image,color_code FROM ballad_users where id=?",
+        return template.queryForObject("SELECT id, first_name, last_name, email, username, password, active, about,profile_image,color_code_id FROM ballad_users where id=?",
                 new Object[]{id},
                 (rs,i)-> new User(
                         rs.getInt("id"),
@@ -56,7 +66,7 @@ public class UserRepositoryImpl implements UserRepository {
                         rs.getBoolean("active"),
                         rs.getBytes("profile_image"),
                         rs.getString("about"),
-                        rs.getString("color_code")
+                        rs.getInt("color_code_id")
                 ));
     }
 

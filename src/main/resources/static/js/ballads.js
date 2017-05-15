@@ -34,12 +34,14 @@ const createBallad = (ballad)=>{
     var hiddenId = document.createElement("input");
     hiddenId.type = "hidden";
     hiddenId.value = ballad["id"];
+
+
     var title = document.createElement("h1");
     title.textContent = ballad["title"];
     var author = document.createElement("h2");
     author.textContent = ballad["owner"]["firstName"]+" "+ballad["owner"]["lastName"];
     var content = document.createElement("p");
-    content.textContent = ballad["ballad"];
+    content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,150)+"...";
 
     var date = document.createElement("div");
     date.className = "date";
@@ -61,6 +63,16 @@ const createBallad = (ballad)=>{
     bCard.appendChild(btop);
 
     listDiv.appendChild(hiddenId);
+    if(pageLocation.includes("my-ballads")) {
+        var pencil = document.createElement("i");
+        pencil.className = "fa fa-pencil editBallad";
+        pencil.setAttribute("aria-hidden","true");
+        var bdelete = document.createElement("i");
+        bdelete.className = "fa fa-minus-circle deleteBallad";
+        bdelete.setAttribute("aria-hidden","true");
+        listDiv.appendChild(pencil);
+        listDiv.appendChild(bdelete);
+    }
     listDiv.appendChild(title);
     listDiv.appendChild(author);
     listDiv.appendChild(content);
@@ -130,7 +142,7 @@ function mainLoad() {
             userOnly:false,
             isPublic: true,
             isPrivate: true,
-            caseId: 3,
+            caseId: 6,
             search: $("#ballads-search").val(),
 
         };
@@ -146,14 +158,28 @@ $(document).ready(function () {
         $('#sort-list').slideToggle();
     });
 
+    $("#sort-list #recent").click(function() {
+      $("#current-sort").html("Recent");
+    });
+
+    $("#sort-list #public").click(function() {
+      $("#current-sort").html("Public");
+    });
+
+    $("#sort-list #private").click(function() {
+      $("#current-sort").html("Private");
+    });
+
+    $("#sort-list #likes").click(function() {
+      $("#current-sort").html("Likes");
+    });
+
     $('.layout-icon').click(function() {
         console.log(isGrid);
         isGrid = !isGrid;
         toggleListView()
-
-
     });
-    
+
 
 
     $("#sort-list li").click(function (e) {
@@ -234,16 +260,28 @@ $(document).ready(function () {
     });
 
 
-    $("div").on('click',".ballad-card",function (e) {
-        console.log($(this).attr("class"));
-        console.log("hello");
+    $("div").on('click',".editBallad",function (e) {
+
         if(pageLocation.includes("my-ballads")){
-            const ballad_id = $(this).find("input[type=hidden]").val();
+            const ballad_id = $(this).parent().find("input[type=hidden]").val();
             console.log(ballad_id);
             window.location = "/editor/"+ballad_id;
         }
+    });
+    $("div").on("click",".deleteBallad", function (e) {
+        if(pageLocation.includes("my-ballads")){
+            const ballad_id = $(this).parent().find("input[type=hidden]").val();
+            console.log(ballad_id);
+            // window.location = "/editor/"+ballad_id;
+            $.post("/deleteBallad",
+                {
+                    balladId:ballad_id,
+                },function (success) {
 
-
+                }
+            );
+            $(this).parent().parent().remove();
+        }
     });
 
 

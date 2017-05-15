@@ -23,7 +23,7 @@ public class User {
 
     private String about;
 
-    private String colorCode;
+    private Integer colorCode;
 
     public User() {
     }
@@ -45,7 +45,7 @@ public class User {
         this.active = active;
 
     }
-    public User(Integer id, String firstName, String lastName, String email, String username, String password, boolean active, String about, String colorCode) {
+    public User(Integer id, String firstName, String lastName, String email, String username, String password, boolean active, String about, Integer colorCode) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -58,7 +58,7 @@ public class User {
         this.colorCode = colorCode;
     }
 
-    public User(Integer id, String firstName, String lastName, String email, String username, String password, boolean active, byte[] photo, String about, String colorCode) {
+    public User(Integer id, String firstName, String lastName, String email, String username, String password, boolean active, byte[] photo, String about, Integer colorCode) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -143,11 +143,11 @@ public class User {
         this.about = about;
     }
 
-    public String getColorCode() {
+    public Integer getColorCode() {
         return colorCode;
     }
 
-    public void setColorCode(String colorCode) {
+    public void setColorCode(Integer colorCode) {
         this.colorCode = colorCode;
     }
 

@@ -3,7 +3,7 @@
   <head th:replace="layout :: head(${ballad_title})">
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>ballad | My ballads</title>
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
@@ -78,8 +78,8 @@
       <div class="head-container">
         <div class="top-head">
           <a href="home.html" id="logo"><img src="../static/images/ballad-logo_black.png" alt=""/></a>
-          <a href="#" id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Sign-Up</a>
-          <a href="#" id="logged">Isaiah<i class="fa fa-caret-down" aria-hidden="true"></i>
+          <a href="#" id="not-logged"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Login / Signup</a>
+          <a href="#" id="logged">Isaiah <i class="fa fa-angle-down" aria-hidden="true"></i>
             <ul class="dropdown">
               <li>Logout</li>
               <li>Profile Settings</li>
@@ -99,24 +99,27 @@
 
     <section id="tools-section">
       <div class="lbox">
-        <h2>ballads</h2>
+        <h2 th:text="${ballad_title.equals('My Ballads')} ? 'My Ballads': 'Popular'">ballads</h2>
 
       </div>
       <div class="mbox">
-        <input type="text" id="ballads-search" name="ballads-search"/>
+        <input type="text" id="ballads-search" name="ballads-search" placeholder=" Search"/>
       </div>
 
       <div class="rbox">
         <div class="layout-icon">
 
         </div>
-        <span id="sort-dropdown">Sort <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+        <span id="sort-dropdown">
+          <span id="current-sort">Recent</span>
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </span>
         <!--TODO-->
         <ul id="sort-list">
-              <li>Recent</li>
-              <li>Public</li>
-              <li>Private</li>
-              <li>Likes</li>
+              <li id="recent">Recent</li>
+              <li id="public">Public</li>
+              <li id="private">Private</li>
+              <li id="likes">Likes</li>
         </ul>
       </div>
 
@@ -133,15 +136,17 @@
             <div class="btop"></div>
 
               <input type="hidden" th:value="*{id}"/>
-            <h1 th:text="*{title}">Love</h1>
-            <h2 th:text="|*{owner.firstName} *{owner.lastName}|">Kendrick Lamar</h2>
-            <p th:text="*{#strings.substring(ballad,0,20)}">If I didn't ride blade on curb, would you still love me? If I minimized my net worth, would you still love me?</p>
-            <div class="date">
-              <span th:text="*{creationDate}">12/2/16</span>
-            </div>
-            <div class="private" th:class="*{publicView} ? 'private' : 'public'">
-              <span th:text="*{publicView} ? 'Private' : ''">Private</span>
-            </div>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                <h1 th:text="*{title}">Love</h1>
+                <h2 th:text="|*{owner.firstName} *{owner.lastName}|">Kendrick Lamar</h2>
+                <p th:text="*{#strings.substring(ballad,0,20)}">If I didn't ride blade on curb, would you still love me? If I minimized my net worth, would you still love me?</p>
+                <div class="date">
+                  <span th:text="*{creationDate}">12/2/16</span>
+                </div>
+                <div class="private" th:class="*{publicView} ? 'private' : 'public'">
+                  <span th:text="*{publicView} ? 'Private' : ''">Private</span>
+                </div>
 
             <div class="bbottom"></div>
           </div>

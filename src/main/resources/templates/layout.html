@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title th:text="${page_title}"></title>
     <!--<link href="css/normalize.css" rel="stylesheet"/>-->
+    <link rel="stylesheet" type="text/css" href="../static/css/slick.css" th:href="@{/css/slick.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/slick-theme.css" th:href="@{/css/slick-theme.css}"/>
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 <body>
+
+
+<!-- GLOBAL LOGIN -->
 
   <div id="global-login" th:fragment="loginForm">
     <div class="modal-container">
@@ -21,22 +26,28 @@
             <div class="fname">
               <label for="first-name">First Name</label><br/>
               <input type="text" id="first-name" name="first-name" required="required"/>
+                <div id="sign-up-fname"></div>
             </div>
             <div class="lname">
               <label for="last-name">Last Name</label><br/>
               <input type="text" id="last-name" name="last-name" required="required"/>
+                <div id="sign-up-lname"></div>
             </div>
             <div class="eaddress">
               <label for="email-address">Email Address</label><br/>
               <input type="text" id="email-address" name="email-address" required="required"/>
+                <div id="sign-up-email"></div>
             </div>
             <div class="usr">
               <label for="signup-username">Username</label><br/>
               <input type="text" id="signup-username" name="signup-username" required="required"/>
+                <div id="sign-up-username"></div>
             </div>
             <div class="pass">
               <label for="signup-password">Password</label><br/>
               <input type="text" id="signup-password" name="signup-password" required="required"/>
+                <div  id="password-strength" style="margin: 5px auto; display:none; text-align: center; width: 80%; padding: 10px; border-radius: 10px; background: #F26430; color:white;"></div>
+                <div id="sign-up-password"></div>
             </div>
             <div class="sub">
               <button id="signup-btn">Submit</button>
@@ -75,14 +86,17 @@
     </div>
   </div>
 
+
+<!-- GLOBAL HEADER -->
+
 <header id="global-header"  th:fragment="nav">
     <div class="head-container">
         <div class="top-head">
             <h1><a href="home.html" id="logo" th:href="@{/}"><img src="../static/images/ballad-logo_black.png" th:src="@{/images/ballad-logo_black.png}" alt=""/></a></h1>
 
             <a href="#" id="logged" th:id="${isLoggedIn} ? 'logged': 'not-logged'" >
-                <span th:text="${isLoggedIn} ? ${user.firstName}:'Login/Sign-up'">Isaiah</span>
-                <span><i class="fa fa-caret-down" th:class="${isLoggedIn}? 'fa fa-caret-down':'fa fa-user-circle-o'" aria-hidden="true"></i>
+                <span th:text="${isLoggedIn} ? ${user.firstName}:'Login/Signup'">Isaiah </span>
+                <span><i class="fa fa-angle-down" th:class="${isLoggedIn}? 'fa fa-angle-down':'fa fa-user-circle-o'" aria-hidden="true"></i>
                     <ul class="dropdown">
                         <li id="logout">Logout</li>
                         <li id="profile-settings">Profile Settings</li>

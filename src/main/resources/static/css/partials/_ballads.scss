@@ -4,7 +4,7 @@ html {
 }
 
 #ballads-page {
-  // background: linear-gradient(#F4E6ED,#A8A8FF);
+  // background: $magenta;
   height: 100%;
   #profile-head{
     width: 100%;
@@ -91,7 +91,8 @@ html {
 
       h2 {
         font-size: 2.5rem;
-        color: $green;
+        // color: white;
+        // color: $green;
       }
     }
 
@@ -99,8 +100,8 @@ html {
       width: 30%;
 
       input {
-        border: none;
-        border: 2px solid $black;
+        // border: none;
+        // border: 2px solid $black;
         font-size: 1.15rem;
         width: 100%;
 
@@ -161,6 +162,7 @@ html {
         top: 70px;
 
         li {
+          // color: white;
           font-size: 1rem;
           font-weight: bold;
           padding-right: 34px;
@@ -201,7 +203,8 @@ html {
         height: 10px;
         width: 100%;
         border-radius: 5px;
-        background: $black;
+        // background: $black;
+        // background: white;
         clear: both;
       }
 
@@ -210,7 +213,8 @@ html {
       // }
 
       .fa-pencil {
-        color: $black;
+        // color: white;
+        // color: $black;
         font-size: 1.5rem;
         position: absolute;
         right: 50px;
@@ -218,7 +222,8 @@ html {
       }
 
       .fa-minus-circle {
-        color: $black;
+        // color: white;
+        // color: $black;
         font-size: 1.5rem;
         position: absolute;
         right: 20px;
@@ -232,7 +237,7 @@ html {
       }
 
       h2 {
-        color: $black;
+        // color: $black;
         font-size: 1.5rem;
         margin: 0px 0px 20px 0px;
       }
@@ -253,7 +258,7 @@ html {
         float: right;
 
         span {
-          color: $green;
+          // color: $green;
           font-size: 1.3rem;
           font-weight: bold;
         }
@@ -273,7 +278,7 @@ html {
         height: 10px;
         width: 100%;
         border-radius: 5px;
-        background: $black;
+        // background: $black;
         clear: both;
       }
 
@@ -303,6 +308,98 @@ html {
           width: 35%;
           margin: 10px 0;
         }
+      }
+    }
+  }
+}
+
+.my-ballads {
+  background: white;
+  color: $black;
+
+  #tools-section {
+    .lbox h2 {
+        color: $green;
+      }
+
+    .mbox input {
+      border: 2px solid $black;
+    }
+
+    .rbox #sort-list {
+      color: white;
+    }
+  }
+
+  #ballad-cards-container-grid .ballad-card {
+
+    .fa-pencil, .fa-minus-circle, h1, h2, p, .date {
+      color: black;
+    }
+
+    .private span {
+      color: $green;
+    }
+
+    .bbottom, .btop {
+      background: $black;
+    }
+  }
+
+  #ballad-cards-container-list .ballad-card {
+
+    .bbottom, .btop {
+      background: $black;
+    }
+
+    .content-container {
+
+      h1, h2, h3, p {
+        color: $black;
+      }
+    }
+  }
+}
+
+.popular {
+  background: $magenta;
+  color: white;
+
+  #tools-section {
+    .lbox h2 {
+        color: white;
+      }
+
+    .mbox input {
+      border: none;
+    }
+
+    .rbox #sort-list {
+      color: white;
+    }
+  }
+
+  #ballad-cards-container-grid .ballad-card {
+
+    .fa-pencil, .fa-minus-circle, h1, h2, p, .date, .private span {
+      color: white;
+    }
+
+    .bbottom, .btop {
+      background: white;
+    }
+  }
+
+  #ballad-cards-container-list .ballad-card {
+
+    .bbottom, .btop {
+      background: white;
+    }
+
+    .content-container {
+
+      h1, h2, h3, p {
+        color: white;
       }
     }
   }

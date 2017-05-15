@@ -195,54 +195,6 @@ html {
         z-index: 50;
     }
 
-// <<<<<<< HEAD
-//   #editor-slideout-overlay {
-//     background: linear-gradient(
-//       rgba(42, 42, 42, 0.90),
-//       rgba(42, 42, 42, 0.90));
-//     bottom: 0;
-//     display: none;
-//     height: 200%;
-//     left: 0;
-//     position: absolute;
-//     right: 0;
-//     top: 0;
-//     width: 100%;
-//     z-index: 50;
-//   }
-//
-//   header {
-//     height: 100px;
-//   }
-//
-//   .header2 {
-//     width: 100%;
-//     height: 140px;
-//     background: $black;
-//     display: flex;
-//     flex-direction: column;
-//     // justify-content: center;
-//     align-items: center;
-//
-//     .top-head, .bottom-head {
-//       width: 80%;
-//       height: 50%;
-//     }
-//
-//     .top-head {
-//       // display: flex;
-//       // align-items: center;
-//
-//       input {
-//         font-size: 2rem;
-//         background: none;
-//         color: white;
-//         font-style: italic;
-//         border: none;
-//         margin-top: 10px;
-//         &:after {
-//           content: "By: Isaiah Anderson";
-// =======
     header {
         height: 100px;
     }
@@ -261,7 +213,6 @@ html {
             width: 80%;
             height: 50%;
         }
-// >>>>>>> e83153f00ab93153573ef14b3fa7adfcff3f49da
 
         .top-head {
             input {
@@ -280,10 +231,6 @@ html {
             .save-and-cancel {
                 display: none;
             }
-// <<<<<<< HEAD
-//
-// =======
-// >>>>>>> e83153f00ab93153573ef14b3fa7adfcff3f49da
             .hamburger-container #editor-slideout-button .fa-bars {
                 display: none;
             }
@@ -447,72 +394,8 @@ html {
                     margin-left: 15px;
                 }
             }
-// <<<<<<< HEAD
-//         }
-//     }
-//   }
-//
-//   .container {
-//     width: 100%;
-//     height: 100vh;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//
-//     .main-area {
-//       width: 70%;
-//
-//       .scheme {
-//         margin: 0;
-//         position: absolute;
-//         font-size: 1.5rem;
-//         padding-top: 80px;
-//         line-height: 40px;
-//         // list-style: none;
-//         color: $magenta;
-//         // li {
-//         //   box-sizing: border-box;
-//         //   padding-right: 10px;
-//         //   border-right: 1px solid black;
-//         // }
-//
-//         .rhymetype.A {
-//           color: $blue;
-//         }
-//
-//         .rhymetype.B {
-//           color: $green;
-//         }
-//
-//         .rhymetype.C {
-//           color: $black;
-//         }
-//
-//         .rhymetype.D {
-//           color: $magenta;
-//         }
-//
-//         .rhymetype.sectionedchorus {
-//           padding-right: 10px;
-//           padding-left: 10px;
-//           border-right: 2px solid $green;
-//         }
-//
-//         .rhymetype.sectionedverse {
-//           padding-right: 10px;
-//           padding-left: 15px;
-//           border-right: 2px solid $magenta;
-// =======
-// >>>>>>> e83153f00ab93153573ef14b3fa7adfcff3f49da
         }
     }
-
-// <<<<<<< HEAD
-//     .rhymes {
-//       width: 30%;
-//       height: 100%;
-//       background: #ddd;
-// =======
 
     .container {
         width: 100%;
@@ -621,6 +504,5 @@ html {
                 }
             }
         }
-// >>>>>>> e83153f00ab93153573ef14b3fa7adfcff3f49da
     }
 }

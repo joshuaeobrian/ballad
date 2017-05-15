@@ -219,7 +219,7 @@ html {
                 font-size: 2rem;
                 background: none;
                 color: white;
-                font-style: italic;
+                // font-style: italic;
                 border: none;
                 margin-top: 10px;
 
@@ -241,10 +241,26 @@ html {
             justify-content: space-between;
 
             .align, .notes, .rhyme, .save, .status, .tools, .transform {
-                display: flex;
+                // display: none;
+                // display: flex;
                 align-items: center;
                 color: white;
                 font-size: 1.5rem;
+            }
+
+            .user-container {
+              // display: none;
+              // display: inline-block;
+
+              h3 {
+                color: white;
+                font-size: 1.5rem;
+
+                #user {
+                  color: $green;
+                  font-size: 1.5rem;
+                }
+              }
             }
 
             .tools {
@@ -386,13 +402,33 @@ html {
                 button {
                     background: $green;
                     color: white;
-                    font-size: 1rem;
+                    font-size: 1.15rem;
+                    font-weight: bold;
                     box-sizing: border-box;
                     padding: 10px 20px;
                     border: none;
                     border-radius: 20px;
                     margin-left: 15px;
                 }
+            }
+
+            .like {
+              // display: none;
+              // display: inline-block;
+              justify-content: flex-end;
+              width: 20%;
+
+              button {
+                  background: $green;
+                  color: white;
+                  font-size: 1.15rem;
+                  font-weight: bold;
+                  box-sizing: border-box;
+                  padding: 10px 20px;
+                  border: none;
+                  border-radius: 20px;
+                  margin-left: 15px;
+              }
             }
         }
     }
@@ -486,6 +522,8 @@ html {
         }
 
         .rhymes-container {
+            // display: none;
+            // display: inline-block;
             width: 30%;
             height: 100%;
             background: #ddd;
@@ -506,3 +544,57 @@ html {
         }
     }
 }
+
+.owner {
+
+  .header2 {
+    .bottom-head {
+
+      .user-container {
+        display: none;
+      }
+
+      .align, .notes, .rhyme, .save, .status, .tools, .transform {
+        display: flex;
+      }
+
+      .like {
+        display: none;
+      }
+    }
+  }
+
+  .container {
+    .rhymes-container {
+      display: inline-block;
+      }
+    }
+  }
+
+
+
+.other-user {
+
+  .header2 {
+    .bottom-head {
+
+      .user-container {
+        display: inline-block;
+      }
+
+      .align, .notes, .rhyme, .save, .status, .tools, .transform {
+        display: none;
+      }
+
+      .like {
+        display: inline-block;
+      }
+    }
+  }
+
+  .container {
+    .rhymes-container {
+      display: none;
+      }
+    }
+  }

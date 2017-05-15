@@ -8,7 +8,7 @@
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
-  <body id="editor-page" th:object="${ballad}">
+  <body id="editor-page" class="other-user" th:object="${ballad}">
 
   <div id="global-login" th:replace="layout :: loginForm"></div>
 
@@ -85,6 +85,9 @@
         </div>
       </div>
       <div class="bottom-head">
+        <div class="user-container">
+          <h3>by <span id="user">Emily Mattison</span></h3>
+        </div>
         <div class="tools">
           <span id="tools">Tools <i class="fa fa-angle-down" aria-hidden="true"></i>
             <ul id="tool-list">
@@ -136,7 +139,9 @@
         <div class="save">
           <button value="Export">Export</button>
           <button value="Save">Save</button>
-
+        </div>
+        <div class="like">
+          <button value="Like">Like</button>
         </div>
 
       </div>

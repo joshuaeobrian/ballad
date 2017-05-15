@@ -1,6 +1,7 @@
 package com.tiy.ballad.web.controller;
 
 import com.tiy.ballad.model.User;
+import com.tiy.ballad.service.ColorService;
 import com.tiy.ballad.service.SessionService;
 import com.tiy.ballad.service.UserService;
 import com.tiy.ballad.web.PasswordStorage;
@@ -26,6 +27,8 @@ public class UserController {
     private SessionService sessionService;
     @Autowired
     UserService userService;
+    @Autowired
+    ColorService colorService;
 
     @ModelAttribute("loginIncorrect")
     public boolean loginIncorrect(){
@@ -37,16 +40,17 @@ public class UserController {
         Object[] current = sessionService.isSession(session);
         User user =(User) current[1];
 
-        model.addAttribute("user",current[1]);
+        model.addAttribute("user",user);
 //        System.out.println(current[1].toString());
-
+        model.addAttribute("colors",colorService.listColors());
         model.addAttribute("isLoggedIn",current[0]);
+        model.addAttribute("myColor",colorService.getColorByID(user.getColorCode()));
         model.addAttribute("isHidden",true);
         return "profile";
     }
 
     @PostMapping("/update-profile")
-    public String upload(HttpSession session,String firstname, String lastName,String email, String username,  String password,String about, String colorCode,@RequestParam MultipartFile file) throws PasswordStorage.CannotPerformOperationException {
+    public String upload(HttpSession session,String firstname, String lastName,String email, String username,  String password,String about, Integer colorCode,@RequestParam MultipartFile file) throws PasswordStorage.CannotPerformOperationException {
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         System.out.println(file);
         User user = new User(userId,firstname,lastName,email,username,password,true,about,colorCode);

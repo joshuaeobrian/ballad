@@ -18,19 +18,15 @@ $(document).ready(function() {
 //        $('#not-logged').css('display', 'none');
 //        $('#logged').css('display', 'block');
 //      });
-  $('.modal-overlay, .modal-container').hide();
 
   $('#not-logged').click(function() {
-        $(".modal-overlay, .modal-container").show();
+        $(".modal-overlay, .modal-container").toggle();
   });
 
   $(".fa-times").click(function() {
-    $(".modal-overlay, .modal-container").hide();
+    $(".modal-overlay, .modal-container").toggle();
   });
 
-
-
-  $('.global-slideout-menu, .global-slideout-overlay').hide();
 
   $('.global-slideout-button').click(function() {
     console.log("hi");

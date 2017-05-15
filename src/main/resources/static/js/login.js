@@ -43,13 +43,18 @@ const postUser = (url,user)=>{
             console.log(data);
             if(url == "/signUp"|| url == "/userlogin") {
                 handleUserLogin(data);
+            }else if(url=="/update-password"){
+                handleRecovery(data);
+            }else if("/forgot-email"){
+                if(data){
+                    alert("An email has been sent with recovery password.");
+                    window.location.href="/account-recovery";
+                }
             }else{
 
                 if((/[\W@{1}.+]/g).exec(user.username) && (user.username.includes("com")||user.username.includes("net")||user.username.includes("me"))) {
                     EMAIL_VAL.textContent = (data["emailExist"]) ? "Email already used" : "";
                     SIGN_UP.emailVal = !data["emailExist"];
-                }else if(url=="/update-password"){
-                    handleRecovery(data);
                 }else{
                     USERNAME_VAL.textContent = (data["usernameExist"]) ? "Username is taken" : "";
                     SIGN_UP.usernameVal=!data["usernameExist"];
@@ -142,9 +147,6 @@ $(document).ready(function () {
         };
 
         postUser("/forgot-email", user);
-        alert("An email has been sent with recovery password.");
-        window.location.href="/account-recovery";
-
     });
 
     $("#signup-btn").click(function (e) {

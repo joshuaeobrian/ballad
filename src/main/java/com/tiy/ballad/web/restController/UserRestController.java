@@ -30,12 +30,18 @@ public class UserRestController {
     private RandomPasswordGenerator passwordGenerator;
 
     @PostMapping("/forgot-email")
-    public void forgotEmail(HttpSession session, String username) throws PasswordStorage.CannotPerformOperationException {
-        User user = service.login(username);
-        user.setPassword(passwordGenerator.generateRandomPassword());
-        reset.setUpEmail(user);
-        user.setPassword(PasswordStorage.createHash(user.getPassword()));
-        service.updateUserInfo(user);
+    public boolean forgotEmail(HttpSession session, String username) throws PasswordStorage.CannotPerformOperationException {
+        try {
+
+            User user = service.login(username);
+            user.setPassword(passwordGenerator.generateRandomPassword());
+            reset.setUpEmail(user);
+            user.setPassword(PasswordStorage.createHash(user.getPassword()));
+            service.updateUserInfo(user);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
 
 
     }

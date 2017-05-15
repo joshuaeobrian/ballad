@@ -108,6 +108,19 @@ public class BalladRestController {
         return new ResponseEntity<byte[]>(output, headers, HttpStatus.OK);
     }
 
+    @PostMapping("/like-ballad")
+    public void likeBallad(HttpSession session){
+        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
+        if(userId != 0){
+            User user = userService.findUserById(userId);
+            Integer balladId = Integer.parseInt(session.getAttribute("balladId").toString());
+            Ballad ballad =balladService.findBalladById(balladId);
+            ballad.setFavorite(true);
+            balladService.likeBallad(ballad,user);
+        }
+
+    }
+
 
 
 }

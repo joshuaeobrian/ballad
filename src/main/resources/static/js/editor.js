@@ -317,10 +317,8 @@ $(document).ready(function () {
     $("button").click(function (e) {
         let button = e.target;
         let action = button.value;
-        if(action.includes("Note")){
-            action = "Notes";
-        }
-        if(action == 'Notes'||action == 'Save'||action == 'Export') {
+
+        if(action == 'Like'||action == 'Save'||action == 'Export') {
             console.log(action);
             const actions = {
                 Save: () => {
@@ -349,9 +347,9 @@ $(document).ready(function () {
 
                     document.location.href = "/download";
                 },
-                Notes: () => {
-                    console.log(action);
-                }
+                Like: () => {
+                    postBallads("/like-ballad");
+                },
             };
             actions[action]();
         }

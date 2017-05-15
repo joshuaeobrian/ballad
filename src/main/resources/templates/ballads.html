@@ -7,7 +7,7 @@
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
-  <body id="ballads-page" class="my-ballads">
+  <body id="ballads-page" class="my-ballads" th:class="${showProfile}? 'my-ballads':'popular'">
 
     <div id="global-login" th:remove="all">
       <div class="modal-container">
@@ -96,21 +96,22 @@
         </div>
       </div>
     </header>
-    <section id="profile-head">
+    <section id="profile-head" th:style="${showProfile}? 'display:block; background-color:'+${myColor.hexCode}+';':'display:none;'">
       <div class="container">
         <div class="pic-container">
           <div class="pic-holder">
-            <div class="pic">
+            <img class="pic" th:src="@{|/user/image|}">
+              
+            </img>
 
-            </div>
           </div>
 
         </div>
-        <div class="description">
+        <div class="description" >
           <div class="description-container">
             <h1>Future</h1>
-            <h2>Nayvidius Cash</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+            <h2 th:text="|${user.firstName} ${user.lastName}|">Nayvidius Cash</h2>
+            <p th:text="|${user.about}|">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
           </div>
 
         </div>
@@ -150,11 +151,11 @@
         </ul>
       </div>
 
-<!--TODO Make table with sorting options or hardcode and make work-->
 
     </section>
 
     <section id="ballad-cards-section">
+
 
       <div class="ballad-card-view" id="ballad-cards-container-grid">
 

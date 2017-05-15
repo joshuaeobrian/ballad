@@ -47,4 +47,8 @@ public class BalladService {
     public List<Ballad> sortBallads(Boolean userOnly,Integer userId,Boolean isPublic, Boolean isPrivate, Integer caseId,String search) {
         return repository.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId,search);
     }
+
+    public void likeBallad(Ballad ballad, User user){
+        repository.likeBallad(ballad,user);
+    }
 }

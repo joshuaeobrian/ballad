@@ -582,8 +582,12 @@ html {
         display: inline-block;
       }
 
-      .align, .notes, .rhyme, .save, .status, .tools, .transform {
+      .align, .notes, .rhyme, .status, .tools, .transform {
         display: none;
+      }
+
+      .save {
+        display: inline-block;
       }
 
       .like {

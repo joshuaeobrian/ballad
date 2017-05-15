@@ -1,5 +1,6 @@
 package com.tiy.ballad.repository;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.tiy.ballad.model.Ballad;
 import com.tiy.ballad.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,13 @@ public class BalladRepositoryImpl implements BalladRepository {
                 "DELETE FROM collaborators WHERE ballad_id = ?;\n" +
                 "DELETE FROM ballad_logs WHERE ballad_id = ?;\n" +
                 "DELETE FROM ballads WHERE id=?;", balladId, balladId, balladId, balladId);
+    }
+
+    @Override
+    public void likeBallad(Ballad ballad, User user){
+        template.update("INSERT INTO ballad_interaction(ballad_id, ballad_user_id, favorite) VALUES(?,?,?)",
+                new Object[]{ballad.getId(),user.getId(),ballad.isFavorite()});
+
     }
 
     @Override

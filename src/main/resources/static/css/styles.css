@@ -1202,8 +1202,10 @@ html {
 
 .other-user .header2 .bottom-head .user-container {
   display: inline-block; }
-.other-user .header2 .bottom-head .align, .other-user .header2 .bottom-head .notes, .other-user .header2 .bottom-head .rhyme, .other-user .header2 .bottom-head .save, .other-user .header2 .bottom-head .status, .other-user .header2 .bottom-head .tools, .other-user .header2 .bottom-head .transform {
+.other-user .header2 .bottom-head .align, .other-user .header2 .bottom-head .notes, .other-user .header2 .bottom-head .rhyme, .other-user .header2 .bottom-head .status, .other-user .header2 .bottom-head .tools, .other-user .header2 .bottom-head .transform {
   display: none; }
+.other-user .header2 .bottom-head .save {
+  display: inline-block; }
 .other-user .header2 .bottom-head .like {
   display: inline-block; }
 .other-user .container .rhymes-container {

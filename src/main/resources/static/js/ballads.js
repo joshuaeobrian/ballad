@@ -12,7 +12,7 @@ $('.container').click(function() {
     grid = !grid;
   }
 
-})
+});
 
 togrid = function() {
   $('#a').animate({
@@ -50,7 +50,7 @@ togrid = function() {
     top: '33%',
     height: '30%',
   },200);
-}
+};
 
 tolist = function() {
   $('#a').animate({
@@ -98,7 +98,7 @@ tolist = function() {
     top: '80%',
     height: '20%'
   },200);
-}
+};
 const pageLocation = window.location.href;
 const sortIndex = {
     Title:1,
@@ -139,7 +139,7 @@ const createBallad = (ballad)=>{
     var author = document.createElement("h2");
     author.textContent = ballad["owner"]["firstName"]+" "+ballad["owner"]["lastName"];
     var content = document.createElement("p");
-    content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,150)+"...";
+    content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,ballad["ballad"].substring(0, 150).lastIndexOf(' '))+"...";
 
     var date = document.createElement("div");
     date.className = "date";
@@ -226,8 +226,10 @@ function getBallads(url,config){
 function toggleListView(){
     if(isGrid){
         cardView.id = toggleViewVals[isGrid];
+        console.log(cardView.id);
     }else{
         cardView.id=toggleViewVals[isGrid];
+        console.log(cardView.id);
     }
     mainLoad();
 }
@@ -251,6 +253,7 @@ function mainLoad() {
 $(document).ready(function () {
 
     mainLoad();
+
 
     $('#sort-dropdown').click(function() {
         $('#sort-list').slideToggle();
@@ -277,8 +280,6 @@ $(document).ready(function () {
         isGrid = !isGrid;
         toggleListView()
     });
-
-
 
     $("#sort-list li").click(function (e) {
         $(document).closest("div.column1").remove();
@@ -357,13 +358,16 @@ $(document).ready(function () {
 
     });
 
-
     $("div").on('click',".editBallad",function (e) {
 
         if(pageLocation.includes("my-ballads")){
             const ballad_id = $(this).parent().find("input[type=hidden]").val();
             console.log(ballad_id);
             window.location = "/editor/"+ballad_id;
+        }else if(pageLocation.includes("my-ballads")){
+            const ballad_id = $(this).parent().find("input[type=hidden]").val();
+            console.log(ballad_id);
+            window.location = "/viewBallad?balladId="+ballad_id;
         }
     });
     $("div").on("click",".deleteBallad", function (e) {
@@ -381,6 +385,7 @@ $(document).ready(function () {
             $(this).parent().parent().remove();
         }
     });
+
 
 
 });

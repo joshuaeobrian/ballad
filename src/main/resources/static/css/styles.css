@@ -183,6 +183,8 @@ header {
       header .head-container .top-head #logged {
         position: relative; }
         header .head-container .top-head #logged .dropdown {
+          background: white;
+          box-shadow: -1px 1px 3px #888888;
           display: none;
           left: -4px;
           margin: 0;
@@ -190,15 +192,14 @@ header {
           position: absolute;
           text-align: left; }
           header .head-container .top-head #logged .dropdown li {
-            background: white;
             font-size: 1rem;
             letter-spacing: 1px;
             line-height: 25px;
             list-style-type: none;
             padding-left: 4px;
-            width: 250px; }
+            width: 130px; }
             header .head-container .top-head #logged .dropdown li:hover {
-              color: #04a777; }
+              background: #dddddd; }
       header .head-container .top-head .fa-bars {
         color: #2a2a2a;
         display: none;
@@ -541,6 +542,58 @@ html {
 
 #ballads-page {
   height: 100%; }
+  #ballads-page #profile-head {
+    width: 100%;
+    background: #9c0f5f;
+    height: 400px; }
+    #ballads-page #profile-head .container {
+      width: 80%;
+      height: 100%;
+      margin: 0 auto; }
+      #ballads-page #profile-head .container .pic-container, #ballads-page #profile-head .container .description {
+        display: inline-block;
+        height: 100%; }
+      #ballads-page #profile-head .container .pic-container {
+        width: 30%;
+        position: relative; }
+        #ballads-page #profile-head .container .pic-container .pic-holder {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          #ballads-page #profile-head .container .pic-container .pic-holder .pic {
+            width: 250px;
+            height: 250px;
+            background: url("https://placehold.it/350x350");
+            background-size: contain;
+            background-repeat: no-repeat;
+            clip-path: circle(125px at 125px 125px);
+            transition: .1s; }
+            #ballads-page #profile-head .container .pic-container .pic-holder .pic:hover {
+              transform: scale(1.05); }
+      #ballads-page #profile-head .container .description {
+        width: 50%;
+        position: relative; }
+        #ballads-page #profile-head .container .description .description-container {
+          position: absolute;
+          width: 80%;
+          left: 10%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          color: white; }
+          #ballads-page #profile-head .container .description .description-container h1 {
+            font-size: 3em;
+            text-transform: uppercase; }
+          #ballads-page #profile-head .container .description .description-container h2 {
+            font-size: 1.5em; }
+          #ballads-page #profile-head .container .description .description-container p {
+            font-size: 1.1em;
+            line-height: 30px;
+            letter-spacing: .5px; }
   #ballads-page #tools-section {
     align-items: center;
     display: flex;
@@ -868,13 +921,7 @@ html {
     #editor-page .header2 .bottom-head {
       display: flex;
       justify-content: space-between; }
-      #editor-page .header2 .bottom-head .align,
-      #editor-page .header2 .bottom-head .notes,
-      #editor-page .header2 .bottom-head .rhyme,
-      #editor-page .header2 .bottom-head .save,
-      #editor-page .header2 .bottom-head .status,
-      #editor-page .header2 .bottom-head .tools,
-      #editor-page .header2 .bottom-head .transform {
+      #editor-page .header2 .bottom-head .align, #editor-page .header2 .bottom-head .notes, #editor-page .header2 .bottom-head .rhyme, #editor-page .header2 .bottom-head .save, #editor-page .header2 .bottom-head .status, #editor-page .header2 .bottom-head .tools, #editor-page .header2 .bottom-head .transform {
         display: flex;
         align-items: center;
         color: white;

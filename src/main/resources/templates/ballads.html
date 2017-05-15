@@ -96,6 +96,26 @@
         </div>
       </div>
     </header>
+    <section id="profile-head" th:style="${showProfile}? 'display:block; background-color:'+${myColor.hexCode}+';':'display:none;'">
+      <div class="container">
+        <div class="pic-container">
+          <div class="pic-holder">
+            <img class="pic" th:src="@{|/user/image|}">
+              
+            </img>
+          </div>
+
+        </div>
+        <div class="description" >
+          <div class="description-container">
+            <h1>Future</h1>
+            <h2 th:text="|${user.firstName} ${user.lastName}|">Nayvidius Cash</h2>
+            <p th:text="|${user.about}|">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
     <section id="tools-section">
       <div class="lbox">
@@ -123,7 +143,6 @@
         </ul>
       </div>
 
-<!--TODO Make table with sorting options or hardcode and make work-->
 
     </section>
 

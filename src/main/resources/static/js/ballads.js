@@ -41,7 +41,7 @@ const createBallad = (ballad)=>{
     var author = document.createElement("h2");
     author.textContent = ballad["owner"]["firstName"]+" "+ballad["owner"]["lastName"];
     var content = document.createElement("p");
-    content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,150)+"...";
+    content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,ballad["ballad"].substring(0, 150).lastIndexOf(' '))+"...";
 
     var date = document.createElement("div");
     date.className = "date";
@@ -153,6 +153,11 @@ function mainLoad() {
 $(document).ready(function () {
 
     mainLoad();
+
+    if(pageLocation.includes("my-ballads")){
+        let p = pageLocation.split("/");
+        document.getElementsByClassName('pic')[0].style.backgroundImage="url("+p[0]+"/user/image.jpeg)";
+    }
 
     $('#sort-dropdown').click(function() {
         $('#sort-list').slideToggle();

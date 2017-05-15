@@ -87,5 +87,27 @@ public class BalladController {
 
     }
 
+    @RequestMapping("/viewBallad")
+    public String viewThisBallad(HttpSession session,Model model, Integer balladId){
+        if(session.isNew()|| Integer.parseInt(session.getAttribute("userId").toString())==0){
+            return "redirect:/";
+        }
+        Object[] current = sessionService.isSession(session);
+        User user =(User) current[1];
+        model.addAttribute("user", current[1]);
+        model.addAttribute("isLoggedIn", current[0]);
+        Ballad ballad = balladService.findBalladById(balladId);
+        if(user.getId() == ballad.getOwner().getId() ){
+            model.addAttribute("allowEdit", true);
+        }else{
+            model.addAttribute("allowEdit", false);
+        }
+            session.setAttribute("balladId",balladId);
+            model.addAttribute("ballad", ballad);
+            model.addAttribute("isHidden",true);
+
+        return "editor";
+    }
+
 
 }

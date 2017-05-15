@@ -95,12 +95,20 @@ public class UserController {
         return user.getPhoto();
     }
 
+    @GetMapping("/account-recovery")
+    public String recovery(Model model){
+
+
+        model.addAttribute("isHidden",true);
+
+        return "login";
+    }
 
     @ResponseBody
     @PostMapping("/userlogin")
     public boolean[] validateUser(HttpSession session, String username, String password){
         boolean[] response = new boolean[2];
-        System.out.println("USing COntroller");
+
         try {
             User user = userService.login(username);
 //            System.out.println(user);

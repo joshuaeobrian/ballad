@@ -1,8 +1,11 @@
 package com.tiy.ballad.web.restController;
 
+import ch.qos.logback.core.joran.spi.NoAutoStart;
 import com.tiy.ballad.model.User;
 import com.tiy.ballad.service.UserService;
+import com.tiy.ballad.web.EmailReset;
 import com.tiy.ballad.web.PasswordStorage;
+import com.tiy.ballad.web.RandomPasswordGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
@@ -21,29 +24,33 @@ public class UserRestController {
 
     @Autowired
     private UserService service;
+    @Autowired
+    private EmailReset reset;
+    @Autowired
+    private RandomPasswordGenerator passwordGenerator;
 
-//    @PostMapping("/userlogin")
-//    public boolean validateUser(HttpSession session, String username, String password){
-//
-//        try {
-//            User user = service.login(username);
-////            System.out.println(user);
-//            boolean validate = PasswordStorage.verifyPassword(password, user.getPassword());
-//            if(validate){
-//                session.setAttribute("userId",user.getId());
-//                System.out.println(session.getAttribute("userId"));
-//                return true;
-//            }else{
-//                session.setAttribute("userId",0);
-//                return false;
-//            }
-//        }
-//        catch (Exception e){
-//            session.setAttribute("userId",0);
-//            return false;
-//        }
-//
-//    }
+    @PostMapping("/forgot-email")
+    public void forgotEmail(HttpSession session, String username) throws PasswordStorage.CannotPerformOperationException {
+        User user = service.login(username);
+        user.setPassword(passwordGenerator.generateRandomPassword());
+        reset.setUpEmail(user);
+        user.setPassword(PasswordStorage.createHash(user.getPassword()));
+        service.updateUserInfo(user);
+
+
+    }
+    @PostMapping("/update-password")
+    public boolean UpdatePassword(HttpSession session, String username,String recoveryKey, String newPassword) throws PasswordStorage.CannotPerformOperationException, PasswordStorage.InvalidHashException {
+        User user = service.login(username);
+        boolean validate =PasswordStorage.verifyPassword(recoveryKey,user.getPassword());
+        if(validate){
+            user.setPassword(PasswordStorage.createHash(newPassword));
+            service.updateUserInfo(user);
+            session.setAttribute("userId",user.getId());
+
+        }
+        return validate;
+    }
 
     @PostMapping("/signUp")
     public String saveNewUser(HttpSession session, User user){

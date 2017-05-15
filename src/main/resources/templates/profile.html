@@ -100,7 +100,7 @@
           <h2>Profile Picture</h2>
           <div class="profile-pic">
 
-              <img id="profile-image" src="" th:src="@{|/user/image|}" th:style="'width:150px; height:100; border-radius:50%;'"/>
+              <img id="profile-image" src="" th:src="*{photo != null}? @{|/user/image|}: '#'" th:style="'width:150px; height:100; border-radius:50%;'"/>
 
           </div>
           <input type="file" id="update-image" name="file"/>

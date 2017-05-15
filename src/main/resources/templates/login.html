@@ -65,7 +65,7 @@
 
       </form>
 
-      <form id="login-form" th:style="${signup}? 'display:none' : ''">
+      <form id="login-form" style="display: none" th:style="${isHidden}? 'display:none' : ''">
         <h1>Login</h1>
         <div class="usr">
           <label for="login-username">Username</label><br/>
@@ -82,6 +82,31 @@
 
         <!-- <hr> -->
         <span>Ready to create lyrics but don't have an account? <a href="#" id="signup">Sign up!</a></span>
+      </form>
+
+      <form id="recovery-form" style="width:75%; margin: 10px auto;">
+        <h1>Recover Account</h1>
+        <div class="usr">
+          <label for="username-email">Username/Email</label><br/>
+          <input type="text" id="username-email" name="username"/>
+        </div>
+        <div class="pass">
+          <label for="recovery-password">Recovery Password</label><br/>
+          <input type="text" id="recovery-password" name="recovery-password"/>
+          <div id="recovery-password-val"></div>
+        </div>
+        <div class="pass">
+          <label for="new-password">New Password</label><br/>
+          <input type="text" id="new-password" name="new-password"/>
+          <div  id="password-strength" style=" display:none; text-align: center; width: 51%; padding: 10px; border-radius: 10px; background: #F26430; color:white;"></div>
+          <div id="recovery-password-error"></div>
+        </div>
+        <div class="sub">
+          <button id="recover-btn">Submit</button>
+        </div>
+
+        <!-- <hr> -->
+        <!--<span>Ready to create lyrics but don't have an account? <a href="#" id="signup">Sign up!</a></span>-->
       </form>
 
     </section>

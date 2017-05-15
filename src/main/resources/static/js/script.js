@@ -99,5 +99,9 @@ $(document).ready(function() {
 
     $('#logged').click(function() {
         $('.dropdown').slideToggle();
-    })
+    });
+
+
+
+
 });

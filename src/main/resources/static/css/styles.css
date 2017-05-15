@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Baloo|Dancing+Script|Indie+Flower|Josefin+Sans|Lobster|Open+Sans+Condensed:300|Pacifico|Quicksand");
 @import url("https://fonts.googleapis.com/css?family=Istok+Web");
 html {
   min-height: 100%;
@@ -798,8 +799,8 @@ html {
         right: 0;
         bottom: 0;
         background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s; }
+        -webkit-transition: 0.4s;
+        transition: 0.4s; }
       #editor-page #editor-slideout-menu .slideout-public-section .slider:before {
         position: absolute;
         content: "";
@@ -808,8 +809,8 @@ html {
         left: 4px;
         bottom: 4px;
         background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s; }
+        -webkit-transition: 0.4s;
+        transition: 0.4s; }
       #editor-page #editor-slideout-menu .slideout-public-section input:checked + .slider {
         background-color: #04a777; }
       #editor-page #editor-slideout-menu .slideout-public-section input:focus + .slider {
@@ -841,7 +842,8 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center; }
-    #editor-page .header2 .top-head, #editor-page .header2 .bottom-head {
+    #editor-page .header2 .bottom-head,
+    #editor-page .header2 .top-head {
       width: 80%;
       height: 50%; }
     #editor-page .header2 .top-head input {
@@ -860,7 +862,13 @@ html {
     #editor-page .header2 .bottom-head {
       display: flex;
       justify-content: space-between; }
-      #editor-page .header2 .bottom-head .tools, #editor-page .header2 .bottom-head .rhyme, #editor-page .header2 .bottom-head .transform, #editor-page .header2 .bottom-head .align, #editor-page .header2 .bottom-head .notes, #editor-page .header2 .bottom-head .status, #editor-page .header2 .bottom-head .save {
+      #editor-page .header2 .bottom-head .align,
+      #editor-page .header2 .bottom-head .notes,
+      #editor-page .header2 .bottom-head .rhyme,
+      #editor-page .header2 .bottom-head .save,
+      #editor-page .header2 .bottom-head .status,
+      #editor-page .header2 .bottom-head .tools,
+      #editor-page .header2 .bottom-head .transform {
         display: flex;
         align-items: center;
         color: white;
@@ -889,12 +897,69 @@ html {
         color: white;
         font-size: 1rem;
         margin: 3px; }
+      #editor-page .header2 .bottom-head .transform .font-selector {
+        position: relative; }
+        #editor-page .header2 .bottom-head .transform .font-selector #fonts {
+          display: none;
+          list-style: none;
+          position: absolute;
+          top: 0;
+          margin-top: 20px;
+          right: 0; }
+          #editor-page .header2 .bottom-head .transform .font-selector #fonts li {
+            text-align: right;
+            color: #04a777;
+            cursor: default; }
       #editor-page .header2 .bottom-head .align button {
         background: none;
         border: none;
         color: white;
         font-size: 1rem;
         margin: 3px; }
+      #editor-page .header2 .bottom-head .status {
+        /* Hide default HTML checkbox */
+        /* The slider */
+        /* Rounded sliders */ }
+        #editor-page .header2 .bottom-head .status .switch {
+          position: relative;
+          display: inline-block;
+          width: 30px;
+          height: 17px;
+          margin-left: 10px; }
+        #editor-page .header2 .bottom-head .status .switch input {
+          display: none; }
+        #editor-page .header2 .bottom-head .status .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: 0.4s;
+          transition: 0.4s; }
+        #editor-page .header2 .bottom-head .status .slider:before {
+          position: absolute;
+          content: "";
+          height: 13px;
+          width: 13px;
+          left: 2px;
+          bottom: 2px;
+          background-color: white;
+          -webkit-transition: 0.4s;
+          transition: 0.4s; }
+        #editor-page .header2 .bottom-head .status input:checked + .slider {
+          background-color: #2196F3; }
+        #editor-page .header2 .bottom-head .status input:focus + .slider {
+          box-shadow: 0 0 1px #2196F3; }
+        #editor-page .header2 .bottom-head .status input:checked + .slider:before {
+          -webkit-transform: translateX(13px);
+          -ms-transform: translateX(13px);
+          transform: translateX(13px); }
+        #editor-page .header2 .bottom-head .status .slider.round {
+          border-radius: 17px; }
+        #editor-page .header2 .bottom-head .status .slider.round:before {
+          border-radius: 50%; }
       #editor-page .header2 .bottom-head .save {
         justify-content: flex-end;
         width: 20%; }

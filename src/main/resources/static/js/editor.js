@@ -111,6 +111,10 @@ $(document).ready(function() {
        rhymeboxes += '<div class="rhyme">'+rhymelist[i]+'</div>';
      }
      $('.rhymes').html(rhymeboxes);
+    //  if($('#mytext').selectionStart == $('#mytext').val().length) {
+    //    console.log('Yup');
+    //    lines[lines.length] = lines[lines.length-1];
+    //  }
    }
  })
  $('.fa-align-center').click(function() {
@@ -121,6 +125,14 @@ $(document).ready(function() {
  })
  $('.fa-align-right').click(function() {
    $('#mytext').css('text-align','right');
+ })
+ $('#current-font').click(function() {
+   $('#fonts').slideToggle();
+ })
+ $('.font-choice').click(function() {
+   $('#mytext').css('font-family',$(this).html());
+   $('#current-font').html($(this).html()+'<i class="fa fa-chevron-down" aria-hidden="true"></i>');
+   $('#fonts').slideToggle();
  })
 })
 function process() {

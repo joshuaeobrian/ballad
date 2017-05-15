@@ -619,7 +619,6 @@ html {
       right: 0;
       width: 20%; }
       #ballads-page #tools-section .rbox .layout-icon {
-        background: #2a2a2a;
         display: inline-block;
         height: 30px;
         position: absolute;
@@ -627,6 +626,40 @@ html {
         top: 50%;
         transform: translateY(-50%);
         width: 30px; }
+        #ballads-page #tools-section .rbox .layout-icon .container {
+          width: 100%;
+          height: 100%;
+          position: relative; }
+          #ballads-page #tools-section .rbox .layout-icon .container #a, #ballads-page #tools-section .rbox .layout-icon .container #b, #ballads-page #tools-section .rbox .layout-icon .container #c, #ballads-page #tools-section .rbox .layout-icon .container #d, #ballads-page #tools-section .rbox .layout-icon .container #e, #ballads-page #tools-section .rbox .layout-icon .container #f, #ballads-page #tools-section .rbox .layout-icon .container #g, #ballads-page #tools-section .rbox .layout-icon .container #h, #ballads-page #tools-section .rbox .layout-icon .container #i {
+            position: absolute;
+            width: 30%;
+            height: 30%;
+            background: black;
+            border-radius: 10px; }
+          #ballads-page #tools-section .rbox .layout-icon .container #a {
+            top: 0%;
+            height: 55%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #b {
+            top: 0%;
+            height: 25%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #c {
+            top: 0%;
+            height: 75%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #d {
+            top: 60%;
+            height: 40%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #e {
+            top: 30%;
+            height: 70%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #f {
+            top: 80%;
+            height: 20%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #a, #ballads-page #tools-section .rbox .layout-icon .container #d {
+            left: 0%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #b, #ballads-page #tools-section .rbox .layout-icon .container #e {
+            left: 33%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #c, #ballads-page #tools-section .rbox .layout-icon .container #f {
+            left: 66%; }
       #ballads-page #tools-section .rbox #sort-dropdown {
         background: #04a777;
         border: none;

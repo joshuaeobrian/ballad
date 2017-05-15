@@ -1,6 +1,104 @@
 /**
  * Global properties
  */
+ var grid = false;
+
+$('.container').click(function() {
+  if(grid) {
+    tolist();
+    grid = !grid;
+  } else {
+    togrid();
+    grid = !grid;
+  }
+
+});
+
+togrid = function() {
+  $('#a').animate({
+    top: '0%',
+    height: '30%',
+  },200).animate({
+    width: '63%',
+  },200);
+  $('#b').animate({
+    top: '33%',
+    height: '30%',
+  },200).animate({
+    left: '0%',
+    width: '63%'
+  },200);
+  $('#c').animate({
+    top: '0%',
+    height: '30%',
+  },200).animate({
+
+  },200);
+  $('#d').animate({
+    top: '66%',
+    height: '30%',
+  },200).animate({
+    width: '63%',
+  },200)
+  $('#e').animate({
+    top: '66%',
+    height: '30%',
+  },200).animate({
+    left: '66%',
+  },200)
+  $('#f').animate({
+    top: '33%',
+    height: '30%',
+  },200);
+};
+
+tolist = function() {
+  $('#a').animate({
+    top: '0%',
+    height: '30%',
+    width: '30%'
+  },200).animate({
+    height: '55%',
+  },200);
+  $('#b').animate({
+    left: '33%',
+    width: '30%',
+  },200).animate({
+    top: '0%',
+    height: '25%'
+  },200);
+  $('#c').animate({
+    top: '0%',
+    height: '30%',
+  },200).animate({
+    top: '0%',
+    height: '75%'
+  },200);
+  $('#d').animate({
+    top: '66%',
+    height: '30%',
+    width: '30%'
+  },200).animate({
+    top: '60%',
+    height: '40%',
+    width: '30%',
+  },200)
+  $('#e').animate({
+    top: '66%',
+    height: '30%',
+    left: '33%'
+  },200).animate({
+    top: '30%',
+    height: '70%',
+    left: '33%',
+  },200)
+  $('#f').animate({
+    left: '66%',
+  },200).animate({
+    top: '80%',
+    height: '20%'
+  },200);
+};
 const pageLocation = window.location.href;
 const sortIndex = {
     Title:1,
@@ -128,8 +226,10 @@ function getBallads(url,config){
 function toggleListView(){
     if(isGrid){
         cardView.id = toggleViewVals[isGrid];
+        console.log(cardView.id);
     }else{
         cardView.id=toggleViewVals[isGrid];
+        console.log(cardView.id);
     }
     mainLoad();
 }
@@ -154,10 +254,6 @@ $(document).ready(function () {
 
     mainLoad();
 
-    if(pageLocation.includes("my-ballads")){
-        let p = pageLocation.split("/");
-        document.getElementsByClassName('pic')[0].style.backgroundImage="url("+p[0]+"/user/image.jpeg)";
-    }
 
     $('#sort-dropdown').click(function() {
         $('#sort-list').slideToggle();
@@ -184,8 +280,6 @@ $(document).ready(function () {
         isGrid = !isGrid;
         toggleListView()
     });
-
-
 
     $("#sort-list li").click(function (e) {
         $(document).closest("div.column1").remove();
@@ -264,13 +358,16 @@ $(document).ready(function () {
 
     });
 
-
     $("div").on('click',".editBallad",function (e) {
 
         if(pageLocation.includes("my-ballads")){
             const ballad_id = $(this).parent().find("input[type=hidden]").val();
             console.log(ballad_id);
             window.location = "/editor/"+ballad_id;
+        }else if(pageLocation.includes("my-ballads")){
+            const ballad_id = $(this).parent().find("input[type=hidden]").val();
+            console.log(ballad_id);
+            window.location = "/viewBallad?balladId="+ballad_id;
         }
     });
     $("div").on("click",".deleteBallad", function (e) {
@@ -288,6 +385,7 @@ $(document).ready(function () {
             $(this).parent().parent().remove();
         }
     });
+
 
 
 });

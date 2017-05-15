@@ -72,7 +72,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> findUserByName(String name) {
-        return template.query("SELECT id, first_name, last_name,email, username,password,active from ballad_users" +
+        return template.query("SELECT id, first_name, last_name,email, username,password,active, about,profile_image,color_code_id from ballad_users" +
                         " WHERE lower(first_name) LIKE lower(?) OR lower(last_name) LIKE lower(?) OR lower(username) LIKE lower(?)",
                 new Object[]{"%"+name+"%","%"+name+"%","%"+name+"%"},
                 (rs,i)->new User(
@@ -82,13 +82,16 @@ public class UserRepositoryImpl implements UserRepository {
                         rs.getString("email"),
                         rs.getString("username"),
                         rs.getString("password"),
-                        rs.getBoolean("active")
+                        rs.getBoolean("active"),
+                        rs.getBytes("profile_image"),
+                        rs.getString("about"),
+                        rs.getInt("color_code_id")
                 ));
 
     }
     @Override
     public User getUserByLogin(String usernameOrEmail) {
-        return template.queryForObject("SELECT id, first_name, last_name,email, username,password,active from ballad_users where username=? or  email=?",
+        return template.queryForObject("SELECT id, first_name, last_name,email, username,password,active, about,profile_image,color_code_id from ballad_users where username=? or  email=?",
                 new Object[]{usernameOrEmail,usernameOrEmail},
                 (rs,i)->new User(
                         rs.getInt("id"),
@@ -97,7 +100,10 @@ public class UserRepositoryImpl implements UserRepository {
                         rs.getString("email"),
                         rs.getString("username"),
                         rs.getString("password"),
-                        rs.getBoolean("active")
+                        rs.getBoolean("active"),
+                        rs.getBytes("profile_image"),
+                        rs.getString("about"),
+                        rs.getInt("color_code_id")
                 ));
     }
 

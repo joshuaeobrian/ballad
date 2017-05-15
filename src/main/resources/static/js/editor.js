@@ -222,8 +222,6 @@ const postBallads = (url,ballad)=>{
 
 $(document).ready(function () {
 
-  $('#editor-slideout-menu, #editor-slideout-overlay').hide();
-
   $('#editor-page #editor-slideout-button').click(function() {
     console.log("hi");
 

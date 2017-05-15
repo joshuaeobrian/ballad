@@ -11,6 +11,7 @@ html {
 
   #editor-slideout-menu {
     background: white;
+    display: none;
     height: 200%;
     position: absolute;
     right: 0;
@@ -192,6 +193,7 @@ html {
       rgba(42, 42, 42, 0.90),
       rgba(42, 42, 42, 0.90));
     bottom: 0;
+    display: none;
     height: 200%;
     left: 0;
     position: absolute;

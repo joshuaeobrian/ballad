@@ -11,6 +11,7 @@ body {
 
 .global-slideout-menu {
   background: white;
+  display: none;
   height: 200%;
   position: absolute;
   right: 0;
@@ -41,29 +42,26 @@ body {
     }
   }
 
-  .slideout-tools-section {
+  .slideout-nav-section {
     border-bottom: 4px solid $black;
     margin-left: 5%;
     width: 90%;
 
-    h2 {
-      color: $black;
-      font-size: 1.25rem;
-      font-weight: bold;
-      margin-top: 20px;
-    }
-
     ul {
       display: flex;
       flex-direction: column;
-      margin-bottom: 30px;
+      // justify-content: center;
+      margin-bottom: 0px;
 
       a {
+        border-bottom: 1px solid $black;
         color: $black;
         display: block;
-        font-size: 1.15rem;
+        font-size: 1.5rem;
         font-weight: bold;
-        margin-top: 20px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        text-align: center;
         text-decoration: none;
 
         li {
@@ -72,7 +70,13 @@ body {
       }
 
       a:hover {
-        color: $green;
+        background: $green;
+        color: white;
+      }
+
+      a:focus {
+        background: $green;
+        color: white;
       }
     }
   }
@@ -83,6 +87,7 @@ body {
     rgba(42, 42, 42, 0.90),
     rgba(42, 42, 42, 0.90));
   bottom: 0;
+  display: none;
   height: 200%;
   left: 0;
   position: absolute;
@@ -100,6 +105,7 @@ body {
     background: linear-gradient(
         rgba(42, 42, 42, 0.90),
         rgba(42, 42, 42, 0.90));
+    display: none;
     height: 100%;
     left: 0;
     position: absolute;
@@ -109,10 +115,8 @@ body {
   }
 
   .modal-container {
-    // align-items: center;
-    // display: flex;
+    display: none;
     height: 100%;
-    // justify-content: center;
     left: 0;
     position: absolute;
     text-align: left;
@@ -369,7 +373,7 @@ header {
           box-shadow: 2px 5px 3px rgba(0,0,0,.2),-2px -5px 3px rgba(0,0,0,.2);
           // box-shadow: ;
         }
-        
+
         .color1 {
           background: #005384;
           .color2 {

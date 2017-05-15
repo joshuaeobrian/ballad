@@ -8,6 +8,7 @@ body {
 
 .global-slideout-menu {
   background: white;
+  display: none;
   height: 200%;
   position: absolute;
   right: 0;
@@ -31,34 +32,37 @@ body {
     .global-slideout-menu .slideout-menu-header img {
       height: 44.28%;
       object-fit: contain; }
-  .global-slideout-menu .slideout-tools-section {
+  .global-slideout-menu .slideout-nav-section {
     border-bottom: 4px solid #2a2a2a;
     margin-left: 5%;
     width: 90%; }
-    .global-slideout-menu .slideout-tools-section h2 {
-      color: #2a2a2a;
-      font-size: 1.25rem;
-      font-weight: bold;
-      margin-top: 20px; }
-    .global-slideout-menu .slideout-tools-section ul {
+    .global-slideout-menu .slideout-nav-section ul {
       display: flex;
       flex-direction: column;
-      margin-bottom: 30px; }
-      .global-slideout-menu .slideout-tools-section ul a {
+      margin-bottom: 0px; }
+      .global-slideout-menu .slideout-nav-section ul a {
+        border-bottom: 1px solid #2a2a2a;
         color: #2a2a2a;
         display: block;
-        font-size: 1.15rem;
+        font-size: 1.5rem;
         font-weight: bold;
-        margin-top: 20px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        text-align: center;
         text-decoration: none; }
-        .global-slideout-menu .slideout-tools-section ul a li {
+        .global-slideout-menu .slideout-nav-section ul a li {
           list-style-type: none; }
-      .global-slideout-menu .slideout-tools-section ul a:hover {
-        color: #04a777; }
+      .global-slideout-menu .slideout-nav-section ul a:hover {
+        background: #04a777;
+        color: white; }
+      .global-slideout-menu .slideout-nav-section ul a:focus {
+        background: #04a777;
+        color: white; }
 
 .global-slideout-overlay {
   background: linear-gradient(rgba(42, 42, 42, 0.9), rgba(42, 42, 42, 0.9));
   bottom: 0;
+  display: none;
   height: 200%;
   left: 0;
   position: absolute;
@@ -69,6 +73,7 @@ body {
 
 #global-login .modal-overlay {
   background: linear-gradient(rgba(42, 42, 42, 0.9), rgba(42, 42, 42, 0.9));
+  display: none;
   height: 100%;
   left: 0;
   position: absolute;
@@ -76,6 +81,7 @@ body {
   width: 100%;
   z-index: 50; }
 #global-login .modal-container {
+  display: none;
   height: 100%;
   left: 0;
   position: absolute;
@@ -695,6 +701,7 @@ html {
   height: 100%; }
   #editor-page #editor-slideout-menu {
     background: white;
+    display: none;
     height: 200%;
     position: absolute;
     right: 0;
@@ -825,6 +832,7 @@ html {
   #editor-page #editor-slideout-overlay {
     background: linear-gradient(rgba(42, 42, 42, 0.9), rgba(42, 42, 42, 0.9));
     bottom: 0;
+    display: none;
     height: 200%;
     left: 0;
     position: absolute;

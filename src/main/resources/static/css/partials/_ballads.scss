@@ -6,6 +6,76 @@ html {
 #ballads-page {
   // background: linear-gradient(#F4E6ED,#A8A8FF);
   height: 100%;
+  #profile-head{
+    width: 100%;
+    background: $magenta;
+    height: 400px;
+    .container {
+      width: 80%;
+      height: 100%;
+      margin: 0 auto;
+      .pic-container,.description {
+        display: inline-block;
+        height: 100%;
+        // background: white;
+      }
+      .pic-container {
+        width: 30%;
+        position: relative;
+        .pic-holder {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .pic {
+            width: 250px;
+            height: 250px;
+            // background: black;
+            background: url('https://placehold.it/350x350');
+            background-size: contain;
+            background-repeat: no-repeat;
+            clip-path: circle(125px at 125px 125px);
+            transition: .1s;
+            &:hover {
+              transform: scale(1.05);
+            }
+          }
+
+        }
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+      }
+      .description {
+        width: 50%;
+        position: relative;
+        .description-container {
+          position: absolute;
+          width: 80%;
+          left: 10%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          color: white;
+          h1 {
+            font-size: 3em;
+            text-transform: uppercase;
+          }
+          h2 {
+            font-size: 1.5em;
+          }
+          p {
+            font-size: 1.1em;
+            line-height: 30px;
+            letter-spacing: .5px;
+          }
+        }
+      }
+    }
+  }
 
   #tools-section {
     align-items: center;

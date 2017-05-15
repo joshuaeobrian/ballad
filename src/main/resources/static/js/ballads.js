@@ -1,6 +1,104 @@
 /**
  * Global properties
  */
+ var grid = false;
+
+$('.container').click(function() {
+  if(grid) {
+    tolist();
+    grid = !grid;
+  } else {
+    togrid();
+    grid = !grid;
+  }
+
+})
+
+togrid = function() {
+  $('#a').animate({
+    top: '0%',
+    height: '30%',
+  },200).animate({
+    width: '63%',
+  },200);
+  $('#b').animate({
+    top: '33%',
+    height: '30%',
+  },200).animate({
+    left: '0%',
+    width: '63%'
+  },200);
+  $('#c').animate({
+    top: '0%',
+    height: '30%',
+  },200).animate({
+
+  },200);
+  $('#d').animate({
+    top: '66%',
+    height: '30%',
+  },200).animate({
+    width: '63%',
+  },200)
+  $('#e').animate({
+    top: '66%',
+    height: '30%',
+  },200).animate({
+    left: '66%',
+  },200)
+  $('#f').animate({
+    top: '33%',
+    height: '30%',
+  },200);
+}
+
+tolist = function() {
+  $('#a').animate({
+    top: '0%',
+    height: '30%',
+    width: '30%'
+  },200).animate({
+    height: '55%',
+  },200);
+  $('#b').animate({
+    left: '33%',
+    width: '30%',
+  },200).animate({
+    top: '0%',
+    height: '25%'
+  },200);
+  $('#c').animate({
+    top: '0%',
+    height: '30%',
+  },200).animate({
+    top: '0%',
+    height: '75%'
+  },200);
+  $('#d').animate({
+    top: '66%',
+    height: '30%',
+    width: '30%'
+  },200).animate({
+    top: '60%',
+    height: '40%',
+    width: '30%',
+  },200)
+  $('#e').animate({
+    top: '66%',
+    height: '30%',
+    left: '33%'
+  },200).animate({
+    top: '30%',
+    height: '70%',
+    left: '33%',
+  },200)
+  $('#f').animate({
+    left: '66%',
+  },200).animate({
+    top: '80%',
+    height: '20%'
+  },200);
+}
 const pageLocation = window.location.href;
 const sortIndex = {
     Title:1,

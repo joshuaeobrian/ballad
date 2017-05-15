@@ -135,7 +135,7 @@
         </div>
         <div class="save">
           <button value="Export">Export</button>
-          <button value="Save">Save</button>
+          <button value="Save" th:value="${allowEdit}? 'Save':'Like'" th:text="${allowEdit}? 'Save':'Like'">Save</button>
 
         </div>
 

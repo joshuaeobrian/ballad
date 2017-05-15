@@ -159,8 +159,8 @@
         <div class="pop-ballad" th:each="popular : ${topThree}" th:object="${popular}">
           <div class="top-border"></div>
             <h1 th:text="*{title}">Humble</h1>
-            <h2 th:text="*{owner.firstName}">Kendrick Lamar</h2>
-            <p th:text="*{ballad}">"My left stroke just went Viral<br/>Right stroke put lil' baby in a spiral"</p>
+            <h2 th:text="|*{owner.firstName} *{owner.lastName}|">Kendrick Lamar</h2>
+            <p th:text="*{ballad.length() > 100} ? *{ballad.substring(0,ballad.substring(0,100).lastIndexOf(' '))}+'...' : *{ballad}+'...'">"My left stroke just went Viral<br/>Right stroke put lil' baby in a spiral"</p>
             <span th:text="*{{creationDate}}">3/7/17</span>
           <div class="bottom-border"></div>
         </div>

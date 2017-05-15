@@ -89,9 +89,7 @@ public class BalladController {
 
     @RequestMapping("/viewBallad")
     public String viewThisBallad(HttpSession session,Model model, Integer balladId){
-        if(session.isNew()|| Integer.parseInt(session.getAttribute("userId").toString())==0){
-            return "redirect:/";
-        }
+
         Object[] current = sessionService.isSession(session);
         User user =(User) current[1];
         model.addAttribute("user", current[1]);

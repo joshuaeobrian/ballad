@@ -170,6 +170,11 @@ const createBallad = (ballad)=>{
         bdelete.setAttribute("aria-hidden","true");
         listDiv.appendChild(pencil);
         listDiv.appendChild(bdelete);
+    }else{
+        var popView = document.createElement("i");
+        popView.className = "fa fa-eye viewBallad";
+        popView.setAttribute("aria-hidden","true");
+        listDiv.appendChild(popView);
     }
     listDiv.appendChild(title);
     listDiv.appendChild(author);
@@ -364,10 +369,6 @@ $(document).ready(function () {
             const ballad_id = $(this).parent().find("input[type=hidden]").val();
             console.log(ballad_id);
             window.location = "/editor/"+ballad_id;
-        }else if(pageLocation.includes("my-ballads")){
-            const ballad_id = $(this).parent().find("input[type=hidden]").val();
-            console.log(ballad_id);
-            window.location = "/viewBallad?balladId="+ballad_id;
         }
     });
     $("div").on("click",".deleteBallad", function (e) {
@@ -383,6 +384,13 @@ $(document).ready(function () {
                 }
             );
             $(this).parent().parent().remove();
+        }
+    });
+    $("div").on('click',".viewBallad",function (e) {
+        if(pageLocation.includes("popular")){
+            const ballad_id = $(this).parent().find("input[type=hidden]").val();
+            console.log(ballad_id);
+            window.location = "/viewBallad?balladId="+ballad_id;
         }
     });
 

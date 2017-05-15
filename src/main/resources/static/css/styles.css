@@ -542,6 +542,58 @@ html {
 
 #ballads-page {
   height: 100%; }
+  #ballads-page #profile-head {
+    width: 100%;
+    background: #9c0f5f;
+    height: 400px; }
+    #ballads-page #profile-head .container {
+      width: 80%;
+      height: 100%;
+      margin: 0 auto; }
+      #ballads-page #profile-head .container .pic-container, #ballads-page #profile-head .container .description {
+        display: inline-block;
+        height: 100%; }
+      #ballads-page #profile-head .container .pic-container {
+        width: 30%;
+        position: relative; }
+        #ballads-page #profile-head .container .pic-container .pic-holder {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          #ballads-page #profile-head .container .pic-container .pic-holder .pic {
+            width: 250px;
+            height: 250px;
+            background: url("https://placehold.it/350x350");
+            background-size: contain;
+            background-repeat: no-repeat;
+            clip-path: circle(125px at 125px 125px);
+            transition: .1s; }
+            #ballads-page #profile-head .container .pic-container .pic-holder .pic:hover {
+              transform: scale(1.05); }
+      #ballads-page #profile-head .container .description {
+        width: 50%;
+        position: relative; }
+        #ballads-page #profile-head .container .description .description-container {
+          position: absolute;
+          width: 80%;
+          left: 10%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          color: white; }
+          #ballads-page #profile-head .container .description .description-container h1 {
+            font-size: 3em;
+            text-transform: uppercase; }
+          #ballads-page #profile-head .container .description .description-container h2 {
+            font-size: 1.5em; }
+          #ballads-page #profile-head .container .description .description-container p {
+            font-size: 1.1em;
+            line-height: 30px;
+            letter-spacing: .5px; }
   #ballads-page #tools-section {
     align-items: center;
     display: flex;
@@ -840,17 +892,6 @@ html {
     top: 0;
     width: 100%;
     z-index: 50; }
-  #editor-page #editor-slideout-overlay {
-    background: linear-gradient(rgba(42, 42, 42, 0.9), rgba(42, 42, 42, 0.9));
-    bottom: 0;
-    display: none;
-    height: 200%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    z-index: 50; }
   #editor-page header {
     height: 100px; }
   #editor-page .header2 {
@@ -860,7 +901,8 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center; }
-    #editor-page .header2 .top-head, #editor-page .header2 .bottom-head {
+    #editor-page .header2 .bottom-head,
+    #editor-page .header2 .top-head {
       width: 80%;
       height: 50%; }
     #editor-page .header2 .top-head input {
@@ -872,192 +914,194 @@ html {
       margin-top: 10px; }
       #editor-page .header2 .top-head input:after {
         content: "By: Isaiah Anderson"; }
-        #editor-page .header2 .top-head input:after .top-head input {
-          font-size: 2rem;
-          background: none;
-          color: white;
-          font-style: italic;
-          border: none;
-          margin-top: 10px; }
-          #editor-page .header2 .top-head input:after .top-head input:after {
-            content: "By: Isaiah Anderson"; }
-        #editor-page .header2 .top-head input:after .top-head .save-and-cancel {
-          display: none; }
-        #editor-page .header2 .top-head input:after .top-head .hamburger-container #editor-slideout-button .fa-bars {
-          display: none; }
-        #editor-page .header2 .top-head input:after .bottom-head {
-          display: flex;
-          justify-content: space-between; }
-          #editor-page .header2 .top-head input:after .bottom-head .align, #editor-page .header2 .top-head input:after .bottom-head .notes, #editor-page .header2 .top-head input:after .bottom-head .rhyme, #editor-page .header2 .top-head input:after .bottom-head .save, #editor-page .header2 .top-head input:after .bottom-head .status, #editor-page .header2 .top-head input:after .bottom-head .tools, #editor-page .header2 .top-head input:after .bottom-head .transform {
-            display: flex;
-            align-items: center;
-            color: white;
-            font-size: 1.5rem; }
-          #editor-page .header2 .top-head input:after .bottom-head .tools span {
-            color: white;
-            letter-spacing: 1px; }
-            #editor-page .header2 .top-head input:after .bottom-head .tools span ul {
-              list-style: none;
-              position: absolute;
-              display: none;
-              margin: 0;
-              padding: 10px;
-              background: #2a2a2a; }
-              #editor-page .header2 .top-head input:after .bottom-head .tools span ul li:hover {
-                color: #04a777; }
-          #editor-page .header2 .top-head input:after .bottom-head .rhyme button {
-            background: none;
-            border: none;
-            color: #04a777;
-            font-size: 1rem;
-            letter-spacing: 1px; }
-          #editor-page .header2 .top-head input:after .bottom-head .transform button {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1rem;
-            margin: 3px; }
-          #editor-page .header2 .top-head input:after .bottom-head .transform .font-selector {
-            position: relative; }
-            #editor-page .header2 .top-head input:after .bottom-head .transform .font-selector #fonts {
-              display: none;
-              list-style: none;
-              position: absolute;
-              top: 0;
-              margin-top: 20px;
-              right: 0; }
-              #editor-page .header2 .top-head input:after .bottom-head .transform .font-selector #fonts li {
-                text-align: right;
-                color: #04a777;
-                cursor: default; }
-          #editor-page .header2 .top-head input:after .bottom-head .align button {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1rem;
-            margin: 3px; }
-          #editor-page .header2 .top-head input:after .bottom-head .status {
-            /* Hide default HTML checkbox */
-            /* The slider */
-            /* Rounded sliders */ }
-            #editor-page .header2 .top-head input:after .bottom-head .status .switch {
-              position: relative;
-              display: inline-block;
-              width: 30px;
-              height: 17px;
-              margin-left: 10px; }
-            #editor-page .header2 .top-head input:after .bottom-head .status .switch input {
-              display: none; }
-            #editor-page .header2 .top-head input:after .bottom-head .status .slider {
-              position: absolute;
-              cursor: pointer;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background-color: #ccc;
-              -webkit-transition: 0.4s;
-              transition: 0.4s; }
-            #editor-page .header2 .top-head input:after .bottom-head .status .slider:before {
-              position: absolute;
-              content: "";
-              height: 13px;
-              width: 13px;
-              left: 2px;
-              bottom: 2px;
-              background-color: white;
-              -webkit-transition: 0.4s;
-              transition: 0.4s; }
-            #editor-page .header2 .top-head input:after .bottom-head .status input:checked + .slider {
-              background-color: #2196F3; }
-            #editor-page .header2 .top-head input:after .bottom-head .status input:focus + .slider {
-              box-shadow: 0 0 1px #2196F3; }
-            #editor-page .header2 .top-head input:after .bottom-head .status input:checked + .slider:before {
-              -webkit-transform: translateX(13px);
-              -ms-transform: translateX(13px);
-              transform: translateX(13px); }
-            #editor-page .header2 .top-head input:after .bottom-head .status .slider.round {
-              border-radius: 17px; }
-            #editor-page .header2 .top-head input:after .bottom-head .status .slider.round:before {
-              border-radius: 50%; }
-          #editor-page .header2 .top-head input:after .bottom-head .save {
-            justify-content: flex-end;
-            width: 20%; }
-            #editor-page .header2 .top-head input:after .bottom-head .save button {
-              background: #04a777;
-              color: white;
-              font-size: 1rem;
-              box-sizing: border-box;
-              padding: 10px 20px;
-              border: none;
-              border-radius: 20px;
-              margin-left: 15px; }
-    #editor-page .header2 .top-head .container {
-      width: 100%;
-      height: 100vh;
+    #editor-page .header2 .top-head .save-and-cancel {
+      display: none; }
+    #editor-page .header2 .top-head .hamburger-container #editor-slideout-button .fa-bars {
+      display: none; }
+    #editor-page .header2 .bottom-head {
       display: flex;
-      flex-direction: row;
       justify-content: space-between; }
-      #editor-page .header2 .top-head .container .main-area {
-        width: 70%; }
-        #editor-page .header2 .top-head .container .main-area .scheme {
+      #editor-page .header2 .bottom-head .align, #editor-page .header2 .bottom-head .notes, #editor-page .header2 .bottom-head .rhyme, #editor-page .header2 .bottom-head .save, #editor-page .header2 .bottom-head .status, #editor-page .header2 .bottom-head .tools, #editor-page .header2 .bottom-head .transform {
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 1.5rem; }
+      #editor-page .header2 .bottom-head .tools span {
+        color: white;
+        letter-spacing: 1px; }
+        #editor-page .header2 .bottom-head .tools span ul {
+          list-style: none;
+          position: absolute;
+          display: none;
           margin: 0;
-          position: absolute;
-          font-size: 1.5rem;
-          padding-top: 80px;
-          line-height: 40px;
-          color: #9c0f5f; }
-          #editor-page .header2 .top-head .container .main-area .scheme .rhymetype.A {
-            color: #26547c; }
-          #editor-page .header2 .top-head .container .main-area .scheme .rhymetype.B {
+          padding: 10px;
+          background: #2a2a2a; }
+          #editor-page .header2 .bottom-head .tools span ul li:hover {
             color: #04a777; }
-          #editor-page .header2 .top-head .container .main-area .scheme .rhymetype.C {
-            color: #2a2a2a; }
-          #editor-page .header2 .top-head .container .main-area .scheme .rhymetype.D {
-            color: #9c0f5f; }
-          #editor-page .header2 .top-head .container .main-area .scheme .rhymetype.sectionedchorus {
-            padding-right: 10px;
-            padding-left: 10px;
-            border-right: 2px solid #04a777; }
-          #editor-page .header2 .top-head .container .main-area .scheme .rhymetype.sectionedverse {
-            padding-right: 10px;
-            padding-left: 15px;
-            border-right: 2px solid #9c0f5f; }
-          #editor-page .header2 .top-head .container .main-area .scheme .rhymetype.sectionedbridge {
-            padding-right: 10px;
-            padding-left: 5px;
-            border-right: 2px solid #26547c; }
-          #editor-page .header2 .top-head .container .main-area .scheme .rhymetype.sectionedsection {
-            padding-right: 10px;
-            padding-left: 5px;
-            border-right: 2px solid #2a2a2a; }
-        #editor-page .header2 .top-head .container .main-area textarea {
-          width: 100%;
-          height: 100%;
-          box-sizing: border-box;
-          padding-left: 80px;
-          padding-top: 80px;
-          font-size: 1.5rem;
-          line-height: 40px;
-          border: none;
-          background: transparent;
-          resize: none;
-          color: #2a2a2a; }
-        #editor-page .header2 .top-head .container .main-area #rendered-text {
-          z-index: -1;
+      #editor-page .header2 .bottom-head .rhyme button {
+        background: none;
+        border: none;
+        color: #04a777;
+        font-size: 1rem;
+        letter-spacing: 1px; }
+      #editor-page .header2 .bottom-head .transform button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        margin: 3px; }
+      #editor-page .header2 .bottom-head .transform .font-selector {
+        position: relative; }
+        #editor-page .header2 .bottom-head .transform .font-selector #fonts {
+          display: none;
+          list-style: none;
           position: absolute;
-          top: 240px;
-          width: 70%;
-          height: 100%;
+          top: 0;
+          margin-top: 20px;
+          right: 0; }
+          #editor-page .header2 .bottom-head .transform .font-selector #fonts li {
+            text-align: right;
+            color: #04a777;
+            cursor: default; }
+      #editor-page .header2 .bottom-head .align button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        margin: 3px; }
+      #editor-page .header2 .bottom-head .status {
+        /* Hide default HTML checkbox */
+        /* The slider */
+        /* Rounded sliders */ }
+        #editor-page .header2 .bottom-head .status .switch {
+          position: relative;
+          display: inline-block;
+          width: 30px;
+          height: 17px;
+          margin-left: 10px; }
+        #editor-page .header2 .bottom-head .status .switch input {
+          display: none; }
+        #editor-page .header2 .bottom-head .status .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: 0.4s;
+          transition: 0.4s; }
+        #editor-page .header2 .bottom-head .status .slider:before {
+          position: absolute;
+          content: "";
+          height: 13px;
+          width: 13px;
+          left: 2px;
+          bottom: 2px;
+          background-color: white;
+          -webkit-transition: 0.4s;
+          transition: 0.4s; }
+        #editor-page .header2 .bottom-head .status input:checked + .slider {
+          background-color: #2196F3; }
+        #editor-page .header2 .bottom-head .status input:focus + .slider {
+          box-shadow: 0 0 1px #2196F3; }
+        #editor-page .header2 .bottom-head .status input:checked + .slider:before {
+          -webkit-transform: translateX(13px);
+          -ms-transform: translateX(13px);
+          transform: translateX(13px); }
+        #editor-page .header2 .bottom-head .status .slider.round {
+          border-radius: 17px; }
+        #editor-page .header2 .bottom-head .status .slider.round:before {
+          border-radius: 50%; }
+      #editor-page .header2 .bottom-head .save {
+        justify-content: flex-end;
+        width: 20%; }
+        #editor-page .header2 .bottom-head .save button {
+          background: #04a777;
+          color: white;
+          font-size: 1rem;
           box-sizing: border-box;
-          padding-left: 80px;
-          padding-top: 80px;
-          font-size: 1.5rem;
-          line-height: 40px; }
-      #editor-page .header2 .top-head .container .rhymes {
-        width: 30%;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          margin-left: 15px; }
+  #editor-page .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
+    #editor-page .container .main-area {
+      width: 70%; }
+      #editor-page .container .main-area .scheme {
+        margin: 0;
+        position: absolute;
+        font-size: 1.5rem;
+        padding-top: 80px;
+        line-height: 40px;
+        color: #9c0f5f; }
+        #editor-page .container .main-area .scheme .rhymetype.A {
+          color: #26547c; }
+        #editor-page .container .main-area .scheme .rhymetype.B {
+          color: #04a777; }
+        #editor-page .container .main-area .scheme .rhymetype.C {
+          color: #2a2a2a; }
+        #editor-page .container .main-area .scheme .rhymetype.D {
+          color: #9c0f5f; }
+        #editor-page .container .main-area .scheme .rhymetype.sectionedchorus {
+          padding-right: 10px;
+          padding-left: 10px;
+          border-right: 2px solid #04a777; }
+        #editor-page .container .main-area .scheme .rhymetype.sectionedverse {
+          padding-right: 10px;
+          padding-left: 15px;
+          border-right: 2px solid #9c0f5f; }
+        #editor-page .container .main-area .scheme .rhymetype.sectionedbridge {
+          padding-right: 10px;
+          padding-left: 5px;
+          border-right: 2px solid #26547c; }
+        #editor-page .container .main-area .scheme .rhymetype.sectionedsection {
+          padding-right: 10px;
+          padding-left: 5px;
+          border-right: 2px solid #2a2a2a; }
+      #editor-page .container .main-area textarea {
+        width: 100%;
         height: 100%;
-        background: #ddd; }
+        box-sizing: border-box;
+        padding-left: 80px;
+        padding-right: 60px;
+        padding-top: 80px;
+        font-size: 1.5rem;
+        line-height: 40px;
+        border: none;
+        background: transparent;
+        resize: none;
+        color: #2a2a2a; }
+      #editor-page .container .main-area #rendered-text {
+        z-index: -1;
+        position: absolute;
+        top: 240px;
+        width: 70%;
+        height: 100%;
+        box-sizing: border-box;
+        padding-left: 80px;
+        padding-top: 80px;
+        font-size: 1.5rem;
+        line-height: 40px; }
+    #editor-page .container .rhymes-container {
+      width: 30%;
+      height: 100%;
+      background: #ddd;
+      text-align: center;
+      padding-top: 50px; }
+      #editor-page .container .rhymes-container .rhymes {
+        width: 100%; }
+        #editor-page .container .rhymes-container .rhymes .rhyme {
+          display: inline-block;
+          padding: 5px 10px;
+          border-radius: 5px;
+          border: 1px solid #2a2a2a;
+          margin: 5px; }
 
 html {
   min-height: 100%;

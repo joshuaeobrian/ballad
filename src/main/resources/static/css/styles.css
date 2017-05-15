@@ -595,11 +595,11 @@ html {
         margin: 0;
         padding: 0;
         position: relative;
-        top: 90px; }
+        top: 70px; }
         #ballads-page #tools-section .rbox #sort-list li {
-          font-size: 1.15rem;
+          font-size: 1rem;
           font-weight: bold;
-          padding-right: 30px;
+          padding-right: 34px;
           text-align: left; }
         #ballads-page #tools-section .rbox #sort-list li:hover {
           color: #04a777; }
@@ -1044,9 +1044,9 @@ html {
         margin: 0;
         padding: 0;
         position: relative;
-        top: 40px; }
+        top: 30px; }
         #profile .container .top .rprofile #color-list li {
-          font-size: 1.15rem;
+          font-size: 1rem;
           font-weight: bold;
           padding-left: 12px;
           text-align: left; }

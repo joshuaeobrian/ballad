@@ -178,27 +178,24 @@ header {
         object-fit: contain;
         width: 40%; }
       header .head-container .top-head a {
+        font-size: 1rem;
         text-decoration: none;
-        letter-spacing: 1px;
         color: #2a2a2a; }
       header .head-container .top-head #logged {
         position: relative; }
         header .head-container .top-head #logged .dropdown {
           background: white;
-          border: 2px solid #2a2a2a;
           display: none;
+          left: -4px;
           margin: 0;
-          padding: 0;
+          padding-left: 4px;
           position: absolute;
-          right: -32px;
-          text-align: center; }
+          text-align: left; }
           header .head-container .top-head #logged .dropdown li {
             color: #2a2a2a;
             font-size: 1rem;
-            letter-spacing: 1px;
             line-height: 25px;
             list-style-type: none;
-            padding-top: 2px;
             width: 130px; }
             header .head-container .top-head #logged .dropdown li:hover {
               color: #04a777; }
@@ -679,10 +676,6 @@ html {
           #ballads-page #tools-section .rbox .layout-icon .container #c, #ballads-page #tools-section .rbox .layout-icon .container #f {
             left: 66%; }
       #ballads-page #tools-section .rbox #sort-dropdown {
-        background: #04a777;
-        border: none;
-        border-radius: 15px;
-        box-sizing: border-box;
         cursor: pointer;
         display: inline-block;
         padding: 10px 15px;
@@ -691,28 +684,22 @@ html {
         top: 50%;
         transform: translateY(-50%); }
         #ballads-page #tools-section .rbox #sort-dropdown span {
-          color: white;
-          font-size: 1.15rem;
-          font-weight: bold; }
+          font-size: 1rem; }
         #ballads-page #tools-section .rbox #sort-dropdown i {
-          color: white;
-          font-size: 1.15rem;
-          font-weight: bold; }
+          font-size: 1rem; }
       #ballads-page #tools-section .rbox #sort-list {
         cursor: pointer;
         display: none;
-        left: 140px;
+        left: 148px;
         list-style: none;
         margin: 0;
         padding: 0;
         position: absolute;
-        right: 35px;
-        top: 30px;
-        width: 80px; }
+        top: 12px;
+        width: 60px; }
         #ballads-page #tools-section .rbox #sort-list li {
           font-size: 1rem;
-          font-weight: bold;
-          text-align: center; }
+          text-align: left; }
         #ballads-page #tools-section .rbox #sort-list li:hover {
           color: #04a777; }
   #ballads-page #ballad-cards-container-grid {
@@ -809,7 +796,9 @@ html {
   .my-ballads #tools-section .lbox h2 {
     color: #04a777; }
   .my-ballads #tools-section .mbox input {
-    border: 2px solid #2a2a2a; }
+    border: none;
+    border-bottom: 2px solid #2a2a2a;
+    text-align: center; }
   .my-ballads #tools-section .rbox #sort-list {
     color: #2a2a2a; }
   .my-ballads #tools-section .rbox #a, .my-ballads #tools-section .rbox #b, .my-ballads #tools-section .rbox #c, .my-ballads #tools-section .rbox #d, .my-ballads #tools-section .rbox #e, .my-ballads #tools-section .rbox #f {
@@ -833,7 +822,30 @@ html {
   .popular #tools-section .lbox h2 {
     color: white; }
   .popular #tools-section .mbox input {
-    border: none; }
+    background: none;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    text-align: center; }
+  .popular #tools-section .mbox ::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: white; }
+  .popular #tools-section .mbox :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: white;
+    opacity: 1; }
+  .popular #tools-section .mbox ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: white;
+    opacity: 1; }
+  .popular #tools-section .mbox :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: white; }
+  .popular #tools-section .mbox ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: white; }
+  .popular #tools-section .rbox #sort-dropdown span, .popular #tools-section .rbox #sort-dropdown i {
+    color: white; }
   .popular #tools-section .rbox #sort-list {
     color: white; }
   .popular #tools-section .rbox #a, .popular #tools-section .rbox #b, .popular #tools-section .rbox #c, .popular #tools-section .rbox #d, .popular #tools-section .rbox #e, .popular #tools-section .rbox #f {
@@ -1254,7 +1266,7 @@ html {
         border-bottom: 1px solid #2a2a2a;
         text-align: center;
         margin-bottom: 40px;
-        font-size: 1.5rem;
+        font-size: 1.15rem;
         width: 80%;
         color: #2a2a2a;
         font-weight: light; }
@@ -1339,21 +1351,15 @@ html {
         text-align: center; }
       #profile .container .top .rprofile #color-dropdown {
         cursor: pointer;
-        background: #9c0f5f;
         border: none;
-        border-radius: 15px;
-        box-sizing: border-box;
-        padding: 10px 15px;
         position: relative;
         top: 20px; }
         #profile .container .top .rprofile #color-dropdown span {
-          color: white;
-          font-size: 1.15rem;
-          font-weight: bold; }
+          color: #2a2a2a;
+          font-size: 1.15rem; }
         #profile .container .top .rprofile #color-dropdown i {
-          color: white;
-          font-size: 1.15rem;
-          font-weight: bold; }
+          color: #2a2a2a;
+          font-size: 1.15rem; }
       #profile .container .top .rprofile #color-list {
         cursor: pointer;
         display: none;
@@ -1361,20 +1367,11 @@ html {
         margin: 0;
         padding: 0;
         position: relative;
-        top: 30px;
-        width: 80px; }
+        top: 20px;
+        width: 100%; }
         #profile .container .top .rprofile #color-list li {
-          font-size: 1rem;
-          font-weight: bold;
-          text-align: center; }
-        #profile .container .top .rprofile #color-list #blue:hover {
-          color: #26547c; }
-        #profile .container .top .rprofile #color-list #green:hover {
-          color: #04a777; }
-        #profile .container .top .rprofile #color-list #pink:hover {
-          color: #9c0f5f; }
-        #profile .container .top .rprofile #color-list #yellow:hover {
-          color: #ffd166; }
+          font-size: 1.15rem;
+          text-align: left; }
     #profile .container .info {
       width: 40%; }
       #profile .container .info .field {

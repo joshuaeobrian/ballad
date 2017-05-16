@@ -140,12 +140,12 @@ $(document).ready(function() {
    checkAlign();
  });
  $('#current-font').click(function() {
-   $('#fonts').toggle();
+   $('#fonts').slideDown();
  });
  $('.font-choice').click(function() {
    $('#mytext').css('font-family',$(this).html());
    $('#current-font').html($(this).html()+' <i class="fa fa-angle-down" aria-hidden="true"></i>');
-   $('#fonts').toggle();
+   $('#fonts').slideUp();
  });
 });
 function checkAlign() {
@@ -262,6 +262,10 @@ $(document).ready(function () {
     $('#tools').click(function() {
       $('#tool-list').slideToggle();
     });
+
+    // $('#current-font').click(function() {
+    //   $('#fonts').slideToggle();
+    // });
 
 
     $("button").click(function (e) {

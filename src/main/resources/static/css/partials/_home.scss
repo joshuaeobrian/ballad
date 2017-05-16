@@ -255,8 +255,9 @@ header {
       }
 
       a {
+        font-size: 1rem;
         text-decoration: none;
-        letter-spacing: 1px;
+        // letter-spacing: 1px;
         color: $black;
       }
 
@@ -265,23 +266,23 @@ header {
 
         .dropdown {
           background: white;
-          border: 2px solid $black;
+          // border: 2px solid $black;
           // box-shadow: -1px 1px 3px #888888;
           display: none;
+          left: -4px;
           margin: 0;
-          padding: 0;
+          padding-left: 4px;
           position: absolute;
-          right: -32px;
-          text-align: center;
+          text-align: left;
 
           li {
             color: $black;
             font-size: 1rem;
-            letter-spacing: 1px;
+            // letter-spacing: 1px;
             line-height: 25px;
             list-style-type: none;
             // padding-left: 4px;
-            padding-top: 2px;
+            // padding-top: 2px;
             width: 130px;
 
             &:hover {

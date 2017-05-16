@@ -112,7 +112,7 @@
           <span id="color-dropdown" th:class="${myColor.hexCode}">
             <input type="hidden" id="color-id" name="colorCode" th:value="${myColor.id}"/>
             <span id="current-color" th:text="${myColor.colorName}">Pink</span>
-            <i class="fa fa-angle-down" aria-hidden="true"></i>
+            <i id="color-fa-angle-down" class="fa fa-angle-down" aria-hidden="true"></i>
           </span>
           <ul id="color-list">
             <li id="blue" value="blue" th:each="color : ${colors}" th:object="${color}" th:id="${color.id}" th:value="*{hexCode}" th:text="*{colorName}" th:style="|color:*{hexCode};|">Blue</li>

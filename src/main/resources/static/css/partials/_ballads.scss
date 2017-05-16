@@ -183,10 +183,10 @@ html {
       }
 
       #sort-dropdown {
-        background: $green;
-        border: none;
-        border-radius: 15px;
-        box-sizing: border-box;
+        // background: $green;
+        // border: none;
+        // border-radius: 15px;
+        // box-sizing: border-box;
         cursor: pointer;
         display: inline-block;
         padding: 10px 15px;
@@ -196,35 +196,32 @@ html {
         transform: translateY(-50%);
 
         span {
-          color: white;
-          font-size: 1.15rem;
-          font-weight: bold;
+          // color: $black;
+          font-size: 1rem;
         }
 
         i {
-          color: white;
-          font-size: 1.15rem;
-          font-weight: bold;
+          // color: $black;
+          font-size: 1rem;
         }
       }
 
       #sort-list {
         cursor: pointer;
         display: none;
-        left: 140px;
+        left: 148px;
         list-style: none;
         margin: 0;
         padding: 0;
         position: absolute;
-        right: 35px;
-        top: 30px;
-        width: 80px;
+        // right: 35px;
+        top: 12px;
+        width: 60px;
 
         li {
           // color: white;
           font-size: 1rem;
-          font-weight: bold;
-          text-align: center;
+          text-align: left;
         }
 
         li:hover {
@@ -399,7 +396,9 @@ html {
       }
 
     .mbox input {
-      border: 2px solid $black;
+      border: none;
+      border-bottom: 2px solid $black;
+      text-align: center;
     }
 
     .rbox {
@@ -457,11 +456,47 @@ html {
         color: white;
       }
 
-    .mbox input {
-      border: none;
+    .mbox {
+
+      input {
+        background: none;
+        border: none;
+        border-bottom: 2px solid white;
+        color: white;
+        text-align: center;
+      }
+
+      ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color: white;
+      }
+
+      :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: white;
+        opacity: 1;
+      }
+
+      ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: white;
+        opacity: 1;
+      }
+
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color:    white;
+      }
+
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color:    white;
+      }
     }
 
     .rbox {
+
+      #sort-dropdown {
+
+        span, i {
+          color: white;
+        }
+      }
 
       #sort-list {
         color: white;

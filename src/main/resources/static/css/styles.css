@@ -321,17 +321,19 @@ header {
       #home-page #preview .preview-container .pop-ballad .bottom-border {
         clear: both; }
       #home-page #preview .preview-container .pop-ballad h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin: 20px 0 10px 0;
         text-transform: uppercase; }
       #home-page #preview .preview-container .pop-ballad h2 {
         color: #2a2a2a;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         margin: 0px 0px 20px 0px; }
       #home-page #preview .preview-container .pop-ballad p {
+        font-size: 1rem;
         line-height: 25px;
         margin-bottom: 20px; }
       #home-page #preview .preview-container .pop-ballad span {
+        font-size: 1rem;
         float: left;
         margin-bottom: 20px; }
   #home-page #preview a {
@@ -546,7 +548,8 @@ html {
   #ballads-page #profile-head {
     width: 100%;
     background: #9c0f5f;
-    height: 400px; }
+    height: 400px;
+    margin-bottom: 40px; }
     #ballads-page #profile-head .container {
       width: 80%;
       height: 100%;
@@ -565,12 +568,12 @@ html {
           justify-content: center;
           align-items: center; }
           #ballads-page #profile-head .container .pic-container .pic-holder .pic {
-            width: 250px;
-            height: 250px;
+            width: 230px;
+            height: 230px;
             background: url("https://placehold.it/350x350");
             background-size: contain;
             background-repeat: no-repeat;
-            clip-path: circle(125px at 125px 125px);
+            clip-path: circle(115px at 115px 115px);
             transition: .1s; }
             #ballads-page #profile-head .container .pic-container .pic-holder .pic:hover {
               transform: scale(1.05); }
@@ -587,12 +590,13 @@ html {
           justify-content: center;
           color: white; }
           #ballads-page #profile-head .container .description .description-container h1 {
-            font-size: 3em;
+            font-size: 2.5rem;
             text-transform: uppercase; }
           #ballads-page #profile-head .container .description .description-container h2 {
-            font-size: 1.5em; }
+            font-size: 1.5rem;
+            margin-bottom: 20px; }
           #ballads-page #profile-head .container .description .description-container p {
-            font-size: 1.1em;
+            font-size: 1rem;
             line-height: 30px;
             letter-spacing: .5px; }
   #ballads-page #tools-section {
@@ -601,7 +605,7 @@ html {
     height: 100px;
     justify-content: space-between;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     width: 80%; }
     #ballads-page #tools-section .lbox {
       width: 20%; }
@@ -701,7 +705,7 @@ html {
     display: flex;
     justify-content: space-between; }
     #ballads-page #ballad-cards-container-grid .column1, #ballads-page #ballad-cards-container-grid .column2, #ballads-page #ballad-cards-container-grid .column3 {
-      width: 33%; }
+      width: 28%; }
     #ballads-page #ballad-cards-container-grid .ballad-card {
       box-sizing: border-box;
       padding: 10px;
@@ -732,11 +736,12 @@ html {
         right: 20px;
         top: 30px; }
       #ballads-page #ballad-cards-container-grid .ballad-card h1 {
-        font-size: 2rem;
-        margin: 20px 0 10px 0;
-        text-transform: uppercase; }
-      #ballads-page #ballad-cards-container-grid .ballad-card h2 {
         font-size: 1.5rem;
+        margin: 20px 0 10px 0;
+        text-transform: uppercase;
+        width: 75%; }
+      #ballads-page #ballad-cards-container-grid .ballad-card h2 {
+        font-size: 1.25rem;
         margin: 0px 0px 20px 0px; }
       #ballads-page #ballad-cards-container-grid .ballad-card p {
         font-size: 1rem;
@@ -749,7 +754,7 @@ html {
       #ballads-page #ballad-cards-container-grid .ballad-card .private {
         float: right; }
         #ballads-page #ballad-cards-container-grid .ballad-card .private span {
-          font-size: 1.3rem;
+          font-size: 1.25rem;
           font-weight: bold; }
   #ballads-page #ballad-cards-container-list {
     width: 80%;
@@ -827,6 +832,7 @@ html {
   height: 100%; }
   #editor-page #editor-slideout-menu {
     background: white;
+    display: none;
     height: 200%;
     position: absolute;
     right: 0;
@@ -957,6 +963,7 @@ html {
   #editor-page #editor-slideout-overlay {
     background: linear-gradient(rgba(42, 42, 42, 0.9), rgba(42, 42, 42, 0.9));
     bottom: 0;
+    display: none;
     height: 200%;
     left: 0;
     position: absolute;
@@ -982,7 +989,8 @@ html {
       background: none;
       color: white;
       border: none;
-      margin-top: 10px; }
+      margin-top: 10px;
+      width: 100%; }
       #editor-page .header2 .top-head input:after {
         content: "By: Isaiah Anderson"; }
     #editor-page .header2 .top-head .save-and-cancel {
@@ -990,6 +998,7 @@ html {
     #editor-page .header2 .top-head .hamburger-container #editor-slideout-button .fa-bars {
       display: none; }
     #editor-page .header2 .bottom-head {
+      align-items: center;
       display: flex;
       justify-content: space-between; }
       #editor-page .header2 .bottom-head .align, #editor-page .header2 .bottom-head .notes, #editor-page .header2 .bottom-head .rhyme, #editor-page .header2 .bottom-head .save, #editor-page .header2 .bottom-head .status, #editor-page .header2 .bottom-head .tools, #editor-page .header2 .bottom-head .transform {
@@ -1001,6 +1010,7 @@ html {
         font-size: 1.5rem; }
         #editor-page .header2 .bottom-head .user-container h3 #user {
           color: #04a777;
+          cursor: pointer;
           font-size: 1.5rem; }
       #editor-page .header2 .bottom-head .tools span {
         color: white;
@@ -1095,6 +1105,7 @@ html {
         #editor-page .header2 .bottom-head .save button {
           background: #04a777;
           color: white;
+          cursor: pointer;
           font-size: 1.15rem;
           font-weight: bold;
           box-sizing: border-box;

@@ -359,7 +359,7 @@ $(document).ready(function () {
 
     $("#ballads-search").on('keydown',function (e) {
         const option = document.getElementById("current-sort").textContent;
-        // console.log(option);
+
         let config = {};
 
         if(pageLocation.includes("user-profile")) {

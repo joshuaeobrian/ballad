@@ -111,8 +111,8 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("/userlogin")
-    public boolean[] validateUser(HttpSession session, String username, String password){
-        boolean[] response = new boolean[2];
+    public Object[] validateUser(HttpSession session, String username, String password){
+        Object[] response = new Object[3];
 
         try {
             User user = userService.login(username);
@@ -123,6 +123,7 @@ public class UserController {
 
                 response[0] = true;
                 response[1] = true;
+                response[2] = user.getFirstName();
                 return response;
             }else{
                 session.setAttribute("userId",0);

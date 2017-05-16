@@ -100,8 +100,9 @@
       <div class="container">
         <div class="pic-container">
           <div class="pic-holder">
+
             <img class="pic" th:src="${showProfile}? @{|/user/image/profile?userId=${user.id}|} : @{|/user/image|}">
-              
+      
             </img>
 
           </div>
@@ -110,7 +111,7 @@
         <div class="description" >
           <div class="description-container">
             <h1>Future</h1>
-            <h2 th:text="|${user.firstName} ${user.lastName}|">Nayvidius Cash</h2>
+            <h2 th:text="|${user.firstName} ${user.lastName}|">Nayvadius Cash</h2>
             <p th:text="|${user.about}|">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
           </div>
 

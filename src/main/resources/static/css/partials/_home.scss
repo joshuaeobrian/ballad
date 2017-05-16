@@ -267,12 +267,11 @@ header {
           background: white;
           box-shadow: -1px 1px 3px #888888;
           display: none;
-          left: -4px;
           margin: 0;
           padding: 0;
           position: absolute;
-          // right: 10%;
-          text-align: left;
+          right: 4px;
+          text-align: right;
 
           li {
             font-size: 1rem;
@@ -498,24 +497,26 @@ header {
         }
 
         h1 {
-          font-size: 2rem;
+          font-size: 1.5rem;
           margin: 20px 0 10px 0;
           text-transform: uppercase;
         }
 
         h2 {
           color: $black;
-          font-size: 1.5rem;
+          font-size: 1.25rem;
           margin: 0px 0px 20px 0px;
           // padding-bottom: 10px;
         }
 
         p {
+          font-size: 1rem;
           line-height: 25px;
           margin-bottom: 20px;
         }
 
         span {
+          font-size: 1rem;
           float: left;
           margin-bottom: 20px;
         }

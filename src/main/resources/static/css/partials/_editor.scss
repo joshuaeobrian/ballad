@@ -10,6 +10,7 @@ html {
     // EDITOR SLIDEOUT MENU
     #editor-slideout-menu {
         background: white;
+        display: none;
         height: 200%;
         position: absolute;
         right: 0;
@@ -186,6 +187,7 @@ html {
     #editor-slideout-overlay {
         background: linear-gradient( rgba(42, 42, 42, 0.90), rgba(42, 42, 42, 0.90));
         bottom: 0;
+        display: none;
         height: 200%;
         left: 0;
         position: absolute;
@@ -201,7 +203,7 @@ html {
 
     .header2 {
         width: 100%;
-        height: 140px;
+        height: 110px;
         background: $black;
         display: flex;
         flex-direction: column;
@@ -222,9 +224,14 @@ html {
                 // font-style: italic;
                 border: none;
                 margin-top: 10px;
+                width: 100%;
 
                 &:after {
                     content: "By: Isaiah Anderson";
+                }
+                &:focus {
+                  outline: none;
+                  // outline-bottom: 1px solid $green;
                 }
             }
 
@@ -237,6 +244,7 @@ html {
         }
 
         .bottom-head {
+            align-items: center;
             display: flex;
             justify-content: space-between;
 
@@ -258,12 +266,14 @@ html {
 
                 #user {
                   color: $green;
+                  cursor: pointer;
                   font-size: 1.5rem;
                 }
               }
             }
 
             .tools {
+              cursor: default;
                 span {
                     color: white;
                     // font-size: 1rem;
@@ -290,7 +300,10 @@ html {
                     border: none;
                     color: $green;
                     font-size: 1rem;
-                    letter-spacing: 1px;
+                    letter-spacing: 2px;
+                    &:focus {
+                      outline: none;
+                    }
                 }
             }
 
@@ -306,7 +319,9 @@ html {
 
                 .font-selector {
                     position: relative;
-
+                    width: 200px;
+                    text-align: center;
+                    cursor: default;
                     #fonts {
                         display: none;
                         list-style: none;
@@ -315,11 +330,20 @@ html {
                         margin-top: 20px;
                         // background: rgba(0,0,0,.1);
                         right: 0;
-
+                        background: $black;
+                        // border: 1px solid #ddd;
+                        // box-sizing:border-box;
+                        // padding: 10px;
+                        width: 100%;
                         li {
-                            text-align: right;
-                            color: $green;
+                            text-align: center;
+                            color: white;
                             cursor: default;
+                            padding: 4px 8px;
+                            &:hover {
+                              // background: $green;
+                              color: $green;
+                            }
                         }
                     }
                 }
@@ -331,7 +355,10 @@ html {
                     border: none;
                     color: white;
                     font-size: 1rem;
-                    margin: 3px;
+                    padding: 3px 5px;
+                    &:focus {
+                      outline: none;
+                    }
                 }
             }
 
@@ -402,12 +429,13 @@ html {
                 button {
                     background: $green;
                     color: white;
+                    cursor: pointer;
                     font-size: 1.15rem;
                     font-weight: bold;
                     box-sizing: border-box;
-                    padding: 10px 20px;
+                    padding: 2px 8px;
                     border: none;
-                    border-radius: 20px;
+                    border-radius: 10px;
                     margin-left: 15px;
                 }
             }
@@ -424,9 +452,9 @@ html {
                   font-size: 1.15rem;
                   font-weight: bold;
                   box-sizing: border-box;
-                  padding: 10px 20px;
+                  padding: 2px 8px;
                   border: none;
-                  border-radius: 20px;
+                  border-radius: 10px;
                   margin-left: 15px;
               }
             }
@@ -446,6 +474,7 @@ html {
             .scheme {
                 margin: 0;
                 position: absolute;
+                left: 40px;
                 font-size: 1.5rem;
                 padding-top: 80px;
                 line-height: 40px;
@@ -504,6 +533,9 @@ html {
                 background: transparent;
                 resize: none;
                 color: $black;
+                &:focus {
+                  outline: none;
+                }
             }
 
             #rendered-text {
@@ -529,7 +561,21 @@ html {
             background: #ddd;
             text-align: center;
             padding-top: 50px;
-
+            overflow: hidden;
+            #wordtorhyme {
+              background: none;
+              border: none;
+              border-bottom: 1px solid $black;
+              text-align: center;
+              margin-bottom: 40px;
+              font-size: 2em;
+              width: 80%;
+              color: $black;
+              font-weight: light;
+              &:focus {
+                outline: none;
+              }
+            }
             .rhymes {
                 width: 100%;
 

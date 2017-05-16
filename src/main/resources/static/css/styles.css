@@ -187,11 +187,11 @@ header {
           background: white;
           box-shadow: -1px 1px 3px #888888;
           display: none;
-          left: -4px;
           margin: 0;
           padding: 0;
           position: absolute;
-          text-align: left; }
+          right: 4px;
+          text-align: right; }
           header .head-container .top-head #logged .dropdown li {
             font-size: 1rem;
             letter-spacing: 1px;
@@ -321,17 +321,19 @@ header {
       #home-page #preview .preview-container .pop-ballad .bottom-border {
         clear: both; }
       #home-page #preview .preview-container .pop-ballad h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin: 20px 0 10px 0;
         text-transform: uppercase; }
       #home-page #preview .preview-container .pop-ballad h2 {
         color: #2a2a2a;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         margin: 0px 0px 20px 0px; }
       #home-page #preview .preview-container .pop-ballad p {
+        font-size: 1rem;
         line-height: 25px;
         margin-bottom: 20px; }
       #home-page #preview .preview-container .pop-ballad span {
+        font-size: 1rem;
         float: left;
         margin-bottom: 20px; }
   #home-page #preview a {
@@ -546,7 +548,8 @@ html {
   #ballads-page #profile-head {
     width: 100%;
     background: #9c0f5f;
-    height: 400px; }
+    height: 400px;
+    margin-bottom: 40px; }
     #ballads-page #profile-head .container {
       width: 80%;
       height: 100%;
@@ -565,12 +568,12 @@ html {
           justify-content: center;
           align-items: center; }
           #ballads-page #profile-head .container .pic-container .pic-holder .pic {
-            width: 250px;
-            height: 250px;
+            width: 230px;
+            height: 230px;
             background: url("https://placehold.it/350x350");
             background-size: contain;
             background-repeat: no-repeat;
-            clip-path: circle(125px at 125px 125px);
+            clip-path: circle(115px at 115px 115px);
             transition: .1s; }
             #ballads-page #profile-head .container .pic-container .pic-holder .pic:hover {
               transform: scale(1.05); }
@@ -587,12 +590,14 @@ html {
           justify-content: center;
           color: white; }
           #ballads-page #profile-head .container .description .description-container h1 {
-            font-size: 3em;
+            display: none;
+            font-size: 2.5rem;
             text-transform: uppercase; }
           #ballads-page #profile-head .container .description .description-container h2 {
-            font-size: 1.5em; }
+            font-size: 2.5rem;
+            margin-bottom: 20px; }
           #ballads-page #profile-head .container .description .description-container p {
-            font-size: 1.1em;
+            font-size: 1rem;
             line-height: 30px;
             letter-spacing: .5px; }
   #ballads-page #tools-section {
@@ -601,7 +606,7 @@ html {
     height: 100px;
     justify-content: space-between;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     width: 80%; }
     #ballads-page #tools-section .lbox {
       width: 20%; }
@@ -686,13 +691,14 @@ html {
         list-style: none;
         margin: 0;
         padding: 0;
-        position: relative;
-        top: 70px; }
+        position: absolute;
+        right: 34px;
+        top: 30px;
+        width: 80px; }
         #ballads-page #tools-section .rbox #sort-list li {
           font-size: 1rem;
           font-weight: bold;
-          padding-right: 34px;
-          text-align: left; }
+          text-align: right; }
         #ballads-page #tools-section .rbox #sort-list li:hover {
           color: #04a777; }
   #ballads-page #ballad-cards-container-grid {
@@ -701,7 +707,7 @@ html {
     display: flex;
     justify-content: space-between; }
     #ballads-page #ballad-cards-container-grid .column1, #ballads-page #ballad-cards-container-grid .column2, #ballads-page #ballad-cards-container-grid .column3 {
-      width: 33%; }
+      width: 30%; }
     #ballads-page #ballad-cards-container-grid .ballad-card {
       box-sizing: border-box;
       padding: 10px;
@@ -732,11 +738,12 @@ html {
         right: 20px;
         top: 30px; }
       #ballads-page #ballad-cards-container-grid .ballad-card h1 {
-        font-size: 2rem;
-        margin: 20px 0 10px 0;
-        text-transform: uppercase; }
-      #ballads-page #ballad-cards-container-grid .ballad-card h2 {
         font-size: 1.5rem;
+        margin: 20px 0 10px 0;
+        text-transform: uppercase;
+        width: 75%; }
+      #ballads-page #ballad-cards-container-grid .ballad-card h2 {
+        font-size: 1.25rem;
         margin: 0px 0px 20px 0px; }
       #ballads-page #ballad-cards-container-grid .ballad-card p {
         font-size: 1rem;
@@ -749,7 +756,12 @@ html {
       #ballads-page #ballad-cards-container-grid .ballad-card .private {
         float: right; }
         #ballads-page #ballad-cards-container-grid .ballad-card .private span {
-          font-size: 1.3rem;
+          font-size: 1.25rem;
+          font-weight: bold; }
+      #ballads-page #ballad-cards-container-grid .ballad-card .public {
+        float: right; }
+        #ballads-page #ballad-cards-container-grid .ballad-card .public span {
+          font-size: 1.25rem;
           font-weight: bold; }
   #ballads-page #ballad-cards-container-list {
     width: 80%;
@@ -791,6 +803,8 @@ html {
   .my-ballads #ballad-cards-container-grid .ballad-card .fa-eye, .my-ballads #ballad-cards-container-grid .ballad-card .fa-pencil, .my-ballads #ballad-cards-container-grid .ballad-card .fa-minus-circle, .my-ballads #ballad-cards-container-grid .ballad-card h1, .my-ballads #ballad-cards-container-grid .ballad-card h2, .my-ballads #ballad-cards-container-grid .ballad-card p, .my-ballads #ballad-cards-container-grid .ballad-card .date {
     color: black; }
   .my-ballads #ballad-cards-container-grid .ballad-card .private span {
+    color: #26547c; }
+  .my-ballads #ballad-cards-container-grid .ballad-card .public span {
     color: #04a777; }
   .my-ballads #ballad-cards-container-grid .ballad-card .bbottom, .my-ballads #ballad-cards-container-grid .ballad-card .btop {
     background: #2a2a2a; }
@@ -810,7 +824,7 @@ html {
     color: white; }
   .popular #tools-section .rbox #a, .popular #tools-section .rbox #b, .popular #tools-section .rbox #c, .popular #tools-section .rbox #d, .popular #tools-section .rbox #e, .popular #tools-section .rbox #f {
     background: white; }
-  .popular #ballad-cards-container-grid .ballad-card .fa-eye, .popular #ballad-cards-container-grid .ballad-card .fa-pencil, .popular #ballad-cards-container-grid .ballad-card .fa-minus-circle, .popular #ballad-cards-container-grid .ballad-card h1, .popular #ballad-cards-container-grid .ballad-card h2, .popular #ballad-cards-container-grid .ballad-card p, .popular #ballad-cards-container-grid .ballad-card .date, .popular #ballad-cards-container-grid .ballad-card .private span {
+  .popular #ballad-cards-container-grid .ballad-card .fa-eye, .popular #ballad-cards-container-grid .ballad-card .fa-pencil, .popular #ballad-cards-container-grid .ballad-card .fa-minus-circle, .popular #ballad-cards-container-grid .ballad-card h1, .popular #ballad-cards-container-grid .ballad-card h2, .popular #ballad-cards-container-grid .ballad-card p, .popular #ballad-cards-container-grid .ballad-card .date, .popular #ballad-cards-container-grid .ballad-card .private span, .popular #ballad-cards-container-grid .ballad-card .public span {
     color: white; }
   .popular #ballad-cards-container-grid .ballad-card .bbottom, .popular #ballad-cards-container-grid .ballad-card .btop {
     background: white; }
@@ -827,6 +841,7 @@ html {
   height: 100%; }
   #editor-page #editor-slideout-menu {
     background: white;
+    display: none;
     height: 200%;
     position: absolute;
     right: 0;
@@ -957,6 +972,7 @@ html {
   #editor-page #editor-slideout-overlay {
     background: linear-gradient(rgba(42, 42, 42, 0.9), rgba(42, 42, 42, 0.9));
     bottom: 0;
+    display: none;
     height: 200%;
     left: 0;
     position: absolute;
@@ -968,7 +984,7 @@ html {
     height: 100px; }
   #editor-page .header2 {
     width: 100%;
-    height: 140px;
+    height: 110px;
     background: #2a2a2a;
     display: flex;
     flex-direction: column;
@@ -982,14 +998,18 @@ html {
       background: none;
       color: white;
       border: none;
-      margin-top: 10px; }
+      margin-top: 10px;
+      width: 100%; }
       #editor-page .header2 .top-head input:after {
         content: "By: Isaiah Anderson"; }
+      #editor-page .header2 .top-head input:focus {
+        outline: none; }
     #editor-page .header2 .top-head .save-and-cancel {
       display: none; }
     #editor-page .header2 .top-head .hamburger-container #editor-slideout-button .fa-bars {
       display: none; }
     #editor-page .header2 .bottom-head {
+      align-items: center;
       display: flex;
       justify-content: space-between; }
       #editor-page .header2 .bottom-head .align, #editor-page .header2 .bottom-head .notes, #editor-page .header2 .bottom-head .rhyme, #editor-page .header2 .bottom-head .save, #editor-page .header2 .bottom-head .status, #editor-page .header2 .bottom-head .tools, #editor-page .header2 .bottom-head .transform {
@@ -1001,25 +1021,30 @@ html {
         font-size: 1.5rem; }
         #editor-page .header2 .bottom-head .user-container h3 #user {
           color: #04a777;
+          cursor: pointer;
           font-size: 1.5rem; }
-      #editor-page .header2 .bottom-head .tools span {
-        color: white;
-        letter-spacing: 1px; }
-        #editor-page .header2 .bottom-head .tools span ul {
-          list-style: none;
-          position: absolute;
-          display: none;
-          margin: 0;
-          padding: 10px;
-          background: #2a2a2a; }
-          #editor-page .header2 .bottom-head .tools span ul li:hover {
-            color: #04a777; }
+      #editor-page .header2 .bottom-head .tools {
+        cursor: default; }
+        #editor-page .header2 .bottom-head .tools span {
+          color: white;
+          letter-spacing: 1px; }
+          #editor-page .header2 .bottom-head .tools span ul {
+            list-style: none;
+            position: absolute;
+            display: none;
+            margin: 0;
+            padding: 10px;
+            background: #2a2a2a; }
+            #editor-page .header2 .bottom-head .tools span ul li:hover {
+              color: #04a777; }
       #editor-page .header2 .bottom-head .rhyme button {
         background: none;
         border: none;
         color: #04a777;
         font-size: 1rem;
-        letter-spacing: 1px; }
+        letter-spacing: 2px; }
+        #editor-page .header2 .bottom-head .rhyme button:focus {
+          outline: none; }
       #editor-page .header2 .bottom-head .transform button {
         background: none;
         border: none;
@@ -1027,24 +1052,34 @@ html {
         font-size: 1rem;
         margin: 3px; }
       #editor-page .header2 .bottom-head .transform .font-selector {
-        position: relative; }
+        position: relative;
+        width: 200px;
+        text-align: center;
+        cursor: default; }
         #editor-page .header2 .bottom-head .transform .font-selector #fonts {
           display: none;
           list-style: none;
           position: absolute;
           top: 0;
           margin-top: 20px;
-          right: 0; }
+          right: 0;
+          background: #2a2a2a;
+          width: 100%; }
           #editor-page .header2 .bottom-head .transform .font-selector #fonts li {
-            text-align: right;
-            color: #04a777;
-            cursor: default; }
+            text-align: center;
+            color: white;
+            cursor: default;
+            padding: 4px 8px; }
+            #editor-page .header2 .bottom-head .transform .font-selector #fonts li:hover {
+              color: #04a777; }
       #editor-page .header2 .bottom-head .align button {
         background: none;
         border: none;
         color: white;
         font-size: 1rem;
-        margin: 3px; }
+        padding: 3px 5px; }
+        #editor-page .header2 .bottom-head .align button:focus {
+          outline: none; }
       #editor-page .header2 .bottom-head .status {
         /* Hide default HTML checkbox */
         /* The slider */
@@ -1095,12 +1130,13 @@ html {
         #editor-page .header2 .bottom-head .save button {
           background: #04a777;
           color: white;
+          cursor: pointer;
           font-size: 1.15rem;
           font-weight: bold;
           box-sizing: border-box;
-          padding: 10px 20px;
+          padding: 2px 8px;
           border: none;
-          border-radius: 20px;
+          border-radius: 10px;
           margin-left: 15px; }
       #editor-page .header2 .bottom-head .like {
         justify-content: flex-end;
@@ -1111,9 +1147,9 @@ html {
           font-size: 1.15rem;
           font-weight: bold;
           box-sizing: border-box;
-          padding: 10px 20px;
+          padding: 2px 8px;
           border: none;
-          border-radius: 20px;
+          border-radius: 10px;
           margin-left: 15px; }
   #editor-page .container {
     width: 100%;
@@ -1126,6 +1162,7 @@ html {
       #editor-page .container .main-area .scheme {
         margin: 0;
         position: absolute;
+        left: 40px;
         font-size: 1.5rem;
         padding-top: 80px;
         line-height: 40px;
@@ -1167,6 +1204,8 @@ html {
         background: transparent;
         resize: none;
         color: #2a2a2a; }
+        #editor-page .container .main-area textarea:focus {
+          outline: none; }
       #editor-page .container .main-area #rendered-text {
         z-index: -1;
         position: absolute;
@@ -1183,7 +1222,20 @@ html {
       height: 100%;
       background: #ddd;
       text-align: center;
-      padding-top: 50px; }
+      padding-top: 50px;
+      overflow: hidden; }
+      #editor-page .container .rhymes-container #wordtorhyme {
+        background: none;
+        border: none;
+        border-bottom: 1px solid #2a2a2a;
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2em;
+        width: 80%;
+        color: #2a2a2a;
+        font-weight: light; }
+        #editor-page .container .rhymes-container #wordtorhyme:focus {
+          outline: none; }
       #editor-page .container .rhymes-container .rhymes {
         width: 100%; }
         #editor-page .container .rhymes-container .rhymes .rhyme {

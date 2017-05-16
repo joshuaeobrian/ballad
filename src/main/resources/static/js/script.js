@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   $('#not-logged').click(function() {
-        $(".modal-overlay, .modal-container").toggle();
+    $(".modal-overlay, .modal-container").toggle();
   });
 
   $(".fa-times").click(function() {
@@ -36,8 +36,11 @@ $(document).ready(function() {
         document.location.href = "/Profile";
     });
 
-    $('#logged').click(function() {
-        $('.dropdown').slideToggle();
+    $('a').on("click",function(e) {
+        if($(this).attr("id") == 'logged'){
+            $('.dropdown').slideToggle();
+        }
+
     });
 
 

@@ -10,9 +10,13 @@ var scheme = ['A','B','A','B'];
 var schemes = [['A','B','A','B'],['A','A','B','B'],['A','B','B','A'],['A','A','B','A']];
 var c = 0;
 var cc = 0;
+var align = 1;
 var lex = new RiLexicon();
 $(document).ready(function() {
-
+  checkAlign();
+  $('.font-choice').each(function() {
+    $(this).css('font-family',$(this).html());
+  })
  $('#mytext').on('input', function() {
    process();
  });
@@ -40,6 +44,9 @@ $(document).ready(function() {
  //   console.log(lines);
  // })
  $('#mytext').keyup(function(e) {
+     $("#btn2").css("background","#9c0f5f");
+     $("#btn2").prop('disabled', false);
+
    if(e.keyCode == 13) {
      getRhymes();
     //  console.log($(this).prop('selectionStart'));
@@ -119,22 +126,43 @@ $(document).ready(function() {
  });
  $('.fa-align-center').click(function() {
    $('#mytext').css('text-align','center');
+   align = 2;
+   checkAlign();
  });
  $('.fa-align-left').click(function() {
    $('#mytext').css('text-align','left');
+   align = 1;
+   checkAlign();
  });
  $('.fa-align-right').click(function() {
    $('#mytext').css('text-align','right');
+   align = 3;
+   checkAlign();
  });
  $('#current-font').click(function() {
-   $('#fonts').slideToggle();
+   $('#fonts').toggle();
  });
  $('.font-choice').click(function() {
    $('#mytext').css('font-family',$(this).html());
    $('#current-font').html($(this).html()+'<i class="fa fa-chevron-down" aria-hidden="true"></i>');
-   $('#fonts').slideToggle();
+   $('#fonts').toggle();
  });
 });
+function checkAlign() {
+  if(align == 1) {
+    $('#l-align').css('background','white').css('color','#2a2a2a');
+    $('#c-align').css('background','#2a2a2a').css('color','white');
+    $('#r-align').css('background','#2a2a2a').css('color','white');
+  } else if(align == 2) {
+    $('#c-align').css('background','white').css('color','#2a2a2a');
+    $('#l-align').css('background','#2a2a2a').css('color','white');
+    $('#r-align').css('background','#2a2a2a').css('color','white');
+  } else if(align == 3) {
+    $('#r-align').css('background','white').css('color','#2a2a2a');
+    $('#c-align').css('background','#2a2a2a').css('color','white');
+    $('#l-align').css('background','#2a2a2a').css('color','white');
+  }
+}
 function process() {
  var text = $('#mytext').val();
  text = text.replace(/\n/gi, "<br />");
@@ -202,6 +230,9 @@ const postBallads = (url,ballad)=>{
 
 $(document).ready(function () {
 
+    $("#btn2").css("background","#9c0f5f");
+    $("#btn1").css("background","#9c0f5f");
+
   $('#editor-page #editor-slideout-button').click(function() {
     console.log("hi");
 
@@ -251,6 +282,10 @@ $(document).ready(function () {
 
                     if ($("#title").val() != "") {
                         postBallads("/saveBallad", ballad);
+                        // button.style.background = "#04a777";
+                        // button.disabled = true;
+                        $("#btn2").css("background","#04a777");
+                        $("#btn2").prop('disabled', true);
                     } else {
                         $("#title").css('border', '1px solid red');
                     }

@@ -44,8 +44,11 @@ $(document).ready(function() {
  //   console.log(lines);
  // })
  $('#mytext').keyup(function(e) {
-     $("#btn2").css("background","#9c0f5f");
-     $("#btn2").prop('disabled', false);
+     if($("#btn2").html()!="Liked"&& $("#btn2").html()!="Like"){
+         $("#btn2").css("background","#9c0f5f");
+         $("#btn2").prop('disabled', false);
+         $("#btn2").html("Save");
+     }
 
    if(e.keyCode == 13) {
      getRhymes();
@@ -118,10 +121,7 @@ $(document).ready(function() {
        rhymeboxes += '<div class="rhyme">'+rhymelist[i]+'</div>';
      }
      $('.rhymes').html(rhymeboxes);
-    //  if($('#mytext').selectionStart == $('#mytext').val().length) {
-    //    console.log('Yup');
-    //    lines[lines.length] = lines[lines.length-1];
-    //  }
+
    }
  });
  $('.fa-align-center').click(function() {
@@ -180,8 +180,7 @@ function process() {
      lines[i].text = splitlines[i];
    }
    if(lines[i].text == '' && i < lines.length-1 && lines[i].sectioned == false) {
-    //  lines.splice(i,1);
-    //  console.log($('#mytext').selectionStart);
+
    }
  }
  built = '';
@@ -234,8 +233,9 @@ const postBallads = (url,ballad,exportNow)=>{
 
 $(document).ready(function () {
 
-    $("#btn2").prop('disabled', true);
+    $("#btn2").prop('disabled', ($("#btn2").html()!="Like")? true:false);
     $("#btn1").css("background","#9c0f5f");
+    $("#btn2").css("background",($("#btn2").html()!="Like")? "":"#9c0f5f");
 
   $('#editor-page #editor-slideout-button').click(function() {
 
@@ -282,14 +282,14 @@ $(document).ready(function () {
                         isPublic: $('#isPublic').prop('checked'),
                     };
 
-
-
                     if ($("#title").val() != "") {
                         postBallads("/saveBallad", ballad);
                         // button.style.background = "#04a777";
                         // button.disabled = true;
                         $("#btn2").css("background","#04a777");
                         $("#btn2").prop('disabled', true);
+                        $("#btn2").html("Saved");
+
                     } else {
                         $("#title").css('border', '1px solid red');
                     }
@@ -302,7 +302,6 @@ $(document).ready(function () {
                         isPublic: $('#isPublic').prop('checked'),
                     };
                     postBallads("/saveBallad", ballad,true);
-
 
                 },
                 Like: () => {

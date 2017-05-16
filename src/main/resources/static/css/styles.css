@@ -118,12 +118,12 @@ body {
       height: 25px;
       width: 60%; }
     #global-login .modal-container .modal .usr, #global-login .modal-container .modal .pass, #global-login .modal-container .modal .sub, #global-login .modal-container .modal .fname, #global-login .modal-container .modal .lname, #global-login .modal-container .modal .eaddress {
-      margin: 50px 0; }
+      margin: 40px 0; }
       #global-login .modal-container .modal .usr label, #global-login .modal-container .modal .pass label, #global-login .modal-container .modal .sub label, #global-login .modal-container .modal .fname label, #global-login .modal-container .modal .lname label, #global-login .modal-container .modal .eaddress label {
         font-weight: bold;
-        font-size: 1.5rem; }
+        font-size: 1.15rem; }
       #global-login .modal-container .modal .usr input, #global-login .modal-container .modal .pass input, #global-login .modal-container .modal .sub input, #global-login .modal-container .modal .fname input, #global-login .modal-container .modal .lname input, #global-login .modal-container .modal .eaddress input {
-        margin-top: 12px; }
+        margin-top: 6px; }
     #global-login .modal-container .modal .pass {
       margin-bottom: 0; }
     #global-login .modal-container .modal .sub {
@@ -133,7 +133,7 @@ body {
       align-items: center;
       box-sizing: border-box;
       padding-top: 30px;
-      padding-bottom: 60px;
+      padding-bottom: 30px;
       border-bottom: 2px solid black; }
       #global-login .modal-container .modal .sub button {
         background: #04a777;
@@ -146,11 +146,11 @@ body {
       #global-login .modal-container .modal .sub a {
         text-decoration: none;
         color: #555;
-        font-size: 1.1rem; }
+        font-size: 1rem; }
     #global-login .modal-container .modal span {
       color: #555;
       text-weight: 300;
-      font-size: 1.2rem; }
+      font-size: 1rem; }
       #global-login .modal-container .modal span a {
         text-decoration: none;
         text-weight: bold;

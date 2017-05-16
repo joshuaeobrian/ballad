@@ -141,7 +141,7 @@ $(document).ready(function() {
  });
  $('.font-choice').click(function() {
    $('#mytext').css('font-family',$(this).html());
-   $('#current-font').html($(this).html()+'<i class="fa fa-chevron-down" aria-hidden="true"></i>');
+   $('#current-font').html($(this).html()+' <i class="fa fa-angle-down" aria-hidden="true"></i>');
    $('#fonts').toggle();
  });
 });

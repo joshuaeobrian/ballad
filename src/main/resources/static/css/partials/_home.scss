@@ -265,24 +265,27 @@ header {
 
         .dropdown {
           background: white;
-          box-shadow: -1px 1px 3px #888888;
+          border: 2px solid $black;
+          // box-shadow: -1px 1px 3px #888888;
           display: none;
           margin: 0;
           padding: 0;
           position: absolute;
-          right: 4px;
-          text-align: right;
+          right: -32px;
+          text-align: center;
 
           li {
+            color: $black;
             font-size: 1rem;
             letter-spacing: 1px;
             line-height: 25px;
             list-style-type: none;
-            padding-left: 4px;
+            // padding-left: 4px;
+            padding-top: 2px;
             width: 130px;
 
             &:hover {
-              background: #dddddd;
+              color: $green;
             }
           }
         }
@@ -442,6 +445,10 @@ header {
             background: $magenta;
           }
 
+          .fa-eye {
+            color: $magenta;
+          }
+
           h1 {
             color: $magenta;
           }
@@ -454,6 +461,10 @@ header {
         &:nth-child(2) {
           .top-border, .bottom-border {
             background: $blue;
+          }
+
+          .fa-eye {
+            color: $blue;
           }
 
           h1 {
@@ -469,6 +480,10 @@ header {
 
           .top-border, .bottom-border {
             background: $green;
+          }
+
+          .fa-eye {
+            color: $green;
           }
 
           h1 {
@@ -496,10 +511,20 @@ header {
           clear: both;
         }
 
+        .fa-eye {
+          // color: white;
+          // color: $black;
+          font-size: 1.5rem;
+          position: absolute;
+          right: 20px;
+          top: 30px;
+        }
+
         h1 {
           font-size: 1.5rem;
           margin: 20px 0 10px 0;
           text-transform: uppercase;
+          width: 75%;
         }
 
         h2 {
@@ -666,6 +691,7 @@ header {
     bottom: 40px;
     position: absolute;
     transform: scale(5);
+    width: 200px;
   }
 
   .slick-dots li {

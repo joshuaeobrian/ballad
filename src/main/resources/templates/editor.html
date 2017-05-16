@@ -8,7 +8,7 @@
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
-  <body id="editor-page" class="other-user" th:class="${allowEdit}?'owner':'other-user'" th:object="${ballad}">
+  <body id="editor-page" class="owner" th:class="${allowEdit}?'owner':'other-user'" th:object="${ballad}">
 
   <div id="global-login" th:replace="layout :: loginForm"></div>
 

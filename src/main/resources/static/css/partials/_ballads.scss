@@ -62,11 +62,12 @@ html {
           justify-content: center;
           color: white;
           h1 {
+            display: none;
             font-size: 2.5rem;
             text-transform: uppercase;
           }
           h2 {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
           }
           p {
@@ -85,7 +86,7 @@ html {
     height: 100px;
     justify-content: space-between;
     margin: 0 auto;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     width: 80%;
 
     .lbox {
@@ -214,15 +215,16 @@ html {
         list-style: none;
         margin: 0;
         padding: 0;
-        position: relative;
-        top: 70px;
+        position: absolute;
+        right: 34px;
+        top: 30px;
+        width: 80px;
 
         li {
           // color: white;
           font-size: 1rem;
           font-weight: bold;
-          padding-right: 34px;
-          text-align: left;
+          text-align: right;
         }
 
         li:hover {
@@ -239,7 +241,7 @@ html {
     justify-content: space-between;
 
     .column1,.column2,.column3 {
-      width: 28%;
+      width: 30%;
     }
 
     .ballad-card {
@@ -320,6 +322,16 @@ html {
       }
 
       .private {
+        float: right;
+
+        span {
+          // color: $blue;
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
+      }
+
+      .public {
         float: right;
 
         span {
@@ -409,6 +421,10 @@ html {
     }
 
     .private span {
+      color: $blue;
+    }
+
+    .public span {
       color: $green;
     }
 
@@ -459,7 +475,7 @@ html {
 
   #ballad-cards-container-grid .ballad-card {
 
-    .fa-eye, .fa-pencil, .fa-minus-circle, h1, h2, p, .date, .private span {
+    .fa-eye, .fa-pencil, .fa-minus-circle, h1, h2, p, .date, .private span, .public span {
       color: white;
     }
 

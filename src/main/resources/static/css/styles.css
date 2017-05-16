@@ -187,11 +187,11 @@ header {
           background: white;
           box-shadow: -1px 1px 3px #888888;
           display: none;
-          left: -4px;
           margin: 0;
           padding: 0;
           position: absolute;
-          text-align: left; }
+          right: 4px;
+          text-align: right; }
           header .head-container .top-head #logged .dropdown li {
             font-size: 1rem;
             letter-spacing: 1px;
@@ -590,10 +590,11 @@ html {
           justify-content: center;
           color: white; }
           #ballads-page #profile-head .container .description .description-container h1 {
+            display: none;
             font-size: 2.5rem;
             text-transform: uppercase; }
           #ballads-page #profile-head .container .description .description-container h2 {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             margin-bottom: 20px; }
           #ballads-page #profile-head .container .description .description-container p {
             font-size: 1rem;
@@ -605,7 +606,7 @@ html {
     height: 100px;
     justify-content: space-between;
     margin: 0 auto;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     width: 80%; }
     #ballads-page #tools-section .lbox {
       width: 20%; }
@@ -690,13 +691,14 @@ html {
         list-style: none;
         margin: 0;
         padding: 0;
-        position: relative;
-        top: 70px; }
+        position: absolute;
+        right: 34px;
+        top: 30px;
+        width: 80px; }
         #ballads-page #tools-section .rbox #sort-list li {
           font-size: 1rem;
           font-weight: bold;
-          padding-right: 34px;
-          text-align: left; }
+          text-align: right; }
         #ballads-page #tools-section .rbox #sort-list li:hover {
           color: #04a777; }
   #ballads-page #ballad-cards-container-grid {
@@ -705,7 +707,7 @@ html {
     display: flex;
     justify-content: space-between; }
     #ballads-page #ballad-cards-container-grid .column1, #ballads-page #ballad-cards-container-grid .column2, #ballads-page #ballad-cards-container-grid .column3 {
-      width: 28%; }
+      width: 30%; }
     #ballads-page #ballad-cards-container-grid .ballad-card {
       box-sizing: border-box;
       padding: 10px;
@@ -756,6 +758,11 @@ html {
         #ballads-page #ballad-cards-container-grid .ballad-card .private span {
           font-size: 1.25rem;
           font-weight: bold; }
+      #ballads-page #ballad-cards-container-grid .ballad-card .public {
+        float: right; }
+        #ballads-page #ballad-cards-container-grid .ballad-card .public span {
+          font-size: 1.25rem;
+          font-weight: bold; }
   #ballads-page #ballad-cards-container-list {
     width: 80%;
     margin: 0 auto; }
@@ -796,6 +803,8 @@ html {
   .my-ballads #ballad-cards-container-grid .ballad-card .fa-eye, .my-ballads #ballad-cards-container-grid .ballad-card .fa-pencil, .my-ballads #ballad-cards-container-grid .ballad-card .fa-minus-circle, .my-ballads #ballad-cards-container-grid .ballad-card h1, .my-ballads #ballad-cards-container-grid .ballad-card h2, .my-ballads #ballad-cards-container-grid .ballad-card p, .my-ballads #ballad-cards-container-grid .ballad-card .date {
     color: black; }
   .my-ballads #ballad-cards-container-grid .ballad-card .private span {
+    color: #26547c; }
+  .my-ballads #ballad-cards-container-grid .ballad-card .public span {
     color: #04a777; }
   .my-ballads #ballad-cards-container-grid .ballad-card .bbottom, .my-ballads #ballad-cards-container-grid .ballad-card .btop {
     background: #2a2a2a; }
@@ -815,7 +824,7 @@ html {
     color: white; }
   .popular #tools-section .rbox #a, .popular #tools-section .rbox #b, .popular #tools-section .rbox #c, .popular #tools-section .rbox #d, .popular #tools-section .rbox #e, .popular #tools-section .rbox #f {
     background: white; }
-  .popular #ballad-cards-container-grid .ballad-card .fa-eye, .popular #ballad-cards-container-grid .ballad-card .fa-pencil, .popular #ballad-cards-container-grid .ballad-card .fa-minus-circle, .popular #ballad-cards-container-grid .ballad-card h1, .popular #ballad-cards-container-grid .ballad-card h2, .popular #ballad-cards-container-grid .ballad-card p, .popular #ballad-cards-container-grid .ballad-card .date, .popular #ballad-cards-container-grid .ballad-card .private span {
+  .popular #ballad-cards-container-grid .ballad-card .fa-eye, .popular #ballad-cards-container-grid .ballad-card .fa-pencil, .popular #ballad-cards-container-grid .ballad-card .fa-minus-circle, .popular #ballad-cards-container-grid .ballad-card h1, .popular #ballad-cards-container-grid .ballad-card h2, .popular #ballad-cards-container-grid .ballad-card p, .popular #ballad-cards-container-grid .ballad-card .date, .popular #ballad-cards-container-grid .ballad-card .private span, .popular #ballad-cards-container-grid .ballad-card .public span {
     color: white; }
   .popular #ballad-cards-container-grid .ballad-card .bbottom, .popular #ballad-cards-container-grid .ballad-card .btop {
     background: white; }

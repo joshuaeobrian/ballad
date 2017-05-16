@@ -158,7 +158,9 @@
 
         <div class="pop-ballad" th:each="popular : ${topThree}" th:object="${popular}">
           <div class="top-border"></div>
+            <input type="hidden" th:value="*{id}"/>
             <h1 th:text="*{title}">Humble</h1>
+            <i class="fa fa-eye viewBallad" aria-hidden="true"></i>
             <h2 th:text="|*{owner.firstName} *{owner.lastName}|">Kendrick Lamar</h2>
             <p th:text="*{ballad.length() > 100} ? *{ballad.substring(0,ballad.substring(0,100).lastIndexOf(' '))}+'...' : *{ballad}+'...'">"My left stroke just went Viral<br/>Right stroke put lil' baby in a spiral"</p>
             <span th:text="*{{creationDate}}">3/7/17</span>
@@ -236,7 +238,7 @@
     </div>
   </section>
 
-    <footer>
+    <footer th:replace="layout :: footer">
       <a href="home.html"><img src="../static/images/ballad-logo_black.png" th:src="@{/images/ballad-logo_black.png}" alt=""/></a>
     </footer>
 

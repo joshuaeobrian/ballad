@@ -34,6 +34,13 @@ $(document).ready(function() {
         slidesToShow: 1
     });
 
+    $("div").on('click',".viewBallad",function (e) {
+            const ballad_id = $(this).parent().find("input[type=hidden]").val();
+            // console.log(ballad_id);
+            window.location = "/viewBallad?balladId="+ballad_id;
+
+    });
+
 });
 
 

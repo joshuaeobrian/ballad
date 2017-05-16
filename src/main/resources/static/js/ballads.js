@@ -290,14 +290,14 @@ $(document).ready(function () {
     });
 
     $('.layout-icon').click(function() {
-        console.log(isGrid);
+        // console.log(isGrid);
         isGrid = !isGrid;
         toggleListView()
     });
 
     $("#sort-list li").click(function (e) {
         $(document).closest("div.column1").remove();
-        console.log(e.target.textContent);
+        // console.log(e.target.textContent);
         const sort = e.target.textContent;
 
         if(pageLocation.includes("my-ballads")){
@@ -359,7 +359,7 @@ $(document).ready(function () {
 
     $("#ballads-search").on('keydown',function (e) {
         const option = document.getElementById("current-sort").textContent;
-        console.log(option);
+        // console.log(option);
         let config = {};
 
         if(pageLocation.includes("user-profile")) {
@@ -389,14 +389,14 @@ $(document).ready(function () {
 
         if(pageLocation.includes("my-ballads")){
             const ballad_id = $(this).parent().find("input[type=hidden]").val();
-            console.log(ballad_id);
+            // console.log(ballad_id);
             window.location = "/editor/"+ballad_id;
         }
     });
     $("div").on("click",".deleteBallad", function (e) {
         if(pageLocation.includes("my-ballads")){
             const ballad_id = $(this).parent().find("input[type=hidden]").val();
-            console.log(ballad_id);
+            // console.log(ballad_id);
             // window.location = "/editor/"+ballad_id;
             $.post("/deleteBallad",
                 {
@@ -411,7 +411,7 @@ $(document).ready(function () {
     $("div").on('click',".viewBallad",function (e) {
         if(pageLocation.includes("popular")||pageLocation.includes("user-profile")){
             const ballad_id = $(this).parent().find("input[type=hidden]").val();
-            console.log(ballad_id);
+            // console.log(ballad_id);
             window.location = "/viewBallad?balladId="+ballad_id;
         }
     });

@@ -104,13 +104,10 @@ public class BalladRestController {
         byte[] output = content.getBytes();
         HttpHeaders headers = new HttpHeaders();
         headers.set("charset", "utf-8");
-
-        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentType(MediaType.valueOf("text/html"));
+        headers.setContentType(MediaType.TEXT_MARKDOWN);
         headers.setContentLength(output.length);
-        headers.add("content-disposition", "inline;filename=" +title+".pdf");
-
-//        headers.set("Content-disposition", "attachment; filename="");
-
+        headers.set("Content-disposition", "attachment; filename="+title+".txt");
 
         return new ResponseEntity<byte[]>(output, headers, HttpStatus.OK);
     }

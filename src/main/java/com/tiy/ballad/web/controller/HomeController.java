@@ -1,6 +1,7 @@
 package com.tiy.ballad.web.controller;
 
 import com.tiy.ballad.model.Ballad;
+import com.tiy.ballad.model.User;
 import com.tiy.ballad.service.BalladService;
 import com.tiy.ballad.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,9 @@ public class HomeController {
         }else{
             userId = Integer.parseInt(session.getAttribute("userId").toString());
             if(userId !=0){
-                model.addAttribute("user", userService.findUserById(userId));
+                User user = userService.findUserById(userId);
+                model.addAttribute("firstName",user.getFirstName());
+                model.addAttribute("user", user);
                 userLoggedIn = true;
             }
         }

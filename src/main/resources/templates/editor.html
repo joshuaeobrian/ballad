@@ -8,7 +8,7 @@
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
-  <body id="editor-page" class="other-user" th:class="${allowEdit}?'owner':'other-user'" th:object="${ballad}">
+  <body id="editor-page" class="owner" th:class="${allowEdit}?'owner':'other-user'" th:object="${ballad}">
 
   <div id="global-login" th:replace="layout :: loginForm"></div>
 
@@ -105,7 +105,7 @@
         </div>
         <div class="transform">
           <div class="font-selector">
-            <h5 id="current-font">Times New Roman<i class="fa fa-chevron-down" aria-hidden="true"></i></h5>
+            <h5 id="current-font">Times New Roman <i class="fa fa-chevron-down" aria-hidden="true"></i></h5>
             <ul id="fonts">
               <li class="font-choice">Helvetica</li>
               <li class="font-choice">Sans-serif</li>
@@ -123,9 +123,9 @@
 
         </div>
         <div class="align">
-          <button  type="button" name="button"><i class="fa fa-align-left" aria-hidden="true"></i></button>
-          <button type="button" name="button"><i class="fa fa-align-center" aria-hidden="true"></i></button>
-          <button type="button" name="button"><i class="fa fa-align-right" aria-hidden="true"></i></button>
+          <button  type="button" name="button" id="l-align"><i class="fa fa-align-left" aria-hidden="true"></i></button>
+          <button type="button" name="button" id="c-align"><i class="fa fa-align-center" aria-hidden="true"></i></button>
+          <button type="button" name="button" id="r-align"><i class="fa fa-align-right" aria-hidden="true"></i></button>
         </div>
         <!--<div class="notes">-->
           <!--<span>Notes <i class="fa fa-comment-o" aria-hidden="true"></i></span>-->
@@ -167,7 +167,7 @@
           </div> -->
         </div>
         <div class="rhymes-container" id="rhyme-bank">
-          <input type="text" value="man" id="wordtorhyme"/>
+          <input type="text" id="wordtorhyme" placeholder="Rhyme"/>
           <div class="rhymes">
 
           </div>

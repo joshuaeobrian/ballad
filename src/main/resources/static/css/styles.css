@@ -975,7 +975,7 @@ html {
     height: 100px; }
   #editor-page .header2 {
     width: 100%;
-    height: 140px;
+    height: 110px;
     background: #2a2a2a;
     display: flex;
     flex-direction: column;
@@ -993,6 +993,8 @@ html {
       width: 100%; }
       #editor-page .header2 .top-head input:after {
         content: "By: Isaiah Anderson"; }
+      #editor-page .header2 .top-head input:focus {
+        outline: none; }
     #editor-page .header2 .top-head .save-and-cancel {
       display: none; }
     #editor-page .header2 .top-head .hamburger-container #editor-slideout-button .fa-bars {
@@ -1012,24 +1014,28 @@ html {
           color: #04a777;
           cursor: pointer;
           font-size: 1.5rem; }
-      #editor-page .header2 .bottom-head .tools span {
-        color: white;
-        letter-spacing: 1px; }
-        #editor-page .header2 .bottom-head .tools span ul {
-          list-style: none;
-          position: absolute;
-          display: none;
-          margin: 0;
-          padding: 10px;
-          background: #2a2a2a; }
-          #editor-page .header2 .bottom-head .tools span ul li:hover {
-            color: #04a777; }
+      #editor-page .header2 .bottom-head .tools {
+        cursor: default; }
+        #editor-page .header2 .bottom-head .tools span {
+          color: white;
+          letter-spacing: 1px; }
+          #editor-page .header2 .bottom-head .tools span ul {
+            list-style: none;
+            position: absolute;
+            display: none;
+            margin: 0;
+            padding: 10px;
+            background: #2a2a2a; }
+            #editor-page .header2 .bottom-head .tools span ul li:hover {
+              color: #04a777; }
       #editor-page .header2 .bottom-head .rhyme button {
         background: none;
         border: none;
         color: #04a777;
         font-size: 1rem;
-        letter-spacing: 1px; }
+        letter-spacing: 2px; }
+        #editor-page .header2 .bottom-head .rhyme button:focus {
+          outline: none; }
       #editor-page .header2 .bottom-head .transform button {
         background: none;
         border: none;
@@ -1037,24 +1043,35 @@ html {
         font-size: 1rem;
         margin: 3px; }
       #editor-page .header2 .bottom-head .transform .font-selector {
-        position: relative; }
+        position: relative;
+        width: 200px;
+        text-align: center; }
         #editor-page .header2 .bottom-head .transform .font-selector #fonts {
           display: none;
           list-style: none;
           position: absolute;
           top: 0;
           margin-top: 20px;
-          right: 0; }
+          right: 0;
+          background: #efefef;
+          border: 1px solid #ddd;
+          width: 100%; }
           #editor-page .header2 .bottom-head .transform .font-selector #fonts li {
-            text-align: right;
+            text-align: center;
             color: #04a777;
-            cursor: default; }
+            cursor: default;
+            padding: 2px 8px; }
+            #editor-page .header2 .bottom-head .transform .font-selector #fonts li:hover {
+              background: #04a777;
+              color: white; }
       #editor-page .header2 .bottom-head .align button {
         background: none;
         border: none;
         color: white;
         font-size: 1rem;
-        margin: 3px; }
+        padding: 3px 5px; }
+        #editor-page .header2 .bottom-head .align button:focus {
+          outline: none; }
       #editor-page .header2 .bottom-head .status {
         /* Hide default HTML checkbox */
         /* The slider */
@@ -1109,9 +1126,9 @@ html {
           font-size: 1.15rem;
           font-weight: bold;
           box-sizing: border-box;
-          padding: 10px 20px;
+          padding: 2px 8px;
           border: none;
-          border-radius: 20px;
+          border-radius: 10px;
           margin-left: 15px; }
       #editor-page .header2 .bottom-head .like {
         justify-content: flex-end;
@@ -1122,9 +1139,9 @@ html {
           font-size: 1.15rem;
           font-weight: bold;
           box-sizing: border-box;
-          padding: 10px 20px;
+          padding: 2px 8px;
           border: none;
-          border-radius: 20px;
+          border-radius: 10px;
           margin-left: 15px; }
   #editor-page .container {
     width: 100%;
@@ -1137,6 +1154,7 @@ html {
       #editor-page .container .main-area .scheme {
         margin: 0;
         position: absolute;
+        left: 40px;
         font-size: 1.5rem;
         padding-top: 80px;
         line-height: 40px;
@@ -1178,6 +1196,8 @@ html {
         background: transparent;
         resize: none;
         color: #2a2a2a; }
+        #editor-page .container .main-area textarea:focus {
+          outline: none; }
       #editor-page .container .main-area #rendered-text {
         z-index: -1;
         position: absolute;
@@ -1194,7 +1214,20 @@ html {
       height: 100%;
       background: #ddd;
       text-align: center;
-      padding-top: 50px; }
+      padding-top: 50px;
+      overflow: hidden; }
+      #editor-page .container .rhymes-container #wordtorhyme {
+        background: none;
+        border: none;
+        border-bottom: 1px solid #2a2a2a;
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2em;
+        width: 80%;
+        color: #2a2a2a;
+        font-weight: light; }
+        #editor-page .container .rhymes-container #wordtorhyme:focus {
+          outline: none; }
       #editor-page .container .rhymes-container .rhymes {
         width: 100%; }
         #editor-page .container .rhymes-container .rhymes .rhyme {

@@ -374,7 +374,7 @@ html {
             .status {
                 span {
                   font-size: 1rem;
-                  padding-right: 10px; 
+                  padding-right: 10px;
                 }
 
                 .switch {
@@ -583,10 +583,11 @@ html {
               border-bottom: 1px solid $black;
               text-align: center;
               margin-bottom: 40px;
-              font-size: 1.5rem;
+              font-size: 1.15rem;
               width: 80%;
               color: $black;
               font-weight: light;
+
               &:focus {
                 outline: none;
               }

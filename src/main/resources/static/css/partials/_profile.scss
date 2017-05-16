@@ -72,24 +72,22 @@ html {
 
         #color-dropdown {
           cursor: pointer;
-          background: $magenta;
+          // background: $magenta;
           border: none;
-          border-radius: 15px;
-          box-sizing: border-box;
-          padding: 10px 15px;
+          // border-radius: 15px;
+          // box-sizing: border-box;
+          // padding: 10px 15px;
           position: relative;
           top: 20px;
 
           span {
-            color: white;
+            color: $black;
             font-size: 1.15rem;
-            font-weight: bold;
           }
 
           i {
-            color: white;
+            color: $black;
             font-size: 1.15rem;
-            font-weight: bold;
           }
         }
 
@@ -100,30 +98,12 @@ html {
           margin: 0;
           padding: 0;
           position: relative;
-          top: 30px;
-          width: 80px;
+          top: 20px;
+          width: 100%;
 
           li {
-            font-size: 1rem;
-            font-weight: bold;
-            // padding-left: 12px;
-            text-align: center;
-          }
-
-          #blue:hover {
-            color: $blue;
-          }
-
-          #green:hover {
-            color: $green;
-          }
-
-          #pink:hover {
-            color: $magenta;
-          }
-
-          #yellow:hover {
-            color: $yellow;
+            font-size: 1.15rem;
+            text-align: left;
           }
         }
       }

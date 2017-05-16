@@ -276,18 +276,22 @@ $(document).ready(function () {
 
     $("#sort-list #recent").click(function() {
       $("#current-sort").html("Recent");
+      $("#sort-list").slideToggle();
     });
 
     $("#sort-list #public").click(function() {
       $("#current-sort").html("Public");
+      $("#sort-list").slideToggle();
     });
 
     $("#sort-list #private").click(function() {
       $("#current-sort").html("Private");
+      $("#sort-list").slideToggle();
     });
 
     $("#sort-list #likes").click(function() {
       $("#current-sort").html("Likes");
+      $("#sort-list").slideToggle();
     });
 
     $('.layout-icon').click(function() {

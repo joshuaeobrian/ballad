@@ -33,10 +33,11 @@ $(document).ready(function () {
 
     $("#color-list li").click(function (e) {
         const colorPick = e.target;
-        $("#color-dropdown").css("background", $(this).attr("value"));
+        $("#current-color, #color-fa-angle-down").css("color", $(this).attr("value"));
         $("#color-id").attr("value",$(this).attr("id"));
         $("#current-color").html(colorPick.textContent);
-        
+        $("#color-list").slideToggle();
+
     });
     $("#color-list li").hover(function (e) {
         const colorPick = e.target;

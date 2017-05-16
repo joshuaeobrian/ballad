@@ -1045,7 +1045,8 @@ html {
       #editor-page .header2 .bottom-head .transform .font-selector {
         position: relative;
         width: 200px;
-        text-align: center; }
+        text-align: center;
+        cursor: default; }
         #editor-page .header2 .bottom-head .transform .font-selector #fonts {
           display: none;
           list-style: none;
@@ -1053,17 +1054,15 @@ html {
           top: 0;
           margin-top: 20px;
           right: 0;
-          background: #efefef;
-          border: 1px solid #ddd;
+          background: #2a2a2a;
           width: 100%; }
           #editor-page .header2 .bottom-head .transform .font-selector #fonts li {
             text-align: center;
-            color: #04a777;
+            color: white;
             cursor: default;
-            padding: 2px 8px; }
+            padding: 4px 8px; }
             #editor-page .header2 .bottom-head .transform .font-selector #fonts li:hover {
-              background: #04a777;
-              color: white; }
+              color: #04a777; }
       #editor-page .header2 .bottom-head .align button {
         background: none;
         border: none;

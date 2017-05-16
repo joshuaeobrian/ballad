@@ -374,6 +374,16 @@ $(document).ready(function () {
                 search: $("#ballads-search").val(),
             };
             getBallads("/profileBallads",config);
+        }else if(pageLocation.includes("my-ballad")){
+            config = {
+                userOnly: true,
+                isPublic: true,
+                isPrivate: true,
+                caseId: sortIndex[option],
+                search: $("#ballads-search").val(),
+
+            };
+            getBallads("/sortBallads",config);
         }else{
            config = {
                 userOnly: false,

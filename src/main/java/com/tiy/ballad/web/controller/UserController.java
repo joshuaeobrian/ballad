@@ -51,36 +51,32 @@ public class UserController {
     @PostMapping("/update-profile")
     public String upload(HttpSession session,String firstname, String lastName,String email, String username,  String password,String about, Integer colorCode,@RequestParam MultipartFile file) throws PasswordStorage.CannotPerformOperationException {
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
-        System.out.println(file);
+
         User user = new User(userId,firstname,lastName,email,username,password,true,about,colorCode);
 
         User validate = userService.findUserById(userId);
-        System.out.println("Updating user: \n"+user.toString());
-        System.out.println("Valid user: \n"+validate.toString());
+
+
         try {
-            System.out.println("File Bytes: "+ file.getBytes());
-            System.out.println("File Size: "+ file.getSize());
 
             if(!file.isEmpty()) {
                 user.setPhoto(file.getBytes());
-                System.out.println("UPDATING IMAGE");
+
             }else{
                 user.setPhoto(validate.getPhoto());
-                System.out.println("NOT UPDATING IMAGE");
             }
 
         } catch (IOException e) {
             System.out.println("Unable to upload file");
         }
         if(user.getPassword().equals("")||user.getPassword() ==null || user.getPassword().isEmpty()||user.getPassword()==""|| user.getPassword().length()<0){
-            System.out.println("?NOT UPDATING PASSWORD");
+
             user.setPassword(validate.getPassword());
         }else{
-            System.out.println("UPDATING PASSWORD");
+
             user.setPassword(PasswordStorage.createHash(user.getPassword()));
         }
 
-        System.out.println(user.toString());
         userService.updateUserInfo(user);
         return "redirect:/Profile";
 
@@ -115,18 +111,19 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("/userlogin")
-    public boolean[] validateUser(HttpSession session, String username, String password){
-        boolean[] response = new boolean[2];
+    public Object[] validateUser(HttpSession session, String username, String password){
+        Object[] response = new Object[3];
 
         try {
             User user = userService.login(username);
-//            System.out.println(user);
+
             boolean validate = PasswordStorage.verifyPassword(password, user.getPassword());
             if(validate){
                 session.setAttribute("userId",user.getId());
-                System.out.println(session.getAttribute("userId"));
+
                 response[0] = true;
                 response[1] = true;
+                response[2] = user.getFirstName();
                 return response;
             }else{
                 session.setAttribute("userId",0);

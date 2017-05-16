@@ -44,6 +44,9 @@ $(document).ready(function() {
  //   console.log(lines);
  // })
  $('#mytext').keyup(function(e) {
+     $("#btn2").css("background","#9c0f5f");
+     $("#btn2").prop('disabled', false);
+
    if(e.keyCode == 13) {
      getRhymes();
     //  console.log($(this).prop('selectionStart'));
@@ -227,6 +230,9 @@ const postBallads = (url,ballad)=>{
 
 $(document).ready(function () {
 
+    $("#btn2").css("background","#9c0f5f");
+    $("#btn1").css("background","#9c0f5f");
+
   $('#editor-page #editor-slideout-button').click(function() {
     console.log("hi");
 
@@ -276,6 +282,10 @@ $(document).ready(function () {
 
                     if ($("#title").val() != "") {
                         postBallads("/saveBallad", ballad);
+                        // button.style.background = "#04a777";
+                        // button.disabled = true;
+                        $("#btn2").css("background","#04a777");
+                        $("#btn2").prop('disabled', true);
                     } else {
                         $("#title").css('border', '1px solid red');
                     }

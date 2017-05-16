@@ -138,9 +138,9 @@
           </label>
         </div>
         <div class="save">
-          <button value="Export" th:style="${allowEdit}? '':'display:none;'">Export</button>
+          <button id="btn1" value="Export" th:style="${allowEdit}? '':'display:none;'">Export</button>
 
-          <button value="Save" th:value="${allowEdit}? 'Save':'Like'" th:text="${allowEdit}? 'Save':'Like'">Save</button>
+          <button id="btn2" value="Save" th:value="${allowEdit}? 'Save':'Like'" th:text="${allowEdit}? 'Save':'Like'">Save</button>
         </div>
 
       </div>

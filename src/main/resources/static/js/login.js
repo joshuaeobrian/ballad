@@ -1,3 +1,5 @@
+
+
 const FIRST_NAME_VAL = document.getElementById("sign-up-fname");
 const LAST_NAME_VAL = document.getElementById("sign-up-lname");
 const EMAIL_VAL = document.getElementById("sign-up-email");
@@ -70,6 +72,8 @@ function handleRecovery(data) {
     if(data){
         console.log("ok");
         document.location.href="/";
+
+
     }else{
 
         const passwordValidation = document.getElementById("recovery-password-val");
@@ -82,7 +86,15 @@ function handleRecovery(data) {
 }
 function handleUserLogin(data) {
     if(data[0]&&data[1]){
-        document.location.href="/";
+        $("#current-user").parent().removeAttr("id");
+        $("#current-user").parent().attr("id","logged");
+
+        // userMenu.id = (userMenu.id == "not-logged")? "logged":"not-logged";
+        $(".modal-overlay, .modal-container").remove();
+        $("#current-user").html(data[2]);
+        $("#current-user-icon").attr("class","fa fa-angle-down");
+        const proof = document.getElementById("logged");
+        console.log(proof.tagName);
     }else{
 
         const login = document.getElementById("login-section");

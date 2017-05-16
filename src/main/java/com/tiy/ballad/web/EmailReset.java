@@ -26,8 +26,8 @@ public class EmailReset {
         Email email = emailService.getEmail();
         Properties props = new Properties();
 
-        System.out.println(email.toString());
-        System.out.println(user.getEmail());
+//        System.out.println(email.toString());
+//        System.out.println(user.getEmail());
         props.put("mail.smtp.auth","true");
         props.put("mail.smtp.starttls.enable","true");
         props.put("mail.smtp.host","smtp.gmail.com");

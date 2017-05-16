@@ -95,7 +95,7 @@
             <h1><a href="home.html" id="logo" th:href="@{/}"><img src="../static/images/ballad-logo_black.png" th:src="@{/images/ballad-logo_black.png}" alt=""/></a></h1>
 
             <a href="#" id="logged" th:id="${isLoggedIn} ? 'logged': 'not-logged'" >
-                <span id="current-user" th:text="${isLoggedIn} ? ${user.firstName}:'Login/Signup'">Isaiah </span>
+                <span id="current-user" th:text="${isLoggedIn} ? ${firstName}:'Login/Signup'">Isaiah </span>
                 <span><i id="current-user-icon" class="fa fa-angle-down" th:class="${isLoggedIn}? 'fa fa-angle-down':'fa fa-user-circle-o'" aria-hidden="true"></i>
                     <ul class="dropdown" style="display: none;">
                         <li id="logout">Logout</li>

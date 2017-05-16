@@ -35,6 +35,7 @@ public class BalladController {
         Object[] current = sessionService.isSession(session);
         User user =(User) current[1];
         model.addAttribute("user", user);
+        model.addAttribute("firstName",user.getFirstName());
         model.addAttribute("isLoggedIn", current[0]);
 
         model.addAttribute("ballad_title","Popular");
@@ -46,6 +47,7 @@ public class BalladController {
     public String profile(HttpSession session, Model model){
         Object[] current = sessionService.isSession(session);
         User user =(User) current[1];
+        model.addAttribute("firstName",user.getFirstName());
         model.addAttribute("user", user);
         model.addAttribute("myColor",colorService.getColorByID(user.getColorCode()));
         model.addAttribute("isLoggedIn", current[0]);
@@ -59,7 +61,9 @@ public class BalladController {
     public String ballad(HttpSession session, Model model){
         Object[] current = sessionService.isSession(session);
         session.setAttribute("balladId",0);
-        model.addAttribute("user", current[1]);
+        User user = (User) current[1];
+        model.addAttribute("firstName",user.getFirstName());
+        model.addAttribute("user", user);
         model.addAttribute("isLoggedIn", current[0]);
         model.addAttribute("ballad",new Ballad());
         model.addAttribute("isHidden",true);
@@ -74,6 +78,9 @@ public class BalladController {
         }
         Object[] current = sessionService.isSession(session);
         User user =(User) current[1];
+
+        model.addAttribute("firstName",user.getFirstName());
+
         model.addAttribute("user", user);
         model.addAttribute("isLoggedIn", current[0]);
         Ballad ballad = balladService.findBalladById(id);
@@ -94,6 +101,8 @@ public class BalladController {
     public String viewThisBallad(HttpSession session,Model model, Integer balladId){
         Object[] current = sessionService.isSession(session);
         User user =(User) current[1];
+
+        model.addAttribute("firstName",user.getFirstName());
         model.addAttribute("user", user);
         model.addAttribute("isLoggedIn", current[0]);
         Ballad ballad = balladService.findBalladById(balladId);
@@ -116,6 +125,8 @@ public class BalladController {
             session.setAttribute("profileId", userId);
             Object[] current = sessionService.isSession(session);
             User user = userService.findUserById(userId);
+            User username = (User) current[1];
+            model.addAttribute("firstName",username.getFirstName());
             model.addAttribute("user", user);
             model.addAttribute("myColor", colorService.getColorByID(user.getColorCode()));
             model.addAttribute("isLoggedIn", current[0]);

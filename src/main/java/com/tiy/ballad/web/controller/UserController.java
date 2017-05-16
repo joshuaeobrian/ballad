@@ -39,7 +39,8 @@ public class UserController {
     public String userProfile(HttpSession session, Model model){
         Object[] current = sessionService.isSession(session);
         User user =(User) current[1];
-        System.out.println(user);
+
+        model.addAttribute("firstName",user.getFirstName());
         model.addAttribute("user",user);
         model.addAttribute("colors",colorService.listColors());
         model.addAttribute("isLoggedIn",current[0]);

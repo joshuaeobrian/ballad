@@ -164,15 +164,15 @@ body {
       }
 
       .usr,.pass,.sub,.fname,.lname,.eaddress {
-        margin: 50px 0;
+        margin: 40px 0;
 
         label {
           font-weight: bold;
-          font-size: 1.5rem;
+          font-size: 1.15rem;
         }
 
         input {
-          margin-top: 12px;
+          margin-top: 6px;
         }
       }
 
@@ -187,7 +187,7 @@ body {
         align-items: center;
         box-sizing: border-box;
         padding-top: 30px;
-        padding-bottom: 60px;
+        padding-bottom: 30px;
         border-bottom: 2px solid black;
 
         button {
@@ -203,14 +203,14 @@ body {
         a {
           text-decoration: none;
           color: #555;
-          font-size: 1.1rem;
+          font-size: 1rem;
         }
       }
 
       span {
         color: #555;
         text-weight: 300;
-        font-size: 1.2rem;
+        font-size: 1rem;
 
         a {
           text-decoration: none;

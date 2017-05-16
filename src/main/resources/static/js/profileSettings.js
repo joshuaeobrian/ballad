@@ -14,7 +14,7 @@ function imageUrl(input) {
 }
 $(document).ready(function () {
    console.log("hello");
-    $("#color-dropdown").css("background", $("#color-dropdown").attr("class"));
+    $("#color-dropdown").css("color", $("#color-dropdown").attr("class"));
 
     $(".field").click(function (e) {
         $("input",this).prop("disabled",false);

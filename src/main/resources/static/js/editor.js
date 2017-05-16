@@ -230,7 +230,7 @@ const postBallads = (url,ballad)=>{
 
 $(document).ready(function () {
 
-    $("#btn2").css("background","#9c0f5f");
+    $("#btn2").prop('disabled', true);
     $("#btn1").css("background","#9c0f5f");
 
   $('#editor-page #editor-slideout-button').click(function() {

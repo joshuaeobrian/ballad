@@ -100,7 +100,7 @@
       <div class="container">
         <div class="pic-container">
           <div class="pic-holder">
-            <img class="pic" th:src="@{|/user/image|}">
+            <img class="pic" th:src="${showProfile}? @{|/user/image/profile?userId=${user.id}|} : @{|/user/image|}">
               
             </img>
 

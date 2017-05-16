@@ -751,10 +751,7 @@ html {
           font-weight: bold; }
   #ballads-page #ballad-cards-container-list {
     width: 80%;
-
-    margin: 0 auto;
-    }
-
+    margin: 0 auto; }
     #ballads-page #ballad-cards-container-list .ballad-card {
       width: 100%; }
       #ballads-page #ballad-cards-container-list .ballad-card .btop, #ballads-page #ballad-cards-container-list .ballad-card .bbottom {
@@ -982,7 +979,6 @@ html {
       font-size: 2rem;
       background: none;
       color: white;
-      font-style: italic;
       border: none;
       margin-top: 10px; }
       #editor-page .header2 .top-head input:after {
@@ -995,10 +991,15 @@ html {
       display: flex;
       justify-content: space-between; }
       #editor-page .header2 .bottom-head .align, #editor-page .header2 .bottom-head .notes, #editor-page .header2 .bottom-head .rhyme, #editor-page .header2 .bottom-head .save, #editor-page .header2 .bottom-head .status, #editor-page .header2 .bottom-head .tools, #editor-page .header2 .bottom-head .transform {
-        display: flex;
         align-items: center;
         color: white;
         font-size: 1.5rem; }
+      #editor-page .header2 .bottom-head .user-container h3 {
+        color: white;
+        font-size: 1.5rem; }
+        #editor-page .header2 .bottom-head .user-container h3 #user {
+          color: #04a777;
+          font-size: 1.5rem; }
       #editor-page .header2 .bottom-head .tools span {
         color: white;
         letter-spacing: 1px; }
@@ -1092,7 +1093,21 @@ html {
         #editor-page .header2 .bottom-head .save button {
           background: #04a777;
           color: white;
-          font-size: 1rem;
+          font-size: 1.15rem;
+          font-weight: bold;
+          box-sizing: border-box;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          margin-left: 15px; }
+      #editor-page .header2 .bottom-head .like {
+        justify-content: flex-end;
+        width: 20%; }
+        #editor-page .header2 .bottom-head .like button {
+          background: #04a777;
+          color: white;
+          font-size: 1.15rem;
+          font-weight: bold;
           box-sizing: border-box;
           padding: 10px 20px;
           border: none;
@@ -1175,6 +1190,26 @@ html {
           border-radius: 5px;
           border: 1px solid #2a2a2a;
           margin: 5px; }
+
+.owner .header2 .bottom-head .user-container {
+  display: none; }
+.owner .header2 .bottom-head .align, .owner .header2 .bottom-head .notes, .owner .header2 .bottom-head .rhyme, .owner .header2 .bottom-head .save, .owner .header2 .bottom-head .status, .owner .header2 .bottom-head .tools, .owner .header2 .bottom-head .transform {
+  display: flex; }
+.owner .header2 .bottom-head .like {
+  display: none; }
+.owner .container .rhymes-container {
+  display: inline-block; }
+
+.other-user .header2 .bottom-head .user-container {
+  display: inline-block; }
+.other-user .header2 .bottom-head .align, .other-user .header2 .bottom-head .notes, .other-user .header2 .bottom-head .rhyme, .other-user .header2 .bottom-head .status, .other-user .header2 .bottom-head .tools, .other-user .header2 .bottom-head .transform {
+  display: none; }
+.other-user .header2 .bottom-head .save {
+  display: inline-block; }
+.other-user .header2 .bottom-head .like {
+  display: inline-block; }
+.other-user .container .rhymes-container {
+  display: none; }
 
 html {
   min-height: 100%;

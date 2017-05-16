@@ -132,14 +132,16 @@ const createBallad = (ballad)=>{
     var hiddenId = document.createElement("input");
     hiddenId.type = "hidden";
     hiddenId.value = ballad["id"];
-
-
     var title = document.createElement("h1");
-    title.textContent = ballad["title"];
+    title.textContent = (ballad["title"].length > 18 && !isGrid)? ballad["title"].substring(0,ballad["title"].substring(0,18).lastIndexOf(' '))+'...' : ballad["title"] ;
     var author = document.createElement("h2");
     author.textContent = ballad["owner"]["firstName"]+" "+ballad["owner"]["lastName"];
     var content = document.createElement("p");
-    content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,ballad["ballad"].substring(0, 150).lastIndexOf(' '))+"...";
+    if(isGrid){
+        content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,ballad["ballad"].substring(0, 150).lastIndexOf(' '))+"...";
+    }else{
+        content.textContent = (ballad["ballad"].length < 100)? ballad["ballad"] : ballad["ballad"].substring(0,ballad["ballad"].substring(0, 100).lastIndexOf(' '))+"...";
+    }
 
     var date = document.createElement("div");
     date.className = "date";
@@ -253,6 +255,13 @@ function mainLoad() {
         };
         getBallads("/sortBallads",config);
     }
+    if(pageLocation.includes("user-profile")){
+        const x = pageLocation.split("=");
+        const config = {
+            userId: x[1],
+        }
+        getBallads("/user-public-ballads",config);
+    }
 }
 
 $(document).ready(function () {
@@ -349,12 +358,13 @@ $(document).ready(function () {
     });
 
     $("#ballads-search").on('keydown',function (e) {
-
+        const option = document.getElementById("current-sort").textContent;
+        console.log(option);
         let config = {
                 userOnly: false,
                 isPublic: true,
                 isPrivate: true,
-                caseId: 3,
+                caseId: sortIndex[option],
                 search: $("#ballads-search").val(),
 
             };

@@ -95,6 +95,14 @@ public class UserController {
         return user.getPhoto();
     }
 
+    @GetMapping("/user/image/profile")
+    @ResponseBody
+    public byte[] userImage(Integer userId){
+        User user = userService.findUserById(userId);
+
+        return user.getPhoto();
+    }
+
 
     @ResponseBody
     @PostMapping("/userlogin")

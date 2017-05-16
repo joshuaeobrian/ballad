@@ -120,6 +120,14 @@ public class BalladRestController {
         }
 
     }
+    @PostMapping("/user-public-ballads")
+    public List<Ballad> getProfile(Integer userId){
+//        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
+        User profile = userService.findUserById(userId);
+        List<Ballad> publicProfileBallads = balladService.sortBallads(true,profile.getId(),true,false,0,"");
+
+        return publicProfileBallads;
+    }
 
 
 

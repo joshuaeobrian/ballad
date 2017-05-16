@@ -39,7 +39,7 @@ const postUser = (url,user)=>{
     $.post(url,
         user,
         function (data) {
-            console.log(data);
+
             if(url == "/signUp"|| url == "/userlogin") {
                 handleUserLogin(data);
             }else{
@@ -60,8 +60,6 @@ const postUser = (url,user)=>{
 
 function handleUserLogin(data) {
     if(data[0]&&data[1]){
-        console.log("ok");
-        // getBallads("/myBallads")
         document.location.href="/";
     }else{
 
@@ -69,7 +67,7 @@ function handleUserLogin(data) {
         const label = document.createElement("label");
         const passwordValidation = document.getElementById("password-validation");
         const userValidation = document.getElementById("user-validation");
-        //valid.style.background = (data[0])? "" : "red";
+
         userValidation.textContent = (data[0])? "" : "Username or Email is Incorrect!";
         userValidation.style.color = "red";
         userValidation.style.fontSize = "0.90rem";
@@ -131,7 +129,6 @@ $(document).ready(function () {
             active: true,
 
         };
-        console.log(SIGN_UP);
         signUpValidation(user);
         if(SIGN_UP["fnameVal"] && SIGN_UP["lnameVal"] && SIGN_UP["emailVal"] && SIGN_UP["usernameVal"] && SIGN_UP["passwordVal"]) {
              postUser("/signUp",user);
@@ -179,11 +176,9 @@ $(document).ready(function () {
             EMAIL_VAL.textContent =val;
 
             if($(this).val().length > 6 && (/[\W@{1}.+]/g).exec($(this).val()) && ($(this).val().includes("com")||$(this).val().includes("net")||$(this).val().includes("me"))){
-                console.log("yep");
                 postUser("/check-username",{username:$(this).val()});
                 SIGN_UP["emailVal"]=true;
             }else{
-                console.log("nope");
                 SIGN_UP["emailVal"]=false;
             }
 
@@ -207,7 +202,7 @@ $(document).ready(function () {
             // if(){
             //     val = "Username already exists.";
             // }else{
-            //     SIGN_UP["usernameVal"]=true;
+                SIGN_UP["usernameVal"]=true;
             // }
 
         }else{
@@ -229,21 +224,21 @@ $(document).ready(function () {
             val += ((/[0-9+]/g).exec(password)) ? "" : "Needs at least 1 Number! \r\n";
             val += ((/\s/g).exec(password))? "Password can not contain spaces \r\n":"";
             PASSWORD_VAL.style.width = "75%";
-            // console.log(password.match((/[A-Z]/g)).length);
+
             let color = 0;
             color += (password.length >= 6) ? 5 : 2;
             if(password.length >= 6 && new RegExp((/[a-z]/g)).test(password)&&new RegExp((/[0-9]/g)).test(password)) {
                 strength.style.display = "block";
                 if (new RegExp((/[a-z]/g)).test(password)) {
-                    console.log("Checking Lower");
+
                     color += ( password.match((/[a-z]/g)).length >= 3 ) ? 5 : 3;
                 }
                 if (new RegExp((/[A-Z]/g)).test(password)) {
-                    console.log("Checking Upper");
+
                     color += (password.match((/[A-Z]/g)).length >= 1 ) ? 5 : 0;
                 }
                 if (new RegExp((/[0-9]/g)).test(password)) {
-                    console.log("Checking Number");
+
                     color += (password.match((/[0-9]/g)).length >= 3 ) ? 5 : 3;
                 }
                 if (new RegExp((/[@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g)).test(password)) {

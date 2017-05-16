@@ -184,6 +184,7 @@ html {
         border: none;
         border-radius: 15px;
         box-sizing: border-box;
+        cursor: pointer;
         display: inline-block;
         padding: 10px 15px;
         position: absolute;
@@ -205,6 +206,7 @@ html {
       }
 
       #sort-list {
+        cursor: pointer;
         display: none;
         left: 140px;
         list-style: none;
@@ -389,7 +391,7 @@ html {
     .rbox {
 
       #sort-list {
-        color: white;
+        color: $black;
       }
 
       #a,#b,#c,#d,#e,#f {

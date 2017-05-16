@@ -360,7 +360,17 @@ $(document).ready(function () {
     $("#ballads-search").on('keydown',function (e) {
         const option = document.getElementById("current-sort").textContent;
         console.log(option);
-        let config = {
+        let config = {};
+
+        if(pageLocation.includes("user-profile")) {
+            const x = pageLocation.split("=");
+            config = {
+                caseId: sortIndex[option],
+                search: $("#ballads-search").val(),
+            };
+            getBallads("/profileBallads",config);
+        }else{
+           config = {
                 userOnly: false,
                 isPublic: true,
                 isPrivate: true,
@@ -368,8 +378,10 @@ $(document).ready(function () {
                 search: $("#ballads-search").val(),
 
             };
+            getBallads("/sortBallads",config);
+        }
 
-        getBallads("/sortBallads",config);
+
 
     });
 
@@ -397,7 +409,7 @@ $(document).ready(function () {
         }
     });
     $("div").on('click',".viewBallad",function (e) {
-        if(pageLocation.includes("popular")){
+        if(pageLocation.includes("popular")||pageLocation.includes("user-profile")){
             const ballad_id = $(this).parent().find("input[type=hidden]").val();
             console.log(ballad_id);
             window.location = "/viewBallad?balladId="+ballad_id;

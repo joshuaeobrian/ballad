@@ -664,6 +664,7 @@ html {
         border: none;
         border-radius: 15px;
         box-sizing: border-box;
+        cursor: pointer;
         display: inline-block;
         padding: 10px 15px;
         position: absolute;
@@ -679,6 +680,7 @@ html {
           font-size: 1.15rem;
           font-weight: bold; }
       #ballads-page #tools-section .rbox #sort-list {
+        cursor: pointer;
         display: none;
         left: 140px;
         list-style: none;
@@ -783,7 +785,7 @@ html {
   .my-ballads #tools-section .mbox input {
     border: 2px solid #2a2a2a; }
   .my-ballads #tools-section .rbox #sort-list {
-    color: white; }
+    color: #2a2a2a; }
   .my-ballads #tools-section .rbox #a, .my-ballads #tools-section .rbox #b, .my-ballads #tools-section .rbox #c, .my-ballads #tools-section .rbox #d, .my-ballads #tools-section .rbox #e, .my-ballads #tools-section .rbox #f {
     background: #2a2a2a; }
   .my-ballads #ballad-cards-container-grid .ballad-card .fa-eye, .my-ballads #ballad-cards-container-grid .ballad-card .fa-pencil, .my-ballads #ballad-cards-container-grid .ballad-card .fa-minus-circle, .my-ballads #ballad-cards-container-grid .ballad-card h1, .my-ballads #ballad-cards-container-grid .ballad-card h2, .my-ballads #ballad-cards-container-grid .ballad-card p, .my-ballads #ballad-cards-container-grid .ballad-card .date {
@@ -1260,6 +1262,7 @@ html {
         font-style: italic;
         text-align: center; }
       #profile .container .top .rprofile #color-dropdown {
+        cursor: pointer;
         background: #9c0f5f;
         border: none;
         border-radius: 15px;
@@ -1276,6 +1279,7 @@ html {
           font-size: 1.15rem;
           font-weight: bold; }
       #profile .container .top .rprofile #color-list {
+        cursor: pointer;
         display: none;
         list-style: none;
         margin: 0;

@@ -71,6 +71,7 @@ html {
       .rprofile {
 
         #color-dropdown {
+          cursor: pointer;
           background: $magenta;
           border: none;
           border-radius: 15px;
@@ -93,6 +94,7 @@ html {
         }
 
         #color-list {
+          cursor: pointer;
           display: none;
           list-style: none;
           margin: 0;

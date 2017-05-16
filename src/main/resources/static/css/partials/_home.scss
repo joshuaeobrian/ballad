@@ -267,12 +267,11 @@ header {
           background: white;
           box-shadow: -1px 1px 3px #888888;
           display: none;
-          left: -4px;
           margin: 0;
           padding: 0;
           position: absolute;
-          // right: 10%;
-          text-align: left;
+          right: 4px;
+          text-align: right;
 
           li {
             font-size: 1rem;

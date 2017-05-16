@@ -151,10 +151,11 @@ const createBallad = (ballad)=>{
     date.appendChild(span);
 
     var typeDiv = document.createElement("div");
-    typeDiv.className = "private";//(ballad["publicView"])? "private" : "public";
+    typeDiv.className = (ballad["publicView"])? "public" : "private";
 
     var typeText = document.createElement("span");
     typeText.textContent =  (ballad["publicView"])? "Public" : "Private";
+    // typeText.className = (ballad["publicView"])? "public" : "private";
     typeDiv.appendChild(typeText);
 
     var bbottom = document.createElement("div");

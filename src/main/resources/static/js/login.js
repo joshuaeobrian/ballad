@@ -1,4 +1,4 @@
-const pageLocation = window.location.href;
+
 
 const FIRST_NAME_VAL = document.getElementById("sign-up-fname");
 const LAST_NAME_VAL = document.getElementById("sign-up-lname");

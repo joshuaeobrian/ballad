@@ -185,22 +185,23 @@ header {
         position: relative; }
         header .head-container .top-head #logged .dropdown {
           background: white;
-          box-shadow: -1px 1px 3px #888888;
+          border: 2px solid #2a2a2a;
           display: none;
           margin: 0;
           padding: 0;
           position: absolute;
-          right: 4px;
-          text-align: right; }
+          right: -32px;
+          text-align: center; }
           header .head-container .top-head #logged .dropdown li {
+            color: #2a2a2a;
             font-size: 1rem;
             letter-spacing: 1px;
             line-height: 25px;
             list-style-type: none;
-            padding-left: 4px;
+            padding-top: 2px;
             width: 130px; }
             header .head-container .top-head #logged .dropdown li:hover {
-              background: #dddddd; }
+              color: #04a777; }
       header .head-container .top-head .fa-bars {
         color: #2a2a2a;
         display: none;
@@ -296,18 +297,24 @@ header {
       position: relative; }
       #home-page #preview .preview-container .pop-ballad:nth-child(1) .top-border, #home-page #preview .preview-container .pop-ballad:nth-child(1) .bottom-border {
         background: #9c0f5f; }
+      #home-page #preview .preview-container .pop-ballad:nth-child(1) .fa-eye {
+        color: #9c0f5f; }
       #home-page #preview .preview-container .pop-ballad:nth-child(1) h1 {
         color: #9c0f5f; }
       #home-page #preview .preview-container .pop-ballad:nth-child(1) span {
         color: #9c0f5f; }
       #home-page #preview .preview-container .pop-ballad:nth-child(2) .top-border, #home-page #preview .preview-container .pop-ballad:nth-child(2) .bottom-border {
         background: #26547c; }
+      #home-page #preview .preview-container .pop-ballad:nth-child(2) .fa-eye {
+        color: #26547c; }
       #home-page #preview .preview-container .pop-ballad:nth-child(2) h1 {
         color: #26547c; }
       #home-page #preview .preview-container .pop-ballad:nth-child(2) span {
         color: #26547c; }
       #home-page #preview .preview-container .pop-ballad:nth-child(3) .top-border, #home-page #preview .preview-container .pop-ballad:nth-child(3) .bottom-border {
         background: #04a777; }
+      #home-page #preview .preview-container .pop-ballad:nth-child(3) .fa-eye {
+        color: #04a777; }
       #home-page #preview .preview-container .pop-ballad:nth-child(3) h1 {
         color: #04a777; }
       #home-page #preview .preview-container .pop-ballad:nth-child(3) span {
@@ -320,10 +327,16 @@ header {
         border-radius: 5px; }
       #home-page #preview .preview-container .pop-ballad .bottom-border {
         clear: both; }
+      #home-page #preview .preview-container .pop-ballad .fa-eye {
+        font-size: 1.5rem;
+        position: absolute;
+        right: 20px;
+        top: 30px; }
       #home-page #preview .preview-container .pop-ballad h1 {
         font-size: 1.5rem;
         margin: 20px 0 10px 0;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        width: 75%; }
       #home-page #preview .preview-container .pop-ballad h2 {
         color: #2a2a2a;
         font-size: 1.25rem;
@@ -433,7 +446,8 @@ header {
 #home-page .slick-dots {
   bottom: 40px;
   position: absolute;
-  transform: scale(5); }
+  transform: scale(5);
+  width: 200px; }
 #home-page .slick-dots li {
   margin: 0 -3px; }
 #home-page slick-dots li button:before {
@@ -692,13 +706,13 @@ html {
         margin: 0;
         padding: 0;
         position: absolute;
-        right: 34px;
+        right: 35px;
         top: 30px;
         width: 80px; }
         #ballads-page #tools-section .rbox #sort-list li {
           font-size: 1rem;
           font-weight: bold;
-          text-align: right; }
+          text-align: center; }
         #ballads-page #tools-section .rbox #sort-list li:hover {
           color: #04a777; }
   #ballads-page #ballad-cards-container-grid {
@@ -944,7 +958,7 @@ html {
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #ccc;
+        background-color: #ddd;
         -webkit-transition: 0.4s;
         transition: 0.4s; }
       #editor-page #editor-slideout-menu .slideout-public-section .slider:before {
@@ -1033,8 +1047,12 @@ html {
             position: absolute;
             display: none;
             margin: 0;
-            padding: 10px;
-            background: #2a2a2a; }
+            padding-top: 15px;
+            padding-bottom: 15px;
+            background: #2a2a2a;
+            width: 150px; }
+            #editor-page .header2 .bottom-head .tools span ul li {
+              padding: 2px 8px; }
             #editor-page .header2 .bottom-head .tools span ul li:hover {
               color: #04a777; }
       #editor-page .header2 .bottom-head .rhyme button {
@@ -1061,9 +1079,11 @@ html {
           list-style: none;
           position: absolute;
           top: 0;
-          margin-top: 20px;
+          margin-top: 25px;
+          padding-top: 10px;
           right: 0;
           background: #2a2a2a;
+          padding-bottom: 15px;
           width: 100%; }
           #editor-page .header2 .bottom-head .transform .font-selector #fonts li {
             text-align: center;
@@ -1084,12 +1104,16 @@ html {
         /* Hide default HTML checkbox */
         /* The slider */
         /* Rounded sliders */ }
+        #editor-page .header2 .bottom-head .status span {
+          font-size: 1rem;
+          padding-right: 10px; }
         #editor-page .header2 .bottom-head .status .switch {
           position: relative;
           display: inline-block;
           width: 30px;
           height: 17px;
-          margin-left: 10px; }
+          margin-left: 10px;
+          transform: scale(1.5); }
         #editor-page .header2 .bottom-head .status .switch input {
           display: none; }
         #editor-page .header2 .bottom-head .status .slider {
@@ -1099,7 +1123,7 @@ html {
           left: 0;
           right: 0;
           bottom: 0;
-          background-color: #ccc;
+          background-color: #ddd;
           -webkit-transition: 0.4s;
           transition: 0.4s; }
         #editor-page .header2 .bottom-head .status .slider:before {
@@ -1113,7 +1137,7 @@ html {
           -webkit-transition: 0.4s;
           transition: 0.4s; }
         #editor-page .header2 .bottom-head .status input:checked + .slider {
-          background-color: #2196F3; }
+          background-color: #04a777; }
         #editor-page .header2 .bottom-head .status input:focus + .slider {
           box-shadow: 0 0 1px #2196F3; }
         #editor-page .header2 .bottom-head .status input:checked + .slider:before {
@@ -1134,7 +1158,7 @@ html {
           font-size: 1.15rem;
           font-weight: bold;
           box-sizing: border-box;
-          padding: 2px 8px;
+          padding: 5px 10px;
           border: none;
           border-radius: 10px;
           margin-left: 15px; }
@@ -1147,7 +1171,7 @@ html {
           font-size: 1.15rem;
           font-weight: bold;
           box-sizing: border-box;
-          padding: 2px 8px;
+          padding: 5px 10px;
           border: none;
           border-radius: 10px;
           margin-left: 15px; }
@@ -1230,7 +1254,7 @@ html {
         border-bottom: 1px solid #2a2a2a;
         text-align: center;
         margin-bottom: 40px;
-        font-size: 2em;
+        font-size: 1.5rem;
         width: 80%;
         color: #2a2a2a;
         font-weight: light; }
@@ -1337,12 +1361,12 @@ html {
         margin: 0;
         padding: 0;
         position: relative;
-        top: 30px; }
+        top: 30px;
+        width: 80px; }
         #profile .container .top .rprofile #color-list li {
           font-size: 1rem;
           font-weight: bold;
-          padding-left: 12px;
-          text-align: left; }
+          text-align: center; }
         #profile .container .top .rprofile #color-list #blue:hover {
           color: #26547c; }
         #profile .container .top .rprofile #color-list #green:hover {

@@ -66,11 +66,11 @@ $(document).ready(function() {
        text: ' ',
        sectioned: true,
        section: 'chorus',
-     })
+     });
      c++;
    }
    process();
- })
+ });
  $('#verse').click(function() {
    c = 0;
    for(var i= 0; i < 4; i++) {
@@ -79,11 +79,11 @@ $(document).ready(function() {
        text: ' ',
        sectioned: true,
        section: 'verse',
-     })
+     });
      c++;
    }
    process();
- })
+ });
  $('#bridge').click(function() {
    c = 0;
    for(var i= 0; i < 4; i++) {
@@ -92,11 +92,11 @@ $(document).ready(function() {
        text: ' ',
        sectioned: true,
        section: 'bridge',
-     })
+     });
      c++;
    }
    process();
- })
+ });
  $('#section').click(function() {
    c = 0;
    for(var i= 0; i < 4; i++) {
@@ -144,7 +144,7 @@ $(document).ready(function() {
  });
  $('.font-choice').click(function() {
    $('#mytext').css('font-family',$(this).html());
-   $('#current-font').html($(this).html()+'<i class="fa fa-chevron-down" aria-hidden="true"></i>');
+   $('#current-font').html($(this).html()+' <i class="fa fa-angle-down" aria-hidden="true"></i>');
    $('#fonts').toggle();
  });
 });
@@ -219,11 +219,15 @@ function getRhymes() {
  $('.rhymes').html(rhymeboxes);
 }
 
-const postBallads = (url,ballad)=>{
+const postBallads = (url,ballad,exportNow)=>{
     $.post(url,
         ballad,
         function (response) {
+                if(exportNow && response == 'Done'){
 
+                    document.location.href = "/download";
+
+                }
         }
     );
 };
@@ -234,7 +238,7 @@ $(document).ready(function () {
     $("#btn1").css("background","#9c0f5f");
 
   $('#editor-page #editor-slideout-button').click(function() {
-    console.log("hi");
+
 
     $("#editor-slideout-menu").animate({width:'toggle'},500);
     $("#editor-slideout-menu, #editor-slideout-overlay").show();
@@ -297,9 +301,9 @@ $(document).ready(function () {
                         content: $("#mytext").val(),
                         isPublic: $('#isPublic').prop('checked'),
                     };
-                    postBallads("/saveBallad", ballad);
+                    postBallads("/saveBallad", ballad,true);
 
-                    document.location.href = "/download";
+
                 },
                 Like: () => {
                     postBallads("/like-ballad");

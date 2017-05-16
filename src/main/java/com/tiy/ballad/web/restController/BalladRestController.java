@@ -31,7 +31,7 @@ public class BalladRestController {
     private UserService userService;
 
     @PostMapping("/saveBallad")
-    public void saveNewBallad(HttpSession session, String title, String content, Boolean isPublic){
+    public String saveNewBallad(HttpSession session, String title, String content, Boolean isPublic){
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         if(userId == 0){
             session.setAttribute("title",title);
@@ -51,10 +51,12 @@ public class BalladRestController {
             }else{
                 ballad = new Ballad(title,content, owner, isPublic);
                 balladId = balladService.saveNewBallad(ballad);
+                System.out.println(balladId);
 
             }
             session.setAttribute("balladId",balladId);
         }
+        return "Done";
     }
 
     @PostMapping("/deleteBallad")

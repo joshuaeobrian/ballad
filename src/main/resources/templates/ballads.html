@@ -7,7 +7,7 @@
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
   </head>
-  <body id="ballads-page">
+  <body id="ballads-page" class="my-ballads" th:class="${showProfile}? 'my-ballads':'popular'">
 
     <div id="global-login" th:remove="all">
       <div class="modal-container">
@@ -96,10 +96,31 @@
         </div>
       </div>
     </header>
+    <section id="profile-head" th:style="${showProfile}? 'display:block; background-color:'+${myColor.hexCode}+';':'display:none;'">
+      <div class="container">
+        <div class="pic-container">
+          <div class="pic-holder">
+            <img class="pic" th:src="${showProfile}? @{|/user/image/profile?userId=${user.id}|} : @{|/user/image|}">
+              
+            </img>
+
+          </div>
+
+        </div>
+        <div class="description" >
+          <div class="description-container">
+            <h1>Future</h1>
+            <h2 th:text="|${user.firstName} ${user.lastName}|">Nayvidius Cash</h2>
+            <p th:text="|${user.about}|">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
     <section id="tools-section">
       <div class="lbox">
-        <h2 th:text="${ballad_title.equals('My Ballads')} ? 'My Ballads': 'Popular'">ballads</h2>
+        <h2 th:text="${ballad_title}">ballads</h2>
 
       </div>
       <div class="mbox">
@@ -108,7 +129,14 @@
 
       <div class="rbox">
         <div class="layout-icon">
-
+          <div class="container">
+            <div id='a'></div>
+            <div id='b'></div>
+            <div id='c'></div>
+            <div id='d'></div>
+            <div id='e'></div>
+            <div id='f'></div>
+          </div>
         </div>
         <span id="sort-dropdown">
           <span id="current-sort">Recent</span>
@@ -123,11 +151,11 @@
         </ul>
       </div>
 
-<!--TODO Make table with sorting options or hardcode and make work-->
 
     </section>
 
     <section id="ballad-cards-section">
+
 
       <div class="ballad-card-view" id="ballad-cards-container-grid">
 
@@ -138,6 +166,7 @@
               <input type="hidden" th:value="*{id}"/>
                 <i class="fa fa-pencil" aria-hidden="true"></i>
                 <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                <i class="fa fa-eye" aria-hidden="true"></i>
                 <h1 th:text="*{title}">Love</h1>
                 <h2 th:text="|*{owner.firstName} *{owner.lastName}|">Kendrick Lamar</h2>
                 <p th:text="*{#strings.substring(ballad,0,20)}">If I didn't ride blade on curb, would you still love me? If I minimized my net worth, would you still love me?</p>

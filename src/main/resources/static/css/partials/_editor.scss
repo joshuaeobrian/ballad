@@ -1,402 +1,604 @@
+@import url( 'https://fonts.googleapis.com/css?family=Baloo|Dancing+Script|Indie+Flower|Josefin+Sans|Lobster|Open+Sans+Condensed:300|Pacifico|Quicksand');
+
 html {
-  min-height: 100%;
-  position: relative;
+    min-height: 100%;
+    position: relative;
 }
 
 #editor-page {
-  height: 100%;
+    height: 100%;
+    // EDITOR SLIDEOUT MENU
+    #editor-slideout-menu {
+        background: white;
+        height: 200%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 70%;
+        z-index: 100;
 
+        .slideout-menu-header {
+            align-items: center;
+            border-bottom: 4px solid $black;
+            display: flex;
+            left: 5%;
+            position: relative;
+            width: 90%;
+            height: 98px;
 
-// EDITOR SLIDEOUT MENU
+            .fa-arrow-left {
+                color: gray;
+                font-size: 1.25rem;
+                padding-right: 20px;
+            }
 
-  #editor-slideout-menu {
-    background: white;
-    height: 200%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 70%;
-    z-index: 100;
+            h1 {
+                color: $black;
+                font-style: italic;
+                font-size: 1.5rem;
+            }
+        }
 
-    .slideout-menu-header {
-      align-items: center;
-      border-bottom: 4px solid $black;
-      display: flex;
-      left: 5%;
-      position: relative;
-      width: 90%;
-      height: 98px;
+        .slideout-tools-section {
+            border-bottom: 4px solid $black;
+            margin-left: 5%;
+            width: 90%;
 
-      .fa-arrow-left {
-        color: gray;
-        font-size: 1.25rem;
-        padding-right: 20px;
-      }
+            h2 {
+                color: $black;
+                font-size: 1.25rem;
+                font-weight: bold;
+                margin-top: 20px;
+            }
 
-      h1 {
-        color: $black;
-        font-style: italic;
-        font-size: 1.5rem;
-      }
+            ul {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 30px;
+
+                a {
+                    color: $black;
+                    display: block;
+                    font-size: 1.15rem;
+                    font-weight: bold;
+                    margin-top: 20px;
+                    text-decoration: none;
+
+                    li {
+                        list-style-type: none;
+                    }
+                }
+
+                a:hover {
+                    color: $green;
+                }
+            }
+        }
+
+        .slideout-rhyme-section {
+            align-items: center;
+            border-bottom: 4px solid $black;
+            display: flex;
+            height: 60px;
+            justify-content: center;
+            margin-left: 5%;
+            width: 90%;
+
+            span {
+                font-size: 1.25rem;
+                font-weight: bold;
+                color: $green;
+            }
+        }
+
+        .slideout-formatting-section {
+            align-items: center;
+            border-bottom: 4px solid $black;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: 120px;
+            justify-content: center;
+            margin-left: 5%;
+            width: 90%;
+
+            .fa {
+                color: $black;
+                font-size: 1.25rem;
+                padding: 0 10%;
+            }
+        }
+
+        .slideout-public-section {
+            height: 100px;
+            margin-left: 5%;
+            width: 90%;
+
+            h2 {
+                color: $green;
+                display: inline-block;
+                font-size: 1.25rem;
+                margin-top: 20px;
+                width: 50%;
+            }
+            /* The switch - the box around the slider */
+            .switch {
+                float: right;
+                position: relative;
+                display: inline-block;
+                margin-top: 20px;
+                width: 60px;
+                height: 34px;
+            }
+            /* Hide default HTML checkbox */
+            .switch input {
+                display: none;
+            }
+            /* The slider */
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
+            }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
+            }
+
+            input:checked + .slider {
+                background-color: $green;
+            }
+
+            input:focus + .slider {
+                box-shadow: 0 0 1px #2196F3;
+            }
+
+            input:checked + .slider:before {
+                -webkit-transform: translateX(26px);
+                -ms-transform: translateX(26px);
+                transform: translateX(26px);
+            }
+            /* Rounded sliders */
+            .slider.round {
+                border-radius: 34px;
+            }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+        }
     }
 
-    .slideout-tools-section {
-      border-bottom: 4px solid $black;
-      margin-left: 5%;
-      width: 90%;
+    #editor-slideout-overlay {
+        background: linear-gradient( rgba(42, 42, 42, 0.90), rgba(42, 42, 42, 0.90));
+        bottom: 0;
+        height: 200%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 50;
+    }
 
-      h2 {
-        color: $black;
-        font-size: 1.25rem;
-        font-weight: bold;
-        margin-top: 20px;
-      }
+    header {
+        height: 100px;
+    }
 
-      ul {
+    .header2 {
+        width: 100%;
+        height: 140px;
+        background: $black;
         display: flex;
         flex-direction: column;
-        margin-bottom: 30px;
-
-        a {
-          color: $black;
-          display: block;
-          font-size: 1.15rem;
-          font-weight: bold;
-          margin-top: 20px;
-          text-decoration: none;
-
-          li {
-            list-style-type: none;
-          }
-        }
-
-        a:hover {
-          color: $green;
-        }
-      }
-    }
-
-    .slideout-rhyme-section {
-      align-items: center;
-      border-bottom: 4px solid $black;
-      display: flex;
-      height: 60px;
-      justify-content: center;
-      margin-left: 5%;
-      width: 90%;
-
-      span {
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: $green;
-      }
-    }
-
-    .slideout-formatting-section {
-      align-items: center;
-      border-bottom: 4px solid $black;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      height: 120px;
-      justify-content: center;
-      margin-left: 5%;
-      width: 90%;
-
-      .fa {
-        color: $black;
-        font-size: 1.25rem;
-        padding: 0 10%;
-      }
-    }
-
-    .slideout-public-section {
-      height: 100px;
-      margin-left: 5%;
-      width: 90%;
-
-      h2 {
-        color: $green;
-        display: inline-block;
-        font-size: 1.25rem;
-        margin-top: 20px;
-        width: 50%;
-      }
-
-        /* The switch - the box around the slider */
-      .switch {
-        float: right;
-        position: relative;
-        display: inline-block;
-        margin-top: 20px;
-        width: 60px;
-        height: 34px;
-      }
-
-      /* Hide default HTML checkbox */
-      .switch input {display:none;}
-
-      /* The slider */
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-      }
-
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-      }
-
-      input:checked + .slider {
-        background-color: $green;
-      }
-
-      input:focus + .slider {
-        box-shadow: 0 0 1px #2196F3;
-      }
-
-      input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-      }
-
-      /* Rounded sliders */
-      .slider.round {
-        border-radius: 34px;
-      }
-
-      .slider.round:before {
-        border-radius: 50%;
-      }
-
-      }
-    }
-
-  #editor-slideout-overlay {
-    background: linear-gradient(
-      rgba(42, 42, 42, 0.90),
-      rgba(42, 42, 42, 0.90));
-    bottom: 0;
-    height: 200%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    z-index: 50;
-  }
-
-  header {
-    height: 100px;
-  }
-  .header2 {
-    width: 100%;
-    height: 140px;
-    background: $black;
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
-    align-items: center;
-    .top-head, .bottom-head {
-      width: 80%;
-      height: 50%;
-    }
-    .top-head {
-      // display: flex;
-      // align-items: center;
-      input {
-        font-size: 2rem;
-        background: none;
-        color: white;
-        font-style: italic;
-        border: none;
-        margin-top: 10px;
-        &:after {
-          content: "By: Isaiah Anderson";
-        }
-      }
-
-      .save-and-cancel {
-        display: none;
-      }
-
-      .hamburger-container #editor-slideout-button .fa-bars {
-        display: none;
-      }
-    }
-
-    .bottom-head {
-      display: flex;
-      justify-content: space-between;
-      .tools,.rhyme,.transform,.align,.notes,.status,.save {
-        display: flex;
+        // justify-content: center;
         align-items: center;
-        color: white;
-        font-size: 1.5rem;
-      }
-      .tools {
-        span {
-          color: white;
-          // font-size: 1rem;
-          letter-spacing: 1px;
-          ul {
-            list-style: none;
-            position: absolute;
-            display: none;
-            margin: 0;
-            padding: 10px;
-            background: $black;
-            li:hover {
-              color: $green;
-            }
-          }
-        }
-      }
-      .rhyme {
-        button {
-          background: none;
-          border: none;
-          color: $green;
-          font-size: 1rem;
-          letter-spacing: 1px;
-        }
-      }
-      .transform {
-        button {
-          background: none;
-          border:none;
-          color: white;
-          font-size: 1rem;
-          margin: 3px;
-        }
-      }
-      .align {
-        button {
-          background: none;
-          border:none;
-          color: white;
-          font-size: 1rem;
-          margin: 3px;
-        }
-      }
-      .save {
-        justify-content: flex-end;
-        width: 20%;
-        button {
-          background: $green;
-          color: white;
-          font-size: 1rem;
-          box-sizing: border-box;
-          padding: 10px 20px;
-          border: none;
-          border-radius: 20px;
-          margin-left: 15px;
-        }
-      }
-    }
-  }
-  .container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    .main-area {
-      width: 70%;
-      .scheme {
-        margin: 0;
-        position: absolute;
-        font-size: 1.5rem;
-        padding-top: 80px;
-        line-height: 40px;
-        // list-style: none;
-        color: $magenta;
-        // li {
-        //   box-sizing: border-box;
-        //   padding-right: 10px;
-        //   border-right: 1px solid black;
-        // }
-        .rhymetype.A {
-          color: $blue;
-        }
-        .rhymetype.B {
-          color: $green;
-        }
-        .rhymetype.C {
-          color: $black;
-        }
-        .rhymetype.D {
-          color: $magenta;
-        }
-        .rhymetype.sectionedchorus {
-          padding-right: 10px;
-          padding-left: 10px;
-          border-right: 2px solid $green;
-        }
-        .rhymetype.sectionedverse {
-          padding-right: 10px;
-          padding-left: 15px;
-          border-right: 2px solid $magenta;
-        }
-        .rhymetype.sectionedbridge {
-          padding-right: 10px;
-          padding-left: 5px;
-          border-right: 2px solid $blue;
-        }
-        .rhymetype.sectionedsection {
-          padding-right: 10px;
-          padding-left: 5px;
-          border-right: 2px solid $black;
-        }
-      }
-      textarea {
-        // position: relative;
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        padding-left: 80px;
-        padding-top: 80px;
-        font-size: 1.5rem;
-        line-height: 40px;
-        border: none;
-        background: transparent;
-        resize: none;
-        color: $black;
 
-      }
-      #rendered-text {
-        z-index: -1;
-        position: absolute;
-        top: 240px;
-        width: 70%;
-        height: 100%;
-        box-sizing: border-box;
-        padding-left: 80px;
-        padding-top: 80px;
-        font-size: 1.5rem;
-        line-height: 40px;
-        // background: red;
-      }
+        .bottom-head,
+        .top-head {
+            width: 80%;
+            height: 50%;
+        }
+
+        .top-head {
+            input {
+                font-size: 2rem;
+                background: none;
+                color: white;
+                // font-style: italic;
+                border: none;
+                margin-top: 10px;
+
+                &:after {
+                    content: "By: Isaiah Anderson";
+                }
+            }
+
+            .save-and-cancel {
+                display: none;
+            }
+            .hamburger-container #editor-slideout-button .fa-bars {
+                display: none;
+            }
+        }
+
+        .bottom-head {
+            display: flex;
+            justify-content: space-between;
+
+            .align, .notes, .rhyme, .save, .status, .tools, .transform {
+                // display: none;
+                // display: flex;
+                align-items: center;
+                color: white;
+                font-size: 1.5rem;
+            }
+
+            .user-container {
+              // display: none;
+              // display: inline-block;
+
+              h3 {
+                color: white;
+                font-size: 1.5rem;
+
+                #user {
+                  color: $green;
+                  font-size: 1.5rem;
+                }
+              }
+            }
+
+            .tools {
+                span {
+                    color: white;
+                    // font-size: 1rem;
+                    letter-spacing: 1px;
+
+                    ul {
+                        list-style: none;
+                        position: absolute;
+                        display: none;
+                        margin: 0;
+                        padding: 10px;
+                        background: $black;
+
+                        li:hover {
+                            color: $green;
+                        }
+                    }
+                }
+            }
+
+            .rhyme {
+                button {
+                    background: none;
+                    border: none;
+                    color: $green;
+                    font-size: 1rem;
+                    letter-spacing: 1px;
+                }
+            }
+
+            .transform {
+                // position: relative;
+                button {
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 1rem;
+                    margin: 3px;
+                }
+
+                .font-selector {
+                    position: relative;
+
+                    #fonts {
+                        display: none;
+                        list-style: none;
+                        position: absolute;
+                        top: 0;
+                        margin-top: 20px;
+                        // background: rgba(0,0,0,.1);
+                        right: 0;
+
+                        li {
+                            text-align: right;
+                            color: $green;
+                            cursor: default;
+                        }
+                    }
+                }
+            }
+
+            .align {
+                button {
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 1rem;
+                    margin: 3px;
+                }
+            }
+
+            .status {
+                .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 30px;
+                    height: 17px;
+                    margin-left: 10px;
+                }
+                /* Hide default HTML checkbox */
+                .switch input {
+                    display: none;
+                }
+                /* The slider */
+                .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #ccc;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
+                }
+
+                .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 13px;
+                    width: 13px;
+                    left: 2px;
+                    bottom: 2px;
+                    background-color: white;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
+                }
+
+                input:checked + .slider {
+                    background-color: #2196F3;
+                }
+
+                input:focus + .slider {
+                    box-shadow: 0 0 1px #2196F3;
+                }
+
+                input:checked + .slider:before {
+                    -webkit-transform: translateX(13px);
+                    -ms-transform: translateX(13px);
+                    transform: translateX(13px);
+                }
+                /* Rounded sliders */
+                .slider.round {
+                    border-radius: 17px;
+                }
+
+                .slider.round:before {
+                    border-radius: 50%;
+                }
+            }
+
+            .save {
+                justify-content: flex-end;
+                width: 20%;
+
+                button {
+                    background: $green;
+                    color: white;
+                    font-size: 1.15rem;
+                    font-weight: bold;
+                    box-sizing: border-box;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 20px;
+                    margin-left: 15px;
+                }
+            }
+
+            .like {
+              // display: none;
+              // display: inline-block;
+              justify-content: flex-end;
+              width: 20%;
+
+              button {
+                  background: $green;
+                  color: white;
+                  font-size: 1.15rem;
+                  font-weight: bold;
+                  box-sizing: border-box;
+                  padding: 10px 20px;
+                  border: none;
+                  border-radius: 20px;
+                  margin-left: 15px;
+              }
+            }
+        }
     }
-    .rhymes {
-      width: 30%;
-      height: 100%;
-      background: #ddd;
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .main-area {
+            width: 70%;
+
+            .scheme {
+                margin: 0;
+                position: absolute;
+                font-size: 1.5rem;
+                padding-top: 80px;
+                line-height: 40px;
+                color: $magenta;
+                .rhymetype.A {
+                    color: $blue;
+                }
+
+                .rhymetype.B {
+                    color: $green;
+                }
+
+                .rhymetype.C {
+                    color: $black;
+                }
+
+                .rhymetype.D {
+                    color: $magenta;
+                }
+
+                .rhymetype.sectionedchorus {
+                    padding-right: 10px;
+                    padding-left: 10px;
+                    border-right: 2px solid $green;
+                }
+
+                .rhymetype.sectionedverse {
+                    padding-right: 10px;
+                    padding-left: 15px;
+                    border-right: 2px solid $magenta;
+                }
+
+                .rhymetype.sectionedbridge {
+                    padding-right: 10px;
+                    padding-left: 5px;
+                    border-right: 2px solid $blue;
+                }
+
+                .rhymetype.sectionedsection {
+                    padding-right: 10px;
+                    padding-left: 5px;
+                    border-right: 2px solid $black;
+                }
+            }
+
+            textarea {
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                padding-left: 80px;
+                padding-right: 60px;
+                padding-top: 80px;
+                font-size: 1.5rem;
+                line-height: 40px;
+                border: none;
+                background: transparent;
+                resize: none;
+                color: $black;
+            }
+
+            #rendered-text {
+                z-index: -1;
+                position: absolute;
+                top: 240px;
+                width: 70%;
+                height: 100%;
+                box-sizing: border-box;
+                padding-left: 80px;
+                padding-top: 80px;
+                font-size: 1.5rem;
+                line-height: 40px;
+                // background: red;
+            }
+        }
+
+        .rhymes-container {
+            // display: none;
+            // display: inline-block;
+            width: 30%;
+            height: 100%;
+            background: #ddd;
+            text-align: center;
+            padding-top: 50px;
+
+            .rhymes {
+                width: 100%;
+
+                .rhyme {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    border: 1px solid $black;
+                    margin: 5px;
+                }
+            }
+        }
+    }
+}
+
+.owner {
+
+  .header2 {
+    .bottom-head {
+
+      .user-container {
+        display: none;
+      }
+
+      .align, .notes, .rhyme, .save, .status, .tools, .transform {
+        display: flex;
+      }
+
+      .like {
+        display: none;
+      }
     }
   }
-}
+
+  .container {
+    .rhymes-container {
+      display: inline-block;
+      }
+    }
+  }
+
+
+
+.other-user {
+
+  .header2 {
+    .bottom-head {
+
+      .user-container {
+        display: inline-block;
+      }
+
+      .align, .notes, .rhyme, .status, .tools, .transform {
+        display: none;
+      }
+
+      .save {
+        display: inline-block;
+      }
+
+      .like {
+        display: inline-block;
+      }
+    }
+  }
+
+  .container {
+    .rhymes-container {
+      display: none;
+      }
+    }
+  }

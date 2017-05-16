@@ -78,6 +78,13 @@ public class BalladRestController {
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         return balladService.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId,search);
     }
+    @PostMapping("/profileBallads")
+    public List<Ballad> profileBalladsByRecent(HttpSession session, Integer caseId,String search){
+        Integer userId = Integer.parseInt(session.getAttribute("profileId").toString());
+        List<Ballad> publicProfileBallads = balladService.sortBallads(true,userId,true,false,caseId,search);
+
+        return publicProfileBallads;
+    }
 
     @GetMapping("/download")
     public ResponseEntity<byte[]> downloadBallad(HttpSession session) throws Exception{
@@ -106,6 +113,27 @@ public class BalladRestController {
 
 
         return new ResponseEntity<byte[]>(output, headers, HttpStatus.OK);
+    }
+
+    @PostMapping("/like-ballad")
+    public void likeBallad(HttpSession session){
+        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
+        if(userId != 0){
+            User user = userService.findUserById(userId);
+            Integer balladId = Integer.parseInt(session.getAttribute("balladId").toString());
+            Ballad ballad =balladService.findBalladById(balladId);
+            ballad.setFavorite(true);
+            balladService.likeBallad(ballad,user);
+        }
+
+    }
+    @PostMapping("/user-public-ballads")
+    public List<Ballad> getProfile(Integer userId){
+//        Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
+        User profile = userService.findUserById(userId);
+        List<Ballad> publicProfileBallads = balladService.sortBallads(true,profile.getId(),true,false,0,"");
+
+        return publicProfileBallads;
     }
 
 

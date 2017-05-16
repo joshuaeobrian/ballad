@@ -42,7 +42,7 @@ $(document).ready(function() {
  $('#mytext').keyup(function(e) {
    if(e.keyCode == 13) {
      getRhymes();
-     console.log($(this).prop('selectionStart'));
+    //  console.log($(this).prop('selectionStart'));
    }
  })
  $('#default-scheme').click(function() {
@@ -98,12 +98,43 @@ $(document).ready(function() {
        text: ' ',
        sectioned: true,
        section: 'section',
-     })
+     });
      c++;
    }
    process();
- })
-})
+ });
+ $('#wordtorhyme').keydown(function(e) {
+   if(e.keyCode == 13) {
+     var rhymelist = lex.rhymes($('#wordtorhyme').val());
+     rhymeboxes = '';
+     for(var i = 0; i < rhymelist.length; i++) {
+       rhymeboxes += '<div class="rhyme">'+rhymelist[i]+'</div>';
+     }
+     $('.rhymes').html(rhymeboxes);
+    //  if($('#mytext').selectionStart == $('#mytext').val().length) {
+    //    console.log('Yup');
+    //    lines[lines.length] = lines[lines.length-1];
+    //  }
+   }
+ });
+ $('.fa-align-center').click(function() {
+   $('#mytext').css('text-align','center');
+ });
+ $('.fa-align-left').click(function() {
+   $('#mytext').css('text-align','left');
+ });
+ $('.fa-align-right').click(function() {
+   $('#mytext').css('text-align','right');
+ });
+ $('#current-font').click(function() {
+   $('#fonts').slideToggle();
+ });
+ $('.font-choice').click(function() {
+   $('#mytext').css('font-family',$(this).html());
+   $('#current-font').html($(this).html()+'<i class="fa fa-chevron-down" aria-hidden="true"></i>');
+   $('#fonts').slideToggle();
+ });
+});
 function process() {
  var text = $('#mytext').val();
  text = text.replace(/\n/gi, "<br />");
@@ -114,7 +145,7 @@ function process() {
        scheme: scheme[c%4],
        text: splitlines[i],
        sectioned: false
-     }
+     };
      c++;
    }
    if(lines[i] != undefined) {
@@ -143,7 +174,7 @@ function getRhymes() {
  var textpiece = $('#mytext').val().substring(0,$('#mytext').prop('selectionStart'));
  var linenum = (textpiece.match(/\n/g) || []).length;
  var currentline = lines[linenum].scheme;
- console.log(textpiece.match(/\n/g) || []);
+ // console.log(textpiece.match(/\n/g) || []);
  var linetorhyme = 0;
  for(var i = 0; i < linenum-1; i++) {
    if(lines[i].scheme == currentline) {
@@ -151,51 +182,15 @@ function getRhymes() {
    }
  }
  var words = lines[linetorhyme].text.split(" ");
- rhymelist = lex.rhymes(words[words.length-1]);
+ $('#wordtorhyme').val(words[words.length-1]);
+ rhymelist = lex.rhymes($('#wordtorhyme').val());
  rhymeboxes = '';
- for(var i = 0; i < rhymelist.length; i++) {
+ for(var i = 0; i < Math.min(rhymelist.length,50); i++) {
    rhymeboxes += '<div class="rhyme">'+rhymelist[i]+'</div>';
  }
  $('.rhymes').html(rhymeboxes);
 }
 
-
-
-
-// const input = document.getElementById("ballad-input");
-// const rhymeBank = document.getElementById("rhyme-bank");
-// const balladBank = document.getElementById("ballads");
-// let lineRhyme = false;
-// const rhymeScheme = [['A','B','A','B'],['A','B','B','A'],['A','A','B','B']];
-//
-//
-// const postForRhymes = (word)=>{
-//     let words = [];
-//     $.post("/api/rhymingWord",
-//         {
-//             "word": word,
-//         },function (data) {
-//             const wordsToTrim = jQuery.parseJSON(data);
-//             const bankedWords = rhymeBank.querySelectorAll("h5");
-//             for(let i = 0; i < bankedWords.length; i++){
-//                 rhymeBank.removeChild(bankedWords[i]);
-//             }
-//             for(let i = 0; i < wordsToTrim.length; i++){
-//                 let element = document.createElement("h5");
-//                 element.textContent = wordsToTrim[i]["word"];
-//                 element.style.cursor = "pointer";
-//                 element.style.display = "inline";
-//                 // element.style.border = "1px solid";
-//                 element.style.margin = "5px";
-//
-//                 rhymeBank.appendChild(element);
-//
-//             }
-//             return words;
-//         }
-//     );
-// };
-//
 const postBallads = (url,ballad)=>{
     $.post(url,
         ballad,
@@ -204,25 +199,8 @@ const postBallads = (url,ballad)=>{
         }
     );
 };
-//
-// const selectedText = ()=>{
-//     let txt = "";
-//     const element = document.activeElement;
-//     const tag = element.tagName;
-//     if(tag == "TEXTAREA"){
-//         txt = element.value.slice(element.selectionStart,element.selectionEnd);
-//         return txt;
-//     }
-// };
-//
-// const isRhymingLine =() =>{
-//     lineRhyme = !lineRhyme;
-//     return lineRhyme;
-// }
 
 $(document).ready(function () {
-
-  $('#editor-slideout-menu, #editor-slideout-overlay').hide();
 
   $('#editor-page #editor-slideout-button').click(function() {
     console.log("hi");
@@ -237,59 +215,29 @@ $(document).ready(function () {
   });
 
 
-
+    $("#user").click(function () {
+        const user = $("#user-id").val();
+        // console.log(user);
+        document.location.href = "/user-profile?userId="+user;
+    });
 
 
     $('#text-to-render').on('input', function() {
       var text = $('#text-to-render').val();
       text = text.replace(/\n/gi, "<br />");
       $('#rendered-text').html(text);
-    })
+    });
 
     $('#tools').click(function() {
       $('#tool-list').slideToggle();
-    })
-    /**
-     * event listener for on click launches function to
-     * get a word when double clicked or highlighted
-     */
-    // $("#ballad-input").on("click", function (e) {
-    //     // let con = $("#user-input").prop("")
-    //     const txt = selectedText();
-    //     if (txt != "" && !txt.includes(" ")){
-    //        postForRhymes(txt);
-    //     }
-    // });
+    });
 
-    // /**
-    //  * event listener on keydown if key is space
-    //  * then is runs the post function to put rhymes
-    //  * in the dom
-    //  */
-    // $("#ballad-input").on('keydown', function (e) {
-    //
-    //     //This is controlled for when you press space
-    //     if(e.which == 13){
-    //         var cursorPosition = $("#ballad-input").prop("selectionStart");
-    //         let index = input.value.substring(0,cursorPosition).split(" ");
-    //         let word = index[index.length-1];
-    //         console.log(word);
-    //         if(word != ""&& !word.includes("[")&& isRhymingLine()){
-    //             let trash = word.split("\n");
-    //             console.log(trash);
-    //            postForRhymes(trash[trash.length-1]);
-    //
-    //         }
-    //     }
-    // });
 
     $("button").click(function (e) {
         let button = e.target;
         let action = button.value;
-        if(action.includes("Note")){
-            action = "Notes";
-        }
-        if(action == 'Notes'||action == 'Save'||action == 'Export') {
+
+        if(action == 'Like'||action == 'Save'||action == 'Export') {
             console.log(action);
             const actions = {
                 Save: () => {
@@ -318,9 +266,12 @@ $(document).ready(function () {
 
                     document.location.href = "/download";
                 },
-                Notes: () => {
-                    console.log(action);
-                }
+                Like: () => {
+                    postBallads("/like-ballad");
+                    button.disabled = true;
+                    button.style.background= "#F26430";
+                    button.textContent ="Liked";
+                },
             };
             actions[action]();
         }

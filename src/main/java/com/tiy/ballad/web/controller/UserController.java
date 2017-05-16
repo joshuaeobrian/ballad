@@ -41,8 +41,6 @@ public class UserController {
         User user =(User) current[1];
         System.out.println(user);
         model.addAttribute("user",user);
-        System.out.println(colorService.getColorByID(user.getColorCode()));
-//        System.out.println(current[1].toString());
         model.addAttribute("colors",colorService.listColors());
         model.addAttribute("isLoggedIn",current[0]);
         model.addAttribute("myColor",colorService.getColorByID(user.getColorCode()));
@@ -104,6 +102,16 @@ public class UserController {
 
         return "login";
     }
+
+    @GetMapping("/user/image/profile")
+    @ResponseBody
+    public byte[] userImage(Integer userId){
+        User user = userService.findUserById(userId);
+
+        return user.getPhoto();
+    }
+
+
 
     @ResponseBody
     @PostMapping("/userlogin")

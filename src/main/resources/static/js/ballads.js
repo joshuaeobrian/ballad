@@ -1,6 +1,104 @@
 /**
  * Global properties
  */
+ var grid = false;
+
+$('.container').click(function() {
+  if(grid) {
+    tolist();
+    grid = !grid;
+  } else {
+    togrid();
+    grid = !grid;
+  }
+
+});
+
+togrid = function() {
+  $('#a').animate({
+    top: '0%',
+    height: '30%',
+  },200).animate({
+    width: '63%',
+  },200);
+  $('#b').animate({
+    top: '33%',
+    height: '30%',
+  },200).animate({
+    left: '0%',
+    width: '63%'
+  },200);
+  $('#c').animate({
+    top: '0%',
+    height: '30%',
+  },200).animate({
+
+  },200);
+  $('#d').animate({
+    top: '66%',
+    height: '30%',
+  },200).animate({
+    width: '63%',
+  },200)
+  $('#e').animate({
+    top: '66%',
+    height: '30%',
+  },200).animate({
+    left: '66%',
+  },200)
+  $('#f').animate({
+    top: '33%',
+    height: '30%',
+  },200);
+};
+
+tolist = function() {
+  $('#a').animate({
+    top: '0%',
+    height: '30%',
+    width: '30%'
+  },200).animate({
+    height: '55%',
+  },200);
+  $('#b').animate({
+    left: '33%',
+    width: '30%',
+  },200).animate({
+    top: '0%',
+    height: '25%'
+  },200);
+  $('#c').animate({
+    top: '0%',
+    height: '30%',
+  },200).animate({
+    top: '0%',
+    height: '75%'
+  },200);
+  $('#d').animate({
+    top: '66%',
+    height: '30%',
+    width: '30%'
+  },200).animate({
+    top: '60%',
+    height: '40%',
+    width: '30%',
+  },200)
+  $('#e').animate({
+    top: '66%',
+    height: '30%',
+    left: '33%'
+  },200).animate({
+    top: '30%',
+    height: '70%',
+    left: '33%',
+  },200)
+  $('#f').animate({
+    left: '66%',
+  },200).animate({
+    top: '80%',
+    height: '20%'
+  },200);
+};
 const pageLocation = window.location.href;
 const sortIndex = {
     Title:1,
@@ -34,14 +132,16 @@ const createBallad = (ballad)=>{
     var hiddenId = document.createElement("input");
     hiddenId.type = "hidden";
     hiddenId.value = ballad["id"];
-
-
     var title = document.createElement("h1");
-    title.textContent = ballad["title"];
+    title.textContent = (ballad["title"].length > 18 && !isGrid)? ballad["title"].substring(0,ballad["title"].substring(0,18).lastIndexOf(' '))+'...' : ballad["title"] ;
     var author = document.createElement("h2");
     author.textContent = ballad["owner"]["firstName"]+" "+ballad["owner"]["lastName"];
     var content = document.createElement("p");
-    content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,150)+"...";
+    if(isGrid){
+        content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,ballad["ballad"].substring(0, 150).lastIndexOf(' '))+"...";
+    }else{
+        content.textContent = (ballad["ballad"].length < 100)? ballad["ballad"] : ballad["ballad"].substring(0,ballad["ballad"].substring(0, 100).lastIndexOf(' '))+"...";
+    }
 
     var date = document.createElement("div");
     date.className = "date";
@@ -72,6 +172,11 @@ const createBallad = (ballad)=>{
         bdelete.setAttribute("aria-hidden","true");
         listDiv.appendChild(pencil);
         listDiv.appendChild(bdelete);
+    }else{
+        var popView = document.createElement("i");
+        popView.className = "fa fa-eye viewBallad";
+        popView.setAttribute("aria-hidden","true");
+        listDiv.appendChild(popView);
     }
     listDiv.appendChild(title);
     listDiv.appendChild(author);
@@ -128,8 +233,10 @@ function getBallads(url,config){
 function toggleListView(){
     if(isGrid){
         cardView.id = toggleViewVals[isGrid];
+        console.log(cardView.id);
     }else{
         cardView.id=toggleViewVals[isGrid];
+        console.log(cardView.id);
     }
     mainLoad();
 }
@@ -148,11 +255,19 @@ function mainLoad() {
         };
         getBallads("/sortBallads",config);
     }
+    if(pageLocation.includes("user-profile")){
+        const x = pageLocation.split("=");
+        const config = {
+            userId: x[1],
+        }
+        getBallads("/user-public-ballads",config);
+    }
 }
 
 $(document).ready(function () {
 
     mainLoad();
+
 
     $('#sort-dropdown').click(function() {
         $('#sort-list').slideToggle();
@@ -179,8 +294,6 @@ $(document).ready(function () {
         isGrid = !isGrid;
         toggleListView()
     });
-
-
 
     $("#sort-list li").click(function (e) {
         $(document).closest("div.column1").remove();
@@ -245,20 +358,32 @@ $(document).ready(function () {
     });
 
     $("#ballads-search").on('keydown',function (e) {
+        const option = document.getElementById("current-sort").textContent;
+        console.log(option);
+        let config = {};
 
-        let config = {
+        if(pageLocation.includes("user-profile")) {
+            const x = pageLocation.split("=");
+            config = {
+                caseId: sortIndex[option],
+                search: $("#ballads-search").val(),
+            };
+            getBallads("/profileBallads",config);
+        }else{
+           config = {
                 userOnly: false,
                 isPublic: true,
                 isPrivate: true,
-                caseId: 3,
+                caseId: sortIndex[option],
                 search: $("#ballads-search").val(),
 
             };
+            getBallads("/sortBallads",config);
+        }
 
-        getBallads("/sortBallads",config);
+
 
     });
-
 
     $("div").on('click',".editBallad",function (e) {
 
@@ -283,6 +408,14 @@ $(document).ready(function () {
             $(this).parent().parent().remove();
         }
     });
+    $("div").on('click',".viewBallad",function (e) {
+        if(pageLocation.includes("popular")||pageLocation.includes("user-profile")){
+            const ballad_id = $(this).parent().find("input[type=hidden]").val();
+            console.log(ballad_id);
+            window.location = "/viewBallad?balladId="+ballad_id;
+        }
+    });
+
 
 
 });

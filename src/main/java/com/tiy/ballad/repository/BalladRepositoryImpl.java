@@ -1,5 +1,6 @@
 package com.tiy.ballad.repository;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.tiy.ballad.model.Ballad;
 import com.tiy.ballad.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +72,13 @@ public class BalladRepositoryImpl implements BalladRepository {
     }
 
     @Override
+    public void likeBallad(Ballad ballad, User user){
+        template.update("INSERT INTO ballad_interaction(ballad_id, ballad_user_id, favorite) VALUES(?,?,?)",
+                new Object[]{ballad.getId(),user.getId(),ballad.isFavorite()});
+
+    }
+
+    @Override
     public List<Ballad> showMyBallads(User user) {
         return template.query("SELECT\n" +
                         "  b.id as id, b.title as title, b.ballad as ballad, b.creation_date AS creation_date, b.public AS ispublic,\n" +
@@ -124,7 +132,7 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "FROM ballads AS b\n" +
                         "  JOIN ballad_users as u on b.creator_id = u.id \n" +
                         "  JOIN ballad_interaction as i ON b.id = i.ballad_id\n" +
-                        "  WHERE b.id=?;",
+                        "  WHERE b.id=? AND u.id=i.ballad_user_id;",
                 new Object[]{balladId},(rs, i) -> new Ballad(rs.getInt("id"), rs.getString("title"), rs.getString("ballad"),
                         new User(rs.getInt("user_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("username")),
                         collaborators( rs.getInt("id")), LocalDate.parse(rs.getString("creation_date")),
@@ -142,7 +150,7 @@ public class BalladRepositoryImpl implements BalladRepository {
                         "  LEFT JOIN ballad_users AS u ON b.creator_id = u.id\n" +
                         "  LEFT JOIN ballad_interaction AS i ON b.id = i.ballad_id\n" +
                         " WHERE (lower(b.ballad) LIKE lower(?) OR lower(b.title) LIKE lower(?) OR lower(u.first_name) LIKE lower(?) OR lower(last_name) LIKE lower(?)) AND" +
-                        " CASE WHEN ? THEN u.id=? OR b.public=? AND b.public=?\n" +
+                        " CASE WHEN ? THEN u.id=? AND (b.public=? AND b.public=?)\n" +
                         "       ELSE (b.public=TRUE) END GROUP BY b.id, u.id ORDER BY\n" +
                         "  CASE WHEN (? = 1) THEN b.title END ASC,\n" +
                         "  CASE WHEN (? = 2) THEN b.title END DESC,\n" +
@@ -187,35 +195,5 @@ public class BalladRepositoryImpl implements BalladRepository {
                 ));
     }
 
-//    /**
-//     * Eliminate with sort method
-//     * @return
-//     */
-//    @Override
-//    public List<Ballad> getPopularBallads() {
-//        return template.query("SELECT\n" +
-//                        "  COALESCE((select count(*) from ballad_interaction where ballad_id = b.id and favorite = TRUE GROUP BY ballad_id),0) AS count,\n" +
-//                        "  b.id as id, b.title as title, b.ballad as ballad, b.creation_date AS creation_date, b.public AS ispublic,\n" +
-//                        "  u.id as user_id, u.first_name, u.last_name, u.email, u.username, u.password,u.active\n" +
-//                        "FROM ballads AS b\n" +
-//                        "  JOIN ballad_users as u on b.creator_id = u.id\n" +
-//                        "  JOIN ballad_interaction as i ON b.id = i.ballad_id\n" +
-//                        " WHERE b.public=TRUE GROUP BY b.id, u.id ORDER BY count DESC;",
-//                (rs, i) -> new Ballad(
-//                        rs.getInt("id"),
-//                        rs.getString("title"),
-//                        rs.getString("ballad"),
-//                        new User(
-//                                rs.getInt("user_id"),
-//                                rs.getString("first_name"),
-//                                rs.getString("last_name"),
-//                                rs.getString("username")
-//                        ),
-//                        collaborators( rs.getInt("id")),
-//                        LocalDate.parse(rs.getString("creation_date")),
-//                        null,
-//                        true,
-//                        true
-//                ));
-//    }
+
 }

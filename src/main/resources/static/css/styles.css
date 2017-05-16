@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Baloo|Dancing+Script|Indie+Flower|Josefin+Sans|Lobster|Open+Sans+Condensed:300|Pacifico|Quicksand");
 @import url("https://fonts.googleapis.com/css?family=Istok+Web");
 html {
   min-height: 100%;
@@ -8,6 +9,7 @@ body {
 
 .global-slideout-menu {
   background: white;
+  display: none;
   height: 200%;
   position: absolute;
   right: 0;
@@ -31,34 +33,37 @@ body {
     .global-slideout-menu .slideout-menu-header img {
       height: 44.28%;
       object-fit: contain; }
-  .global-slideout-menu .slideout-tools-section {
+  .global-slideout-menu .slideout-nav-section {
     border-bottom: 4px solid #2a2a2a;
     margin-left: 5%;
     width: 90%; }
-    .global-slideout-menu .slideout-tools-section h2 {
-      color: #2a2a2a;
-      font-size: 1.25rem;
-      font-weight: bold;
-      margin-top: 20px; }
-    .global-slideout-menu .slideout-tools-section ul {
+    .global-slideout-menu .slideout-nav-section ul {
       display: flex;
       flex-direction: column;
-      margin-bottom: 30px; }
-      .global-slideout-menu .slideout-tools-section ul a {
+      margin-bottom: 0px; }
+      .global-slideout-menu .slideout-nav-section ul a {
+        border-bottom: 1px solid #2a2a2a;
         color: #2a2a2a;
         display: block;
-        font-size: 1.15rem;
+        font-size: 1.5rem;
         font-weight: bold;
-        margin-top: 20px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        text-align: center;
         text-decoration: none; }
-        .global-slideout-menu .slideout-tools-section ul a li {
+        .global-slideout-menu .slideout-nav-section ul a li {
           list-style-type: none; }
-      .global-slideout-menu .slideout-tools-section ul a:hover {
-        color: #04a777; }
+      .global-slideout-menu .slideout-nav-section ul a:hover {
+        background: #04a777;
+        color: white; }
+      .global-slideout-menu .slideout-nav-section ul a:focus {
+        background: #04a777;
+        color: white; }
 
 .global-slideout-overlay {
   background: linear-gradient(rgba(42, 42, 42, 0.9), rgba(42, 42, 42, 0.9));
   bottom: 0;
+  display: none;
   height: 200%;
   left: 0;
   position: absolute;
@@ -69,6 +74,7 @@ body {
 
 #global-login .modal-overlay {
   background: linear-gradient(rgba(42, 42, 42, 0.9), rgba(42, 42, 42, 0.9));
+  display: none;
   height: 100%;
   left: 0;
   position: absolute;
@@ -76,6 +82,7 @@ body {
   width: 100%;
   z-index: 50; }
 #global-login .modal-container {
+  display: none;
   height: 100%;
   left: 0;
   position: absolute;
@@ -150,6 +157,7 @@ body {
         color: #2a2a2a; }
 
 header {
+  background: white;
   height: 200px;
   margin: 0; }
   header .head-container {
@@ -176,6 +184,8 @@ header {
       header .head-container .top-head #logged {
         position: relative; }
         header .head-container .top-head #logged .dropdown {
+          background: white;
+          box-shadow: -1px 1px 3px #888888;
           display: none;
           left: -4px;
           margin: 0;
@@ -183,15 +193,14 @@ header {
           position: absolute;
           text-align: left; }
           header .head-container .top-head #logged .dropdown li {
-            background: white;
             font-size: 1rem;
             letter-spacing: 1px;
             line-height: 25px;
             list-style-type: none;
             padding-left: 4px;
-            width: 250px; }
+            width: 130px; }
             header .head-container .top-head #logged .dropdown li:hover {
-              color: #04a777; }
+              background: #dddddd; }
       header .head-container .top-head .fa-bars {
         color: #2a2a2a;
         display: none;
@@ -534,6 +543,58 @@ html {
 
 #ballads-page {
   height: 100%; }
+  #ballads-page #profile-head {
+    width: 100%;
+    background: #9c0f5f;
+    height: 400px; }
+    #ballads-page #profile-head .container {
+      width: 80%;
+      height: 100%;
+      margin: 0 auto; }
+      #ballads-page #profile-head .container .pic-container, #ballads-page #profile-head .container .description {
+        display: inline-block;
+        height: 100%; }
+      #ballads-page #profile-head .container .pic-container {
+        width: 30%;
+        position: relative; }
+        #ballads-page #profile-head .container .pic-container .pic-holder {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          #ballads-page #profile-head .container .pic-container .pic-holder .pic {
+            width: 250px;
+            height: 250px;
+            background: url("https://placehold.it/350x350");
+            background-size: contain;
+            background-repeat: no-repeat;
+            clip-path: circle(125px at 125px 125px);
+            transition: .1s; }
+            #ballads-page #profile-head .container .pic-container .pic-holder .pic:hover {
+              transform: scale(1.05); }
+      #ballads-page #profile-head .container .description {
+        width: 50%;
+        position: relative; }
+        #ballads-page #profile-head .container .description .description-container {
+          position: absolute;
+          width: 80%;
+          left: 10%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          color: white; }
+          #ballads-page #profile-head .container .description .description-container h1 {
+            font-size: 3em;
+            text-transform: uppercase; }
+          #ballads-page #profile-head .container .description .description-container h2 {
+            font-size: 1.5em; }
+          #ballads-page #profile-head .container .description .description-container p {
+            font-size: 1.1em;
+            line-height: 30px;
+            letter-spacing: .5px; }
   #ballads-page #tools-section {
     align-items: center;
     display: flex;
@@ -545,13 +606,10 @@ html {
     #ballads-page #tools-section .lbox {
       width: 20%; }
       #ballads-page #tools-section .lbox h2 {
-        font-size: 2.5rem;
-        color: #04a777; }
+        font-size: 2.5rem; }
     #ballads-page #tools-section .mbox {
       width: 30%; }
       #ballads-page #tools-section .mbox input {
-        border: none;
-        border: 2px solid #2a2a2a;
         font-size: 1.15rem;
         width: 100%; }
         #ballads-page #tools-section .mbox input:focus {
@@ -561,7 +619,6 @@ html {
       right: 0;
       width: 20%; }
       #ballads-page #tools-section .rbox .layout-icon {
-        background: #2a2a2a;
         display: inline-block;
         height: 30px;
         position: absolute;
@@ -569,11 +626,45 @@ html {
         top: 50%;
         transform: translateY(-50%);
         width: 30px; }
+        #ballads-page #tools-section .rbox .layout-icon .container {
+          width: 100%;
+          height: 100%;
+          position: relative; }
+          #ballads-page #tools-section .rbox .layout-icon .container #a, #ballads-page #tools-section .rbox .layout-icon .container #b, #ballads-page #tools-section .rbox .layout-icon .container #c, #ballads-page #tools-section .rbox .layout-icon .container #d, #ballads-page #tools-section .rbox .layout-icon .container #e, #ballads-page #tools-section .rbox .layout-icon .container #f, #ballads-page #tools-section .rbox .layout-icon .container #g, #ballads-page #tools-section .rbox .layout-icon .container #h, #ballads-page #tools-section .rbox .layout-icon .container #i {
+            position: absolute;
+            width: 30%;
+            height: 30%;
+            border-radius: 10px; }
+          #ballads-page #tools-section .rbox .layout-icon .container #a {
+            top: 0%;
+            height: 55%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #b {
+            top: 0%;
+            height: 25%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #c {
+            top: 0%;
+            height: 75%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #d {
+            top: 60%;
+            height: 40%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #e {
+            top: 30%;
+            height: 70%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #f {
+            top: 80%;
+            height: 20%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #a, #ballads-page #tools-section .rbox .layout-icon .container #d {
+            left: 0%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #b, #ballads-page #tools-section .rbox .layout-icon .container #e {
+            left: 33%; }
+          #ballads-page #tools-section .rbox .layout-icon .container #c, #ballads-page #tools-section .rbox .layout-icon .container #f {
+            left: 66%; }
       #ballads-page #tools-section .rbox #sort-dropdown {
         background: #04a777;
         border: none;
         border-radius: 15px;
         box-sizing: border-box;
+        cursor: pointer;
         display: inline-block;
         padding: 10px 15px;
         position: absolute;
@@ -589,17 +680,18 @@ html {
           font-size: 1.15rem;
           font-weight: bold; }
       #ballads-page #tools-section .rbox #sort-list {
+        cursor: pointer;
         display: none;
         left: 140px;
         list-style: none;
         margin: 0;
         padding: 0;
         position: relative;
-        top: 90px; }
+        top: 70px; }
         #ballads-page #tools-section .rbox #sort-list li {
-          font-size: 1.15rem;
+          font-size: 1rem;
           font-weight: bold;
-          padding-right: 30px;
+          padding-right: 34px;
           text-align: left; }
         #ballads-page #tools-section .rbox #sort-list li:hover {
           color: #04a777; }
@@ -623,16 +715,18 @@ html {
         height: 10px;
         width: 100%;
         border-radius: 5px;
-        background: #2a2a2a;
         clear: both; }
       #ballads-page #ballad-cards-container-grid .ballad-card .fa-pencil {
-        color: #2a2a2a;
         font-size: 1.5rem;
         position: absolute;
         right: 50px;
         top: 30px; }
       #ballads-page #ballad-cards-container-grid .ballad-card .fa-minus-circle {
-        color: #2a2a2a;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 20px;
+        top: 30px; }
+      #ballads-page #ballad-cards-container-grid .ballad-card .fa-eye {
         font-size: 1.5rem;
         position: absolute;
         right: 20px;
@@ -642,7 +736,6 @@ html {
         margin: 20px 0 10px 0;
         text-transform: uppercase; }
       #ballads-page #ballad-cards-container-grid .ballad-card h2 {
-        color: #2a2a2a;
         font-size: 1.5rem;
         margin: 0px 0px 20px 0px; }
       #ballads-page #ballad-cards-container-grid .ballad-card p {
@@ -656,20 +749,17 @@ html {
       #ballads-page #ballad-cards-container-grid .ballad-card .private {
         float: right; }
         #ballads-page #ballad-cards-container-grid .ballad-card .private span {
-          color: #04a777;
           font-size: 1.3rem;
           font-weight: bold; }
   #ballads-page #ballad-cards-container-list {
     width: 80%;
-    margin: 0 auto;
-    display: none; }
+    margin: 0 auto; }
     #ballads-page #ballad-cards-container-list .ballad-card {
       width: 100%; }
       #ballads-page #ballad-cards-container-list .ballad-card .btop, #ballads-page #ballad-cards-container-list .ballad-card .bbottom {
         height: 10px;
         width: 100%;
         border-radius: 5px;
-        background: #2a2a2a;
         clear: both; }
       #ballads-page #ballad-cards-container-list .ballad-card:nth-child(n+2) .btop {
         height: 0px; }
@@ -686,6 +776,48 @@ html {
         #ballads-page #ballad-cards-container-list .ballad-card .content-container p {
           width: 35%;
           margin: 10px 0; }
+
+.my-ballads {
+  background: white;
+  color: #2a2a2a; }
+  .my-ballads #tools-section .lbox h2 {
+    color: #04a777; }
+  .my-ballads #tools-section .mbox input {
+    border: 2px solid #2a2a2a; }
+  .my-ballads #tools-section .rbox #sort-list {
+    color: #2a2a2a; }
+  .my-ballads #tools-section .rbox #a, .my-ballads #tools-section .rbox #b, .my-ballads #tools-section .rbox #c, .my-ballads #tools-section .rbox #d, .my-ballads #tools-section .rbox #e, .my-ballads #tools-section .rbox #f {
+    background: #2a2a2a; }
+  .my-ballads #ballad-cards-container-grid .ballad-card .fa-eye, .my-ballads #ballad-cards-container-grid .ballad-card .fa-pencil, .my-ballads #ballad-cards-container-grid .ballad-card .fa-minus-circle, .my-ballads #ballad-cards-container-grid .ballad-card h1, .my-ballads #ballad-cards-container-grid .ballad-card h2, .my-ballads #ballad-cards-container-grid .ballad-card p, .my-ballads #ballad-cards-container-grid .ballad-card .date {
+    color: black; }
+  .my-ballads #ballad-cards-container-grid .ballad-card .private span {
+    color: #04a777; }
+  .my-ballads #ballad-cards-container-grid .ballad-card .bbottom, .my-ballads #ballad-cards-container-grid .ballad-card .btop {
+    background: #2a2a2a; }
+  .my-ballads #ballad-cards-container-list .ballad-card .bbottom, .my-ballads #ballad-cards-container-list .ballad-card .btop {
+    background: #2a2a2a; }
+  .my-ballads #ballad-cards-container-list .ballad-card .content-container h1, .my-ballads #ballad-cards-container-list .ballad-card .content-container h2, .my-ballads #ballad-cards-container-list .ballad-card .content-container h3, .my-ballads #ballad-cards-container-list .ballad-card .content-container p {
+    color: #2a2a2a; }
+
+.popular {
+  background: #9c0f5f;
+  color: white; }
+  .popular #tools-section .lbox h2 {
+    color: white; }
+  .popular #tools-section .mbox input {
+    border: none; }
+  .popular #tools-section .rbox #sort-list {
+    color: white; }
+  .popular #tools-section .rbox #a, .popular #tools-section .rbox #b, .popular #tools-section .rbox #c, .popular #tools-section .rbox #d, .popular #tools-section .rbox #e, .popular #tools-section .rbox #f {
+    background: white; }
+  .popular #ballad-cards-container-grid .ballad-card .fa-eye, .popular #ballad-cards-container-grid .ballad-card .fa-pencil, .popular #ballad-cards-container-grid .ballad-card .fa-minus-circle, .popular #ballad-cards-container-grid .ballad-card h1, .popular #ballad-cards-container-grid .ballad-card h2, .popular #ballad-cards-container-grid .ballad-card p, .popular #ballad-cards-container-grid .ballad-card .date, .popular #ballad-cards-container-grid .ballad-card .private span {
+    color: white; }
+  .popular #ballad-cards-container-grid .ballad-card .bbottom, .popular #ballad-cards-container-grid .ballad-card .btop {
+    background: white; }
+  .popular #ballad-cards-container-list .ballad-card .bbottom, .popular #ballad-cards-container-list .ballad-card .btop {
+    background: white; }
+  .popular #ballad-cards-container-list .ballad-card .content-container h1, .popular #ballad-cards-container-list .ballad-card .content-container h2, .popular #ballad-cards-container-list .ballad-card .content-container h3, .popular #ballad-cards-container-list .ballad-card .content-container p {
+    color: white; }
 
 html {
   min-height: 100%;
@@ -798,8 +930,8 @@ html {
         right: 0;
         bottom: 0;
         background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s; }
+        -webkit-transition: 0.4s;
+        transition: 0.4s; }
       #editor-page #editor-slideout-menu .slideout-public-section .slider:before {
         position: absolute;
         content: "";
@@ -808,8 +940,8 @@ html {
         left: 4px;
         bottom: 4px;
         background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s; }
+        -webkit-transition: 0.4s;
+        transition: 0.4s; }
       #editor-page #editor-slideout-menu .slideout-public-section input:checked + .slider {
         background-color: #04a777; }
       #editor-page #editor-slideout-menu .slideout-public-section input:focus + .slider {
@@ -841,14 +973,14 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center; }
-    #editor-page .header2 .top-head, #editor-page .header2 .bottom-head {
+    #editor-page .header2 .bottom-head,
+    #editor-page .header2 .top-head {
       width: 80%;
       height: 50%; }
     #editor-page .header2 .top-head input {
       font-size: 2rem;
       background: none;
       color: white;
-      font-style: italic;
       border: none;
       margin-top: 10px; }
       #editor-page .header2 .top-head input:after {
@@ -860,11 +992,16 @@ html {
     #editor-page .header2 .bottom-head {
       display: flex;
       justify-content: space-between; }
-      #editor-page .header2 .bottom-head .tools, #editor-page .header2 .bottom-head .rhyme, #editor-page .header2 .bottom-head .transform, #editor-page .header2 .bottom-head .align, #editor-page .header2 .bottom-head .notes, #editor-page .header2 .bottom-head .status, #editor-page .header2 .bottom-head .save {
-        display: flex;
+      #editor-page .header2 .bottom-head .align, #editor-page .header2 .bottom-head .notes, #editor-page .header2 .bottom-head .rhyme, #editor-page .header2 .bottom-head .save, #editor-page .header2 .bottom-head .status, #editor-page .header2 .bottom-head .tools, #editor-page .header2 .bottom-head .transform {
         align-items: center;
         color: white;
         font-size: 1.5rem; }
+      #editor-page .header2 .bottom-head .user-container h3 {
+        color: white;
+        font-size: 1.5rem; }
+        #editor-page .header2 .bottom-head .user-container h3 #user {
+          color: #04a777;
+          font-size: 1.5rem; }
       #editor-page .header2 .bottom-head .tools span {
         color: white;
         letter-spacing: 1px; }
@@ -889,19 +1026,90 @@ html {
         color: white;
         font-size: 1rem;
         margin: 3px; }
+      #editor-page .header2 .bottom-head .transform .font-selector {
+        position: relative; }
+        #editor-page .header2 .bottom-head .transform .font-selector #fonts {
+          display: none;
+          list-style: none;
+          position: absolute;
+          top: 0;
+          margin-top: 20px;
+          right: 0; }
+          #editor-page .header2 .bottom-head .transform .font-selector #fonts li {
+            text-align: right;
+            color: #04a777;
+            cursor: default; }
       #editor-page .header2 .bottom-head .align button {
         background: none;
         border: none;
         color: white;
         font-size: 1rem;
         margin: 3px; }
+      #editor-page .header2 .bottom-head .status {
+        /* Hide default HTML checkbox */
+        /* The slider */
+        /* Rounded sliders */ }
+        #editor-page .header2 .bottom-head .status .switch {
+          position: relative;
+          display: inline-block;
+          width: 30px;
+          height: 17px;
+          margin-left: 10px; }
+        #editor-page .header2 .bottom-head .status .switch input {
+          display: none; }
+        #editor-page .header2 .bottom-head .status .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: 0.4s;
+          transition: 0.4s; }
+        #editor-page .header2 .bottom-head .status .slider:before {
+          position: absolute;
+          content: "";
+          height: 13px;
+          width: 13px;
+          left: 2px;
+          bottom: 2px;
+          background-color: white;
+          -webkit-transition: 0.4s;
+          transition: 0.4s; }
+        #editor-page .header2 .bottom-head .status input:checked + .slider {
+          background-color: #2196F3; }
+        #editor-page .header2 .bottom-head .status input:focus + .slider {
+          box-shadow: 0 0 1px #2196F3; }
+        #editor-page .header2 .bottom-head .status input:checked + .slider:before {
+          -webkit-transform: translateX(13px);
+          -ms-transform: translateX(13px);
+          transform: translateX(13px); }
+        #editor-page .header2 .bottom-head .status .slider.round {
+          border-radius: 17px; }
+        #editor-page .header2 .bottom-head .status .slider.round:before {
+          border-radius: 50%; }
       #editor-page .header2 .bottom-head .save {
         justify-content: flex-end;
         width: 20%; }
         #editor-page .header2 .bottom-head .save button {
           background: #04a777;
           color: white;
-          font-size: 1rem;
+          font-size: 1.15rem;
+          font-weight: bold;
+          box-sizing: border-box;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 20px;
+          margin-left: 15px; }
+      #editor-page .header2 .bottom-head .like {
+        justify-content: flex-end;
+        width: 20%; }
+        #editor-page .header2 .bottom-head .like button {
+          background: #04a777;
+          color: white;
+          font-size: 1.15rem;
+          font-weight: bold;
           box-sizing: border-box;
           padding: 10px 20px;
           border: none;
@@ -951,6 +1159,7 @@ html {
         height: 100%;
         box-sizing: border-box;
         padding-left: 80px;
+        padding-right: 60px;
         padding-top: 80px;
         font-size: 1.5rem;
         line-height: 40px;
@@ -969,10 +1178,40 @@ html {
         padding-top: 80px;
         font-size: 1.5rem;
         line-height: 40px; }
-    #editor-page .container .rhymes {
+    #editor-page .container .rhymes-container {
       width: 30%;
       height: 100%;
-      background: #ddd; }
+      background: #ddd;
+      text-align: center;
+      padding-top: 50px; }
+      #editor-page .container .rhymes-container .rhymes {
+        width: 100%; }
+        #editor-page .container .rhymes-container .rhymes .rhyme {
+          display: inline-block;
+          padding: 5px 10px;
+          border-radius: 5px;
+          border: 1px solid #2a2a2a;
+          margin: 5px; }
+
+.owner .header2 .bottom-head .user-container {
+  display: none; }
+.owner .header2 .bottom-head .align, .owner .header2 .bottom-head .notes, .owner .header2 .bottom-head .rhyme, .owner .header2 .bottom-head .save, .owner .header2 .bottom-head .status, .owner .header2 .bottom-head .tools, .owner .header2 .bottom-head .transform {
+  display: flex; }
+.owner .header2 .bottom-head .like {
+  display: none; }
+.owner .container .rhymes-container {
+  display: inline-block; }
+
+.other-user .header2 .bottom-head .user-container {
+  display: inline-block; }
+.other-user .header2 .bottom-head .align, .other-user .header2 .bottom-head .notes, .other-user .header2 .bottom-head .rhyme, .other-user .header2 .bottom-head .status, .other-user .header2 .bottom-head .tools, .other-user .header2 .bottom-head .transform {
+  display: none; }
+.other-user .header2 .bottom-head .save {
+  display: inline-block; }
+.other-user .header2 .bottom-head .like {
+  display: inline-block; }
+.other-user .container .rhymes-container {
+  display: none; }
 
 html {
   min-height: 100%;
@@ -1023,6 +1262,7 @@ html {
         font-style: italic;
         text-align: center; }
       #profile .container .top .rprofile #color-dropdown {
+        cursor: pointer;
         background: #9c0f5f;
         border: none;
         border-radius: 15px;
@@ -1039,14 +1279,15 @@ html {
           font-size: 1.15rem;
           font-weight: bold; }
       #profile .container .top .rprofile #color-list {
+        cursor: pointer;
         display: none;
         list-style: none;
         margin: 0;
         padding: 0;
         position: relative;
-        top: 40px; }
+        top: 30px; }
         #profile .container .top .rprofile #color-list li {
-          font-size: 1.15rem;
+          font-size: 1rem;
           font-weight: bold;
           padding-left: 12px;
           text-align: left; }

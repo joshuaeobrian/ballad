@@ -132,14 +132,16 @@ const createBallad = (ballad)=>{
     var hiddenId = document.createElement("input");
     hiddenId.type = "hidden";
     hiddenId.value = ballad["id"];
-
-
     var title = document.createElement("h1");
-    title.textContent = ballad["title"];
+    title.textContent = (ballad["title"].length > 18 && !isGrid)? ballad["title"].substring(0,ballad["title"].substring(0,18).lastIndexOf(' '))+'...' : ballad["title"] ;
     var author = document.createElement("h2");
     author.textContent = ballad["owner"]["firstName"]+" "+ballad["owner"]["lastName"];
     var content = document.createElement("p");
-    content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,ballad["ballad"].substring(0, 150).lastIndexOf(' '))+"...";
+    if(isGrid){
+        content.textContent = (ballad["ballad"].length < 150)? ballad["ballad"] : ballad["ballad"].substring(0,ballad["ballad"].substring(0, 150).lastIndexOf(' '))+"...";
+    }else{
+        content.textContent = (ballad["ballad"].length < 100)? ballad["ballad"] : ballad["ballad"].substring(0,ballad["ballad"].substring(0, 100).lastIndexOf(' '))+"...";
+    }
 
     var date = document.createElement("div");
     date.className = "date";
@@ -170,6 +172,11 @@ const createBallad = (ballad)=>{
         bdelete.setAttribute("aria-hidden","true");
         listDiv.appendChild(pencil);
         listDiv.appendChild(bdelete);
+    }else{
+        var popView = document.createElement("i");
+        popView.className = "fa fa-eye viewBallad";
+        popView.setAttribute("aria-hidden","true");
+        listDiv.appendChild(popView);
     }
     listDiv.appendChild(title);
     listDiv.appendChild(author);
@@ -248,6 +255,13 @@ function mainLoad() {
         };
         getBallads("/sortBallads",config);
     }
+    if(pageLocation.includes("user-profile")){
+        const x = pageLocation.split("=");
+        const config = {
+            userId: x[1],
+        }
+        getBallads("/user-public-ballads",config);
+    }
 }
 
 $(document).ready(function () {
@@ -276,14 +290,14 @@ $(document).ready(function () {
     });
 
     $('.layout-icon').click(function() {
-        console.log(isGrid);
+        // console.log(isGrid);
         isGrid = !isGrid;
         toggleListView()
     });
 
     $("#sort-list li").click(function (e) {
         $(document).closest("div.column1").remove();
-        console.log(e.target.textContent);
+        // console.log(e.target.textContent);
         const sort = e.target.textContent;
 
         if(pageLocation.includes("my-ballads")){
@@ -344,17 +358,30 @@ $(document).ready(function () {
     });
 
     $("#ballads-search").on('keydown',function (e) {
+        const option = document.getElementById("current-sort").textContent;
+        // console.log(option);
+        let config = {};
 
-        let config = {
+        if(pageLocation.includes("user-profile")) {
+            const x = pageLocation.split("=");
+            config = {
+                caseId: sortIndex[option],
+                search: $("#ballads-search").val(),
+            };
+            getBallads("/profileBallads",config);
+        }else{
+           config = {
                 userOnly: false,
                 isPublic: true,
                 isPrivate: true,
-                caseId: 3,
+                caseId: sortIndex[option],
                 search: $("#ballads-search").val(),
 
             };
+            getBallads("/sortBallads",config);
+        }
 
-        getBallads("/sortBallads",config);
+
 
     });
 
@@ -362,18 +389,14 @@ $(document).ready(function () {
 
         if(pageLocation.includes("my-ballads")){
             const ballad_id = $(this).parent().find("input[type=hidden]").val();
-            console.log(ballad_id);
+            // console.log(ballad_id);
             window.location = "/editor/"+ballad_id;
-        }else if(pageLocation.includes("my-ballads")){
-            const ballad_id = $(this).parent().find("input[type=hidden]").val();
-            console.log(ballad_id);
-            window.location = "/viewBallad?balladId="+ballad_id;
         }
     });
     $("div").on("click",".deleteBallad", function (e) {
         if(pageLocation.includes("my-ballads")){
             const ballad_id = $(this).parent().find("input[type=hidden]").val();
-            console.log(ballad_id);
+            // console.log(ballad_id);
             // window.location = "/editor/"+ballad_id;
             $.post("/deleteBallad",
                 {
@@ -383,6 +406,13 @@ $(document).ready(function () {
                 }
             );
             $(this).parent().parent().remove();
+        }
+    });
+    $("div").on('click',".viewBallad",function (e) {
+        if(pageLocation.includes("popular")||pageLocation.includes("user-profile")){
+            const ballad_id = $(this).parent().find("input[type=hidden]").val();
+            // console.log(ballad_id);
+            window.location = "/viewBallad?balladId="+ballad_id;
         }
     });
 

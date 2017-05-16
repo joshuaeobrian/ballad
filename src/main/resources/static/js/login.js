@@ -3,6 +3,7 @@ const LAST_NAME_VAL = document.getElementById("sign-up-lname");
 const EMAIL_VAL = document.getElementById("sign-up-email");
 const USERNAME_VAL = document.getElementById("sign-up-username");
 const PASSWORD_VAL = document.getElementById("sign-up-password");
+const NEW_PASS_VAL = document.getElementById("recovery-password-error");
 const PASSWORD_STRENGTH ={
     5:{
         color: "#F26430",
@@ -39,9 +40,16 @@ const postUser = (url,user)=>{
     $.post(url,
         user,
         function (data) {
-            console.log(data);
+
             if(url == "/signUp"|| url == "/userlogin") {
                 handleUserLogin(data);
+            }else if(url=="/update-password"){
+                handleRecovery(data);
+            }else if("/forgot-email"){
+                if(data){
+                    alert("An email has been sent with recovery password.");
+                    window.location.href="/account-recovery";
+                }
             }else{
 
                 if((/[\W@{1}.+]/g).exec(user.username) && (user.username.includes("com")||user.username.includes("net")||user.username.includes("me"))) {
@@ -53,15 +61,27 @@ const postUser = (url,user)=>{
                 }
             }
 
+
         });
     return isExist;
 
 };
+function handleRecovery(data) {
+    if(data){
+        console.log("ok");
+        document.location.href="/";
+    }else{
 
+        const passwordValidation = document.getElementById("recovery-password-val");
+        passwordValidation.textContent = (data)? "" : "Recovery key Incorrect!";
+        passwordValidation.style.color = "red";
+        passwordValidation.style.fontSize = "0.90rem";
+
+
+    }
+}
 function handleUserLogin(data) {
     if(data[0]&&data[1]){
-        console.log("ok");
-        // getBallads("/myBallads")
         document.location.href="/";
     }else{
 
@@ -69,7 +89,7 @@ function handleUserLogin(data) {
         const label = document.createElement("label");
         const passwordValidation = document.getElementById("password-validation");
         const userValidation = document.getElementById("user-validation");
-        //valid.style.background = (data[0])? "" : "red";
+
         userValidation.textContent = (data[0])? "" : "Username or Email is Incorrect!";
         userValidation.style.color = "red";
         userValidation.style.fontSize = "0.90rem";
@@ -118,6 +138,14 @@ $(document).ready(function () {
 
 
     });
+    $("#forgot-email").click(function (e) {
+        e.preventDefault();
+        const user = {
+            username: $("#login-username").val(),
+        };
+
+        postUser("/forgot-email", user);
+    });
 
     $("#signup-btn").click(function (e) {
         e.preventDefault();
@@ -131,7 +159,6 @@ $(document).ready(function () {
             active: true,
 
         };
-        console.log(SIGN_UP);
         signUpValidation(user);
         if(SIGN_UP["fnameVal"] && SIGN_UP["lnameVal"] && SIGN_UP["emailVal"] && SIGN_UP["usernameVal"] && SIGN_UP["passwordVal"]) {
              postUser("/signUp",user);
@@ -179,11 +206,9 @@ $(document).ready(function () {
             EMAIL_VAL.textContent =val;
 
             if($(this).val().length > 6 && (/[\W@{1}.+]/g).exec($(this).val()) && ($(this).val().includes("com")||$(this).val().includes("net")||$(this).val().includes("me"))){
-                console.log("yep");
                 postUser("/check-username",{username:$(this).val()});
                 SIGN_UP["emailVal"]=true;
             }else{
-                console.log("nope");
                 SIGN_UP["emailVal"]=false;
             }
 
@@ -207,7 +232,7 @@ $(document).ready(function () {
             // if(){
             //     val = "Username already exists.";
             // }else{
-            //     SIGN_UP["usernameVal"]=true;
+                SIGN_UP["usernameVal"]=true;
             // }
 
         }else{
@@ -229,6 +254,74 @@ $(document).ready(function () {
             val += ((/[0-9+]/g).exec(password)) ? "" : "Needs at least 1 Number! \r\n";
             val += ((/\s/g).exec(password))? "Password can not contain spaces \r\n":"";
             PASSWORD_VAL.style.width = "75%";
+
+            let color = 0;
+            color += (password.length >= 6) ? 5 : 2;
+            if(password.length >= 6 && new RegExp((/[a-z]/g)).test(password)&&new RegExp((/[0-9]/g)).test(password)) {
+                strength.style.display = "block";
+                if (new RegExp((/[a-z]/g)).test(password)) {
+
+                    color += ( password.match((/[a-z]/g)).length >= 3 ) ? 5 : 3;
+                }
+                if (new RegExp((/[A-Z]/g)).test(password)) {
+
+                    color += (password.match((/[A-Z]/g)).length >= 1 ) ? 5 : 0;
+                }
+                if (new RegExp((/[0-9]/g)).test(password)) {
+
+                    color += (password.match((/[0-9]/g)).length >= 3 ) ? 5 : 3;
+                }
+                if (new RegExp((/[@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g)).test(password)) {
+                    color += (password.match((/[@#$%^&*()<>\/?]/g)).length >= 1 ) ? 5 : 3;
+                }
+                if (color <= 5 && color < 10) {
+                    strength.style.background = PASSWORD_STRENGTH[5]["color"];
+                    strength.textContent = PASSWORD_STRENGTH[5]["text"];
+                } else if (color >= 10 && color < 15) {
+                    strength.style.background = PASSWORD_STRENGTH[10]["color"];
+                    strength.textContent = PASSWORD_STRENGTH[10]["text"];
+                } else if (color >= 15 && color < 20) {
+                    strength.style.background = PASSWORD_STRENGTH[15]["color"];
+                    strength.textContent = PASSWORD_STRENGTH[15]["text"];
+                } else if (color >= 20 && color < 25) {
+                    strength.style.background = PASSWORD_STRENGTH[20]["color"];
+                    strength.textContent = PASSWORD_STRENGTH[20]["text"];
+                } else if (color >= 25) {
+                    strength.style.background = PASSWORD_STRENGTH[25]["color"];
+                    strength.textContent = PASSWORD_STRENGTH[25]["text"];
+                }
+                SIGN_UP["passwordVal"]=true;
+            }else{
+                strength.style.display = "none";
+            }
+            PASSWORD_VAL.textContent =val;
+        }
+    });
+    $("#recover-btn").click(function (e) {
+        e.preventDefault();
+        const user = {
+            username:$("#username-email").val(),
+            recoveryKey:$("#recovery-password").val(),
+            newPassword:$("#new-password").val(),
+        }
+        postUser("/update-password",user);
+        
+    });
+
+    $("#new-password").on("keyup", function () {
+
+        const password = $(this).val();
+        const strength = document.getElementById("password-strength");
+        let val="";
+        if($(this).val()==''){
+            NEW_PASS_VAL.textContent = "";
+        }else {
+            let count = 6 - password.length;
+            val += ($(this).val().length >= 6 )? "": "Password needs at least "+count+" more characters!  \r\n";
+            val += ((/[a-z+]/g).exec(password)) ? "" : "Needs at least 1 Letter! \r\n";
+            val += ((/[0-9+]/g).exec(password)) ? "" : "Needs at least 1 Number! \r\n";
+            val += ((/\s/g).exec(password))? "Password can not contain spaces \r\n":"";
+            NEW_PASS_VAL.style.width = "75%";
             // console.log(password.match((/[A-Z]/g)).length);
             let color = 0;
             color += (password.length >= 6) ? 5 : 2;
@@ -265,11 +358,11 @@ $(document).ready(function () {
                     strength.style.background = PASSWORD_STRENGTH[25]["color"];
                     strength.textContent = PASSWORD_STRENGTH[25]["text"];
                 }
-                SIGN_UP["passwordVal"]=true;
+
             }else{
                 strength.style.display = "none";
             }
-            PASSWORD_VAL.textContent =val;
+            NEW_PASS_VAL.textContent =val;
         }
     });
 });

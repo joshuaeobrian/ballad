@@ -39,9 +39,8 @@ public class UserController {
     public String userProfile(HttpSession session, Model model){
         Object[] current = sessionService.isSession(session);
         User user =(User) current[1];
-
+        System.out.println(user);
         model.addAttribute("user",user);
-        System.out.println(current[1].toString());
         model.addAttribute("colors",colorService.listColors());
         model.addAttribute("isLoggedIn",current[0]);
         model.addAttribute("myColor",colorService.getColorByID(user.getColorCode()));
@@ -95,12 +94,30 @@ public class UserController {
         return user.getPhoto();
     }
 
+    @GetMapping("/account-recovery")
+    public String recovery(Model model){
+
+
+        model.addAttribute("isHidden",true);
+
+        return "login";
+    }
+
+    @GetMapping("/user/image/profile")
+    @ResponseBody
+    public byte[] userImage(Integer userId){
+        User user = userService.findUserById(userId);
+
+        return user.getPhoto();
+    }
+
+
 
     @ResponseBody
     @PostMapping("/userlogin")
     public boolean[] validateUser(HttpSession session, String username, String password){
         boolean[] response = new boolean[2];
-        System.out.println("USing COntroller");
+
         try {
             User user = userService.login(username);
 //            System.out.println(user);

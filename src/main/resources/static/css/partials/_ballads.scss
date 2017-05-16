@@ -10,6 +10,7 @@ html {
     width: 100%;
     background: $magenta;
     height: 400px;
+    margin-bottom: 40px;
     .container {
       width: 80%;
       height: 100%;
@@ -30,13 +31,13 @@ html {
           justify-content: center;
           align-items: center;
           .pic {
-            width: 250px;
-            height: 250px;
+            width: 230px;
+            height: 230px;
             // background: black;
             background: url('https://placehold.it/350x350');
             background-size: contain;
             background-repeat: no-repeat;
-            clip-path: circle(125px at 125px 125px);
+            clip-path: circle(115px at 115px 115px);
             transition: .1s;
             &:hover {
               transform: scale(1.05);
@@ -61,14 +62,15 @@ html {
           justify-content: center;
           color: white;
           h1 {
-            font-size: 3em;
+            font-size: 2.5rem;
             text-transform: uppercase;
           }
           h2 {
-            font-size: 1.5em;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
           }
           p {
-            font-size: 1.1em;
+            font-size: 1rem;
             line-height: 30px;
             letter-spacing: .5px;
           }
@@ -83,7 +85,7 @@ html {
     height: 100px;
     justify-content: space-between;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     width: 80%;
 
     .lbox {
@@ -237,7 +239,7 @@ html {
     justify-content: space-between;
 
     .column1,.column2,.column3 {
-      width: 33%;
+      width: 28%;
     }
 
     .ballad-card {
@@ -245,7 +247,6 @@ html {
       padding: 10px;
       border-radius: 10px;
       margin-bottom: 80px;
-      // background: #fff;
       position: relative;
       transition: .1s;
 
@@ -294,14 +295,15 @@ html {
       }
 
       h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin: 20px 0 10px 0;
         text-transform: uppercase;
+        width: 75%;
       }
 
       h2 {
         // color: $black;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         margin: 0px 0px 20px 0px;
       }
 
@@ -322,7 +324,7 @@ html {
 
         span {
           // color: $green;
-          font-size: 1.3rem;
+          font-size: 1.25rem;
           font-weight: bold;
         }
       }

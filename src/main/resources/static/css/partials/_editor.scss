@@ -10,6 +10,7 @@ html {
     // EDITOR SLIDEOUT MENU
     #editor-slideout-menu {
         background: white;
+        display: none;
         height: 200%;
         position: absolute;
         right: 0;
@@ -186,6 +187,7 @@ html {
     #editor-slideout-overlay {
         background: linear-gradient( rgba(42, 42, 42, 0.90), rgba(42, 42, 42, 0.90));
         bottom: 0;
+        display: none;
         height: 200%;
         left: 0;
         position: absolute;
@@ -222,6 +224,7 @@ html {
                 // font-style: italic;
                 border: none;
                 margin-top: 10px;
+                width: 100%;
 
                 &:after {
                     content: "By: Isaiah Anderson";
@@ -237,6 +240,7 @@ html {
         }
 
         .bottom-head {
+            align-items: center;
             display: flex;
             justify-content: space-between;
 
@@ -258,6 +262,7 @@ html {
 
                 #user {
                   color: $green;
+                  cursor: pointer;
                   font-size: 1.5rem;
                 }
               }
@@ -402,6 +407,7 @@ html {
                 button {
                     background: $green;
                     color: white;
+                    cursor: pointer;
                     font-size: 1.15rem;
                     font-weight: bold;
                     box-sizing: border-box;

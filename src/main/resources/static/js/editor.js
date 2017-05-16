@@ -311,7 +311,7 @@ $(document).ready(function () {
                 Like: () => {
                     postBallads("/like-ballad");
                     button.disabled = true;
-                    button.style.background= "#F26430";
+                    button.style.background= "#04a777";
                     button.textContent ="Liked";
                 },
             };

@@ -510,12 +510,12 @@ html {
     height: 25px;
     border: 2px solid #2a2a2a; }
   #login-page .usr, #login-page .pass, #login-page .sub, #login-page .fname, #login-page .lname, #login-page .eaddress {
-    margin: 50px 0; }
+    margin: 40px 0; }
     #login-page .usr label, #login-page .pass label, #login-page .sub label, #login-page .fname label, #login-page .lname label, #login-page .eaddress label {
-      font-size: 1.5rem;
+      font-size: 1.15rem;
       font-weight: bold; }
     #login-page .usr input, #login-page .pass input, #login-page .sub input, #login-page .fname input, #login-page .lname input, #login-page .eaddress input {
-      margin-top: 12px; }
+      margin-top: 6px; }
   #login-page .pass {
     margin-bottom: 0; }
   #login-page .sub {
@@ -525,8 +525,7 @@ html {
     align-items: center;
     box-sizing: border-box;
     padding-top: 30px;
-    padding-bottom: 60px;
-    border-bottom: 2px solid black; }
+    padding-bottom: 30px; }
     #login-page .sub button {
       background: #04a777;
       border-radius: 15px;
@@ -549,6 +548,15 @@ html {
       text-decoration: none;
       text-weight: bold;
       color: #2a2a2a; }
+
+.password-strength {
+  display: none;
+  text-align: center;
+  width: 390px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #F26430;
+  color: white; }
 
 html {
   min-height: 100%;
@@ -1255,7 +1263,6 @@ html {
         line-height: 40px; }
     #editor-page .container .rhymes-container {
       width: 30%;
-      height: 100%;
       background: #ddd;
       text-align: center;
       padding-top: 50px;

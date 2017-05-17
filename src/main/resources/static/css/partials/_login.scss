@@ -30,15 +30,15 @@ html {
   }
 
   .usr,.pass,.sub,.fname,.lname,.eaddress {
-    margin: 50px 0;
+    margin: 40px 0;
 
     label {
-      font-size: 1.5rem;
+      font-size: 1.15rem;
       font-weight: bold;
     }
 
     input {
-      margin-top: 12px;
+      margin-top: 6px;
     }
   }
 
@@ -53,8 +53,8 @@ html {
     align-items: center;
     box-sizing: border-box;
     padding-top: 30px;
-    padding-bottom: 60px;
-    border-bottom: 2px solid black;
+    padding-bottom: 30px;
+    // border-bottom: 2px solid black;
 
     button {
       background: $green;
@@ -86,4 +86,14 @@ html {
       color: $black;
     }
   }
+}
+
+.password-strength {
+  display:none;
+  text-align: center;
+  width: 390px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #F26430;
+  color: white;
 }

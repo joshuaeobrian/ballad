@@ -194,7 +194,7 @@ $(document).ready(function () {
         $("#login-form").show();
     });
     $("#first-name").on("keyup", function () {
-        FIRST_NAME_VAL.textContent = ($(this).val().length >= 3) ? "" : "Must be real name.";
+        FIRST_NAME_VAL.textContent = ($(this).val().length >= 3) ? "" : "";
 
         if($(this).val().length >= 3){
             SIGN_UP["fnameVal"]=true;
@@ -203,7 +203,7 @@ $(document).ready(function () {
         }
     });
     $("#last-name").on("keyup", function () {
-        LAST_NAME_VAL.textContent = ($(this).val().length >= 3) ? "" : "Must be real name.";
+        LAST_NAME_VAL.textContent = ($(this).val().length >= 3) ? "" : "";
         if($(this).val().length >= 3){
             SIGN_UP["lnameVal"]=true;
         }else{

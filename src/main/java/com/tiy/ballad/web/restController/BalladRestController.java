@@ -78,7 +78,10 @@ public class BalladRestController {
     @PostMapping("/sortBallads")
     public List<Ballad> sortBalladsByRecent(HttpSession session,Boolean userOnly ,Boolean isPublic, Boolean isPrivate, Integer caseId,String search){
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
-        return balladService.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId,search);
+
+        List<Ballad> ballads = balladService.sortBallads( userOnly, userId, isPublic,  isPrivate,  caseId,search);
+
+        return ballads;
     }
     @PostMapping("/profileBallads")
     public List<Ballad> profileBalladsByRecent(HttpSession session, Integer caseId,String search){

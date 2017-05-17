@@ -308,7 +308,7 @@ $(document).ready(function () {
         if(pageLocation.includes("my-ballads")){
             isUser = true;
         }
-
+        console.log(isUser);
         currentSortID =sortIndex[sort];
 
         const action = {
@@ -333,6 +333,7 @@ $(document).ready(function () {
                     search: $("#ballads-search").val(),
 
                 };
+                console.log(config);
                 getBallads("/sortBallads",config);
 
             },

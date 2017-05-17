@@ -390,6 +390,10 @@ html {
   background: white;
   color: $black;
 
+  #global-login label {
+    color: $black;
+  }
+
   #tools-section {
     .lbox h2 {
         color: $green;
@@ -450,6 +454,10 @@ html {
 .popular {
   background: $magenta;
   color: white;
+
+  #global-login label {
+    color: $black;
+  }
 
   #tools-section {
     .lbox h2 {

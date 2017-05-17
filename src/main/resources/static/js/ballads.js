@@ -270,29 +270,30 @@ $(document).ready(function () {
     mainLoad();
 
 
-    $('#sort-dropdown').click(function() {
-        $('#sort-list').slideToggle();
+    $('#current-sort').click(function() {
+        $('#sort-list').slideDown();
     });
 
-    $("#sort-list #recent").click(function() {
-      $("#current-sort").html("Recent");
-      $("#sort-list").slideToggle();
+    $(".sort-choice").click(function() {
+      // $("#current-sort").html("Recent");
+      $('#current-sort').html($(this).html());
+      $('#sort-list').slideUp();
     });
 
-    $("#sort-list #public").click(function() {
-      $("#current-sort").html("Public");
-      $("#sort-list").slideToggle();
-    });
-
-    $("#sort-list #private").click(function() {
-      $("#current-sort").html("Private");
-      $("#sort-list").slideToggle();
-    });
-
-    $("#sort-list #likes").click(function() {
-      $("#current-sort").html("Likes");
-      $("#sort-list").slideToggle();
-    });
+    // $("#sort-list #public").click(function() {
+    //   $("#current-sort").html("Public");
+    //   $("#sort-list").slideUp();
+    // });
+    //
+    // $("#sort-list #private").click(function() {
+    //   $("#current-sort").html("Private");
+    //   $("#sort-list").slideUp();
+    // });
+    //
+    // $("#sort-list #likes").click(function() {
+    //   $("#current-sort").html("Likes");
+    //   $("#sort-list").slideUp();
+    // });
 
     $('.layout-icon').click(function() {
         // console.log(isGrid);

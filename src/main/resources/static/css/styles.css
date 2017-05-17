@@ -698,12 +698,11 @@ html {
       #ballads-page #tools-section .rbox #sort-list {
         cursor: pointer;
         display: none;
-        left: 148px;
         list-style: none;
         margin: 0;
         padding: 0;
         position: absolute;
-        top: 12px;
+        top: 36px;
         width: 60px; }
         #ballads-page #tools-section .rbox #sort-list li {
           font-size: 1rem;

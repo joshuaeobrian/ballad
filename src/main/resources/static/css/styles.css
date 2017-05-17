@@ -801,6 +801,8 @@ html {
 .my-ballads {
   background: white;
   color: #2a2a2a; }
+  .my-ballads #global-login label {
+    color: #2a2a2a; }
   .my-ballads #tools-section .lbox h2 {
     color: #04a777; }
   .my-ballads #tools-section .mbox input {
@@ -827,6 +829,8 @@ html {
 .popular {
   background: #9c0f5f;
   color: white; }
+  .popular #global-login label {
+    color: #2a2a2a; }
   .popular #tools-section .lbox h2 {
     color: white; }
   .popular #tools-section .mbox input {

@@ -149,8 +149,8 @@
         <!--TODO-->
         <ul id="sort-list">
               <li id="recent">Recent</li>
-              <li id="public">Public</li>
-              <li id="private">Private</li>
+              <li id="public" th:style="${ballad_title.equals('My Ballads')}? '':'display:none;'">Public</li>
+              <li id="private" th:style="${ballad_title.equals('My Ballads')}? '':'display:none;'">Private</li>
               <li id="likes">Likes</li>
         </ul>
       </div>
@@ -184,86 +184,6 @@
             <div class="bbottom"></div>
           </div>
 
-          <!--<div class="ballad-card" th:remove="all">-->
-            <!--<div class="btop"></div>-->
-            <!--<h1>I'm the One</h1>-->
-            <!--<h2>DJ Khaled</h2>-->
-            <!--<p>I'm the one, yeah, I'm the one, yeah-->
-                        <!--And you sick of all those other imitators-->
-                        <!--Don't let the only real one intimidate ya-->
-                        <!--See you watchin', don't run outta time now-->
-                <!--I'm the one, yeah</p>-->
-
-
-
-        <!--</div>-->
-        <!--<div class="column2" th:remove="all">-->
-          <!--<div class="ballad-card" th:remove="all">-->
-            <!--<div class="btop"></div>-->
-            <!--<h1>Humble</h1>-->
-            <!--<h2>Kendrick Lamar</h2>-->
-            <!--<p>This shit way too crazy, ayy, you do not amaze me, ayy-->
-<!--I blew cool from AC, ayy, Obama just paged me, ayy-->
-<!--I don't fabricate it, ayy, most of y'all be fakin', ayy-->
-<!--I stay modest 'bout it, ayy, she elaborate it, ayy</p>-->
-            <!--<div class="date">-->
-              <!--<span>12/2/16</span>-->
-            <!--</div>-->
-            <!--<div class="private">-->
-              <!--<span>Private</span>-->
-            <!--</div>-->
-            <!--<div class="bbottom"></div>-->
-          <!--</div>-->
-          <!--<div class="ballad-card" th:remove="all">-->
-            <!--<div class="btop"></div>-->
-            <!--<h1>Shape of You</h1>-->
-            <!--<h2>Ed Sheeran</h2>-->
-            <!--<p>The club isn't the best place to find a lover-->
-<!--So the bar is where I go-->
-<!--Me and my friends at the table doing shots-->
-<!--Drinking fast and then we talk slow</p>-->
-            <!--<div class="date">-->
-              <!--<span>12/2/16</span>-->
-            <!--</div>-->
-            <!--<div class="private">-->
-              <!--<span>Private</span>-->
-            <!--</div>-->
-            <!--<div class="bbottom"></div>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="column3"th:remove="all">-->
-          <!--<div class="ballad-card" th:remove="all">-->
-            <!--<div class="btop"></div>-->
-            <!--<h1>Sign of the Times</h1>-->
-            <!--<h2>Harry Styles</h2>-->
-            <!--<p>You can't bribe the door on your way to the sky-->
-<!--You look pretty good down here-->
-<!--But you ain't really good</p>-->
-            <!--<div class="date">-->
-              <!--<span>12/2/16</span>-->
-            <!--</div>-->
-            <!--<div class="private">-->
-              <!--<span>Private</span>-->
-            <!--</div>-->
-            <!--<div class="bbottom"></div>-->
-          <!--</div>-->
-          <!--<div class="ballad-card" th:remove="all">-->
-            <!--<div class="btop"></div>-->
-            <!--<h1>Slow Hands</h1>-->
-            <!--<h2>Nial Horan</h2>-->
-            <!--<p>I just wanna take my time-->
-<!--We could do this, baby, all night, yeah-->
-<!--'Cause I want you bad-->
-<!--Yeah, I want you, baby</p>-->
-            <!--<div class="date">-->
-              <!--<span>12/2/16</span>-->
-            <!--</div>-->
-            <!--<div class="private">-->
-              <!--<span>Private</span>-->
-            <!--</div>-->
-            <!--<div class="bbottom"></div>-->
-          <!--</div>-->
-        <!--</div>-->
 
 
         <!--list view-->

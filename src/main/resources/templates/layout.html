@@ -9,24 +9,8 @@
     <link rel="stylesheet" type="text/css" href="../static/css/slick-theme.css" th:href="@{/css/slick-theme.css}"/>
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
 
-    <!-- FAVICON -->
-    <!-- <link rel="apple-touch-icon" sizes="57x57" href="../static/images/favicon.ico/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="../static/images/favicon.ico/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../static/images/favicon.ico/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../static/images/favicon.ico/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../static/images/favicon.ico/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../static/images/favicon.ico/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../static/images/favicon.ico/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../static/images/favicon.ico/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicon.ico/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../static/images/favicon.ico/android-icon-192x192.png"> -->
-    <link rel="icon" type="image/png" sizes="32x32" th:href=“@{/images/favicon.ico/favicon-32x32.png}” href="../static/images/favicon.ico/favicon-32x32.png">
-    <!-- <link rel="icon" type="image/png" sizes="96x96" href="../static/images/favicon.ico/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon.ico/favicon-16x16.png">
-    <link rel="manifest" href="../static/images/favicon.ico/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="../static/images/favicon.ico/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff"> -->
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/images/favicon.ico/favicon-32x32.png}" href="../static/images/favicon.ico/favicon-32x32.png"/>
+
 </head>
 <body>
 
@@ -64,7 +48,7 @@
             </div>
             <div class="pass">
               <label for="signup-password">Password</label><br/>
-              <input type="text" id="signup-password" name="signup-password" required="required"/>
+              <input type="password" id="signup-password" name="signup-password" required="required"/>
                 <div  id="password-strength" style="display:none; text-align: center; width: 51%; padding: 10px; border-radius: 10px; background: #F26430; color:white;"></div>
                 <div id="sign-up-password"></div>
             </div>
@@ -95,7 +79,6 @@
             <!-- <hr> -->
             <span>Ready to create lyrics but don't have an account? <a href="#" id="signup">Sign up!</a></span>
           </form>
-
         </section>
         </div>
       </div>
@@ -114,7 +97,7 @@
             <h1><a href="home.html" id="logo" th:href="@{/}"><img src="../static/images/ballad-logo_black.png" th:src="@{/images/ballad-logo_black.png}" alt=""/></a></h1>
 
             <a href="#" id="logged" th:id="${isLoggedIn} ? 'logged': 'not-logged'" >
-                <span id="current-user" th:text="${isLoggedIn} ? ${user.firstName}:'Login/Signup'">Isaiah </span>
+                <span id="current-user" th:text="${isLoggedIn} ? ${firstName}:'Login/Signup'">Isaiah </span>
                 <span><i id="current-user-icon" class="fa fa-angle-down" th:class="${isLoggedIn}? 'fa fa-angle-down':'fa fa-user-circle-o'" aria-hidden="true"></i>
                     <ul class="dropdown" style="display: none;">
                         <li id="logout">Logout</li>

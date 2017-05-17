@@ -31,7 +31,7 @@ public class BalladRestController {
     private UserService userService;
 
     @PostMapping("/saveBallad")
-    public void saveNewBallad(HttpSession session, String title, String content, Boolean isPublic){
+    public String saveNewBallad(HttpSession session, String title, String content, Boolean isPublic){
         Integer userId = Integer.parseInt(session.getAttribute("userId").toString());
         if(userId == 0){
             session.setAttribute("title",title);
@@ -51,10 +51,12 @@ public class BalladRestController {
             }else{
                 ballad = new Ballad(title,content, owner, isPublic);
                 balladId = balladService.saveNewBallad(ballad);
+                System.out.println(balladId);
 
             }
             session.setAttribute("balladId",balladId);
         }
+        return "Done";
     }
 
     @PostMapping("/deleteBallad")
@@ -104,13 +106,10 @@ public class BalladRestController {
         byte[] output = content.getBytes();
         HttpHeaders headers = new HttpHeaders();
         headers.set("charset", "utf-8");
-
-        headers.setContentType(MediaType.APPLICATION_PDF);
+        headers.setContentType(MediaType.valueOf("text/html"));
+        headers.setContentType(MediaType.TEXT_MARKDOWN);
         headers.setContentLength(output.length);
-        headers.add("content-disposition", "inline;filename=" +title+".pdf");
-
-//        headers.set("Content-disposition", "attachment; filename="");
-
+        headers.set("Content-disposition", "attachment; filename="+title+".txt");
 
         return new ResponseEntity<byte[]>(output, headers, HttpStatus.OK);
     }

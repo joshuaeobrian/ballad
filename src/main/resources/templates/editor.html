@@ -8,24 +8,8 @@
     <link href="css/normalize.css" rel="stylesheet"/>
     <link href="../static/css/styles.css" rel="stylesheet"/>
 
-    <!-- FAVICON -->
-    <!-- <link rel="apple-touch-icon" sizes="57x57" href="../static/images/favicon.ico/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="../static/images/favicon.ico/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../static/images/favicon.ico/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../static/images/favicon.ico/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../static/images/favicon.ico/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../static/images/favicon.ico/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../static/images/favicon.ico/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../static/images/favicon.ico/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicon.ico/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../static/images/favicon.ico/android-icon-192x192.png"> -->
-    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon.ico/favicon-32x32.png">
-    <!-- <link rel="icon" type="image/png" sizes="96x96" href="../static/images/favicon.ico/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon.ico/favicon-16x16.png">
-    <link rel="manifest" href="../static/images/favicon.ico/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="../static/images/favicon.ico/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff"> -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon.ico/favicon-32x32.png"/>
+
   </head>
   <body id="editor-page" class="owner" th:class="${allowEdit}?'owner':'other-user'" th:object="${ballad}">
 
@@ -185,15 +169,6 @@
       </div>
     </div>
 
-    <!-- <input type="text" name="" value="title" />
-    <h2>by: Isaiah Anderson</h2>
-      <div class="l-bar">
-        <button type="button" name="button">+Template</button>
-        <button type="button" name="button">+Chorus</button>
-        <button type="button" name="button">+Verse</button>
-        <button type="button" name="button">+Bridge</button>
-        <button type="button" name="button">+Section</button>
-      </div> -->
       <div class="container">
         <div class="main-area">
           <div class="scheme">
@@ -212,29 +187,6 @@
           </div>
         </div>
       </div>
-    <!-- <button type="button" name="button">Save</button>
-    <button type="button" name="button">Export</button> -->
-    <!-- <input type="text" name="" value="title" />
-    <h2 th:text="${isLoggedIn} ? 'By: '+${user.firstName}+' '+${user.lastName} :  ''">by: Isaiah Anderson</h2>
-    <div class="container">
-      <div class="l-bar">
-        <button type="button" name="button" value="Template">+Template</button>
-        <button type="button" name="button" value="Chorus">+Chorus</button>
-        <button type="button" name="button" value="Verse">+Verse</button>
-        <button type="button" name="button" value="Bridge">+Bridge</button>
-        <button type="button" name="button" value="Section">+Section</button>
-      </div>
-      <div class="main-area">
-        <textarea id="ballad-input" name="name" rows="8" cols="80">{{content}}</textarea>
-      </div>
-
-<<<<<<< HEAD
-    <button type="button" name="button" value="Save" th:value="${isLoggedIn} ? 'Save':'Unknown'">Save</button>
-    <button type="button" name="button" value="Export">Export</button>
-=======
-    <button type="button" name="button">Save</button>
-    <button type="button" name="button">Export</button>-->
-
 
     <div th:replace="layout :: universalScripts">
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -47,13 +47,7 @@ const postUser = (url,user)=>{
                 handleUserLogin(data);
             }else if(url=="/update-password"){
                 handleRecovery(data);
-            }else if("/forgot-email"){
-                if(data){
-                    alert("An email has been sent with recovery password.");
-                    window.location.href="/account-recovery";
-                }
-            }else{
-
+            }else if(url.includes("/check-username")){
                 if((/[\W@{1}.+]/g).exec(user.username) && (user.username.includes("com")||user.username.includes("net")||user.username.includes("me"))) {
                     EMAIL_VAL.textContent = (data["emailExist"]) ? "Email already used" : "";
                     SIGN_UP.emailVal = !data["emailExist"];
@@ -62,6 +56,14 @@ const postUser = (url,user)=>{
                     SIGN_UP.usernameVal=!data["usernameExist"];
                 }
             }
+            else if(url=="/forgot-email"){
+                if(data){
+                    alert("An email has been sent with recovery password.");
+                    window.location.href="/account-recovery";
+                }
+            }
+
+
 
 
         });

@@ -37,15 +37,20 @@ public class UserController {
 
     @RequestMapping("/Profile")
     public String userProfile(HttpSession session, Model model){
-        Object[] current = sessionService.isSession(session);
-        User user =(User) current[1];
-        System.out.println(user);
-        model.addAttribute("user",user);
-        model.addAttribute("colors",colorService.listColors());
-        model.addAttribute("isLoggedIn",current[0]);
-        model.addAttribute("myColor",colorService.getColorByID(user.getColorCode()));
-        model.addAttribute("isHidden",true);
-        return "profile";
+        try {
+            Object[] current = sessionService.isSession(session);
+             User user =(User) current[1];
+
+            model.addAttribute("firstName", user.getFirstName());
+            model.addAttribute("user", user);
+            model.addAttribute("colors", colorService.listColors());
+            model.addAttribute("isLoggedIn", current[0]);
+            model.addAttribute("myColor", colorService.getColorByID(user.getColorCode()));
+            model.addAttribute("isHidden", true);
+            return "profile";
+        }catch (Exception e){
+            return "redirect:/";
+        }
     }
 
     @PostMapping("/update-profile")

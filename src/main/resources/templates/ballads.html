@@ -145,14 +145,15 @@
         <span id="sort-dropdown">
           <span id="current-sort">Recent</span>
           <i class="fa fa-angle-down" aria-hidden="true"></i>
-        </span>
+       </span>
         <!--TODO-->
-        <ul id="sort-list">
+        <ul id="sort-list" style="marg">
               <li id="recent">Recent</li>
               <li id="public" th:style="${ballad_title.equals('My Ballads')}? '':'display:none;'">Public</li>
               <li id="private" th:style="${ballad_title.equals('My Ballads')}? '':'display:none;'">Private</li>
               <li id="likes">Likes</li>
         </ul>
+
       </div>
 
 

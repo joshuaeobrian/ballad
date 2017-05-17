@@ -148,8 +148,8 @@
 
           <ul id="sort-list">
                 <li class="sort-choice" id="recent">Recent</li>
-                <li class="sort-choice" id="public">Public</li>
-                <li class="sort-choice" id="private">Private</li>
+                <li class="sort-choice" id="public" th:style="${ballad_title.equals('My Ballads')}? '': 'display:none;'">Public</li>
+                <li class="sort-choice" id="private" th:style="${ballad_title.equals('My Ballads')}? '': 'display:none;'">Private</li>
                 <li class="sort-choice" id="likes">Likes</li>
           </ul>
         </span>
